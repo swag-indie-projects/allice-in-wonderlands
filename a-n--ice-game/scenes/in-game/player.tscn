@@ -1,0 +1,110 @@
+[gd_scene load_steps=15 format=3 uid="uid://d204nsy8svfev"]
+
+[ext_resource type="Script" uid="uid://1igbt58bdgcj" path="res://scripts/in-game/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://p625padn7ffo" path="res://assets/player_backward.png" id="2_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://c8a42qxd1yk8s" path="res://assets/player_forward.png" id="2_fjrip"]
+[ext_resource type="Script" uid="uid://ca1eg4g6huui3" path="res://scripts/in-game/state_machine/state_machine.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://vjq8xnf05boi" path="res://scenes/in-game/sword_swipe.tscn" id="3_smehm"]
+[ext_resource type="Texture2D" uid="uid://b0t7qp2q4sqov" path="res://assets/player_left.png" id="4_3v2ag"]
+[ext_resource type="Script" uid="uid://ne0dvviqaf83" path="res://scripts/in-game/state_machine/states/player/player_idle_state.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://dov6j1pixx4mt" path="res://scripts/in-game/state_machine/states/player/player_walk_state.gd" id="5_fjrip"]
+[ext_resource type="Texture2D" uid="uid://dncd5essow0fd" path="res://assets/player_right.png" id="5_jej6c"]
+[ext_resource type="Script" uid="uid://l6bu0532m1w2" path="res://scripts/in-game/state_machine/states/player/player_hit_state.gd" id="7_ur7pv"]
+[ext_resource type="Script" uid="uid://c6jtd5gviucn0" path="res://scripts/in-game/facing_component.gd" id="11_d2wvv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d2wvv")
+}],
+"loop": true,
+"name": &"back_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fjrip")
+}],
+"loop": true,
+"name": &"front_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3v2ag")
+}],
+"loop": true,
+"name": &"left_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jej6c")
+}],
+"loop": true,
+"name": &"right_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_y4r1p"]
+script/source = "extends Node
+
+class_name AttackComponent
+
+@export var sword_swipe: SwordSwipe
+"
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "facing_component", "sword_swipe", "animation")]
+script = ExtResource("1_g2els")
+HP = 5
+state_machine = NodePath("state machine")
+facing_component = NodePath("facing component")
+sword_swipe = NodePath("sword_swipe")
+animation = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_smehm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qhqgy")
+animation = &"left_idle"
+
+[node name="sword_swipe" parent="." instance=ExtResource("3_smehm")]
+position = Vector2(-0.15423393, 0.51621723)
+
+[node name="swipe_timer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="state machine" type="Node" parent="." node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
+script = ExtResource("3_qhqgy")
+actor = NodePath("..")
+starting_state = NodePath("idle state")
+state_dictionary = {
+0: NodePath("idle state"),
+1: NodePath("walk state"),
+3: NodePath("hit state")
+}
+
+[node name="idle state" type="Node" parent="state machine"]
+script = ExtResource("4_dqkch")
+
+[node name="walk state" type="Node" parent="state machine"]
+script = ExtResource("5_fjrip")
+speed = 80.0
+
+[node name="hit state" type="Node" parent="state machine"]
+script = ExtResource("7_ur7pv")
+knockback_duration = 0.3
+knockback = 20.0
+
+[node name="attack component" type="Node" parent="."]
+script = SubResource("GDScript_y4r1p")
+
+[node name="facing component" type="Node" parent="."]
+script = ExtResource("11_d2wvv")

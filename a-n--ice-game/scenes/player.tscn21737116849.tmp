@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://d204nsy8svfev"]
+
+[ext_resource type="Script" uid="uid://1igbt58bdgcj" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://p625padn7ffo" path="res://assets/player_backward.png" id="2_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://c8a42qxd1yk8s" path="res://assets/player_forward.png" id="2_fjrip"]
+[ext_resource type="Script" uid="uid://ca1eg4g6huui3" path="res://scripts/state_machine/state_machine.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://vjq8xnf05boi" path="res://scenes/sword_swipe.tscn" id="3_smehm"]
+[ext_resource type="Texture2D" uid="uid://b0t7qp2q4sqov" path="res://assets/player_left.png" id="4_3v2ag"]
+[ext_resource type="Script" uid="uid://ne0dvviqaf83" path="res://scripts/state_machine/states/player/player_idle_state.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://dov6j1pixx4mt" path="res://scripts/state_machine/states/player/player_walk_state.gd" id="5_fjrip"]
+[ext_resource type="Texture2D" uid="uid://dncd5essow0fd" path="res://assets/player_right.png" id="5_jej6c"]
+[ext_resource type="Script" uid="uid://bnpfyfag1uhx6" path="res://scripts/state_machine/states/player/player_attack_state.gd" id="6_smehm"]
+[ext_resource type="Script" uid="uid://l6bu0532m1w2" path="res://scripts/state_machine/states/player/player_hit_state.gd" id="7_ur7pv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d2wvv")
+}],
+"loop": true,
+"name": &"back_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fjrip")
+}],
+"loop": true,
+"name": &"front_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3v2ag")
+}],
+"loop": true,
+"name": &"left_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jej6c")
+}],
+"loop": true,
+"name": &"right_idle",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "sword_swipe", "animation")]
+script = ExtResource("1_g2els")
+state_machine = NodePath("state machine")
+speed = 400.0
+sword_swipe = NodePath("sword_swipe")
+animation = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_smehm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qhqgy")
+animation = &"right_idle"
+
+[node name="sword_swipe" parent="." instance=ExtResource("3_smehm")]
+position = Vector2(-0.15423393, 0.51621723)
+
+[node name="swipe_timer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="state machine" type="Node" parent="." node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
+script = ExtResource("3_qhqgy")
+actor = NodePath("..")
+starting_state = NodePath("idle state")
+state_dictionary = {
+0: NodePath("idle state"),
+1: NodePath("walk state"),
+2: NodePath("attack state"),
+3: NodePath("hit state")
+}
+
+[node name="idle state" type="Node" parent="state machine"]
+script = ExtResource("4_dqkch")
+
+[node name="walk state" type="Node" parent="state machine"]
+script = ExtResource("5_fjrip")
+
+[node name="attack state" type="Node" parent="state machine"]
+script = ExtResource("6_smehm")
+
+[node name="hit state" type="Node" parent="state machine"]
+script = ExtResource("7_ur7pv")

@@ -1,0 +1,39 @@
+extends CharacterBody2D
+
+class_name Player
+
+enum Facing { LEFT, RIGHT, BACKWARD, FORWARD }
+
+@export var HP: int
+
+@export var state_machine: StateMachine
+#@export var speed: float
+@export var facing_component: FacingComponent
+
+@export var sword_swipe: SwordSwipe
+
+@export var animation: AnimatedSprite2D
+
+func _ready() -> void:
+	state_machine.setup()
+	sword_swipe.swipe(facing_component.facing) # have to do this due to stupid bugs
+
+func _process(delta: float) -> void:
+	facing_component.update_facing()
+	
+	state_machine.process_frame(delta)
+
+func _physics_process(delta: float) -> void:
+	state_machine.process_physics_frame(delta)
+	
+	if Input.is_action_just_pressed("ui_attack"):
+		sword_swipe.swipe(facing_component.facing)
+
+func play_animation(animation_name: StringName):
+	if animation.name != animation_name:
+		animation.play(animation_name)
+
+func get_hit(damage: int) -> void:
+	HP -= damage
+	state_machine.change_state.call_deferred(state_machine.state_dictionary[StateName.Name.HIT])
+	print("HP: ", HP)

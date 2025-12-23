@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://d204nsy8svfev"]
+
+[ext_resource type="Texture2D" uid="uid://ckc8ecj81b6y5" path="res://assets/icon.svg" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://1igbt58bdgcj" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://ca1eg4g6huui3" path="res://scripts/state_machine.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://ne0dvviqaf83" path="res://scripts/states/idle_state.gd" id="4_dqkch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3vyb7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qhqgy")
+
+[node name="state machine" type="Node" parent="."]
+script = ExtResource("3_qhqgy")
+
+[node name="idle state" type="Node" parent="state machine"]
+script = ExtResource("4_dqkch")
+
+[node name="walk state" type="Node" parent="state machine"]
+
+[node name="attack state" type="Node" parent="state machine"]
+
+[node name="hit state" type="Node" parent="state machine"]
