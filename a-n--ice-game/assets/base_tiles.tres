@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://mux80ftnsjv2"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://mux80ftnsjv2"]
 
 [ext_resource type="Texture2D" uid="uid://dc523gg8xetqd" path="res://assets/snow_tile.png" id="1_trq7s"]
 [ext_resource type="Texture2D" uid="uid://cc27t1soumlon" path="res://assets/white_snow_tile.png" id="2_mbt7u"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8lsxqig252jv" path="res://assets/wood_tiles.png" id="4_skf2i"]
 [ext_resource type="Texture2D" uid="uid://dccqsn3h3m16h" path="res://assets/deadtree.png" id="5_mbt7u"]
 [ext_resource type="Texture2D" uid="uid://cp1dhpakkwiua" path="res://assets/overlay_snow_tiles.png" id="6_q5qw3"]
+[ext_resource type="Texture2D" uid="uid://dximsfywhrfcp" path="res://assets/stone_tiles.png" id="7_skf2i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tawp"]
 texture = ExtResource("1_trq7s")
@@ -122,6 +123,26 @@ texture = ExtResource("6_q5qw3")
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6.1250944, -8, 5.9572835, 5.621662, -8, 5.537756)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bjcx"]
+texture = ExtResource("7_skf2i")
+0:0/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.9572835, -5.9572835, 8, -5.537756, 8, 8, -5.7894726, 8)
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1tawp")
@@ -130,3 +151,4 @@ sources/1 = SubResource("TileSetAtlasSource_f2m1r")
 sources/3 = SubResource("TileSetAtlasSource_qh8lf")
 sources/4 = SubResource("TileSetAtlasSource_q5qw3")
 sources/5 = SubResource("TileSetAtlasSource_skf2i")
+sources/6 = SubResource("TileSetAtlasSource_5bjcx")
