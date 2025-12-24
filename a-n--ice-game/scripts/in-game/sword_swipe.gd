@@ -16,7 +16,7 @@ func _on_body_entered(body: Node) -> void:
 		body.get_hit(1, FacingComponent.facing_direction_dictionary[facing])
 
 func swipe(new_facing: FacingComponent.Facing) -> void:
-	var offset: Vector2
+	var offset: Vector2 
 	match new_facing:
 		FacingComponent.Facing.LEFT:
 			offset = Vector2(-attack_distance, 0)
