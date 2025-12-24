@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 class_name Player
 
-enum Facing { LEFT, RIGHT, BACKWARD, FORWARD }
-
 @export var HP: int
 
 @export var state_machine: StateMachine
@@ -16,7 +14,7 @@ enum Facing { LEFT, RIGHT, BACKWARD, FORWARD }
 
 func _ready() -> void:
 	state_machine.setup()
-	sword_swipe.swipe(facing_component.facing) # have to do this due to stupid bugs
+	sword_swipe.swipe() # have to do this due to stupid bugs
 
 func _process(delta: float) -> void:
 	facing_component.update_facing()
@@ -26,8 +24,8 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics_frame(delta)
 	
-	if Input.is_action_just_pressed("ui_attack"):
-		sword_swipe.swipe(facing_component.facing)
+	if Input.is_action_just_pressed("mouse_click"):
+		sword_swipe.swipe()
 
 func play_animation(animation_name: StringName):
 	if animation.name != animation_name:
