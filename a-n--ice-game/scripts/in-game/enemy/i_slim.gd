@@ -7,7 +7,7 @@ var world: World
 
 func _ready() -> void:
 	if !get_parent() is World:
-		push_error("enemy's parent is not a worlda node")
+		push_error("enemy's parent is not a world node")
 		queue_free()
 	
 	world = get_parent()
@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	
 	var player: Player = world.player
 	if detection_box.overlaps_body(player):
-		#print("here")
+		print("here")
 		velocity = (player.position - position).normalized() * speed
 	else:
 		velocity = Vector2.ZERO
