@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+# enum Facing { LEFT, RIGHT, BACKWARD, FORWARD }
+
 @export var HP: int
 
 @export var state_machine: StateMachine
