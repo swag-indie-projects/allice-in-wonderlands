@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbaffc8n6h32k"
-path="res://.godot/imported/player-healthbar-ui.png-c06477681978d63c209b2f21686ce98d.ctex"
+uid="uid://qk3osrf35u54"
+path="res://.godot/imported/ice_hp_shine2.png-4aac25e472a5bca9e77216e8c20ddc59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player-healthbar-ui.png"
-dest_files=["res://.godot/imported/player-healthbar-ui.png-c06477681978d63c209b2f21686ce98d.ctex"]
+source_file="res://assets/ui/player hp shard shine/ice_hp_shine2.png"
+dest_files=["res://.godot/imported/ice_hp_shine2.png-4aac25e472a5bca9e77216e8c20ddc59.ctex"]
 
 [params]
 
