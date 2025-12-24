@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccoqsgpqmjbpp"
-path="res://.godot/imported/player_attack.png-3153a08e96039331894af2ec55a92794.ctex"
+uid="uid://cjd1i0u4jvkb"
+path="res://.godot/imported/blue_snow_overlay.png-1889b4b9fb709e064cfa161e043a8625.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_attack.png"
-dest_files=["res://.godot/imported/player_attack.png-3153a08e96039331894af2ec55a92794.ctex"]
+source_file="res://assets/tileset/random stuffs/blue_snow_overlay.png"
+dest_files=["res://.godot/imported/blue_snow_overlay.png-1889b4b9fb709e064cfa161e043a8625.ctex"]
 
 [params]
 

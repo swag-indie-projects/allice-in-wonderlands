@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dccqsn3h3m16h"
-path="res://.godot/imported/deadtree.png-8043bff1d2f378097066213808915aea.ctex"
+uid="uid://cc27t1soumlon"
+path="res://.godot/imported/white_snow_tile.png-6b18cbec91eb3688c0d877fb0d2e8a23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/deadtree.png"
-dest_files=["res://.godot/imported/deadtree.png-8043bff1d2f378097066213808915aea.ctex"]
+source_file="res://assets/tileset/white_snow_tile.png"
+dest_files=["res://.godot/imported/white_snow_tile.png-6b18cbec91eb3688c0d877fb0d2e8a23.ctex"]
 
 [params]
 

@@ -1,20 +1,19 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://mux80ftnsjv2"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://mux80ftnsjv2"]
 
-[ext_resource type="Texture2D" uid="uid://dc523gg8xetqd" path="res://assets/snow_tile.png" id="1_trq7s"]
-[ext_resource type="Texture2D" uid="uid://cc27t1soumlon" path="res://assets/white_snow_tile.png" id="2_mbt7u"]
-[ext_resource type="Texture2D" uid="uid://dfaxys6tew0dp" path="res://assets/tiles/test_block_tile.png" id="3_q5qw3"]
-[ext_resource type="Texture2D" uid="uid://8lsxqig252jv" path="res://assets/wood_tiles.png" id="4_skf2i"]
-[ext_resource type="Texture2D" uid="uid://dccqsn3h3m16h" path="res://assets/deadtree.png" id="5_mbt7u"]
-[ext_resource type="Texture2D" uid="uid://cp1dhpakkwiua" path="res://assets/overlay_snow_tiles.png" id="6_q5qw3"]
-[ext_resource type="Texture2D" uid="uid://dximsfywhrfcp" path="res://assets/stone_tiles.png" id="7_skf2i"]
+[ext_resource type="Texture2D" uid="uid://dc523gg8xetqd" path="res://assets/tileset/snow_tile.png" id="1_km1ka"]
+[ext_resource type="Texture2D" uid="uid://cc27t1soumlon" path="res://assets/tileset/white_snow_tile.png" id="2_05luo"]
+[ext_resource type="Texture2D" uid="uid://8lsxqig252jv" path="res://assets/tileset/wood_tiles.png" id="3_0v461"]
+[ext_resource type="Texture2D" uid="uid://dccqsn3h3m16h" path="res://assets/tileset/deadtree.png" id="4_01jog"]
+[ext_resource type="Texture2D" uid="uid://cp1dhpakkwiua" path="res://assets/tileset/overlay_snow_tiles.png" id="5_01jog"]
+[ext_resource type="Texture2D" uid="uid://dximsfywhrfcp" path="res://assets/tileset/stone_tiles.png" id="6_ay36e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tawp"]
-texture = ExtResource("1_trq7s")
+texture = ExtResource("1_km1ka")
 0:0/0 = 0
 2:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2m1r"]
-texture = ExtResource("2_mbt7u")
+texture = ExtResource("2_05luo")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -32,13 +31,8 @@ texture = ExtResource("2_mbt7u")
 2:3/0 = 0
 3:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsx7x"]
-texture = ExtResource("3_q5qw3")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qh8lf"]
-texture = ExtResource("4_skf2i")
+texture = ExtResource("3_0v461")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.888481, -6.091532, 5.9900074, -6.091532, 5.888481, 8, -6.0915318, 8)
 1:0/0 = 0
@@ -73,7 +67,7 @@ texture = ExtResource("4_skf2i")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.0915327, 5.6854305, -5.9900074, 5.583905, 6.0915327, -8, 6.2945833)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5qw3"]
-texture = ExtResource("5_mbt7u")
+texture = ExtResource("4_01jog")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -90,7 +84,7 @@ texture = ExtResource("5_mbt7u")
 3:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_skf2i"]
-texture = ExtResource("6_q5qw3")
+texture = ExtResource("5_01jog")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.9435544, -4.2791758, 3.943554, -4.2791758, 3.943554, 3.943554, -4.0274596, 3.8596487)
 1:0/0 = 0
@@ -124,7 +118,7 @@ texture = ExtResource("6_q5qw3")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6.1250944, -8, 5.9572835, 5.621662, -8, 5.537756)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bjcx"]
-texture = ExtResource("7_skf2i")
+texture = ExtResource("6_ay36e")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.142296, -6.0194497, 5.773758, -5.773758, 5.6509123, 8, -6.142296, 8)
 1:0/0 = 0
@@ -161,7 +155,6 @@ texture = ExtResource("7_skf2i")
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1tawp")
-sources/2 = SubResource("TileSetAtlasSource_nsx7x")
 sources/1 = SubResource("TileSetAtlasSource_f2m1r")
 sources/3 = SubResource("TileSetAtlasSource_qh8lf")
 sources/4 = SubResource("TileSetAtlasSource_q5qw3")

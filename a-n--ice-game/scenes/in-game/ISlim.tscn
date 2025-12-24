@@ -1,17 +1,17 @@
 [gd_scene load_steps=13 format=3 uid="uid://bd7kj04cf4mom"]
 
-[ext_resource type="Script" uid="uid://bxwphktaw6nre" path="res://scripts/in-game/i_slim.gd" id="1_s4mds"]
-[ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/ISlim.png" id="1_x8mds"]
+[ext_resource type="Script" uid="uid://bxwphktaw6nre" path="res://scripts/in-game/enemy/i_slim.gd" id="1_s4mds"]
+[ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/enemy/ISlim.png" id="1_x8mds"]
 [ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/in-game/knockback_component.gd" id="3_138c7"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/in-game/animation_component.gd" id="4_pagvl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
-radius = 3.9999936
-height = 15.999974
+radius = 2.9999952
+height = 9.999984
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4mds"]
-radius = 5.0
-height = 20.0
+radius = 4.0
+height = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4mds"]
 radius = 38.118237
@@ -63,7 +63,7 @@ knockback_component = NodePath("knockback component")
 animation_component = NodePath("animation component")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5690038
+rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_vhjlo")
 debug_color = Color(0.9744286, 0, 0.43028787, 0.41960785)
 

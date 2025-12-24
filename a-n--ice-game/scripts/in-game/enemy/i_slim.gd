@@ -3,14 +3,14 @@ extends Enemy
 @export var detection_box: Area2D
 @export var speed: float
 @export var animation: AnimatedSprite2D
-var game: Game
+var world: World
 
 func _ready() -> void:
-	if !get_parent() is Game:
-		push_error("enemy's parent is not a game node")
+	if !get_parent() is World:
+		push_error("enemy's parent is not a worlda node")
 		queue_free()
 	
-	game = get_parent()
+	world = get_parent()
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 	
-	var player: Player = game.player
+	var player: Player = world.player
 	if detection_box.overlaps_body(player):
 		#print("here")
 		velocity = (player.position - position).normalized() * speed

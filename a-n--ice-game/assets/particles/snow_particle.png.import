@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p625padn7ffo"
-path="res://.godot/imported/player_backward.png-ba1aab21542f11afe161d7d2ae4ff9e1.ctex"
+uid="uid://chjx3nt7bah87"
+path="res://.godot/imported/snow_particle.png-72e807634a032a794785b2b538c86dae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_backward.png"
-dest_files=["res://.godot/imported/player_backward.png-ba1aab21542f11afe161d7d2ae4ff9e1.ctex"]
+source_file="res://assets/particles/snow_particle.png"
+dest_files=["res://.godot/imported/snow_particle.png-72e807634a032a794785b2b538c86dae.ctex"]
 
 [params]
 

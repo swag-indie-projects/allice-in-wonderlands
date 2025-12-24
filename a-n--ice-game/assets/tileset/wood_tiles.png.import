@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btlskmhnb7axe"
-path="res://.godot/imported/test_invisible_tile.png-803582429e8460b31e900456ae71d21e.ctex"
+uid="uid://8lsxqig252jv"
+path="res://.godot/imported/wood_tiles.png-4723a338bb24ef845396e1bb732f248a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/test_invisible_tile.png"
-dest_files=["res://.godot/imported/test_invisible_tile.png-803582429e8460b31e900456ae71d21e.ctex"]
+source_file="res://assets/tileset/wood_tiles.png"
+dest_files=["res://.godot/imported/wood_tiles.png-4723a338bb24ef845396e1bb732f248a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfjly2im2g7j8"
-path="res://.godot/imported/ISlim.png-b513ad1eaf2341d2ae1f854bb4861137.ctex"
+uid="uid://bbaffc8n6h32k"
+path="res://.godot/imported/player-healthbar-ui.png-c06477681978d63c209b2f21686ce98d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ISlim.png"
-dest_files=["res://.godot/imported/ISlim.png-b513ad1eaf2341d2ae1f854bb4861137.ctex"]
+source_file="res://assets/player-healthbar-ui.png"
+dest_files=["res://.godot/imported/player-healthbar-ui.png-c06477681978d63c209b2f21686ce98d.ctex"]
 
 [params]
 

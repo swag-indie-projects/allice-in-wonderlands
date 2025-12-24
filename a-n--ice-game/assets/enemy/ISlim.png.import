@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0t7qp2q4sqov"
-path="res://.godot/imported/player_left.png-f85b21bd2a74b13c9969c55f8de4387c.ctex"
+uid="uid://bfjly2im2g7j8"
+path="res://.godot/imported/ISlim.png-c762003a051bf5928c0e8499360a2d38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_left.png"
-dest_files=["res://.godot/imported/player_left.png-f85b21bd2a74b13c9969c55f8de4387c.ctex"]
+source_file="res://assets/enemy/ISlim.png"
+dest_files=["res://.godot/imported/ISlim.png-c762003a051bf5928c0e8499360a2d38.ctex"]
 
 [params]
 

@@ -19,14 +19,11 @@ func _on_body_entered(body: Node) -> void:
 func swipe() -> void:
 	direction_vector = (get_global_mouse_position() - global_position).normalized()
 	
-	# prevent NaNs if mouse is exactly on top of us
 	if direction_vector.length_squared() < 0.000001:
 		direction_vector = Vector2.DOWN
 	
-	# offset the hitbox outwards
 	position = direction_vector * attack_distance
-
-	# because your "forward" (down) was rotation = 0
+	
 	rotation = direction_vector.angle() - PI / 2
 	
 	show()
