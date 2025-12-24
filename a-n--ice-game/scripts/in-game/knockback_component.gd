@@ -1,7 +1,3 @@
-# I'm supposed to connect this with the player's knockback component as well... sigh
-# do it in the future, if I happen to care
-# fuck that shit I'm exhausted
-
 extends Node
 
 class_name KnockbackComponent
@@ -22,6 +18,5 @@ func setup(knockback_direction_vector: Vector2) -> void:
 	actor.velocity = Vector2.ZERO
 
 func process_physics_frame(delta: float) -> void:
-	print("here")
 	actor.velocity += acceleration * delta * direction_vector
 	time_due -= delta

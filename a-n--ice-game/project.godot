@@ -15,6 +15,10 @@ run/main_scene="uid://daom27lon73h8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+Constant="*res://scripts/autoloads/constant.gd"
+
 [input]
 
 ui_left={
