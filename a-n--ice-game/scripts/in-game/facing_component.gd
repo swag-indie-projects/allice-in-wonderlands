@@ -2,7 +2,7 @@ extends Node
 
 class_name FacingComponent
 
-enum Facing { LEFT = 0, RIGHT = 1, BACKWARD = 2, FORWARD = 3 }
+enum Facing { LEFT, RIGHT, BACKWARD, FORWARD }
 
 var facing: Facing = Facing.FORWARD
 
