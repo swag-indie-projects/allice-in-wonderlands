@@ -24,6 +24,10 @@ Constant="*res://scripts/autoloads/constant.gd"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+navigation="Ask @kido._."
+
 [input]
 
 ui_left={
