@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 class_name Enemy
 
-@export var HP = 1
+@export var MAX_HP = 1
 @export var knockback_component: KnockbackComponent
 @export var animation_component: AnimationComponent
+
+@onready var HP = MAX_HP
 
 func _physics_process(_delta: float) -> void:
 	pass
@@ -23,5 +25,4 @@ func get_hit(amount: int, direction_vector: Vector2) -> void:
 		queue_free()
 	
 	HP -= amount
-	print(self, " HP = ", HP)
 	knockback_component.setup(direction_vector)
