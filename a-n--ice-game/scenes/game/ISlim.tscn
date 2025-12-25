@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://bd7kj04cf4mom"]
 
-[ext_resource type="Script" uid="uid://bxwphktaw6nre" path="res://scripts/in-game/enemy/i_slim.gd" id="1_s4mds"]
+[ext_resource type="Script" uid="uid://bxwphktaw6nre" path="res://scripts/game/enemy/i_slim.gd" id="1_s4mds"]
 [ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/enemy/ISlim.png" id="1_x8mds"]
-[ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/in-game/knockback_component.gd" id="3_138c7"]
-[ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/in-game/animation_component.gd" id="4_pagvl"]
+[ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/knockback_component.gd" id="3_138c7"]
+[ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/animation_component.gd" id="4_pagvl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
 radius = 2.9999952

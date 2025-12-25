@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bcbg4v28sofgf"]
 
-[ext_resource type="Script" uid="uid://di6030qmclhtx" path="res://scripts/in-game/pause_menu.gd" id="1_lobop"]
-[ext_resource type="Shader" uid="uid://icfj2wtia20q" path="res://shaders/pause_menu_blur.gdshader" id="2_nvm1h"]
+[ext_resource type="Script" uid="uid://di6030qmclhtx" path="res://scripts/game/pause_menu.gd" id="1_m3eqi"]
+[ext_resource type="Shader" uid="uid://icfj2wtia20q" path="res://shaders/pause_menu_blur.gdshader" id="2_n2ns3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukid2"]
-shader = ExtResource("2_nvm1h")
+shader = ExtResource("2_n2ns3")
 shader_parameter/lod = 0.0
 
 [sub_resource type="Animation" id="Animation_nvm1h"]
@@ -76,7 +76,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lobop")
+script = ExtResource("1_m3eqi")
 animation_player = NodePath("AnimationPlayer")
 vbox_containing_buttons = NodePath("PanelContainer/VBoxContainer")
 

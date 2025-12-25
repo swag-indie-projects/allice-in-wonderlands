@@ -8,13 +8,15 @@ var MAX_HP: int = Constant.PLAYER_STARTING_HP
 var HP: int
 
 @export var state_machine: StateMachine
-@export var healthbar_ui: PlayerHealthbarUI
+#@export var healthbar_ui: PlayerHealthbarUI
 
 @export var facing_component: FacingComponent
 
 @export var sword_swipe: SwordSwipe
 
 @export var animation: AnimatedSprite2D
+
+signal HP_changed(HP: int, max_HP: int)
 
 func _ready() -> void:
 	state_machine.setup()
@@ -41,4 +43,4 @@ func play_animation(animation_name: StringName):
 func get_hit(damage: int) -> void:
 	HP -= damage
 	state_machine.change_state.call_deferred(state_machine.state_dictionary[StateName.Name.HIT])
-	healthbar_ui.update_healthbar.emit(HP, MAX_HP)
+	HP_changed.emit(HP, MAX_HP)
