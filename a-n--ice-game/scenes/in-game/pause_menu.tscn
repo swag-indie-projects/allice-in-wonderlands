@@ -66,7 +66,7 @@ _data = {
 &"blur": SubResource("Animation_hyqwd")
 }
 
-[node name="pause_menu" type="Control" node_paths=PackedStringArray("animation_player")]
+[node name="pause_menu" type="Control" node_paths=PackedStringArray("animation_player", "vbox_containing_buttons")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 8
@@ -78,6 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lobop")
 animation_player = NodePath("AnimationPlayer")
+vbox_containing_buttons = NodePath("PanelContainer/VBoxContainer")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ukid2")
