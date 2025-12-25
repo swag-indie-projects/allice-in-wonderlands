@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	#print("knockback_component.time_due = ", knockback_component.time_due)
 	if knockback_component.time_due > 0.0:
 		knockback_component.process_physics_frame(delta)
 		move_and_slide()
@@ -26,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	
 	var player: Player = world.player
 	if detection_box.overlaps_body(player):
-		#print("here")
 		velocity = (player.position - position).normalized() * speed
 	else:
 		velocity = Vector2.ZERO

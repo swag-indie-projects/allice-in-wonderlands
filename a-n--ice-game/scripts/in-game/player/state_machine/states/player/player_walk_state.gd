@@ -20,7 +20,7 @@ func process_frame(_delta: float) -> StateName.Name:
 	if direction_vector == Vector2.ZERO:
 		return StateName.Name.IDLE
 	
-	var animation_string: StringName = actor.facing_component.facing_name_dictionary[actor.facing_component.facing] + "_idle" # change this to walk once you got it
+	var animation_string: StringName = "walk_" + actor.facing_component.facing_name_dictionary[actor.facing_component.facing]
 	actor.play_animation(animation_string)
 	
 	return StateName.Name.WALK

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d204nsy8svfev"]
+[gd_scene load_steps=32 format=3 uid="uid://d204nsy8svfev"]
 
 [ext_resource type="Script" uid="uid://1igbt58bdgcj" path="res://scripts/in-game/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://p625padn7ffo" path="res://assets/player/player_backward.png" id="2_d2wvv"]
@@ -9,12 +9,77 @@
 [ext_resource type="Script" uid="uid://ne0dvviqaf83" path="res://scripts/in-game/player/state_machine/states/player/player_idle_state.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://dov6j1pixx4mt" path="res://scripts/in-game/player/state_machine/states/player/player_walk_state.gd" id="5_fjrip"]
 [ext_resource type="Texture2D" uid="uid://dncd5essow0fd" path="res://assets/player/player_right.png" id="5_jej6c"]
+[ext_resource type="Texture2D" uid="uid://crib2tcqkaoha" path="res://assets/player_walk_animation.png" id="6_ymle5"]
 [ext_resource type="Script" uid="uid://l6bu0532m1w2" path="res://scripts/in-game/player/state_machine/states/player/player_hit_state.gd" id="7_ur7pv"]
 [ext_resource type="Script" uid="uid://c6jtd5gviucn0" path="res://scripts/in-game/facing_component.gd" id="11_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
 radius = 3.0
 height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn36h"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8r8e"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv8ea"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mpl4"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay4f4"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wuh1"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpfuo"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olxui"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2ggu"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dda87"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f88m"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nld1l"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uplc"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwqya"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4muj"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbyle"]
+atlas = ExtResource("6_ymle5")
+region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
 animations = [{
@@ -23,7 +88,7 @@ animations = [{
 "texture": ExtResource("2_d2wvv")
 }],
 "loop": true,
-"name": &"back_idle",
+"name": &"idle_back",
 "speed": 5.0
 }, {
 "frames": [{
@@ -31,7 +96,7 @@ animations = [{
 "texture": ExtResource("2_fjrip")
 }],
 "loop": true,
-"name": &"front_idle",
+"name": &"idle_front",
 "speed": 5.0
 }, {
 "frames": [{
@@ -39,7 +104,7 @@ animations = [{
 "texture": ExtResource("4_3v2ag")
 }],
 "loop": true,
-"name": &"left_idle",
+"name": &"idle_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -47,8 +112,76 @@ animations = [{
 "texture": ExtResource("5_jej6c")
 }],
 "loop": true,
-"name": &"right_idle",
+"name": &"idle_right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn36h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8r8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv8ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mpl4")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 7.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay4f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wuh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpfuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olxui")
+}],
+"loop": true,
+"name": &"walk_front",
+"speed": 7.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2ggu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dda87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f88m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nld1l")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 7.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uplc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwqya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4muj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbyle")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 7.5
 }]
 
 [sub_resource type="GDScript" id="GDScript_y4r1p"]
@@ -61,7 +194,6 @@ class_name AttackComponent
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "facing_component", "sword_swipe", "animation")]
 script = ExtResource("1_g2els")
-HP = 5
 state_machine = NodePath("state machine")
 facing_component = NodePath("facing component")
 sword_swipe = NodePath("sword_swipe")
@@ -72,9 +204,10 @@ shape = SubResource("CapsuleShape2D_smehm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qhqgy")
-animation = &"left_idle"
+animation = &"walk_right"
 
 [node name="sword_swipe" parent="." instance=ExtResource("3_smehm")]
+visible = false
 position = Vector2(-0.15423393, 0.51621723)
 
 [node name="swipe_timer" type="Timer" parent="."]
