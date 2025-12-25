@@ -5,7 +5,6 @@ class_name PauseMenu
 @onready var main_menu_scene: PackedScene = load(Constant.PATH_TO_MAIN_MENU)
 @export var animation_player: AnimationPlayer
 
-
 func _ready() -> void:
 	pass
 
@@ -15,7 +14,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			resume()
 		else:
 			pause()
-
 
 func pause() -> void:
 	get_tree().paused = true

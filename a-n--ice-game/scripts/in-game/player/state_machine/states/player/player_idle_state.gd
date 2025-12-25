@@ -14,7 +14,7 @@ func exit() -> void:
 	super()
 
 func process_frame(_delta: float) -> StateName.Name:
-	var animation_string: StringName = actor.facing_component.facing_name_dictionary[actor.facing_component.facing] + "_idle"
+	var animation_string: StringName = "idle_" + actor.facing_component.facing_name_dictionary[actor.facing_component.facing]
 	actor.play_animation(animation_string)
 	
 	var direction_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
