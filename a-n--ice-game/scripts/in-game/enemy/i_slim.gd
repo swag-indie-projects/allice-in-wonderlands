@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	
 	var player: Player = world.player
 	if detection_box.overlaps_body(player):
-		print("here")
+		#print("here")
 		velocity = (player.position - position).normalized() * speed
 	else:
 		velocity = Vector2.ZERO

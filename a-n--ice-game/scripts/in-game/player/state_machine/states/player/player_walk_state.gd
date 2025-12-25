@@ -25,7 +25,7 @@ func process_frame(_delta: float) -> StateName.Name:
 	
 	return StateName.Name.WALK
 
-func process_physics_frame(delta: float) -> StateName.Name:
+func process_physics_frame(_delta: float) -> StateName.Name:
 	#print("player's speed: ", actor.speed)
 	var direction_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
