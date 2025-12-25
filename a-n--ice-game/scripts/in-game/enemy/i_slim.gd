@@ -25,7 +25,10 @@ func _physics_process(delta: float) -> void:
 	
 	var player: Player = world.player
 	if detection_box.overlaps_body(player):
-		velocity = (player.position - position).normalized() * speed
+		if !$NavigationAgent2D.is_target_reached():
+			var dir = global_position.direction_to($NavigationAgent2D.get_next_path_position())
+			velocity = dir * speed
+		#velocity = (player.position - position).normalized() * speed
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -39,3 +42,8 @@ func _process(delta: float) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.get_hit(1)
+
+
+func _on_timer_timeout() -> void:
+	$NavigationAgent2D.target_position = world.player.global_position
+	

@@ -14,7 +14,7 @@ radius = 4.0
 height = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4mds"]
-radius = 38.118237
+radius = 89.08984
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4mds"]
 atlas = ExtResource("1_x8mds")
@@ -109,4 +109,14 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.2, 0.2)
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 2.0
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="NavigationAgent2D"]
+wait_time = 0.2
+autostart = true
+
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="NavigationAgent2D/Timer" to="." method="_on_timer_timeout"]
