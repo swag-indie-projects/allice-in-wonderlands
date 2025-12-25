@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=4 uid="uid://cyi7otpakwjkg"]
+[gd_scene load_steps=26 format=4 uid="uid://cyi7otpakwjkg"]
 
 [ext_resource type="PackedScene" uid="uid://d204nsy8svfev" path="res://scenes/in-game/player.tscn" id="1_nl0sk"]
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/in-game/world.gd" id="1_nsx7x"]
+[ext_resource type="Script" uid="uid://clhsdbanamdpr" path="res://scenes/in-game/game.gd" id="1_qh8lf"]
 [ext_resource type="Texture2D" uid="uid://sllat2rhkysm" path="res://assets/misc/light.png" id="3_ian8s"]
 [ext_resource type="Shader" uid="uid://c6rtg523eybjm" path="res://shaders/blue_snow.gdshader" id="3_wghtq"]
 [ext_resource type="Texture2D" uid="uid://cjd1i0u4jvkb" path="res://assets/tileset/random stuffs/blue_snow_overlay.png" id="4_ian8s"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/in-game/ISlim.tscn" id="5_ydt7i"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/in-game/ui.gd" id="8_ian8s"]
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/in-game/player_healthbar_ui.tscn" id="9_t28dr"]
+[ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/in-game/pause_menu.tscn" id="10_f2m1r"]
 
 [sub_resource type="Environment" id="Environment_apjul"]
 background_color = Color(0.12250001, 0.19833337, 0.35, 1)
@@ -83,7 +85,9 @@ shader = ExtResource("3_wghtq")
 shader_parameter/overlay_tex = ExtResource("4_ian8s")
 shader_parameter/scale = 0.01
 
-[node name="test_game" type="Node2D"]
+[node name="game" type="Node2D" node_paths=PackedStringArray("pause_menu")]
+script = ExtResource("1_qh8lf")
+pause_menu = NodePath("UI/pause_menu")
 
 [node name="world" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("1_nsx7x")
@@ -152,3 +156,5 @@ healthbar = NodePath("player healthbar ui")
 
 [node name="player healthbar ui" parent="UI" instance=ExtResource("9_t28dr")]
 visible = false
+
+[node name="pause_menu" parent="UI" instance=ExtResource("10_f2m1r")]
