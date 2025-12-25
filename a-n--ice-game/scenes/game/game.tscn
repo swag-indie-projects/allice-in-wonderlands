@@ -1,0 +1,126 @@
+[gd_scene load_steps=21 format=3 uid="uid://cyi7otpakwjkg"]
+
+[ext_resource type="PackedScene" uid="uid://d204nsy8svfev" path="res://scenes/game/player/player.tscn" id="1_nl0sk"]
+[ext_resource type="Script" uid="uid://clhsdbanamdpr" path="res://scripts/game/game.gd" id="1_qh8lf"]
+[ext_resource type="PackedScene" uid="uid://bxqrufedebtlo" path="res://scenes/game/world/test-world.tscn" id="2_atk27"]
+[ext_resource type="PackedScene" uid="uid://dgkbd2nqlldrp" path="res://scenes/game/world/starting_world.tscn" id="2_bdhmt"]
+[ext_resource type="Texture2D" uid="uid://sllat2rhkysm" path="res://assets/misc/light.png" id="3_ian8s"]
+[ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui.gd" id="8_ian8s"]
+[ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_healthbar_ui.tscn" id="9_t28dr"]
+[ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
+
+[sub_resource type="Curve" id="Curve_apjul"]
+_data = [Vector2(0.022727266, 0.9662922), 0.0, 0.0, 0, 0, Vector2(1, 0.79775286), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wghtq"]
+curve = SubResource("Curve_apjul")
+
+[sub_resource type="Gradient" id="Gradient_ian8s"]
+colors = PackedColorArray(0.83889705, 0.83889705, 0.8388969, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t28dr"]
+gradient = SubResource("Gradient_ian8s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_apjul"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(450, 450, 1)
+gravity = Vector3(2, 10, 0)
+scale_max = 2.0
+color = Color(0.9594396, 0.9557056, 0.94823366, 1)
+color_ramp = SubResource("GradientTexture1D_t28dr")
+alpha_curve = SubResource("CurveTexture_wghtq")
+turbulence_enabled = true
+turbulence_influence_min = 0.020000001
+turbulence_influence_max = 0.020000001
+
+[sub_resource type="Gradient" id="Gradient_apjul"]
+offsets = PackedFloat32Array(0, 0.4957806, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.8413762, 0.82512325, 0.83618736, 1, 0.972549, 0.99607843, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wghtq"]
+gradient = SubResource("Gradient_apjul")
+width = 1
+height = 32
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_t28dr"]
+offsets = PackedFloat32Array(0, 0.48372093, 1)
+colors = PackedColorArray(1, 1, 1, 0.39215687, 1, 1, 1, 1, 1, 1, 1, 0.52156866)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f2m1r"]
+gradient = SubResource("Gradient_t28dr")
+
+[sub_resource type="Curve" id="Curve_wghtq"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.11184209, 47.058807), 0.0, 0.0, 0, 0, Vector2(0.24342105, -4.6396027), 0.0, 0.0, 0, 0, Vector2(0.35745612, 38.442413), 0.0, 0.0, 0, 0, Vector2(0.49122804, -4.6396027), 0.0, 0.0, 0, 0, Vector2(0.614035, 40.59651), 0.0, 0.0, 0, 0, Vector2(0.7521929, -0.33140564), 0.0, 0.0, 0, 0, Vector2(0.88157886, 42.75061), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="CurveTexture" id="CurveTexture_ian8s"]
+curve = SubResource("Curve_wghtq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wft85"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 200, 1)
+gravity = Vector3(50, 20, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 6.9999976
+tangential_accel_curve = SubResource("CurveTexture_ian8s")
+damping_max = 50.000004
+scale_min = 1.5
+scale_max = 1.8
+color_initial_ramp = SubResource("GradientTexture1D_f2m1r")
+
+[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_healthbar_ui")]
+script = ExtResource("1_qh8lf")
+player = NodePath("player")
+world_scene = ExtResource("2_bdhmt")
+world_scene_test = ExtResource("2_atk27")
+player_healthbar_ui = NodePath("UI/player healthbar ui")
+
+[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("healthbar")]
+script = ExtResource("8_ian8s")
+healthbar = NodePath("player healthbar ui")
+
+[node name="player healthbar ui" parent="UI" instance=ExtResource("9_t28dr")]
+visible = false
+
+[node name="pause_menu" parent="UI" instance=ExtResource("10_f2m1r")]
+
+[node name="player" parent="." instance=ExtResource("1_nl0sk")]
+z_index = 1
+position = Vector2(93, 67)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(4, 4)
+
+[node name="Snow" type="GPUParticles2D" parent="player/Camera2D"]
+position = Vector2(0, -1)
+amount = 500
+lifetime = 20.0
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_apjul")
+
+[node name="Wind" type="GPUParticles2D" parent="player/Camera2D"]
+amount = 10
+texture = SubResource("GradientTexture2D_wghtq")
+lifetime = 5.0
+preprocess = 1.0
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_wft85")
+
+[node name="Shadow Light" type="PointLight2D" parent="player"]
+scale = Vector2(1.234375, 1.234375)
+energy = 0.85
+shadow_enabled = true
+texture = ExtResource("3_ian8s")
+
+[node name="Surface Light" type="PointLight2D" parent="player"]
+scale = Vector2(1.234375, 1.234375)
+energy = 0.85
+range_item_cull_mask = 2
+texture = ExtResource("3_ian8s")
