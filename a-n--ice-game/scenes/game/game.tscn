@@ -90,7 +90,6 @@ visible = false
 [node name="pause_menu" parent="UI" instance=ExtResource("10_f2m1r")]
 
 [node name="player" parent="." instance=ExtResource("1_nl0sk")]
-z_index = 1
 position = Vector2(93, 67)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -115,7 +114,7 @@ process_material = SubResource("ParticleProcessMaterial_wft85")
 
 [node name="Shadow Light" type="PointLight2D" parent="player"]
 scale = Vector2(1.234375, 1.234375)
-energy = 0.85
+energy = 0.4
 shadow_enabled = true
 texture = ExtResource("3_ian8s")
 
