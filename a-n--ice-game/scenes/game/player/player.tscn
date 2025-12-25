@@ -14,8 +14,8 @@
 [ext_resource type="Script" uid="uid://c6jtd5gviucn0" path="res://scripts/game/facing_component.gd" id="11_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
-radius = 3.0
-height = 14.0
+radius = 4.0
+height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wn36h"]
 atlas = ExtResource("6_ymle5")
@@ -193,6 +193,8 @@ class_name AttackComponent
 "
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "facing_component", "sword_swipe", "animation")]
+z_index = 10
+y_sort_enabled = true
 script = ExtResource("1_g2els")
 state_machine = NodePath("state machine")
 facing_component = NodePath("facing component")
@@ -200,6 +202,7 @@ sword_swipe = NodePath("sword_swipe")
 animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_smehm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
