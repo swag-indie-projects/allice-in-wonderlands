@@ -10,12 +10,14 @@ enum Paths {
 	PATH_TO_STARTING_WORLD, 
 	PATH_TO_BIOME1_WORLD1,
 	PATH_TO_BIOME1_WORLD2,
-	PATH_TO_TEST_SCENE
+	PATH_TO_TEST_SCENE,
+	PATH_TO_BIOME1_ENEMY_BASE,
 }
 
 var path_to_string: Dictionary[Paths, String] = {
 	Paths.PATH_TO_STARTING_WORLD: "res://scenes/game/world/biome1/starting_world.tscn",
 	Paths.PATH_TO_BIOME1_WORLD1: "res://scenes/game/world/biome1/biome1_world1.tscn",
 	Paths.PATH_TO_BIOME1_WORLD2: "res://scenes/game/world/biome1/biome1_world2.tscn",
-	Paths.PATH_TO_TEST_SCENE: "res://scenes/game/world/test_world1.tscn"
+	Paths.PATH_TO_BIOME1_ENEMY_BASE: "res://scenes/game/world/biome1/biome1_world_enemy_camp.tscn",
+	Paths.PATH_TO_TEST_SCENE: "res://scenes/game/world/test_world1.tscn",
 }
