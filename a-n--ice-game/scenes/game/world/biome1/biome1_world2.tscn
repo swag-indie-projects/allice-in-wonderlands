@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_bvefd"]
 script = ExtResource("2_is0yn")
-scene_path = 3
+scene_path = 4
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
