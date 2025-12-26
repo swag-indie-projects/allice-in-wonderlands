@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bcbg4v28sofgf"]
 
-[ext_resource type="Script" uid="uid://di6030qmclhtx" path="res://scripts/game/pause_menu.gd" id="1_m3eqi"]
+[ext_resource type="Script" uid="uid://di6030qmclhtx" path="res://scripts/game/ui/pause_menu.gd" id="1_m3eqi"]
 [ext_resource type="Shader" uid="uid://icfj2wtia20q" path="res://shaders/pause_menu_blur.gdshader" id="2_n2ns3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukid2"]
