@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d204nsy8svfev" path="res://scenes/game/player/player.tscn" id="1_nl0sk"]
 [ext_resource type="Script" uid="uid://clhsdbanamdpr" path="res://scripts/game/game.gd" id="1_qh8lf"]
-[ext_resource type="PackedScene" uid="uid://dgkbd2nqlldrp" path="res://scenes/game/world/biome1/starting_world.tscn" id="2_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://cqgf8cnttfoo3" path="res://scenes/game/world/template_world.tscn" id="2_87uf6"]
 [ext_resource type="PackedScene" uid="uid://cxxkyi0nmy22r" path="res://scenes/game/world/test_world1.tscn" id="3_87uf6"]
 [ext_resource type="Texture2D" uid="uid://sllat2rhkysm" path="res://assets/misc/light.png" id="3_ian8s"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
@@ -76,7 +76,7 @@ color_initial_ramp = SubResource("GradientTexture1D_f2m1r")
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_healthbar_ui")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-starting_world_scene = ExtResource("2_bdhmt")
+starting_world_scene = ExtResource("2_87uf6")
 world_scene_test = ExtResource("3_87uf6")
 player_healthbar_ui = NodePath("UI/player healthbar ui")
 
