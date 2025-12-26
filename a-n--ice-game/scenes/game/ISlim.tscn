@@ -14,7 +14,7 @@ radius = 4.0
 height = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4mds"]
-radius = 66.007576
+radius = 128.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4mds"]
 atlas = ExtResource("1_x8mds")
@@ -77,8 +77,9 @@ shape = SubResource("CapsuleShape2D_s4mds")
 [node name="detection_box" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_box"]
-modulate = Color(0.5619223, 0.9163677, 7.70092e-07, 1)
+modulate = Color(0.56733334, 0.92, 0, 1)
 shape = SubResource("CircleShape2D_s4mds")
+debug_color = Color(0.56733334, 0.92, 0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
