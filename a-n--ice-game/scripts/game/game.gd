@@ -25,7 +25,8 @@ func _ready() -> void:
 	play_world(starting_world_scene, 0)
 
 func _on_world_exited(result: SpawnResult) -> void:
-	play_world(result.scene, result.spawnpoint_index)
+	var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
+	play_world(target_scene, result.spawnpoint_index)
 
 func _on_player_HP_changed(HP: int, max_HP: int):
 	player_healthbar_ui.update_healthbar.emit(HP, max_HP)
