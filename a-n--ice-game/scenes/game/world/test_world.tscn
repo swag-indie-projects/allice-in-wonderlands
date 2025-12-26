@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cxxkyi0nmy22r"]
+[gd_scene load_steps=12 format=4 uid="uid://cxxkyi0nmy22r"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_8yapl"]
 [ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/ISlim.tscn" id="2_gnids"]
+[ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="2_tabj1"]
 [ext_resource type="Shader" uid="uid://c6rtg523eybjm" path="res://shaders/blue_snow.gdshader" id="5_vfq2r"]
 [ext_resource type="Texture2D" uid="uid://cjd1i0u4jvkb" path="res://assets/tileset/random stuffs/blue_snow_overlay.png" id="6_gok6e"]
+[ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="6_vi5xu"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="7_dbmp2"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="8_y5lkm"]
 
@@ -23,11 +25,20 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-4, 184, 0, 7, 249, 8, 
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 
-[node name="world" type="Node2D"]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints")]
 script = ExtResource("1_8yapl")
+spawnpoints = [NodePath("WorldEnvironment/spawnpoint")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_apjul")
+
+[node name="spawnpoint" type="Node2D" parent="WorldEnvironment"]
+position = Vector2(246, 107)
+
+[node name="don\'t offset or transform my position" type="Sprite2D" parent="WorldEnvironment/spawnpoint"]
+z_index = 99
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_tabj1")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.67294246, 0.68298304, 0.7016299, 1)
@@ -44,7 +55,7 @@ tile_set = ExtResource("7_dbmp2")
 [node name="Ground_Items" type="TileMapLayer" parent="." groups=["navigation"]]
 light_mask = 2
 tile_map_data = PackedByteArray("AAAEAAgAAwAAAAIAAAAEAAcAAwAAAAEAAAAEAAYAAwAAAAEAAAAEAAUAAwAAAAEAAAAEAAQAAwAAAAAAAAAFAAAABAAAAAAAAAAFAAEABAAAAAEAAAAGAAAABAABAAAAAAAGAAEABAABAAEAAAAGAAIABAABAAIAAAAGAAMABAABAAMAAAAHAAAABAACAAAAAAAHAAEABAACAAEAAAAHAAIABAACAAIAAAAHAAMABAACAAMAAAAIAAAABAADAAAAAAAIAAEABAADAAEAAAAKAAQABQAAAAEAAAAIAAgABQABAAEAAAAJAAgABQACAAEAAAANAAYABQACAAIAAAANAAcABQACAAMAAAAOAAYABQADAAIAAAAOAAcABQADAAMAAAAEAAoABQADAAAAAAAHAAoABgACAAAAAAAIAAoABgACAAAAAAAJAAoABgACAAAAAAAKAAoABgACAAAAAAALAAoABgACAAAAAAAMAAoABgACAAAAAAANAAoABgACAAAAAAAGAAoABgABAAAAAAAGAAsABgABAAEAAAAGAAwABgABAAEAAAAFAA0ABgACAAAAAAAGAA0ABgACAAEAAAADAA0ABgACAAAAAAAEAA0ABgACAAAAAAACAA0ABgABAAAAAAACAA4ABgABAAEAAAACAA8ABgABAAEAAAACABAABgABAAEAAAACABEABgABAAIAAAADABEABgACAAIAAAAEABEABgACAAIAAAAFABEABgACAAIAAAAGABEABgACAAIAAAAHABEABgACAAIAAAAIABEABgACAAIAAAAJABEABgACAAIAAAAKABEABgACAAIAAAALABEABgADAAIAAAALABAABgADAAEAAAALAA8ABgADAAEAAAALAA4ABgACAAEAAAAMAA4ABgACAAIAAAANAA4ABgACAAIAAAAOAA4ABgADAAIAAAAOAAwABgADAAEAAAAOAA0ABgADAAEAAAAOAAsABgADAAEAAAAOAAoABgADAAAAAAAHAAsABgACAAEAAAAIAAsABgACAAEAAAAJAAsABgACAAEAAAAJAAwABgACAAEAAAAJAA0ABgACAAEAAAAKAAsABgACAAEAAAAKAAwABgACAAEAAAAKAA0ABgACAAEAAAALAAsABgACAAEAAAALAAwABgACAAEAAAALAA0ABgACAAEAAAAMAAsABgACAAEAAAAMAAwABgACAAEAAAAMAA0ABgACAAEAAAANAAsABgACAAEAAAANAAwABgACAAEAAAANAA0ABgACAAEAAAAHAAwABgACAAEAAAAHAA0ABgACAAEAAAAIAAwABgACAAEAAAAIAA0ABgACAAEAAAADAA4ABgACAAEAAAADAA8ABgACAAEAAAAEAA4ABgACAAEAAAAEAA8ABgACAAEAAAAFAA4ABgACAAEAAAAFAA8ABgACAAEAAAAGAA4ABgACAAEAAAAGAA8ABgACAAEAAAAHAA4ABgACAAEAAAAHAA8ABgACAAEAAAAIAA4ABgACAAEAAAAIAA8ABgACAAEAAAAJAA4ABgACAAEAAAAJAA8ABgACAAEAAAAKAA4ABgACAAEAAAAKAA8ABgACAAEAAAADABAABgACAAEAAAAEABAABgACAAEAAAAFABAABgACAAEAAAAGABAABgACAAEAAAAHABAABgACAAEAAAAIABAABgACAAEAAAAJABAABgACAAEAAAAKABAABgACAAEAAAA=")
-tile_set = ExtResource("7_dbmp2")
+tile_set = ExtResource("6_vi5xu")
 
 [node name="Fridge" parent="." instance=ExtResource("8_y5lkm")]
 position = Vector2(98, 138)
