@@ -6,8 +6,10 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tawp"]
 texture = ExtResource("1_05luo")
 0:0/0 = 0
+0:0/0/z_index = -1
 2:0/0 = 0
-2:0/0/z_index = 5
+2:0/0/z_index = -1
+1:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2m1r"]
 texture = ExtResource("2_0v461")
