@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var player: Player
-@export var starting_world_scene: PackedScene
-@export var world_scene_test: PackedScene
+@export var starting_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_STARTING_WORLD
+@export var test_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
 @export var player_healthbar_ui: PlayerHealthbarUI
 
 @onready var current_world: World = null
@@ -22,7 +22,7 @@ func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 func _ready() -> void:
 	player.HP_changed.connect(_on_player_HP_changed)
 	
-	play_world(starting_world_scene, 0)
+	play_world(load(Constant.path_to_string[starting_world_scene_path]), 0)
 
 func _on_world_exited(result: SpawnResult) -> void:
 	var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
