@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dx0qqd70payon" path="res://assets/coin.png" id="1_f4wbi"]
 [ext_resource type="Script" uid="uid://dnc8vt8ysjjvv" path="res://scripts/game/coin.gd" id="2_3qbsy"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3qbsy"]
+radius = 6.5
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k50o3"]
 atlas = ExtResource("1_f4wbi")
 region = Rect2(0, 0, 16, 16)
@@ -40,19 +43,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qbsy"]
-size = Vector2(6, 10)
-
-[node name="Node2D" type="Node2D"]
+[node name="Coin" type="Area2D" node_paths=PackedStringArray("animation")]
+scale = Vector2(2, 2)
 script = ExtResource("2_3qbsy")
+animation = NodePath("AnimatedSprite2D")
 
-[node name="Coin" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3qbsy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ckkh5")
-frame_progress = 0.13549237
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_3qbsy")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+frame_progress = 0.9117126

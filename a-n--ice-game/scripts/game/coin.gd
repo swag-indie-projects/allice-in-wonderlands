@@ -1,15 +1,15 @@
-extends Node2D
-@onready var coin = $Coin
+extends Area2D
+
+@export var animation: AnimatedSprite2D
+
+signal coin_collected
 
 func _ready():
-	coin.play("default")
+	animation.play("default")
 
-func _process(delta):
-	pass
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("entered in my body")
-	print(body)
-	if body is Player:
-		# GlobalController.add_coin(1)
-		self.queue_free();
+func _physics_process(_delta: float) -> void:
+	for body in get_overlapping_bodies():
+		if body is Player:
+			print("coin: ", self, " is collected")
+			coin_collected.emit()
+			queue_free()
