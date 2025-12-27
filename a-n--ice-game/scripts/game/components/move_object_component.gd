@@ -2,8 +2,9 @@ extends Node
 
 class_name MoveObjectComponent
 
-@export var pathfollow: PathFollow2D
-@export var progress_speed: float
+@export var pathfollows: Array[PathFollow2D]
+@export var progress_speeds: Array[float]
 
 func _physics_process(delta: float) -> void:
-	pathfollow.progress += progress_speed * delta
+	for i in range(pathfollows.size()):
+		pathfollows[i].progress += progress_speeds[i] * delta

@@ -1,15 +1,20 @@
-extends Node2D
-@onready var coin = $Coin
+extends Area2D
+
+@export var animation: AnimatedSprite2D
+@export var audio_player: AudioStreamPlayer2D
+
+signal coin_collected
 
 func _ready():
-	coin.play("default")
+	animation.play("default")
+	body_entered.connect(_on_body_entered)
 
-func _process(delta):
-	pass
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("entered in my body")
-	print(body)
+func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		# GlobalController.add_coin(1)
-		self.queue_free();
+		coin_collected.emit()
+		
+		audio_player.play()
+		await audio_player.finished
+		
+		queue_free()
