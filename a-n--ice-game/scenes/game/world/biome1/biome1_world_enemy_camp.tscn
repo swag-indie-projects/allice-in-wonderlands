@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_ctgmr"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_kdu47"]
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="3_fupsg"]
-[ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper.tres" id="4_2hgq1"]
+[ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="4_2hgq1"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="5_0hb0q"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="6_wphc3"]
 [ext_resource type="Script" uid="uid://c7vdrdxkh5ibu" path="res://scenes/game/world/biome1/IceFloat.gd" id="7_fupsg"]

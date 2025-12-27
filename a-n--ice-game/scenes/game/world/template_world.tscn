@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_fhhrb"]
 [ext_resource type="PackedScene" uid="uid://cxxkyi0nmy22r" path="res://scenes/game/world/test_world1.tscn" id="2_fdfmt"]
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="2_xoohx"]
-[ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper.tres" id="3_fhhrb"]
+[ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="3_fhhrb"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/spawn_result.gd" id="3_l6cnx"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="4_llcsg"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="5_xoohx"]
