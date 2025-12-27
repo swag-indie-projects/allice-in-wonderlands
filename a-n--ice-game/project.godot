@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 Constant="*res://scripts/autoloads/constant.gd"
+Globals="*res://scripts/autoloads/globals.gd"
 
 [display]
 

@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bam1ln05uasgr"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bam1ln05uasgr"]
 
 [ext_resource type="Texture2D" uid="uid://0omng45v3aya" path="res://assets/tileset/river.png" id="1_j0awy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yc0mg"]
+resource_name = "river yes collision"
 texture = ExtResource("1_j0awy")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 4, 8, 8, 4, 8, 4, 4)
@@ -32,7 +33,26 @@ texture = ExtResource("1_j0awy")
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, 4, 4, 4, 4, -8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nx7a"]
+resource_name = "river no collision"
+texture = ExtResource("1_j0awy")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
 [resource]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yc0mg")
+sources/1 = SubResource("TileSetAtlasSource_8nx7a")
