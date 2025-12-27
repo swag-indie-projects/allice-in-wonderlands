@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dt1xhxgttwufa"]
 
-[ext_resource type="Script" uid="uid://c6du6q3uoaedn" path="res://scenes/game/ui/save_popup.gd" id="1_880rq"]
+[ext_resource type="Script" uid="uid://c6du6q3uoaedn" path="res://scripts/game/ui/save_popup.gd" id="1_880rq"]
 
 [node name="SavePopup" type="Control"]
 layout_mode = 3

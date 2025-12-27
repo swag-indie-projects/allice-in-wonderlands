@@ -1,32 +1,22 @@
 extends Node2D
 
 @export var player: Player
-@export var starting_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_STARTING_WORLD
+#@export var starting_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_STARTING_WORLD
 @export var test_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
 @export var player_healthbar_ui: PlayerHealthbarUI
+@export var save_manager : SaveManager
 
-@onready var save_manager : SaveManager = $SaveManager
 @onready var current_world: World = null
 
 
 func _ready() -> void:
 	player.HP_changed.connect(_on_player_HP_changed)
-	
-	play_world(load(Constant.path_to_string[starting_world_scene_path]), 0)
+	save_manager.load_game()
+	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
+	play_world(load(Constant.path_to_string[saved_world]), 0)
 	Globals.game = self
 	
-	save_manager.load_game() # load game\
-	print("loaded?")
-	get_tree().auto_accept_quit = false # prevent auto close without saving
-
-func _notification(event: int) -> void:
-	if event == NOTIFICATION_WM_CLOSE_REQUEST:
-		# do save stuff here
-		save_manager.save_game()
-		print("saved?")
-		# quit game
-		get_tree().quit()
-
+	
 func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 	if is_instance_valid(current_world):
 		current_world.queue_free()
@@ -44,4 +34,3 @@ func _on_world_exited(result: SpawnResult) -> void:
 
 func _on_player_HP_changed(HP: int, max_HP: int):
 	player_healthbar_ui.update_healthbar.emit(HP, max_HP)
-	save_manager.update_save_data("coins", save_manager.get_save_data("coins")+1)

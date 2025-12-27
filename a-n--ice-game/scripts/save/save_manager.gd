@@ -5,16 +5,16 @@ const SAVE_PATH = "user://savegame.tres" # text format for debugging
 
 var current_save : SaveResource
 
-var default_save_data : Dictionary = {
-	"coins" : 0
-}
+var default_save_data : SaveResource
 
-func init_new_save() -> void:
-	current_save = SaveResource.new()
-	for key in default_save_data:
-		current_save.set(key, default_save_data[key])
+func _ready() ->void:
+	default_save_data = SaveResource.new()
+	default_save_data.set("coins", 0)
+	default_save_data.set("spawn", Constant.Paths.PATH_TO_STARTING_WORLD)
+
 
 func save_game() -> void:
+	print("GAME IS SAVING..")
 	if not current_save:
 		printerr("no save data exusts")
 		return
@@ -27,7 +27,8 @@ func save_game() -> void:
 func load_game() -> bool:
 	if not ResourceLoader.exists(SAVE_PATH):
 		print("no save found, making enw save")
-		init_new_save()
+		current_save = default_save_data
+		
 		return false
 	
 	var loaded_resource = ResourceLoader.load(SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE)
@@ -37,9 +38,9 @@ func load_game() -> bool:
 		return true
 	else:
 		print("failed to load save, making a new one")
-		init_new_save()
+		current_save = default_save_data
 		return false
-		
+
 func get_save_data(key):
 	return current_save.get(key)
 

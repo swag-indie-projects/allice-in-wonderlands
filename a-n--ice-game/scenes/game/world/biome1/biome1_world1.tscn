@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://buial0xs2kvov"]
+[gd_scene load_steps=20 format=4 uid="uid://buial0xs2kvov"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_puu7c"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/spawn_result.gd" id="3_o6ox3"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/ISlim.tscn" id="9_06jbn"]
 [ext_resource type="PackedScene" uid="uid://dyp5tee4bjs6m" path="res://scenes/game/floating_ice.tscn" id="11_uhydd"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="13_als7v"]
+[ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_okr80"]
 
 [sub_resource type="Resource" id="Resource_06jbn"]
 script = ExtResource("3_o6ox3")
@@ -128,3 +129,7 @@ navigation_polygon = SubResource("NavigationPolygon_06jbn")
 
 [node name="Coin" parent="." instance=ExtResource("13_als7v")]
 position = Vector2(254, 319)
+
+[node name="Fridge" parent="." instance=ExtResource("14_okr80")]
+position = Vector2(399, 251)
+spawnpoint = 1

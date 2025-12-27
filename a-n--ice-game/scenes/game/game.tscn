@@ -72,10 +72,11 @@ scale_min = 1.5
 scale_max = 1.8
 color_initial_ramp = SubResource("GradientTexture1D_f2m1r")
 
-[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_healthbar_ui")]
+[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_healthbar_ui", "save_manager")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
 player_healthbar_ui = NodePath("UI/player healthbar ui")
+save_manager = NodePath("SaveManager")
 
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("healthbar")]
 script = ExtResource("8_ian8s")
