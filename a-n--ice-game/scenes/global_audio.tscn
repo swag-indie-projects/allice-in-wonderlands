@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://l55x8q08k7di"]
+
+[ext_resource type="AudioStream" uid="uid://bepwvwe0v7ref" path="res://assets/sounds/pickupCoin.wav" id="2_1ajyf"]
+
+[sub_resource type="GDScript" id="GDScript_tbad1"]
+script/source = "extends Node
+
+@onready var coin_audio = $Coin
+
+
+func _ready():
+	GlobalSignals.coin_change.connect(_on_coin_change)
+	
+func _on_coin_change():
+	print(\"coin changed recieved\")
+	coin_audio.play();	
+"
+
+[node name="GlobalAudio" type="Node"]
+script = SubResource("GDScript_tbad1")
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_1ajyf")

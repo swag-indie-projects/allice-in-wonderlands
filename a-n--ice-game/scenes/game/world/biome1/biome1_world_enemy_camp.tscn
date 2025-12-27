@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c2liotbx2xl72"]
+[gd_scene load_steps=16 format=4 uid="uid://c2liotbx2xl72"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_ctgmr"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_kdu47"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="6_wphc3"]
 [ext_resource type="Script" uid="uid://c7vdrdxkh5ibu" path="res://scripts/game/IceFloat.gd" id="7_fupsg"]
 [ext_resource type="Texture2D" uid="uid://dyr4d4077l2fd" path="res://assets/tileset/ice_block.png" id="7_kdu47"]
+[ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="9_2hgq1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
@@ -105,6 +106,12 @@ shape = SubResource("SegmentShape2D_0hb0q")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Float (WIP)/StaticBody2D"]
 position = Vector2(1, -2)
 shape = SubResource("SegmentShape2D_wphc3")
+
+[node name="Coin" parent="." instance=ExtResource("9_2hgq1")]
+position = Vector2(72, 24)
+
+[node name="Coin2" parent="." instance=ExtResource("9_2hgq1")]
+position = Vector2(144, 48)
 
 [connection signal="body_entered" from="Float (WIP)/Area2D" to="Float (WIP)" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Float (WIP)/Area2D" to="Float (WIP)" method="_on_area_2d_body_exited"]
