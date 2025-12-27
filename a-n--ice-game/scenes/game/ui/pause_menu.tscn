@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcbg4v28sofgf"]
+[gd_scene load_steps=19 format=3 uid="uid://bcbg4v28sofgf"]
 
 [ext_resource type="Script" uid="uid://di6030qmclhtx" path="res://scripts/game/ui/pause_menu.gd" id="1_m3eqi"]
 [ext_resource type="Shader" uid="uid://icfj2wtia20q" path="res://shaders/pause_menu_blur.gdshader" id="2_n2ns3"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bdfk2wuhkeyoh" path="res://assets/ui/pause/freezer1.png" id="4_tn7ir"]
 [ext_resource type="Texture2D" uid="uid://dr4iqbi41ksuf" path="res://assets/ui/pause/freezer2.png" id="5_a4qcm"]
 [ext_resource type="Texture2D" uid="uid://dk3ujr3lsre6y" path="res://assets/ui/pause/freezer3.png" id="6_nsk5f"]
-[ext_resource type="Texture2D" uid="uid://yqhr8bqcnqpf" path="res://assets/ui/pause/selector.png" id="7_a4qcm"]
+[ext_resource type="Texture2D" uid="uid://bd58jr7aq6r1d" path="res://assets/ui/pause/selected_abutton.png" id="8_7o5hq"]
+[ext_resource type="Texture2D" uid="uid://ctn8cbrfqlrgu" path="res://assets/ui/pause/abutton.png" id="8_nsk5f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukid2"]
 shader = ExtResource("2_n2ns3")
@@ -119,6 +120,24 @@ _data = {
 &"blur": SubResource("Animation_hyqwd")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4qcm"]
+texture = ExtResource("8_nsk5f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dqdfw"]
+texture = ExtResource("8_7o5hq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nsk5f"]
+texture = ExtResource("8_nsk5f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8uwdk"]
+texture = ExtResource("8_7o5hq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7o5hq"]
+texture = ExtResource("8_nsk5f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udt48"]
+texture = ExtResource("8_7o5hq")
+
 [node name="pause_menu" type="Control" node_paths=PackedStringArray("animation_player", "vbox_containing_buttons")]
 process_mode = 3
 layout_mode = 3
@@ -163,6 +182,7 @@ patch_margin_bottom = 22
 [node name="PanelContainer" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -174,56 +194,36 @@ offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -88.5
-offset_bottom = -105.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-texture = ExtResource("7_a4qcm")
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-
-[node name="Panel" type="Panel" parent="PanelContainer/NinePatchRect"]
-modulate = Color(1, 1, 1, 0.44705883)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 1.1864395
-offset_right = -1.0
-offset_bottom = -1.1864395
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 19.0
-offset_right = 92.0
-offset_bottom = 120.0
+offset_left = -71.0
+offset_top = -76.0
+offset_right = 13.0
+offset_bottom = 1.0
+scale = Vector2(3, 3)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
 [node name="resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.30588236, 0.23137255, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_a4qcm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dqdfw")
 text = "resume"
 
 [node name="options" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.30588236, 0.23137255, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_nsk5f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8uwdk")
 text = "options"
 
 [node name="exit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.30700004, 0.23000002, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_7o5hq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_udt48")
 text = "exit"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
