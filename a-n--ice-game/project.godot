@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [autoload]
 
 Constant="*res://scripts/autoloads/constant.gd"
+Globals="*res://scripts/autoloads/globals.gd"
 
 [display]
 

@@ -7,6 +7,11 @@ extends Node2D
 
 @onready var current_world: World = null
 
+func _ready() -> void:
+	player.HP_changed.connect(_on_player_HP_changed)
+	
+	play_world(load(Constant.path_to_string[starting_world_scene_path]), 0)
+	Globals.game = self
 
 func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 	if is_instance_valid(current_world):
@@ -19,10 +24,7 @@ func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 	current_world.setup(player, spawn_point_index)
 	add_child.call_deferred(current_world)
 
-func _ready() -> void:
-	player.HP_changed.connect(_on_player_HP_changed)
-	
-	play_world(load(Constant.path_to_string[starting_world_scene_path]), 0)
+
 
 func _on_world_exited(result: SpawnResult) -> void:
 	var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
