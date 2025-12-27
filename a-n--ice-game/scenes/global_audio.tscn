@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://l55x8q08k7di"]
 
-[ext_resource type="AudioStream" uid="uid://bepwvwe0v7ref" path="res://assets/sounds/pickupCoin.wav" id="2_1ajyf"]
+[ext_resource type="AudioStream" uid="uid://bepwvwe0v7ref" path="res://sounds/pickupCoin.wav" id="2_1ajyf"]
 
 [sub_resource type="GDScript" id="GDScript_tbad1"]
 script/source = "extends Node

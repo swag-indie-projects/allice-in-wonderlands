@@ -24,8 +24,6 @@ func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 	current_world.setup(player, spawn_point_index)
 	add_child.call_deferred(current_world)
 
-
-
 func _on_world_exited(result: SpawnResult) -> void:
 	var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
 	play_world(target_scene, result.spawnpoint_index)

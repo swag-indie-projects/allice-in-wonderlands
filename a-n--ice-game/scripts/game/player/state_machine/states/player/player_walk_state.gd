@@ -3,6 +3,7 @@ extends PlayerState
 class_name PlayerWalkState
 
 @export var speed: float
+@export var walk_audio_player: AudioStreamPlayer2D
 
 func setup(new_actor: CharacterBody2D) -> void:
 	actor = new_actor
@@ -19,6 +20,9 @@ func process_frame(_delta: float) -> StateName.Name:
 	
 	if direction_vector == Vector2.ZERO:
 		return StateName.Name.IDLE
+	
+	if !walk_audio_player.playing:
+		walk_audio_player.play()
 	
 	var animation_string: StringName = "walk_" + actor.facing_component.facing_name_dictionary[actor.facing_component.facing]
 	actor.play_animation(animation_string)
