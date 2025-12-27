@@ -13,12 +13,10 @@ var previous_cell_positions: Array[Vector2i] = []
 var mounted_player: Player = null
 var last_ice_global_position: Vector2
 
-
 func _ready() -> void:
 	last_ice_global_position = global_position
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-
 
 func _physics_process(_delta: float) -> void:
 	var current_cell_positions: Array[Vector2i] = get_cells_in_area()

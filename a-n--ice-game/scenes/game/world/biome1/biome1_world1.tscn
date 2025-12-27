@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="4_jx8wh"]
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="5_pewc4"]
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="6_ndjdk"]
-[ext_resource type="Script" uid="uid://ci88obq6lyt40" path="res://scripts/game/move_object_component.gd" id="7_a4fwe"]
+[ext_resource type="Script" uid="uid://ci88obq6lyt40" path="res://scripts/game/components/move_object_component.gd" id="7_a4fwe"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="7_u0o5v"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="8_cks57"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="9_5a3xp"]
@@ -75,10 +75,10 @@ position = Vector2(288, 257)
 curve = SubResource("Curve2D_uhydd")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = -1.5707964
 
 [node name="floating ice" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("base_overlay_tilemap") instance=ExtResource("11_uhydd")]
 scale = Vector2(1.1, 1.1)
-collision_layer = 2
 base_overlay_tilemap = NodePath("../../../base_tile_overlay")
 
 [node name="spawnpoint" type="Node2D" parent="."]

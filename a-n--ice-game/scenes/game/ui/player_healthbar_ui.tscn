@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b3u75osf3k4m4"]
 
-[ext_resource type="Script" uid="uid://d3n6ggtbombbo" path="res://scripts/game/player_healthbar_ui.gd" id="1_0itym"]
+[ext_resource type="Script" uid="uid://d3n6ggtbombbo" path="res://scripts/game/ui/player_healthbar_ui.gd" id="1_0itym"]
 [ext_resource type="Texture2D" uid="uid://bbaffc8n6h32k" path="res://assets/ui/player-healthbar-ui.png" id="1_wi8jl"]
 [ext_resource type="Texture2D" uid="uid://1xm4o7k0yth2" path="res://assets/ui/player-healthbar-ui-icon.png" id="1_yw6yn"]
 [ext_resource type="Texture2D" uid="uid://cutk2sacqod4a" path="res://assets/ui/player-hp-shard.png" id="4_3vuw5"]

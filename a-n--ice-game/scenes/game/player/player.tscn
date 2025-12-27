@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dncd5essow0fd" path="res://assets/player/player_right.png" id="5_jej6c"]
 [ext_resource type="Texture2D" uid="uid://crib2tcqkaoha" path="res://assets/player_walk_animation.png" id="6_ymle5"]
 [ext_resource type="Script" uid="uid://l6bu0532m1w2" path="res://scripts/game/player/state_machine/states/player/player_hit_state.gd" id="7_ur7pv"]
-[ext_resource type="Script" uid="uid://c6jtd5gviucn0" path="res://scripts/game/facing_component.gd" id="11_d2wvv"]
+[ext_resource type="Script" uid="uid://c6jtd5gviucn0" path="res://scripts/game/components/facing_component.gd" id="11_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
 radius = 4.0
