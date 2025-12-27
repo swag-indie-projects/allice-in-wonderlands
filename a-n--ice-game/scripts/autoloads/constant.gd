@@ -21,3 +21,6 @@ var path_to_string: Dictionary[Paths, String] = {
 	Paths.PATH_TO_BIOME1_ENEMY_BASE: "res://scenes/game/world/biome1/biome1_world_enemy_camp.tscn",
 	Paths.PATH_TO_TEST_SCENE: "res://scenes/game/world/test_world1.tscn",
 }
+
+const VIEWPORT_SIZE_X = 1152
+const VIEWPORT_SIZE_Y = 648
