@@ -7,7 +7,13 @@
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="4_2hgq1"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="5_0hb0q"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="6_wphc3"]
+<<<<<<< HEAD
+[ext_resource type="Script" uid="uid://c7vdrdxkh5ibu" path="res://scripts/game/IceFloat.gd" id="7_fupsg"]
+[ext_resource type="Texture2D" uid="uid://dyr4d4077l2fd" path="res://assets/tileset/ice_block.png" id="7_kdu47"]
+[ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="9_2hgq1"]
+=======
 [ext_resource type="PackedScene" uid="uid://dyp5tee4bjs6m" path="res://scenes/game/floating_ice.tscn" id="7_kdu47"]
+>>>>>>> bc8631552d74371dcf569156ff53a810ff46dd6f
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
@@ -52,3 +58,53 @@ shape = SubResource("CircleShape2D_fhhrb")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.8645, 0.9329, 0.95, 1)
+<<<<<<< HEAD
+
+[node name="Float (WIP)" type="Node2D" parent="." node_paths=PackedStringArray("staticBody")]
+position = Vector2(-195, -130)
+script = ExtResource("7_fupsg")
+staticBody = NodePath("StaticBody2D")
+
+[node name="Shadow" type="Sprite2D" parent="Float (WIP)"]
+modulate = Color(0, 0, 0, 0.30980393)
+position = Vector2(3, 2)
+texture = ExtResource("7_kdu47")
+
+[node name="IceBlock" type="Sprite2D" parent="Float (WIP)"]
+texture = ExtResource("7_kdu47")
+
+[node name="Area2D" type="Area2D" parent="Float (WIP)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Float (WIP)/Area2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_2hgq1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Float (WIP)"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Float (WIP)/StaticBody2D"]
+position = Vector2(1, 0)
+shape = SubResource("SegmentShape2D_fupsg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Float (WIP)/StaticBody2D"]
+position = Vector2(0, -5)
+shape = SubResource("SegmentShape2D_2hgq1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Float (WIP)/StaticBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("SegmentShape2D_0hb0q")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Float (WIP)/StaticBody2D"]
+position = Vector2(1, -2)
+shape = SubResource("SegmentShape2D_wphc3")
+
+[node name="Coin" parent="." instance=ExtResource("9_2hgq1")]
+position = Vector2(72, 24)
+
+[node name="Coin2" parent="." instance=ExtResource("9_2hgq1")]
+position = Vector2(144, 48)
+
+[connection signal="body_entered" from="Float (WIP)/Area2D" to="Float (WIP)" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Float (WIP)/Area2D" to="Float (WIP)" method="_on_area_2d_body_exited"]
+=======
+>>>>>>> bc8631552d74371dcf569156ff53a810ff46dd6f
