@@ -1,15 +1,20 @@
 extends Area2D
 
 @export var animation: AnimatedSprite2D
+@export var audio_player: AudioStreamPlayer2D
 
 signal coin_collected
 
 func _ready():
 	animation.play("default")
+	body_entered.connect(_on_body_entered)
 
-func _physics_process(_delta: float) -> void:
-	for body in get_overlapping_bodies():
-		if body is Player:
-			print("coin: ", self, " is collected")
-			coin_collected.emit()
-			queue_free()
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		coin_collected.emit()
+		
+		audio_player.play()
+		await audio_player.finished
+		
+		queue_free()

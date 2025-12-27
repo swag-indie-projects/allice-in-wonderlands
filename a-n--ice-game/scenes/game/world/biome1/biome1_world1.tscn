@@ -83,7 +83,7 @@ scale = Vector2(1.1, 1.1)
 base_overlay_tilemap = NodePath("../../../base_tile_overlay")
 
 [node name="spawnpoint" type="Node2D" parent="."]
-position = Vector2(332, 256)
+position = Vector2(396, 144)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint"]
 texture = ExtResource("7_u0o5v")
