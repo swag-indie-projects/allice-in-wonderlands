@@ -5,10 +5,9 @@ extends Node2D
 @export var test_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
 @export var player_healthbar_ui: PlayerHealthbarUI
 
-@onready var game_state : GameState = $GameState
+@onready var save_manager : SaveManager = $SaveManager
 @onready var current_world: World = null
 
-signal coin_change(val);
 
 func _ready() -> void:
 	player.HP_changed.connect(_on_player_HP_changed)
@@ -16,13 +15,15 @@ func _ready() -> void:
 	play_world(load(Constant.path_to_string[starting_world_scene_path]), 0)
 	Globals.game = self
 	
-	game_state.load_config() # load game
+	save_manager.load_game() # load game\
+	print("loaded?")
 	get_tree().auto_accept_quit = false # prevent auto close without saving
 
 func _notification(event: int) -> void:
 	if event == NOTIFICATION_WM_CLOSE_REQUEST:
 		# do save stuff here
-		game_state.save_config()
+		save_manager.save_game()
+		print("saved?")
 		# quit game
 		get_tree().quit()
 
@@ -43,4 +44,4 @@ func _on_world_exited(result: SpawnResult) -> void:
 
 func _on_player_HP_changed(HP: int, max_HP: int):
 	player_healthbar_ui.update_healthbar.emit(HP, max_HP)
-	coin_change.emit(1)
+	save_manager.update_save_data("coins", save_manager.get_save_data("coins")+1)
