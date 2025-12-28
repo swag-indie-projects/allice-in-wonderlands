@@ -67,10 +67,11 @@ texture = ExtResource("5_0ihr6")
 position = Vector2(68, 60)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint2"]
+position = Vector2(35, 3)
 texture = ExtResource("9_wmdd5")
 
 [node name="exitpoint2" type="Area2D" parent="."]
-position = Vector2(35, 61)
+position = Vector2(22, 61)
 
 [node name="Sprite2D" type="Sprite2D" parent="exitpoint2"]
 position = Vector2(0, 44)

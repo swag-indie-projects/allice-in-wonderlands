@@ -30,9 +30,15 @@ func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 	current_world.setup(player, spawn_point_index)
 	add_child.call_deferred(current_world)
 
+var world_change_debounce = true
+
 func _on_world_exited(result: SpawnResult) -> void:
-	var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
-	play_world(target_scene, result.spawnpoint_index)
+	if (world_change_debounce):
+		world_change_debounce = false
+		var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
+		play_world(target_scene, result.spawnpoint_index)
+		await get_tree().create_timer(2.0).timeout
+		world_change_debounce = true
 
 func _on_player_HP_changed(HP: int, max_HP: int):
 	player_healthbar_ui.update_healthbar.emit(HP, max_HP)
