@@ -76,6 +76,8 @@ color_initial_ramp = SubResource("GradientTexture1D_f2m1r")
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_healthbar_ui", "player_save_tooltip_ui", "save_manager")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
+debug_world_scene_path = 3
+debug_mod = true
 player_healthbar_ui = NodePath("UI/player healthbar ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
 save_manager = NodePath("SaveManager")

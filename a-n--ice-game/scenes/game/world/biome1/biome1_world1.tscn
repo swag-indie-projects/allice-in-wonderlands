@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://buial0xs2kvov"]
+[gd_scene load_steps=25 format=4 uid="uid://buial0xs2kvov"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_puu7c"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/spawn_result.gd" id="3_o6ox3"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="13_als7v"]
 [ext_resource type="Texture2D" uid="uid://c8u3hxtkaccae" path="res://assets/markers/exit_marker3.png" id="14_lged5"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_okr80"]
+[ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/boar.tscn" id="16_agetj"]
 
 [sub_resource type="Resource" id="Resource_06jbn"]
 script = ExtResource("3_o6ox3")
@@ -102,6 +103,7 @@ texture = ExtResource("7_u0o5v")
 position = Vector2(350, 296)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint3"]
+position = Vector2(2, -13)
 texture = ExtResource("10_lnup1")
 
 [node name="spawnpoint2" type="Node2D" parent="."]
@@ -129,7 +131,7 @@ texture = ExtResource("9_5a3xp")
 shape = SubResource("CircleShape2D_fhhrb")
 
 [node name="exitpoint3" type="Area2D" parent="."]
-position = Vector2(352, 332)
+position = Vector2(354, 339)
 
 [node name="Sprite2D" type="Sprite2D" parent="exitpoint3"]
 texture = ExtResource("14_lged5")
@@ -140,11 +142,11 @@ shape = SubResource("CircleShape2D_fhhrb")
 [node name="ISlim" parent="." instance=ExtResource("9_06jbn")]
 position = Vector2(186, 97)
 
-[node name="ISlim2" parent="." instance=ExtResource("9_06jbn")]
-position = Vector2(173, 17)
-
 [node name="ISlim3" parent="." instance=ExtResource("9_06jbn")]
 position = Vector2(137, 127)
+
+[node name="Boar" parent="." instance=ExtResource("16_agetj")]
+position = Vector2(160, 19)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

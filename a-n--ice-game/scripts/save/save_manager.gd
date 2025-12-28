@@ -26,7 +26,7 @@ func save_game() -> void:
 
 func load_game() -> bool:
 	if not ResourceLoader.exists(SAVE_PATH):
-		print("no save found, making enw save")
+		print("no save found, making meow moew moew moew save")
 		current_save = default_save_data
 		
 		return false

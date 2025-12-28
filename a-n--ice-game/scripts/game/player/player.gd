@@ -40,7 +40,7 @@ func play_animation(animation_name: StringName):
 	if animation.name != animation_name:
 		animation.play(animation_name)
 
-func get_hit(damage: int) -> void:
+func get_hit(damage: int) -> void: 
 	HP -= damage
 	state_machine.change_state.call_deferred(state_machine.state_dictionary[StateName.Name.HIT])
 	HP_changed.emit(HP, MAX_HP)

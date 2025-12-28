@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dgkbd2nqlldrp"]
+[gd_scene load_steps=14 format=4 uid="uid://dgkbd2nqlldrp"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_2aw0p"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/spawn_result.gd" id="3_u26kk"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_ij7r7"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="9_qjipn"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="10_ij7r7"]
-[ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/boar.tscn" id="11_u26kk"]
-[ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/pewpew.tscn" id="12_4fiwg"]
 
 [sub_resource type="Resource" id="Resource_2aw0p"]
 script = ExtResource("3_u26kk")
@@ -91,10 +89,3 @@ position = Vector2(633, 39)
 
 [node name="Coin" parent="." instance=ExtResource("10_ij7r7")]
 position = Vector2(724, 62)
-
-[node name="Boar" parent="." instance=ExtResource("11_u26kk")]
-modulate = Color(1, 0.39, 0.39, 1)
-position = Vector2(497, 36)
-
-[node name="Pew Pew" parent="." instance=ExtResource("12_4fiwg")]
-position = Vector2(212, 142)

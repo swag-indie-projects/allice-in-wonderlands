@@ -2,7 +2,8 @@ extends Node2D
 
 @export var player: Player
 #@export var starting_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_STARTING_WORLD
-@export var test_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
+@export var debug_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
+@export var debug_mod: bool = false
 @export var player_healthbar_ui: PlayerHealthbarUI
 @export var player_save_tooltip_ui : SavePopupUI
 @export var save_manager : SaveManager
@@ -15,6 +16,11 @@ func _ready() -> void:
 	player.HP_changed.connect(_on_player_HP_changed)
 	save_manager.load_game()
 	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
+	
+	if debug_mod:
+		play_world(load(Constant.path_to_string[debug_world_scene_path]), 0)
+		return
+	
 	play_world(load(Constant.path_to_string[saved_world]), 0)
 	Globals.game = self
 	
