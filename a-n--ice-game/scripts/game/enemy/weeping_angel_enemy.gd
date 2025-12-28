@@ -29,11 +29,8 @@ func _physics_process(delta: float) -> void:
 	var player: Player = world.player
 	
 	var angle = player.global_position.direction_to(get_global_mouse_position()).angle_to(player.global_position.direction_to(global_position))
-	print(angle)
 	
 	is_looked_at = angle < view_spread and angle > -view_spread
-	print(is_looked_at)
-		
 	
 	if !is_looked_at and detection_box.overlaps_body(player):
 		if !$NavigationAgent2D.is_target_reached():

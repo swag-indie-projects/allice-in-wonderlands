@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_5u8pb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
-radius = 6.0
+radius = 5.0
 height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4mds"]
