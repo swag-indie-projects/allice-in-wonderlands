@@ -14,6 +14,10 @@ config/name="A\"N\" Ice game"
 run/main_scene="uid://daom27lon73h8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 Constant="*res://scripts/autoloads/constant.gd"
