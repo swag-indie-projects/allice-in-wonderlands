@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="8_1fuae"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_wmdd5"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="10_0ihr6"]
-[ext_resource type="PackedScene" uid="uid://ddsadip6j3uxu" path="res://enemy/weeping_tree.tscn" id="13_jsmsh"]
+[ext_resource type="PackedScene" uid="uid://ddsadip6j3uxu" path="res://scenes/game/enemy/weeping_tree.tscn" id="13_jsmsh"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_m6otp"]
 
 [sub_resource type="Resource" id="Resource_0ihr6"]

@@ -10,6 +10,9 @@ var direction_vector: Vector2
 
 func enter() -> void:
 	super()
+	actor.get_hit_ui.get_hit.emit()
+	actor.camera.shaking.emit()
+	
 	time_elapsed = 0.0
 	acceleration = 2 * knockback / knockback_duration / knockback_duration
 	direction_vector = FacingComponent.facing_direction_dictionary[FacingComponent.get_reverse_facing(actor.facing_component.facing)]
