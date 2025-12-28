@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0w0n1uinitch"
-path="res://.godot/imported/snowman.png-7b6f4b5cb348e33d841e4bd7e4ed7bd7.ctex"
+uid="uid://b0buca2khuh0h"
+path="res://.godot/imported/ice_flower.png-3b1f3aa0b8f69b0492ce547c220b4b01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/snowman.png"
-dest_files=["res://.godot/imported/snowman.png-7b6f4b5cb348e33d841e4bd7e4ed7bd7.ctex"]
+source_file="res://assets/object/ice_flower.png"
+dest_files=["res://.godot/imported/ice_flower.png-3b1f3aa0b8f69b0492ce547c220b4b01.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjor08dcjdnl1"
-path="res://.godot/imported/weepingtree_idle.png-a958a365d893799f5d53d15968ab68e3.ctex"
+uid="uid://dx0qqd70payon"
+path="res://.godot/imported/coin.png-6bbcbdbf3f7bbb2d71802d0b6c911fd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/weepingtree_idle.png"
-dest_files=["res://.godot/imported/weepingtree_idle.png-a958a365d893799f5d53d15968ab68e3.ctex"]
+source_file="res://assets/object/coin.png"
+dest_files=["res://.godot/imported/coin.png-6bbcbdbf3f7bbb2d71802d0b6c911fd4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx0qqd70payon"
-path="res://.godot/imported/coin.png-f04b9cd408b88aba3ab0966b4da32df0.ctex"
+uid="uid://c0w0n1uinitch"
+path="res://.godot/imported/snowman.png-ab9dbde81f1b752153b9c3fef2a1c73a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/coin.png"
-dest_files=["res://.godot/imported/coin.png-f04b9cd408b88aba3ab0966b4da32df0.ctex"]
+source_file="res://assets/tileset/snowman.png"
+dest_files=["res://.godot/imported/snowman.png-ab9dbde81f1b752153b9c3fef2a1c73a.ctex"]
 
 [params]
 

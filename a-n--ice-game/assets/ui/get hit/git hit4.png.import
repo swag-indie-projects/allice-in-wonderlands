@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2xtvue12d1md"
-path="res://.godot/imported/weepingtreerun.png-403451f0c98f321d70946f8161b00aa6.ctex"
+uid="uid://dexpw86ikk5hf"
+path="res://.godot/imported/git hit4.png-1e5501927116d9fdb7e2edd16fd8602b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/weepingtreerun.png"
-dest_files=["res://.godot/imported/weepingtreerun.png-403451f0c98f321d70946f8161b00aa6.ctex"]
+source_file="res://assets/ui/get hit/git hit4.png"
+dest_files=["res://.godot/imported/git hit4.png-1e5501927116d9fdb7e2edd16fd8602b.ctex"]
 
 [params]
 

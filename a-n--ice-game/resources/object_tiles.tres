@@ -1,14 +1,14 @@
 [gd_resource type="TileSet" load_steps=61 format=3 uid="uid://1ssn02ckky52"]
 
-[ext_resource type="Texture2D" uid="uid://b0buca2khuh0h" path="res://assets/ice_flower.png" id="1_6xexa"]
+[ext_resource type="Texture2D" uid="uid://b0buca2khuh0h" path="res://assets/object/ice_flower.png" id="1_6xexa"]
 [ext_resource type="Texture2D" uid="uid://dfy0hyvw7qdbs" path="res://assets/tileset/evergreen.png" id="2_yc0mg"]
 [ext_resource type="Texture2D" uid="uid://d0xllbbkpgwnq" path="res://assets/tileset/fence.png" id="3_6xexa"]
 [ext_resource type="Texture2D" uid="uid://8lsxqig252jv" path="res://assets/tileset/wood_tiles.png" id="3_om316"]
 [ext_resource type="Texture2D" uid="uid://dccqsn3h3m16h" path="res://assets/tileset/deadtree.png" id="4_ib8d0"]
 [ext_resource type="Texture2D" uid="uid://cp1dhpakkwiua" path="res://assets/tileset/overlay_snow_tiles.png" id="5_bbbvi"]
 [ext_resource type="Texture2D" uid="uid://dximsfywhrfcp" path="res://assets/tileset/stone_tiles.png" id="6_dsfgi"]
-[ext_resource type="Texture2D" uid="uid://bcnsxtwmmq2la" path="res://assets/fridge.png" id="7_q4572"]
-[ext_resource type="Texture2D" uid="uid://c0w0n1uinitch" path="res://assets/snowman.png" id="9_om316"]
+[ext_resource type="Texture2D" uid="uid://bcnsxtwmmq2la" path="res://assets/object/fridge.png" id="7_q4572"]
+[ext_resource type="Texture2D" uid="uid://c0w0n1uinitch" path="res://assets/tileset/snowman.png" id="9_om316"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_om316"]
 texture = ExtResource("1_6xexa")

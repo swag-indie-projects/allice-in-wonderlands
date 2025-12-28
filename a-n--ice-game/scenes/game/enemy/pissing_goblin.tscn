@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://br5vseyxakyry"]
 
-[ext_resource type="Texture2D" uid="uid://dpddr4ejvvk14" path="res://assets/pissing_goblin.png" id="1_8vbvy"]
+[ext_resource type="Texture2D" uid="uid://dpddr4ejvvk14" path="res://assets/enemy/pissing_goblin.png" id="1_8vbvy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1gi3x"]
 atlas = ExtResource("1_8vbvy")

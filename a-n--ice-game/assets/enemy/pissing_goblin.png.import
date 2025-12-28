@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcnsxtwmmq2la"
-path="res://.godot/imported/fridge.png-373b4214637586cc27474f72abccc141.ctex"
+uid="uid://dpddr4ejvvk14"
+path="res://.godot/imported/pissing_goblin.png-06ef066f7baa3df6acc69f8a294c2d98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fridge.png"
-dest_files=["res://.godot/imported/fridge.png-373b4214637586cc27474f72abccc141.ctex"]
+source_file="res://assets/enemy/pissing_goblin.png"
+dest_files=["res://.godot/imported/pissing_goblin.png-06ef066f7baa3df6acc69f8a294c2d98.ctex"]
 
 [params]
 
