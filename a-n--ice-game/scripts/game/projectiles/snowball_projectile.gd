@@ -8,8 +8,6 @@ var speed: float
 func _set_data(new_dir: Vector2, new_speed: float):
 	dir = new_dir
 	speed = new_speed
-	
-	print("HELLOOOO?")
 
 func _process(delta: float) -> void:
 	position += dir * speed * delta

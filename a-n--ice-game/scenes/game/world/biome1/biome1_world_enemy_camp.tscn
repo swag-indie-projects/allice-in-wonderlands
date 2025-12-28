@@ -12,9 +12,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile")]
 script = ExtResource("1_ctgmr")
 spawnpoints = [NodePath("spawnpoint")]
+base_tile = NodePath("base")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="base" type="TileMapLayer" parent="."]

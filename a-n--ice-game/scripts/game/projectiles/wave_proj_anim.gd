@@ -4,10 +4,10 @@ extends ProjectileAnimation
 @export var bullet_speed: float
 @export var shoot_anim_player: AnimationPlayer
 
-func _summon_projectiles(world, direction, spawn_point):
+func _summon_projectiles(world, target_position, spawn_position):
 	self.world = world
-	self.direction = direction
-	self.spawn_point = spawn_point
+	self.direction = spawn_position.direction_to(target_position)
+	self.spawn_point = spawn_position
 	shoot_anim_player.play("shoot")
 	
 

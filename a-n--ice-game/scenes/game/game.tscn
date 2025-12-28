@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cyi7otpakwjkg"]
+[gd_scene load_steps=22 format=3 uid="uid://cyi7otpakwjkg"]
 
 [ext_resource type="PackedScene" uid="uid://d204nsy8svfev" path="res://scenes/game/player/player.tscn" id="1_nl0sk"]
 [ext_resource type="Script" uid="uid://clhsdbanamdpr" path="res://scripts/game/game.gd" id="1_qh8lf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dt1xhxgttwufa" path="res://scenes/game/ui/save_popup.tscn" id="5_87uf6"]
 [ext_resource type="Script" uid="uid://j2xustrm625i" path="res://scripts/save/save_manager.gd" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
+[ext_resource type="AudioStream" uid="uid://d2psloptrq377" path="res://sounds/ost/winter.ogg" id="9_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_healthbar_ui.tscn" id="9_t28dr"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
 
@@ -73,13 +74,15 @@ scale_min = 1.5
 scale_max = 1.8
 color_initial_ramp = SubResource("GradientTexture1D_f2m1r")
 
-[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_healthbar_ui", "player_save_tooltip_ui", "save_manager")]
+[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_healthbar_ui", "player_save_tooltip_ui", "save_manager", "audio_stream_player")]
+process_mode = 3
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
 debug_world_scene_path = 0
 player_healthbar_ui = NodePath("UI/player healthbar ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
 save_manager = NodePath("SaveManager")
+audio_stream_player = NodePath("AudioStreamPlayer2D")
 
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("healthbar")]
 script = ExtResource("8_ian8s")
@@ -133,3 +136,13 @@ texture = ExtResource("3_ian8s")
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("7_bdhmt")
+
+[node name="music  await" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_2a8rs")
+
+[connection signal="timeout" from="music  await" to="." method="_on_music__await_timeout"]

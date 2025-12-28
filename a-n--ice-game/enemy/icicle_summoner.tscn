@@ -1,0 +1,148 @@
+[gd_scene load_steps=16 format=3 uid="uid://3d0l5tbmkpyg"]
+
+[ext_resource type="Script" uid="uid://cxlp4ycd4q3eb" path="res://scripts/game/enemy/projectile_enemy.gd" id="1_o2clo"]
+[ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/enemy/ISlim.png" id="2_d26pw"]
+[ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_fxwt2"]
+[ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_u51sl"]
+[ext_resource type="Script" uid="uid://psroio1xfup1" path="res://scripts/game/projectiles/summon_icicle_proj_anim.gd" id="5_o2clo"]
+[ext_resource type="PackedScene" uid="uid://nayb1yuslop4" path="res://scenes/game/projectiles/icicle_projectile.tscn" id="6_d26pw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
+radius = 2.9999952
+height = 9.999984
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s4mds"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1iby1"]
+radius = 69.065186
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2bu2f"]
+radius = 87.05171
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4mds"]
+atlas = ExtResource("2_d26pw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_138c7"]
+atlas = ExtResource("2_d26pw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iws7p"]
+atlas = ExtResource("2_d26pw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cfu5"]
+atlas = ExtResource("2_d26pw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n3byp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4mds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_138c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iws7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cfu5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Pew Pew" type="CharacterBody2D" node_paths=PackedStringArray("player_detection_box", "avoidance_box", "hysteresis", "animation", "health_bar", "projectile_animation", "knockback_component", "animation_component")]
+modulate = Color(0.49, 0.7535, 1, 1)
+collision_layer = 7
+script = ExtResource("1_o2clo")
+player_detection_box = NodePath("detection_box")
+avoidance_box = NodePath("avoidance_hitbox")
+hysteresis = NodePath("hysteresis")
+speed = 30.0
+animation = NodePath("AnimatedSprite2D")
+health_bar = NodePath("ProgressBar")
+projectile_animation = NodePath("Proj Anim")
+MAX_HP = 3
+knockback_component = NodePath("knockback component")
+animation_component = NodePath("animation component")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_vhjlo")
+debug_color = Color(0.9744286, 0, 0.43028787, 0.41960785)
+
+[node name="detection_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_box"]
+modulate = Color(0.56733334, 0.92, 0, 1)
+shape = SubResource("CircleShape2D_s4mds")
+debug_color = Color(0.56733334, 0.92, 0, 0)
+
+[node name="avoidance_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="avoidance_hitbox"]
+modulate = Color(0.56733334, 0.92, 0, 1)
+shape = SubResource("CircleShape2D_1iby1")
+debug_color = Color(0.56733334, 0.92, 0, 0)
+
+[node name="hysteresis" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hysteresis"]
+modulate = Color(0.56733334, 0.92, 0, 1)
+shape = SubResource("CircleShape2D_2bu2f")
+debug_color = Color(0.56733334, 0.92, 0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_n3byp")
+frame_progress = 0.98271334
+
+[node name="knockback component" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_fxwt2")
+knockback = 12.0
+knockback_duration = 0.1
+actor = NodePath("..")
+
+[node name="animation component" type="Node" parent="." node_paths=PackedStringArray("target_animation")]
+script = ExtResource("4_u51sl")
+target_animation = NodePath("../AnimatedSprite2D")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = 7.0
+offset_right = 90.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 2.0
+avoidance_enabled = true
+
+[node name="Timer" type="Timer" parent="NavigationAgent2D"]
+wait_time = 0.2
+autostart = true
+
+[node name="Shoot Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Proj Anim" type="Node" parent="."]
+script = ExtResource("5_o2clo")
+icicle_proj_scene = ExtResource("6_d26pw")
+bullet_speed = 300.0
+above_target_offset = 50
+
+[connection signal="timeout" from="NavigationAgent2D/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Shoot Timer" to="." method="_on_shoot_timer_timeout"]

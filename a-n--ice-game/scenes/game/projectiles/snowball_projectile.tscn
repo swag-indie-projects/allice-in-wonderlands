@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfc78"]
 radius = 3.0
 
-[node name="SnowballProjectile" type="Node2D"]
+[node name="SnowballProjectile2" type="Node2D"]
 z_index = 20
 script = ExtResource("1_6l27b")
 

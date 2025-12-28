@@ -62,4 +62,4 @@ func _on_timer_timeout() -> void:
 
 func _on_shoot_timer_timeout() -> void:
 	if player_detection_box.overlaps_body(world.player):
-		projectile_animation._summon_projectiles(world, global_position.direction_to(world.player.global_position), global_position)
+		projectile_animation._summon_projectiles(world, world.player.global_position, global_position)
