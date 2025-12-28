@@ -44,11 +44,16 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity = Vector2.ZERO
 	
+	animation.flip_h = velocity.x > 0
+		
+	if velocity != Vector2.ZERO:
+		animation.play("dashing")
+	else:
+		animation.play("default")
 	move_and_slide()
 
 func _process(delta: float) -> void:
 	super(delta)
-	animation.play(&"default")
 	
 	health_bar.value = HP
 

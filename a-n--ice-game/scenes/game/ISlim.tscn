@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bd7kj04cf4mom"]
 
-[ext_resource type="Script" uid="uid://bxwphktaw6nre" path="res://scripts/game/enemy/followEnemy.gd" id="1_s4mds"]
+[ext_resource type="Script" uid="uid://bxwphktaw6nre" path="res://scripts/game/enemy/follow_enemy.gd" id="1_s4mds"]
 [ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/enemy/ISlim.png" id="1_x8mds"]
 [ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_138c7"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_pagvl"]
@@ -82,6 +82,7 @@ shape = SubResource("CircleShape2D_s4mds")
 debug_color = Color(0.56733334, 0.92, 0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_n3byp")
 frame_progress = 0.98271334

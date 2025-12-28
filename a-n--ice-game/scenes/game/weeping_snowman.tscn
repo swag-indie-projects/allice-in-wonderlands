@@ -59,6 +59,7 @@ detection_box = NodePath("detection_box")
 speed = 105.0
 animation = NodePath("AnimatedSprite2D")
 health_bar = NodePath("ProgressBar")
+view_spread = 0.5235987755982988
 MAX_HP = 5
 knockback_component = NodePath("knockback component")
 animation_component = NodePath("animation component")
@@ -82,6 +83,7 @@ shape = SubResource("CircleShape2D_y26v5")
 debug_color = Color(0.56733334, 0.92, 0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_n3byp")
 frame_progress = 0.98271334
