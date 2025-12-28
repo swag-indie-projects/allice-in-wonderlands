@@ -77,7 +77,6 @@ scale_max = 1.8
 color_initial_ramp = SubResource("GradientTexture1D_f2m1r")
 
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_healthbar_ui", "player_save_tooltip_ui", "save_manager", "audio_stream_player")]
-process_mode = 3
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
 debug_world_scene_path = 0
@@ -102,6 +101,7 @@ visible = false
 z_as_relative = false
 
 [node name="get hit ui" parent="UI" instance=ExtResource("6_4j704")]
+mouse_filter = 2
 
 [node name="player" parent="." node_paths=PackedStringArray("get_hit_ui", "camera") instance=ExtResource("1_nl0sk")]
 position = Vector2(93, 67)

@@ -10,8 +10,8 @@ func _ready() -> void:
 	for button: Button in vbox_containing_buttons.get_children():
 		button.disabled = true
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_escape"):
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_escape"):
 		if get_tree().paused:
 			resume()
 		else:
@@ -19,6 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func pause() -> void:
 	for button: Button in vbox_containing_buttons.get_children():
+		print("here")
 		button.disabled = false
 	
 	get_tree().paused = true

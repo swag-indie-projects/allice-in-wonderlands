@@ -58,7 +58,7 @@ func get_hit(damage: int) -> void:
 	
 	# The "freeze" when hit
 	get_tree().paused = true
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.05).timeout
 	get_tree().paused = false
 	
 	$invincibility.start()
