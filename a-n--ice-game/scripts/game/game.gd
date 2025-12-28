@@ -37,7 +37,7 @@ func _on_world_exited(result: SpawnResult) -> void:
 		world_change_debounce = false
 		var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
 		play_world(target_scene, result.spawnpoint_index)
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(0.5).timeout
 		world_change_debounce = true
 
 func _on_player_HP_changed(HP: int, max_HP: int):
