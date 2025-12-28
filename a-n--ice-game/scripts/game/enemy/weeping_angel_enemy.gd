@@ -51,6 +51,7 @@ func _process(delta: float) -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Player:
+		print("touching plr")
 		body.get_hit(1)
 
 func _on_timer_timeout() -> void:
