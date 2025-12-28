@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://br5vseyxakyry"]
+
+[ext_resource type="Texture2D" uid="uid://dpddr4ejvvk14" path="res://assets/pissing_goblin.png" id="1_8vbvy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gi3x"]
+atlas = ExtResource("1_8vbvy")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcony"]
+atlas = ExtResource("1_8vbvy")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j10px"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gi3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcony")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PissingGoblin" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_j10px")
+autoplay = "default"
+frame_progress = 0.50836986

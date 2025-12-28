@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://qdsmfsfd8nn3"]
+
+[ext_resource type="Shader" uid="uid://c6rtg523eybjm" path="res://shaders/blue_snow.gdshader" id="1_nslwh"]
+[ext_resource type="Texture2D" uid="uid://cjd1i0u4jvkb" path="res://assets/tileset/random stuffs/blue_snow_overlay.png" id="2_5m74v"]
+
+[resource]
+shader = ExtResource("1_nslwh")
+shader_parameter/overlay_tex = ExtResource("2_5m74v")
+shader_parameter/scale = 0.01
