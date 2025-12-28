@@ -8,6 +8,8 @@ extends Node2D
 @export var player_save_tooltip_ui : SavePopupUI
 @export var save_manager : SaveManager
 
+@export var audio_stream_player: AudioStreamPlayer2D
+
 
 @onready var current_world: World = null
 
@@ -25,9 +27,7 @@ func _ready() -> void:
 		return
 	
 	play_world(load(Constant.path_to_string[saved_world]), 0)
-	
-	
-	
+
 func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 	if is_instance_valid(current_world):
 		current_world.queue_free()
@@ -64,3 +64,15 @@ func apply_camera_border_limit() -> void:
 	camera.limit_top    = int(border_rectangle.position.y)
 	camera.limit_right  = int(border_rectangle.position.x + border_rectangle.size.x)
 	camera.limit_bottom = int(border_rectangle.position.y + border_rectangle.size.y)
+
+func _on_music__await_timeout() -> void:
+	audio_stream_player.volume_db = -20.0
+	audio_stream_player.play()
+
+	var tween := create_tween()
+	tween.tween_property(
+		audio_stream_player,
+		"volume_db",
+		0.0,
+		2.0
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
