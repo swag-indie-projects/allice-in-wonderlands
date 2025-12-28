@@ -4,7 +4,9 @@ extends Node2D
 #@export var starting_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_STARTING_WORLD
 @export var test_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
 @export var player_healthbar_ui: PlayerHealthbarUI
+@export var player_save_tooltip_ui : SavePopupUI
 @export var save_manager : SaveManager
+
 
 @onready var current_world: World = null
 
