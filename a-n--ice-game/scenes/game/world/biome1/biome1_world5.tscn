@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=4 uid="uid://emsvhu2o4fdd"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_17a8n"]
-[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/spawn_result.gd" id="2_r20cd"]
+[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_r20cd"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="3_tg5yf"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="4_kgcyk"]
 [ext_resource type="TileSet" uid="uid://bam1ln05uasgr" path="res://resources/base_tiles_overlay.tres" id="5_xbnld"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_377jq"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="10_7y0v4"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="11_mxwru"]
-[ext_resource type="PackedScene" uid="uid://br5vseyxakyry" path="res://scenes/game/pissing_goblin.tscn" id="11_r20cd"]
+[ext_resource type="PackedScene" uid="uid://br5vseyxakyry" path="res://enemy/pissing_goblin.tscn" id="11_r20cd"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="12_o7jxs"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="13_w6uen"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="15_tg5yf"]
@@ -33,13 +33,14 @@ size = Vector2(20, 338)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h04wm"]
 size = Vector2(20, 92)
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
 script = ExtResource("1_17a8n")
 spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
 exitpoint_to_scenepath = {
 NodePath("exitpoint"): SubResource("Resource_0ihr6"),
 NodePath("exitpoint2"): SubResource("Resource_bvefd")
 }
+base_tile = NodePath("base")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="base" type="TileMapLayer" parent="."]

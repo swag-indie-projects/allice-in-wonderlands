@@ -2,7 +2,8 @@ extends Node2D
 
 @export var player: Player
 #@export var starting_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_STARTING_WORLD
-@export var test_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
+@export var debug_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
+@export var debug_mod: bool = false
 @export var player_healthbar_ui: PlayerHealthbarUI
 @export var player_save_tooltip_ui : SavePopupUI
 @export var save_manager : SaveManager
@@ -15,6 +16,11 @@ func _ready() -> void:
 	player.HP_changed.connect(_on_player_HP_changed)
 	save_manager.load_game()
 	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
+	
+	if debug_mod:
+		play_world(load(Constant.path_to_string[debug_world_scene_path]), 0)
+		return
+	
 	play_world(load(Constant.path_to_string[saved_world]), 0)
 	Globals.game = self
 	
@@ -29,6 +35,8 @@ func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 	
 	current_world.setup(player, spawn_point_index)
 	add_child.call_deferred(current_world)
+	
+	apply_camera_border_limit()
 
 var world_change_debounce = true
 
@@ -42,3 +50,14 @@ func _on_world_exited(result: SpawnResult) -> void:
 
 func _on_player_HP_changed(HP: int, max_HP: int):
 	player_healthbar_ui.update_healthbar.emit(HP, max_HP)
+
+func apply_camera_border_limit() -> void:
+	var camera := player.get_node("Camera2D") as Camera2D
+	if camera == null:
+		return
+	
+	var border_rectangle: Rect2 = current_world.get_border_rectangle()
+	camera.limit_left   = int(border_rectangle.position.x)
+	camera.limit_top    = int(border_rectangle.position.y)
+	camera.limit_right  = int(border_rectangle.position.x + border_rectangle.size.x)
+	camera.limit_bottom = int(border_rectangle.position.y + border_rectangle.size.y)

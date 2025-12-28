@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://cgu3qwehsenbp"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_1ovx2"]
-[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/spawn_result.gd" id="2_81jhw"]
+[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_81jhw"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="3_h04wm"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="4_gn433"]
 [ext_resource type="TileSet" uid="uid://bam1ln05uasgr" path="res://resources/base_tiles_overlay.tres" id="5_rneju"]
@@ -31,13 +31,14 @@ size = Vector2(20, 98)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h04wm"]
 size = Vector2(20, 216)
 
-[node name="world2" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath")]
+[node name="world2" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
 script = ExtResource("1_1ovx2")
 spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
 exitpoint_to_scenepath = {
 NodePath("exitpoint"): SubResource("Resource_0ihr6"),
 NodePath("exitpoint2"): SubResource("Resource_bvefd")
 }
+base_tile = NodePath("base")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="base" type="TileMapLayer" parent="."]
