@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dt1xhxgttwufa" path="res://scenes/game/ui/save_popup.tscn" id="5_87uf6"]
 [ext_resource type="Script" uid="uid://j2xustrm625i" path="res://scripts/save/save_manager.gd" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
-[ext_resource type="AudioStream" uid="uid://bp3nwym0ep30m" path="res://sounds/ost/winter3.mp3" id="9_2a8rs"]
+[ext_resource type="AudioStream" uid="uid://d2psloptrq377" path="res://sounds/ost/winter.ogg" id="9_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_healthbar_ui.tscn" id="9_t28dr"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
 
