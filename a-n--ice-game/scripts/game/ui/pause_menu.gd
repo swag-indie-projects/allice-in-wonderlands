@@ -32,6 +32,7 @@ func resume() -> void:
 	animation_player.play_backwards(&"blur")
 	
 func _on_resume_pressed() -> void:
+	print("resume is pressed")
 	resume()
 
 func _on_options_pressed() -> void:
