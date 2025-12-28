@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0nt5k7go6dyl"
-path="res://.godot/imported/snow_wall.png-d0becc4e46f3e098dc4532369654cc5e.ctex"
+uid="uid://bcnsxtwmmq2la"
+path="res://.godot/imported/fridge.png-52644166092a275fe77339622ee3f3d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/snow_wall.png"
-dest_files=["res://.godot/imported/snow_wall.png-d0becc4e46f3e098dc4532369654cc5e.ctex"]
+source_file="res://assets/object/fridge.png"
+dest_files=["res://.godot/imported/fridge.png-52644166092a275fe77339622ee3f3d9.ctex"]
 
 [params]
 

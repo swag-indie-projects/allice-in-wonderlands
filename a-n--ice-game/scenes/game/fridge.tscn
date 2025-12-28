@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bjvwyaude6u2b"]
 
-[ext_resource type="Texture2D" uid="uid://bcnsxtwmmq2la" path="res://assets/fridge.png" id="1_y8we2"]
+[ext_resource type="Texture2D" uid="uid://bcnsxtwmmq2la" path="res://assets/object/fridge.png" id="1_y8we2"]
 [ext_resource type="Script" uid="uid://bj1fcqe8pkjnr" path="res://scripts/game/fridge.gd" id="1_ycerp"]
 [ext_resource type="AudioStream" uid="uid://b37v7bdho4l7q" path="res://sounds/fridgeOpen.wav" id="3_5uyol"]
 

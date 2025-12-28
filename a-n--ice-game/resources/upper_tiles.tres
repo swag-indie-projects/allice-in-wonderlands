@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=21 format=3 uid="uid://dajfu3xxtbwkt"]
 
 [ext_resource type="Texture2D" uid="uid://dmbkgthkt4u4r" path="res://assets/tileset/upper_stone.png" id="1_x5why"]
-[ext_resource type="Texture2D" uid="uid://d0nt5k7go6dyl" path="res://assets/snow_wall.png" id="2_fjrw5"]
+[ext_resource type="Texture2D" uid="uid://d0nt5k7go6dyl" path="res://assets/tileset/snow_wall.png" id="2_fjrw5"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x5why"]
 polygon = PackedVector2Array(6, -6, 6, 8, -6, 8, -6, -6)

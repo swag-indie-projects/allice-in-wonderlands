@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://ddsadip6j3uxu"]
 
 [ext_resource type="Script" uid="uid://bx1jqnfrv4tht" path="res://scripts/game/enemy/weeping_angel_enemy.gd" id="1_y26v5"]
-[ext_resource type="Texture2D" uid="uid://bjor08dcjdnl1" path="res://assets/weepingtree_idle.png" id="2_yl7ki"]
-[ext_resource type="Texture2D" uid="uid://2xtvue12d1md" path="res://assets/weepingtreerun.png" id="3_gjs43"]
+[ext_resource type="Texture2D" uid="uid://bjor08dcjdnl1" path="res://assets/enemy/weepingtree_idle.png" id="2_yl7ki"]
+[ext_resource type="Texture2D" uid="uid://2xtvue12d1md" path="res://assets/enemy/weepingtreerun.png" id="3_gjs43"]
 [ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_ne5xl"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_gjs43"]
 

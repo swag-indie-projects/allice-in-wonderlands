@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2xtvue12d1md"
-path="res://.godot/imported/weepingtreerun.png-403451f0c98f321d70946f8161b00aa6.ctex"
+uid="uid://bqo706yfvo5j3"
+path="res://.godot/imported/snowman-throw.png-c0882dde898a379ecadb177132ab07db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/weepingtreerun.png"
-dest_files=["res://.godot/imported/weepingtreerun.png-403451f0c98f321d70946f8161b00aa6.ctex"]
+source_file="res://assets/enemy/snowman-throw.png"
+dest_files=["res://.godot/imported/snowman-throw.png-c0882dde898a379ecadb177132ab07db.ctex"]
 
 [params]
 

@@ -17,6 +17,8 @@ var is_invincible: bool
 
 @export var animation: AnimatedSprite2D
 
+@export var get_hit_ui: GetHitUI
+@export var camera: Camera2D
 
 signal HP_changed(HP: int, max_HP: int)
 
@@ -40,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		
 	# For invincibility frames
 	if is_invincible:
-		visible = !visible
+		animation.visible = !animation.visible
 
 func play_animation(animation_name: StringName):
 	if animation.name != animation_name:
@@ -49,14 +51,14 @@ func play_animation(animation_name: StringName):
 func get_hit(damage: int) -> void:
 	if is_invincible:
 		return
-		
+	
 	HP -= damage
 	state_machine.change_state.call_deferred(state_machine.state_dictionary[StateName.Name.HIT])
 	HP_changed.emit(HP, MAX_HP)
-
+	
 	# The "freeze" when hit
 	get_tree().paused = true
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.05).timeout
 	get_tree().paused = false
 	
 	$invincibility.start()
@@ -65,4 +67,4 @@ func get_hit(damage: int) -> void:
 
 func _on_invincibility_timeout() -> void:
 	is_invincible = false
-	visible = true
+	animation.visible = true

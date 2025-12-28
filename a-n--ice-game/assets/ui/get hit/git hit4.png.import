@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpddr4ejvvk14"
-path="res://.godot/imported/pissing_goblin.png-f94773cc20af4e9777327322a3b90b8e.ctex"
+uid="uid://dexpw86ikk5hf"
+path="res://.godot/imported/git hit4.png-1e5501927116d9fdb7e2edd16fd8602b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pissing_goblin.png"
-dest_files=["res://.godot/imported/pissing_goblin.png-f94773cc20af4e9777327322a3b90b8e.ctex"]
+source_file="res://assets/ui/get hit/git hit4.png"
+dest_files=["res://.godot/imported/git hit4.png-1e5501927116d9fdb7e2edd16fd8602b.ctex"]
 
 [params]
 
