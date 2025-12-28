@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt1xhxgttwufa"]
+
+[ext_resource type="Script" uid="uid://c6du6q3uoaedn" path="res://scripts/game/ui/save_popup.gd" id="1_880rq"]
+
+[node name="SavePopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_880rq")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 917.0
+offset_top = 11.0
+offset_right = 1143.0
+offset_bottom = 110.0
+
+[node name="TextEdit" type="TextEdit" parent="PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Saving"

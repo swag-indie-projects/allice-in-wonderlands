@@ -1,24 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjvwyaude6u2b"]
+[gd_scene load_steps=10 format=3 uid="uid://bjvwyaude6u2b"]
 
 [ext_resource type="Texture2D" uid="uid://bcnsxtwmmq2la" path="res://assets/fridge.png" id="1_y8we2"]
+[ext_resource type="Script" uid="uid://bj1fcqe8pkjnr" path="res://scripts/game/fridge.gd" id="1_ycerp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uyol"]
+size = Vector2(14, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8we2"]
+size = Vector2(14, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycerp"]
+atlas = ExtResource("1_y8we2")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uyol"]
+atlas = ExtResource("1_y8we2")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jh64"]
+atlas = ExtResource("1_y8we2")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjf4x"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ycerp")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_5uyol")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0jh64")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gjeag"]
 cull_mode = 1
 polygon = PackedVector2Array(-7, 16, -7, 9, 7, 9, 7, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8we2"]
-size = Vector2(14, 32)
+[node name="Fridge" type="Area2D" groups=["navigation"]]
+script = ExtResource("1_ycerp")
 
-[node name="Fridge" type="Node2D" groups=["navigation"]]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-light_mask = 2
-texture = ExtResource("1_y8we2")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D"]
-occluder = SubResource("OccluderPolygon2D_gjeag")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5uyol")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_y8we2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yjf4x")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite2D"]
+occluder = SubResource("OccluderPolygon2D_gjeag")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
