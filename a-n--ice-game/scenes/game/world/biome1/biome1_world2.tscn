@@ -30,13 +30,14 @@ size = Vector2(20, 259)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmdd5"]
 size = Vector2(20, 45)
 
-[node name="world2" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath")]
+[node name="world2" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
 script = ExtResource("1_3q01c")
 spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
 exitpoint_to_scenepath = {
 NodePath("exitpoint"): SubResource("Resource_0ihr6"),
 NodePath("exitpoint2"): SubResource("Resource_bvefd")
 }
+base_tile = NodePath("base")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="base" type="TileMapLayer" parent="."]

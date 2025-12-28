@@ -20,12 +20,13 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 radius = 16.0
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
 script = ExtResource("1_3hxre")
 spawnpoints = [NodePath("spawnpoint")]
 exitpoint_to_scenepath = {
 NodePath("exitpoint"): SubResource("Resource_5a3xp")
 }
+base_tile = NodePath("base")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="base" type="TileMapLayer" parent="."]
