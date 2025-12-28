@@ -33,17 +33,21 @@ func _physics_process(delta: float) -> void:
 	is_looked_at = angle < view_spread and angle > -view_spread
 	
 	if !is_looked_at and detection_box.overlaps_body(player):
+		print("I should be running...")
+		animation.play("run")
 		if !$NavigationAgent2D.is_target_reached():
 			var dir = global_position.direction_to($NavigationAgent2D.get_next_path_position())
 			velocity = dir * speed
+			print(velocity)
 		#velocity = (player.position - position).normalized() * speed
 	else:
 		velocity = Vector2.ZERO
+		animation.play("default")
 	move_and_slide()
 
 func _process(delta: float) -> void:
 	super(delta)
-	animation.play(&"default")
+	#animation.play(&"default")
 	
 	health_bar.value = HP
 

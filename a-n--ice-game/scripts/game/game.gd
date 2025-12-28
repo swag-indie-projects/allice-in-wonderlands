@@ -13,16 +13,19 @@ extends Node2D
 
 
 func _ready() -> void:
+	Globals.game = self
+	
 	player.HP_changed.connect(_on_player_HP_changed)
 	save_manager.load_game()
 	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
+	print(saved_world)
 	
 	if debug_mod:
 		play_world(load(Constant.path_to_string[debug_world_scene_path]), 0)
 		return
 	
 	play_world(load(Constant.path_to_string[saved_world]), 0)
-	Globals.game = self
+	
 	
 	
 func play_world(scene: PackedScene, spawn_point_index: int) -> void:
@@ -45,7 +48,7 @@ func _on_world_exited(result: SpawnResult) -> void:
 		world_change_debounce = false
 		var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
 		play_world(target_scene, result.spawnpoint_index)
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(0.5).timeout
 		world_change_debounce = true
 
 func _on_player_HP_changed(HP: int, max_HP: int):

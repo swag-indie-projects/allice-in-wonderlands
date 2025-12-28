@@ -13,10 +13,12 @@ func _on_area_entered(body) -> void:
 		opened = true
 		sprite.play("default")
 		sound.play()
-		if (Globals.game):
-			Globals.game.save_manager.update_save_data("spawn", self.spawnpoint)
-			Globals.game.save_manager.save_game()
-			Globals.game.player_save_tooltip_ui.show_save_popup()
+		var game = Globals.get_game()
+		print("game")
+		if (game):
+			game.save_manager.update_save_data("spawn", self.spawnpoint)
+			game.save_manager.save_game()
+			game.player_save_tooltip_ui.show_save_popup()
 		await get_tree().create_timer(10.0).timeout # 10s delay before next time its open
 		opened = false
 		sprite.frame = 0

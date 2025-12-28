@@ -9,6 +9,9 @@ extends Enemy
 @export var health_bar: ProgressBar
 @export var dash_animation: AnimationPlayer
 
+
+var is_dashing: bool = false
+var dash_dir: Vector2
 var world: World
 
 func _ready() -> void:
@@ -64,9 +67,6 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	if !is_dashing:
 		$NavigationAgent2D.target_position = world.player.global_position
-
-var is_dashing: bool = false
-var dash_dir: Vector2
 
 func dash() -> void:
 	var player: Player = world.player
