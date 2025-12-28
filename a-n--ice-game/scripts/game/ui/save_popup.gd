@@ -11,3 +11,6 @@ func show_save_popup() -> void:
 		panel.modulate.a -= 0.10
 	panel.visible = false
 	panel.modulate.a = 1.0
+
+func _ready():
+	pass;
