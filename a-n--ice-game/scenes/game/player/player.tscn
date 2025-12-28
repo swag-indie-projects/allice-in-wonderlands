@@ -219,6 +219,8 @@ position = Vector2(-0.15423393, 0.51621723)
 wait_time = 0.8
 one_shot = true
 
+[node name="invincibility" type="Timer" parent="."]
+
 [node name="state machine" type="Node" parent="." node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
 script = ExtResource("3_qhqgy")
 actor = NodePath("..")
@@ -251,3 +253,5 @@ script = ExtResource("11_d2wvv")
 [node name="walk audio player" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_sxkrj")
 volume_db = -20.0
+
+[connection signal="timeout" from="invincibility" to="." method="_on_invincibility_timeout"]
