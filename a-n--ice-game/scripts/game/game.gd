@@ -13,16 +13,19 @@ extends Node2D
 
 
 func _ready() -> void:
+	Globals.game = self
+	
 	player.HP_changed.connect(_on_player_HP_changed)
 	save_manager.load_game()
 	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
+	print(saved_world)
 	
 	if debug_mod:
 		play_world(load(Constant.path_to_string[debug_world_scene_path]), 0)
 		return
 	
 	play_world(load(Constant.path_to_string[saved_world]), 0)
-	Globals.game = self
+	
 	
 	
 func play_world(scene: PackedScene, spawn_point_index: int) -> void:

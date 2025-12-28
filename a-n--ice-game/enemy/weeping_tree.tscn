@@ -1,58 +1,63 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddsadip6j3uxu"]
+[gd_scene load_steps=14 format=3 uid="uid://ddsadip6j3uxu"]
 
 [ext_resource type="Script" uid="uid://bx1jqnfrv4tht" path="res://scripts/game/enemy/weeping_angel_enemy.gd" id="1_y26v5"]
-[ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/enemy/ISlim.png" id="2_yl7ki"]
+[ext_resource type="Texture2D" uid="uid://bjor08dcjdnl1" path="res://assets/weepingtree_idle.png" id="2_yl7ki"]
+[ext_resource type="Texture2D" uid="uid://2xtvue12d1md" path="res://assets/weepingtreerun.png" id="3_gjs43"]
 [ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_ne5xl"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_gjs43"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
-radius = 2.9999952
-height = 9.999984
+radius = 12.0
+height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4mds"]
-radius = 4.0
-height = 12.0
+height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y26v5"]
 radius = 192.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s4mds"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_njoxj"]
 atlas = ExtResource("2_yl7ki")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_138c7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7q21"]
 atlas = ExtResource("2_yl7ki")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iws7p"]
-atlas = ExtResource("2_yl7ki")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0a3m"]
+atlas = ExtResource("3_gjs43")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1cfu5"]
-atlas = ExtResource("2_yl7ki")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_co622"]
+atlas = ExtResource("3_gjs43")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n3byp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s4mds")
+"texture": SubResource("AtlasTexture_njoxj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_138c7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iws7p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1cfu5")
+"texture": SubResource("AtlasTexture_d7q21")
 }],
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0a3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co622")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
 }]
 
-[node name="Weeping Snowman" type="CharacterBody2D" node_paths=PackedStringArray("detection_box", "animation", "health_bar", "knockback_component", "animation_component")]
+[node name="Weeping Tree" type="CharacterBody2D" node_paths=PackedStringArray("detection_box", "animation", "health_bar", "knockback_component", "animation_component")]
 collision_layer = 7
 script = ExtResource("1_y26v5")
 detection_box = NodePath("detection_box")
@@ -86,7 +91,6 @@ debug_color = Color(0.56733334, 0.92, 0, 0)
 z_index = 10
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_n3byp")
-frame_progress = 0.98271334
 
 [node name="knockback component" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_ne5xl")
@@ -115,6 +119,7 @@ scale = Vector2(0.2, 0.2)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 2.0
 avoidance_enabled = true
+debug_enabled = true
 
 [node name="Timer" type="Timer" parent="NavigationAgent2D"]
 wait_time = 0.2
