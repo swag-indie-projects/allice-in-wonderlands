@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="9_qjipn"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="10_ij7r7"]
 [ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/boar.tscn" id="11_u26kk"]
-[ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/pewpew.tscn" id="12_4fiwg"]
+[ext_resource type="PackedScene" uid="uid://ddsadip6j3uxu" path="res://scenes/game/weeping_snowman.tscn" id="12_4fiwg"]
 
 [sub_resource type="Resource" id="Resource_2aw0p"]
 script = ExtResource("3_u26kk")
@@ -96,5 +96,5 @@ position = Vector2(724, 62)
 modulate = Color(1, 0.39, 0.39, 1)
 position = Vector2(497, 36)
 
-[node name="Pew Pew" parent="." instance=ExtResource("12_4fiwg")]
-position = Vector2(212, 142)
+[node name="ISlim2" parent="." instance=ExtResource("12_4fiwg")]
+position = Vector2(167, 154)

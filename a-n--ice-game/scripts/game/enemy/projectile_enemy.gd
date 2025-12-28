@@ -61,4 +61,5 @@ func _on_timer_timeout() -> void:
 	$NavigationAgent2D.target_position = world.player.global_position
 
 func _on_shoot_timer_timeout() -> void:
-	projectile_animation._summon_projectiles(world, global_position.direction_to(world.player.global_position), global_position)
+	if player_detection_box.overlaps_body(world.player):
+		projectile_animation._summon_projectiles(world, global_position.direction_to(world.player.global_position), global_position)

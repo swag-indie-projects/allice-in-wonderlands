@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://be1ddaxdk35fo"]
 
-[ext_resource type="Script" uid="uid://dxr00mc2xmst" path="res://scripts/game/enemy/dashEnemy.gd" id="1_scd7v"]
+[ext_resource type="Script" uid="uid://dxr00mc2xmst" path="res://scripts/game/enemy/dash_enemy.gd" id="1_scd7v"]
 [ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/enemy/ISlim.png" id="2_7berh"]
 [ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_7do6t"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_5u8pb"]
