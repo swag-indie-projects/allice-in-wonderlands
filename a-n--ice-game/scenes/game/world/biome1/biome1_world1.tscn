@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://buial0xs2kvov"]
+[gd_scene load_steps=24 format=4 uid="uid://buial0xs2kvov"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_puu7c"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/spawn_result.gd" id="3_o6ox3"]
@@ -11,8 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="8_cks57"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="9_5a3xp"]
 [ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/ISlim.tscn" id="9_06jbn"]
+[ext_resource type="Texture2D" uid="uid://o4mjp1l2bns" path="res://assets/markers/entrance_marker3.png" id="10_lnup1"]
+[ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="11_agetj"]
 [ext_resource type="PackedScene" uid="uid://dyp5tee4bjs6m" path="res://scenes/game/floating_ice.tscn" id="11_uhydd"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="13_als7v"]
+[ext_resource type="Texture2D" uid="uid://c8u3hxtkaccae" path="res://assets/markers/exit_marker3.png" id="14_lged5"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_okr80"]
 
 [sub_resource type="Resource" id="Resource_06jbn"]
@@ -23,6 +26,11 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 [sub_resource type="Resource" id="Resource_5a3xp"]
 script = ExtResource("3_o6ox3")
 scene_path = 2
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_3x3w6"]
+script = ExtResource("3_o6ox3")
+scene_path = 3
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Curve2D" id="Curve2D_uhydd"]
@@ -43,10 +51,11 @@ source_geometry_group_name = &"navigation"
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath")]
 script = ExtResource("1_puu7c")
-spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
+spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2"), NodePath("spawnpoint3")]
 exitpoint_to_scenepath = {
 NodePath("exitpoint2"): SubResource("Resource_06jbn"),
-NodePath("exitpoint"): SubResource("Resource_5a3xp")
+NodePath("exitpoint"): SubResource("Resource_5a3xp"),
+NodePath("exitpoint3"): SubResource("Resource_3x3w6")
 }
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
@@ -89,11 +98,17 @@ position = Vector2(396, 144)
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint"]
 texture = ExtResource("7_u0o5v")
 
+[node name="spawnpoint3" type="Node2D" parent="."]
+position = Vector2(350, 296)
+
+[node name="Sprite2D" type="Sprite2D" parent="spawnpoint3"]
+texture = ExtResource("10_lnup1")
+
 [node name="spawnpoint2" type="Node2D" parent="."]
 position = Vector2(20, 64)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint2"]
-texture = ExtResource("9_5a3xp")
+texture = ExtResource("11_agetj")
 
 [node name="exitpoint" type="Area2D" parent="."]
 position = Vector2(-32, 64)
@@ -111,6 +126,15 @@ position = Vector2(420, 96)
 texture = ExtResource("9_5a3xp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exitpoint2"]
+shape = SubResource("CircleShape2D_fhhrb")
+
+[node name="exitpoint3" type="Area2D" parent="."]
+position = Vector2(352, 332)
+
+[node name="Sprite2D" type="Sprite2D" parent="exitpoint3"]
+texture = ExtResource("14_lged5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitpoint3"]
 shape = SubResource("CircleShape2D_fhhrb")
 
 [node name="ISlim" parent="." instance=ExtResource("9_06jbn")]
