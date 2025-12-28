@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://ctdeun1fl2gc"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_3hxre"]
-[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/spawn_result.gd" id="2_2s2ke"]
+[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_2s2ke"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="3_7chlm"]
 [ext_resource type="TileSet" uid="uid://bam1ln05uasgr" path="res://resources/base_tiles_overlay.tres" id="4_ya6ie"]
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="5_w225o"]
@@ -45,7 +45,7 @@ tile_map_data = PackedByteArray("AAAaAAQAAAACAAIAAAAZAAQAAAACAAIAAAAYAAQAAAACAAI
 tile_set = ExtResource("6_e763f")
 
 [node name="spawnpoint" type="Node2D" parent="."]
-position = Vector2(353, 41)
+position = Vector2(347, 78)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint"]
 texture = ExtResource("9_7badv")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://rouf1jakkebt"]
 
-[ext_resource type="Script" uid="uid://cpgg8u2gwklst" path="res://scripts/game/components/projectiles/snowball_projectile.gd" id="1_6l27b"]
+[ext_resource type="Script" uid="uid://cpgg8u2gwklst" path="res://scripts/game/projectiles/snowball_projectile.gd" id="1_6l27b"]
 [ext_resource type="Texture2D" uid="uid://cp1dhpakkwiua" path="res://assets/tileset/overlay_snow_tiles.png" id="2_5y63b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfc78"]

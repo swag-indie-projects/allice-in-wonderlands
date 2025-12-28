@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=4 uid="uid://buial0xs2kvov"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_puu7c"]
-[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/spawn_result.gd" id="3_o6ox3"]
+[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="3_o6ox3"]
 [ext_resource type="TileSet" uid="uid://bam1ln05uasgr" path="res://resources/base_tiles_overlay.tres" id="4_5a3xp"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="4_jx8wh"]
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="5_pewc4"]
@@ -10,14 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="7_u0o5v"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="8_cks57"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="9_5a3xp"]
-[ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/ISlim.tscn" id="9_06jbn"]
+[ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://enemy/ISlim.tscn" id="9_06jbn"]
 [ext_resource type="Texture2D" uid="uid://o4mjp1l2bns" path="res://assets/markers/entrance_marker3.png" id="10_lnup1"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="11_agetj"]
 [ext_resource type="PackedScene" uid="uid://dyp5tee4bjs6m" path="res://scenes/game/floating_ice.tscn" id="11_uhydd"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="13_als7v"]
 [ext_resource type="Texture2D" uid="uid://c8u3hxtkaccae" path="res://assets/markers/exit_marker3.png" id="14_lged5"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_okr80"]
-[ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/boar.tscn" id="16_agetj"]
+[ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://enemy/boar Slime.tscn" id="16_agetj"]
 
 [sub_resource type="Resource" id="Resource_06jbn"]
 script = ExtResource("3_o6ox3")
@@ -100,10 +100,9 @@ position = Vector2(396, 144)
 texture = ExtResource("7_u0o5v")
 
 [node name="spawnpoint3" type="Node2D" parent="."]
-position = Vector2(350, 296)
+position = Vector2(356, 253)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint3"]
-position = Vector2(2, -13)
 texture = ExtResource("10_lnup1")
 
 [node name="spawnpoint2" type="Node2D" parent="."]
