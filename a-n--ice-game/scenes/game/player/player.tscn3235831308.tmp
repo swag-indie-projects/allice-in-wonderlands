@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://d3hlu38ej1qxp" path="res://assets/misc/snow_flake_1.png" id="15_jvpd5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
-radius = 4.0
+radius = 3.0
 height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pusnx"]
@@ -447,7 +447,7 @@ class_name AttackComponent
 @export var sword_swipe: SwordSwipe
 "
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "facing_component", "sword_swipe", "animation", "dash_progress_bar", "dash_state")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "facing_component", "sword_swipe", "animation")]
 z_index = 10
 y_sort_enabled = true
 collision_layer = 9
@@ -456,8 +456,6 @@ state_machine = NodePath("state machine")
 facing_component = NodePath("facing component")
 sword_swipe = NodePath("sword_swipe")
 animation = NodePath("AnimatedSprite2D")
-dash_progress_bar = NodePath("dash ProgressBar")
-dash_state = NodePath("state machine/dash state")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -485,14 +483,6 @@ lifetime = 0.45
 one_shot = true
 explosiveness = 0.7
 process_material = SubResource("ParticleProcessMaterial_hs005")
-
-[node name="dash ProgressBar" type="ProgressBar" parent="."]
-offset_left = -7.0
-offset_top = -11.0
-offset_right = 133.0
-offset_bottom = 9.0
-scale = Vector2(0.1, 0.1)
-show_percentage = false
 
 [node name="state machine" type="Node" parent="." node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
 script = ExtResource("3_qhqgy")
@@ -522,7 +512,7 @@ knockback = 20.0
 script = ExtResource("12_ixkur")
 dash_timer = NodePath("Dash Time")
 cooldown_timer = NodePath("Cooldown")
-dash_speed_factor = 3.0
+dash_speed_factor = 2.0
 dash_particles = NodePath("../../Dash Particles")
 
 [node name="Dash Time" type="Timer" parent="state machine/dash state"]
@@ -530,7 +520,7 @@ wait_time = 0.15
 one_shot = true
 
 [node name="Cooldown" type="Timer" parent="state machine/dash state"]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="state machine/dash state"]

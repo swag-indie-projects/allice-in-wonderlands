@@ -26,6 +26,8 @@ func setup(new_actor: CharacterBody2D) -> void:
 	state_name = StateName.Name.HIT
 
 func process_frame(_delta: float) -> StateName.Name:
+	if Input.is_action_just_pressed("dash"):
+		return StateName.Name.DASH
 	if time_elapsed >= knockback_duration:
 		return StateName.Name.IDLE
 	return state_name

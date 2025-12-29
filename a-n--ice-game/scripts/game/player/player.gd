@@ -20,10 +20,14 @@ var is_invincible: bool
 @export var get_hit_ui: GetHitUI
 @export var camera: Camera2D
 
+@export var dash_progress_bar: ProgressBar
+@export var dash_state: PlayerDashState
+
 signal HP_changed(HP: int, max_HP: int)
 
 func _ready() -> void:
 	state_machine.setup()
+	dash_progress_bar.max_value = dash_state.cooldown_timer.wait_time
 	
 	HP = MAX_HP
 	
@@ -31,6 +35,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	facing_component.update_facing()
+	
+	dash_progress_bar.value = dash_state.cooldown_timer.wait_time - dash_state.cooldown_timer.time_left
+	if dash_progress_bar.value == dash_progress_bar.max_value:
+		dash_progress_bar.modulate = Color("006af8")
 	
 	state_machine.process_frame(delta)
 
