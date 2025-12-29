@@ -4,6 +4,7 @@ class_name PlayerDashState
 
 @export var dash_timer: Timer
 @export var cooldown_timer: Timer
+
 @export var dash_speed_factor: float
 @export var dash_particles: GPUParticles2D
 
@@ -11,7 +12,7 @@ class_name PlayerDashState
 @onready var last_saved_time: float = 0.0
 
 func _ready() -> void:
-	dash_timer.timeout.connect(func(): leave_state = true) 
+	dash_timer.timeout.connect(func(): leave_state = true)
 
 func enter() -> void:
 	super()
@@ -20,6 +21,7 @@ func enter() -> void:
 		return
 	
 	#$AnimationPlayer.play("dash")
+	
 	actor.velocity *= dash_speed_factor
 	dash_timer.start()
 	dash_particles.emitting = true
@@ -33,6 +35,7 @@ func exit() -> void:
 	super()
 	if cooldown_timer.is_stopped():
 		cooldown_timer.start()
+	actor.dash_progress_bar.modulate = Color("50a1d1ff")
 
 func setup(new_actor: CharacterBody2D) -> void:
 	actor = new_actor
