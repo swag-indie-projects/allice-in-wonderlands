@@ -32,15 +32,15 @@ static var facing_direction_dictionary: Dictionary[Facing, Vector2] = {
 
 func update_facing() -> void:
 	var character_position: Vector2 = Globals.get_game().player.global_position
-	#print("cpos:", character_position)
+	
 	var mouse_pos: Vector2 = Globals.game.get_global_mouse_position()
-	#print("mouise", mouse_pos)
+	
 	var direction_vector: Vector2 = (mouse_pos - character_position).normalized()
 	
-	#print("dir", direction_vector)
+	
 	# Calculate angle from character to mouse (-PI to PI)
 	var angle: float = direction_vector.angle()
-	#print("angle:", angle)
+	
 	
 	# Convert angle to 8 directions
 	# Divide circle into 8 segments (45 degrees each)
