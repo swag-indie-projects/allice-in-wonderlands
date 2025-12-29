@@ -9,10 +9,20 @@ const MAXIMUM_VOLUME: float = 10.0
 
 func set_background_music_volume(volume: float) -> void:
 	background_music_volume = volume
+	
+	if volume <= MININUM_VOLUME:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"background music"), -999)
+		return
+	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"background music"), background_music_volume)
 
 func set_sound_effect_volume(volume: float) -> void:
 	sound_effect_volume = volume
+	
+	if volume <= MININUM_VOLUME:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"sound effect"), -999)
+		return
+	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"sound effect"), sound_effect_volume)
 
 func percent_to_db(volume_in_percentage: float) -> float:
