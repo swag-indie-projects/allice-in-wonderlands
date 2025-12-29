@@ -24,19 +24,19 @@ radius = 16.0
 
 [sub_resource type="Curve2D" id="Curve2D_o6rfj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -90, 0, 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -90, 0, 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, -90)
 }
-point_count = 4
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_nliw2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -8, -6, 0, 0, 0, 0, 142, 108, 0, 0, 0, 0, -9, -7, 0, 0, 0, 0, -8, -6)
+"points": PackedVector2Array(0, 0, 0, 0, 142, 108, 0, 0, 0, 0, -18, -12, 0, 0, 0, 0, 142, 108)
 }
-point_count = 4
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_486c7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -6, 1, 0, 0, 0, 0, 179, 4, 0, 0, 0, 0, -6, 1)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 200, 1, 0, 0, 0, 0, -6, 1)
 }
 point_count = 3
 
@@ -52,7 +52,7 @@ metadata/_custom_type_script = "uid://djhd4y8rg754v"
 [node name="MoveObjectComponent" type="Node" parent="." node_paths=PackedStringArray("pathfollows")]
 script = ExtResource("12_bt5nt")
 pathfollows = [NodePath("../Path2D/PathFollow2D"), NodePath("../Path2D2/PathFollow2D"), NodePath("../Path2D3/PathFollow2D")]
-progress_speeds = Array[float]([80.0, 70.0, 70.0])
+progress_speeds = Array[float]([70.0, 70.0, 70.0])
 metadata/_custom_type_script = "uid://ci88obq6lyt40"
 
 [node name="base" type="TileMapLayer" parent="."]
@@ -98,9 +98,8 @@ position = Vector2(311, 194)
 curve = SubResource("Curve2D_o6rfj")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(0.76232123, -68.60892)
-rotation = -1.5596857
-progress = 68.60138
+position = Vector2(0, -90)
+rotation = 1.5707964
 
 [node name="floating ice" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("base_overlay_tilemap") instance=ExtResource("11_4okpq")]
 rotation = 1.5707964
@@ -111,8 +110,9 @@ position = Vector2(139, 188)
 curve = SubResource("Curve2D_nliw2")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(-8, -6)
-rotation = 0.64987046
+position = Vector2(-18, -12)
+rotation = -2.4980915
+progress = 200.0
 
 [node name="floating ice2" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("base_overlay_tilemap") instance=ExtResource("11_4okpq")]
 base_overlay_tilemap = NodePath("../../../base_tile_overlay")
@@ -122,8 +122,7 @@ position = Vector2(46, 285)
 curve = SubResource("Curve2D_486c7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
-position = Vector2(-6, 1)
-rotation = 0.016214794
+position = Vector2(0, 1)
 
 [node name="floating ice3" parent="Path2D3/PathFollow2D" node_paths=PackedStringArray("base_overlay_tilemap") instance=ExtResource("11_4okpq")]
 base_overlay_tilemap = NodePath("../../../base_tile_overlay")

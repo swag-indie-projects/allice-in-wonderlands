@@ -512,7 +512,7 @@ knockback = 20.0
 script = ExtResource("12_ixkur")
 dash_timer = NodePath("Dash Time")
 cooldown_timer = NodePath("Cooldown")
-dash_speed_factor = 3.0
+dash_speed_factor = 2.0
 dash_particles = NodePath("../../Dash Particles")
 
 [node name="Dash Time" type="Timer" parent="state machine/dash state"]

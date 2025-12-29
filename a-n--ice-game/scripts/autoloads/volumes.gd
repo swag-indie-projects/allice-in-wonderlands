@@ -1,7 +1,7 @@
 extends Node
 
 # they are both in db
-var background_music_volume: float = -10.0
+var background_music_volume: float = -5.0
 var sound_effect_volume: float = -5.0
 
 const MININUM_VOLUME: float = -10.0
