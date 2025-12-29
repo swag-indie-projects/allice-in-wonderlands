@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d204nsy8svfev"]
+[gd_scene load_steps=63 format=3 uid="uid://d204nsy8svfev"]
 
 [ext_resource type="Script" uid="uid://1igbt58bdgcj" path="res://scripts/game/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://p625padn7ffo" path="res://assets/player/player_backward.png" id="2_d2wvv"]
@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://crib2tcqkaoha" path="res://assets/player_walk_animation.png" id="6_ymle5"]
 [ext_resource type="Script" uid="uid://l6bu0532m1w2" path="res://scripts/game/player/state_machine/states/player/player_hit_state.gd" id="7_ur7pv"]
 [ext_resource type="Script" uid="uid://c6jtd5gviucn0" path="res://scripts/game/components/facing_component.gd" id="11_d2wvv"]
+[ext_resource type="Script" uid="uid://h86erx154auq" path="res://scripts/game/player/state_machine/states/player/player_dash_state.gd" id="12_ixkur"]
 [ext_resource type="AudioStream" uid="uid://cd54m5ukxr841" path="res://sounds/DSGNMisc_STEP-Bubblier Step_HY_PC-001.wav" id="13_sxkrj"]
+[ext_resource type="Texture2D" uid="uid://d3hlu38ej1qxp" path="res://assets/misc/snow_flake_1.png" id="15_jvpd5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
 radius = 4.0
@@ -365,6 +367,78 @@ animations = [{
 "speed": 7.5
 }]
 
+[sub_resource type="Gradient" id="Gradient_t5vmf"]
+colors = PackedColorArray(0.69, 0.8656666, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ynn5f"]
+gradient = SubResource("Gradient_t5vmf")
+
+[sub_resource type="Gradient" id="Gradient_34lq7"]
+offsets = PackedFloat32Array(0.5323741, 0.7661871, 0.85971224, 0.96043164)
+colors = PackedColorArray(1, 1, 1, 1, 0.58000004, 0.8460001, 1, 0.7490196, 0.58000004, 0.6780001, 1, 0.7490196, 0.58000004, 0.88100004, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eja7u"]
+gradient = SubResource("Gradient_34lq7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hs005"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 3.795, 1)
+emission_shape = 3
+emission_box_extents = Vector3(0, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+initial_velocity_min = 15.599999
+initial_velocity_max = 61.94
+angular_velocity_min = -294.95
+angular_velocity_max = 359.94998
+gravity = Vector3(-9.8, -9.8, 0)
+tangential_accel_min = -100.0
+tangential_accel_max = 172.09999
+color_ramp = SubResource("GradientTexture1D_eja7u")
+color_initial_ramp = SubResource("GradientTexture1D_ynn5f")
+turbulence_noise_strength = 16.38
+turbulence_noise_scale = 11.385
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 5
+sub_emitter_keep_velocity = true
+
+[sub_resource type="Animation" id="Animation_ixkur"]
+resource_name = "dash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:dash_factor")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.8, 0.25]
+}
+
+[sub_resource type="Animation" id="Animation_jvpd5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:dash_factor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t5vmf"]
+_data = {
+&"RESET": SubResource("Animation_jvpd5"),
+&"dash": SubResource("Animation_ixkur")
+}
+
 [sub_resource type="GDScript" id="GDScript_y4r1p"]
 script/source = "extends Node
 
@@ -401,6 +475,15 @@ one_shot = true
 
 [node name="invincibility" type="Timer" parent="."]
 
+[node name="Dash Particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 93
+texture = ExtResource("15_jvpd5")
+lifetime = 0.45
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_hs005")
+
 [node name="state machine" type="Node" parent="." node_paths=PackedStringArray("actor", "starting_state", "state_dictionary")]
 script = ExtResource("3_qhqgy")
 actor = NodePath("..")
@@ -408,7 +491,8 @@ starting_state = NodePath("idle state")
 state_dictionary = {
 0: NodePath("idle state"),
 1: NodePath("walk state"),
-3: NodePath("hit state")
+3: NodePath("hit state"),
+4: NodePath("dash state")
 }
 
 [node name="idle state" type="Node" parent="state machine"]
@@ -423,6 +507,24 @@ walk_audio_player = NodePath("../../walk audio player")
 script = ExtResource("7_ur7pv")
 knockback_duration = 0.3
 knockback = 20.0
+
+[node name="dash state" type="Node" parent="state machine" node_paths=PackedStringArray("dash_timer", "cooldown_timer", "dash_particles")]
+script = ExtResource("12_ixkur")
+dash_timer = NodePath("Dash Time")
+cooldown_timer = NodePath("Cooldown")
+dash_particles = NodePath("../../Dash Particles")
+
+[node name="Dash Time" type="Timer" parent="state machine/dash state"]
+wait_time = 0.15
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="state machine/dash state"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="state machine/dash state"]
+libraries = {
+&"": SubResource("AnimationLibrary_t5vmf")
+}
 
 [node name="attack component" type="Node" parent="."]
 script = SubResource("GDScript_y4r1p")
