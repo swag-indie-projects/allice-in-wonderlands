@@ -10,7 +10,6 @@ extends Node2D
 
 @export var audio_stream_player: AudioStreamPlayer2D
 
-
 @onready var current_world: World = null
 
 
@@ -23,7 +22,9 @@ func _ready() -> void:
 	print(saved_world)
 	
 	if debug_mod:
-		play_world(load(Constant.path_to_string[debug_world_scene_path]), 0)
+		player.get_node("Camera2D").Zoom.x = 0.5
+		player.get_node("Camera2D").Zoom.y = 0.5
+		# play_world(load(Constant.path_to_string[debug_world_scene_path]), 0)
 		return
 	
 	play_world(load(Constant.path_to_string[saved_world]), 0)

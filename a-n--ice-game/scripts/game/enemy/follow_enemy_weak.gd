@@ -2,6 +2,7 @@ extends Enemy
 
 @export var detection_box: Area2D
 @export var speed: float
+
 @export var animation: AnimatedSprite2D
 @export var health_bar: ProgressBar
 

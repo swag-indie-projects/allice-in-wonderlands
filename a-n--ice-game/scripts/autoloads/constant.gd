@@ -19,6 +19,7 @@ enum Paths {
 	
 	PATH_TO_TEST_SCENE,
 	PATH_TO_BIOME1_ENEMY_BASE,
+	PATH_TO_BIOME1_BOSS_ARENA,
 }
 
 var path_to_string: Dictionary[Paths, String] = {
@@ -32,7 +33,9 @@ var path_to_string: Dictionary[Paths, String] = {
 	Paths.PATH_TO_BIOME1_SIDEWORLD2: "res://scenes/game/world/biome1/biome1_sideworld2.tscn",
 	
 	Paths.PATH_TO_BIOME1_ENEMY_BASE: "res://scenes/game/world/biome1/biome1_world_enemy_camp.tscn",
+	Paths.PATH_TO_BIOME1_BOSS_ARENA : "res://scenes/game/world/biome1/biome1_boss_arena.tscn",
 	Paths.PATH_TO_TEST_SCENE: "res://scenes/game/world/test_world1.tscn",
+	
 }
 
 const VIEWPORT_SIZE_X = 1152
