@@ -45,7 +45,7 @@ func update_facing() -> void:
 	# Convert angle to 8 directions
 	# Divide circle into 8 segments (45 degrees each)
 	var segment: int = int(round(angle / (PI / 4.0))) % 8
-	#print(segment)
+	
 	match segment:
 		0:  # Right
 			facing = Facing.RIGHT
