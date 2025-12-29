@@ -14,9 +14,10 @@
 source_geometry_mode = 2
 source_geometry_group_name = &"navigation"
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile")]
 script = ExtResource("1_fhhrb")
 spawnpoints = [NodePath("spawnpoint")]
+base_tile = NodePath("base")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="base" type="TileMapLayer" parent="."]

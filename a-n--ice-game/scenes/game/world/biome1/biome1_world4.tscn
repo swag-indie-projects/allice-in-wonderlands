@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_bvefd"]
 script = ExtResource("2_81jhw")
-scene_path = 7
+scene_path = 9
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ihr6"]
