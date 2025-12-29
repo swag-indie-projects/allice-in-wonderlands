@@ -1,3 +1,3 @@
 class_name StateName
 
-enum Name { IDLE, WALK, ATTACK, HIT }
+enum Name { IDLE, WALK, ATTACK, HIT, DASH }

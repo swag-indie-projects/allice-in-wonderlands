@@ -18,6 +18,9 @@ func exit() -> void:
 func process_frame(_delta: float) -> StateName.Name:
 	var direction_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
+	if Input.is_action_just_pressed("dash"):
+		return StateName.Name.DASH
+	
 	if direction_vector == Vector2.ZERO:
 		return StateName.Name.IDLE
 	

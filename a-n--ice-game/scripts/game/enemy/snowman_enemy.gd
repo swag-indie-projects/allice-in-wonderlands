@@ -61,7 +61,9 @@ func _process(delta: float) -> void:
 			print("hello?")
 			if animation.sprite_frames.has_animation("run"):
 				animation.play(&"run")
-	$AnimatedSprite2D.flip_h = velocity.x < 0
+	
+	if velocity.x != 0:
+		$AnimatedSprite2D.flip_h = velocity.x < 0
 	
 	health_bar.value = HP
 
