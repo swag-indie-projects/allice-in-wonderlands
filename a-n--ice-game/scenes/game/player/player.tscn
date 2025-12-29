@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://d3hlu38ej1qxp" path="res://assets/misc/snow_flake_1.png" id="15_jvpd5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
-radius = 4.0
+radius = 3.0
 height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pusnx"]

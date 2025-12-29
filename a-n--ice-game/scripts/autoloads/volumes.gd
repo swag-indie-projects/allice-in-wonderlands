@@ -1,11 +1,15 @@
 extends Node
 
 # they are both in db
-var background_music_volume: float = -5.0
+var background_music_volume: float = -10.0
 var sound_effect_volume: float = -5.0
 
 const MININUM_VOLUME: float = -10.0
 const MAXIMUM_VOLUME: float = 10.0
+
+func _ready() -> void:
+	if background_music_volume <= MININUM_VOLUME:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(&"background music"), -999)
 
 func set_background_music_volume(volume: float) -> void:
 	background_music_volume = volume

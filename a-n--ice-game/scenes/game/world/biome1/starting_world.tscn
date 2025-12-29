@@ -82,7 +82,6 @@ shape = SubResource("CircleShape2D_qvh1y")
 texture = ExtResource("9_qjipn")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_qvh1y")
 
 [node name="Coin2" parent="." instance=ExtResource("10_ij7r7")]
@@ -90,3 +89,6 @@ position = Vector2(633, 39)
 
 [node name="Coin" parent="." instance=ExtResource("10_ij7r7")]
 position = Vector2(724, 62)
+
+[node name="ISlim2" parent="." instance=ExtResource("7_2a0xr")]
+position = Vector2(534, 49)

@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="13_als7v"]
 [ext_resource type="Texture2D" uid="uid://c8u3hxtkaccae" path="res://assets/markers/exit_marker3.png" id="14_lged5"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_okr80"]
-[ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/enemy/boar Slime.tscn" id="16_agetj"]
+[ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/enemy/boar.tscn" id="16_agetj"]
 
 [sub_resource type="Resource" id="Resource_06jbn"]
 script = ExtResource("3_o6ox3")
@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_3x3w6"]
 script = ExtResource("3_o6ox3")
-scene_path = 3
+scene_path = 6
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Curve2D" id="Curve2D_uhydd"]
