@@ -16,12 +16,13 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="uid://w4hasgyi5d8"
 
 [autoload]
 
 Constant="*res://scripts/autoloads/constant.gd"
 Globals="*res://scripts/autoloads/globals.gd"
+Volumes="*res://scripts/autoloads/volumes.gd"
 
 [display]
 

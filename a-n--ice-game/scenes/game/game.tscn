@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://j2xustrm625i" path="res://scripts/save/save_manager.gd" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
 [ext_resource type="Script" uid="uid://cu85s2qhnd1j0" path="res://scripts/game/camera_2d.gd" id="8_kp23o"]
-[ext_resource type="AudioStream" uid="uid://d2psloptrq377" path="res://sounds/ost/winter.ogg" id="9_2a8rs"]
+[ext_resource type="AudioStream" uid="uid://drvv1ooh2sm3r" path="res://sounds/ost/winter.ogg" id="9_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_healthbar_ui.tscn" id="9_t28dr"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
 
@@ -79,7 +79,8 @@ color_initial_ramp = SubResource("GradientTexture1D_f2m1r")
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_healthbar_ui", "player_save_tooltip_ui", "save_manager", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 0
+debug_world_scene_path = 3
+debug_mod = true
 player_healthbar_ui = NodePath("UI/player healthbar ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
 save_manager = NodePath("SaveManager")
@@ -147,12 +148,14 @@ texture = ExtResource("3_ian8s")
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("7_bdhmt")
 
-[node name="music  await" type="Timer" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("9_2a8rs")
+bus = &"background music"
+
+[node name="music  await" type="Timer" parent="AudioStreamPlayer2D"]
 wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_2a8rs")
-
-[connection signal="timeout" from="music  await" to="." method="_on_music__await_timeout"]
+[connection signal="timeout" from="AudioStreamPlayer2D/music  await" to="." method="_on_music__await_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcbg4v28sofgf"]
+[gd_scene load_steps=21 format=3 uid="uid://bcbg4v28sofgf"]
 
 [ext_resource type="Script" uid="uid://di6030qmclhtx" path="res://scripts/game/ui/pause_menu.gd" id="1_m3eqi"]
 [ext_resource type="Shader" uid="uid://icfj2wtia20q" path="res://shaders/pause_menu_blur.gdshader" id="2_n2ns3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dk3ujr3lsre6y" path="res://assets/ui/pause/freezer3.png" id="6_nsk5f"]
 [ext_resource type="Texture2D" uid="uid://bd58jr7aq6r1d" path="res://assets/ui/pause/selected_abutton.png" id="8_7o5hq"]
 [ext_resource type="Texture2D" uid="uid://ctn8cbrfqlrgu" path="res://assets/ui/pause/abutton.png" id="8_nsk5f"]
+[ext_resource type="PackedScene" uid="uid://eg815tvcyvj2" path="res://scenes/game/ui/settings.tscn" id="9_7o5hq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukid2"]
 shader = ExtResource("2_n2ns3")
@@ -120,6 +121,8 @@ _data = {
 &"blur": SubResource("Animation_hyqwd")
 }
 
+[sub_resource type="Theme" id="Theme_nsk5f"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4qcm"]
 texture = ExtResource("8_nsk5f")
 
@@ -138,7 +141,7 @@ texture = ExtResource("8_nsk5f")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udt48"]
 texture = ExtResource("8_7o5hq")
 
-[node name="pause_menu" type="Control" node_paths=PackedStringArray("animation_player", "vbox_containing_buttons")]
+[node name="pause_menu" type="Control" node_paths=PackedStringArray("animation_player", "vbox_containing_buttons", "settings")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -149,6 +152,7 @@ grow_vertical = 2
 script = ExtResource("1_m3eqi")
 animation_player = NodePath("AnimationPlayer")
 vbox_containing_buttons = NodePath("PanelContainer/VBoxContainer")
+settings = NodePath("Settings")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ukid2")
@@ -179,6 +183,20 @@ patch_margin_top = 22
 patch_margin_right = 38
 patch_margin_bottom = 22
 
+[node name="Settings" parent="." instance=ExtResource("9_7o5hq")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 134.0
+offset_top = 258.0
+offset_right = 443.0
+offset_bottom = 310.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(3, 3)
+
 [node name="PanelContainer" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -193,6 +211,7 @@ offset_right = 59.0
 offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_nsk5f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 0
@@ -207,21 +226,21 @@ alignment = 1
 
 [node name="resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.30588236, 0.23137255, 1)
+theme_override_colors/font_color = Color(0, 0.609879, 0.9812687, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_a4qcm")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dqdfw")
 text = "resume"
 
 [node name="options" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.30588236, 0.23137255, 1)
+theme_override_colors/font_color = Color(0, 0.6117647, 0.98039216, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_nsk5f")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8uwdk")
 text = "options"
 
 [node name="exit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.30700004, 0.23000002, 1)
+theme_override_colors/font_color = Color(0, 0.6117647, 0.98039216, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_7o5hq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_udt48")
 text = "exit"

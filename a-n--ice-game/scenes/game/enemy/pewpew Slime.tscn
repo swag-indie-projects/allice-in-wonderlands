@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/enemy/ISlim.png" id="2_2bu2f"]
 [ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_mqpw0"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_e88iq"]
-[ext_resource type="Script" uid="uid://d0hanw0l1xxxn" path="res://scripts/game/components/projectiles/basic_proj_anim.gd" id="5_mqpw0"]
+[ext_resource type="Script" uid="uid://d0hanw0l1xxxn" path="res://scripts/game/projectiles/basic_proj_anim.gd" id="5_mqpw0"]
 [ext_resource type="PackedScene" uid="uid://rouf1jakkebt" path="res://scenes/game/projectiles/snowball_projectile.tscn" id="6_e88iq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]

@@ -402,6 +402,21 @@ sub_emitter_mode = 4
 sub_emitter_amount_at_start = 5
 sub_emitter_keep_velocity = true
 
+[sub_resource type="Animation" id="Animation_jvpd5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:dash_factor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
 [sub_resource type="Animation" id="Animation_ixkur"]
 resource_name = "dash"
 length = 0.3
@@ -416,21 +431,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.0, 0.8, 0.25]
-}
-
-[sub_resource type="Animation" id="Animation_jvpd5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:dash_factor")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t5vmf"]
@@ -537,5 +537,6 @@ player = NodePath("..")
 stream = ExtResource("13_sxkrj")
 volume_db = -20.0
 autoplay = true
+bus = &"sound effect"
 
 [connection signal="timeout" from="invincibility" to="." method="_on_invincibility_timeout"]

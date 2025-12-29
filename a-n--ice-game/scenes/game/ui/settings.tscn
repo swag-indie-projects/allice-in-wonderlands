@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://eg815tvcyvj2"]
+
+[ext_resource type="Script" uid="uid://d2nayxblnuoi4" path="res://scripts/game/ui/settings.gd" id="1_gp3iv"]
+
+[node name="Settings" type="Control" node_paths=PackedStringArray("background_music_slider", "sound_effect_slider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gp3iv")
+background_music_slider = NodePath("PanelContainer/VBoxContainer/background music volume/background music HSlider")
+sound_effect_slider = NodePath("PanelContainer/VBoxContainer/sound effect volume/sound effect HSlider")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 308.0
+offset_bottom = 50.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="background music volume" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/background music volume"]
+layout_mode = 2
+text = "background music volume"
+
+[node name="background music HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/background music volume"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+exp_edit = true
+rounded = true
+allow_greater = true
+allow_lesser = true
+scrollable = false
+ticks_on_borders = true
+
+[node name="sound effect volume" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/sound effect volume"]
+layout_mode = 2
+text = "sound effect volume           "
+
+[node name="sound effect HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/sound effect volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+exp_edit = true
+rounded = true
+allow_greater = true
+allow_lesser = true
+scrollable = false
+ticks_on_borders = true
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "go back"
+
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/background music volume/background music HSlider" to="." method="_on_background_music_h_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/sound effect volume/sound effect HSlider" to="." method="_on_sound_effect_h_slider_value_changed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
