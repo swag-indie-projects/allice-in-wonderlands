@@ -8,6 +8,7 @@ class_name PlayerDashState
 @export var dash_particles: GPUParticles2D
 
 @onready var leave_state: bool = false
+@onready var last_saved_time: float = 0.0
 
 func _ready() -> void:
 	dash_timer.timeout.connect(func(): leave_state = true) 
@@ -26,6 +27,7 @@ func enter() -> void:
 	dash_particles.rotation = actor.velocity.angle()
 	
 	leave_state = false
+	last_saved_time = 0.0
 
 func exit() -> void:
 	super()
@@ -45,7 +47,38 @@ func process_frame(_delta: float) -> StateName.Name:
 		leave_state = false
 		return StateName.Name.WALK
 	
+	var current_time: float = dash_timer.wait_time - dash_timer.time_left
+	if last_saved_time < current_time:
+		add_dash_shade()
+		last_saved_time += dash_timer.wait_time / 3.0
+	
 	return state_name
 
 func process_physics_frame(_delta: float) -> StateName.Name:
 	return state_name
+
+func add_dash_shade(
+		lifetime := 0.18,
+		start_alpha := 0.55,
+	) -> void:
+	# Find a drawable child to duplicate (Sprite2D or AnimatedSprite2D)
+	var sprite: AnimatedSprite2D = actor.animation
+	# Duplicate the visual node (deep copy so frames/texture refs are kept)
+	var shade: CanvasItem = sprite.duplicate(DUPLICATE_USE_INSTANTIATION | DUPLICATE_SCRIPTS) as CanvasItem
+	
+	var game: Node2D = Globals.get_game()
+	game.add_child(shade)
+	
+	# Match transform in world
+	shade.global_position = sprite.global_position
+	#if shade is Node2D and src is Node2D:
+		#(shade as Node2D).global_rotation = (src as Node2D).global_rotation
+		#(shade as Node2D).global_scale = (src as Node2D).global_scale * scale_multiplier
+	
+	shade.modulate.a = start_alpha
+	
+	# Tween fade-out then free
+	var tw := shade.create_tween()
+	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tw.tween_property(shade, "modulate:a", 0.0, lifetime)
+	tw.tween_callback(shade.queue_free)
