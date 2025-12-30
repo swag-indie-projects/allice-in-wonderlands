@@ -1,6 +1,6 @@
 extends Enemy
 
-# For the projectile enemy!
+# For the icicle summoner enemy!
 @export var player_detection_box: Area2D
 @export var avoidance_box: Area2D
 @export var hysteresis: Area2D
@@ -32,7 +32,9 @@ func _physics_process(delta: float) -> void:
 	var player: Player = world.player
 	
 	
-	if is_retreating:
+	if $AnimationPlayer.is_playing():
+		velocity = Vector2.ZERO
+	elif is_retreating:
 		if hysteresis.overlaps_body(player):
 			# We have to walk AWAY from the player!
 			var dir = -global_position.direction_to($NavigationAgent2D.get_next_path_position())
@@ -56,7 +58,13 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	super(delta)
-	animation.play(&"default")
+	
+	# Don't overlay animation if summoning
+	if !$AnimationPlayer.is_playing():
+		if velocity != Vector2.ZERO:
+			animation.play("run")
+		else: 
+			animation.play("default")
 	
 	health_bar.value = HP
 
@@ -65,4 +73,7 @@ func _on_timer_timeout() -> void:
 
 func _on_shoot_timer_timeout() -> void:
 	if player_detection_box.overlaps_body(world.player):
-		projectile_animation._summon_projectiles(world, world.player.global_position, global_position)
+		$AnimationPlayer.play("summon")
+	
+func summon_icicle() -> void:
+	projectile_animation._summon_projectiles(world, world.player.global_position, global_position)
