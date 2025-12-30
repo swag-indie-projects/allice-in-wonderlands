@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bmbqpln4e8x36"]
+[gd_scene load_steps=16 format=4 uid="uid://bmbqpln4e8x36"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_sgnsd"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_ek4x0"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://bd6hadag7ntp1" path="res://scenes/game/world/biome1/arena_box.gd" id="11_2nrtd"]
 [ext_resource type="PackedScene" uid="uid://bc56rqnaht3f2" path="res://scenes/game/enemy/boss_snowball.tscn" id="11_gx3pl"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="11_r0mky"]
-[ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="12_s5bqf"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="13_n3s17"]
 
 [sub_resource type="Resource" id="Resource_0ihr6"]
@@ -95,7 +94,3 @@ debug_color = Color(0.56733334, 0.92, 0, 0)
 [node name="Fridge" parent="." instance=ExtResource("12_s5bqf")]
 position = Vector2(568, 119)
 spawnpoint = 10
-
-[node name="snowball_boss" parent="." node_paths=PackedStringArray("detection_box") instance=ExtResource("11_gx3pl")]
-position = Vector2(280, 30)
-detection_box = NodePath("../arena_box")

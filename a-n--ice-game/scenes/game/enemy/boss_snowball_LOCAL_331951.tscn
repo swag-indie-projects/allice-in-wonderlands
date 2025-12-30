@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccq1nahyfxvfu" path="res://assets/enemy/snowball_boss_idle.png" id="2_kbn1u"]
 [ext_resource type="Texture2D" uid="uid://xydco80edq3r" path="res://assets/enemy/snowball_boss_run.png" id="3_0n8fv"]
 [ext_resource type="Texture2D" uid="uid://d2fthe2q70j0n" path="res://assets/enemy/snowball_boss_stun.png" id="4_0n8fv"]
+[ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="4_4pykn"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="5_0yoke"]
 [ext_resource type="Script" uid="uid://d4blmmu1mkyeh" path="res://scripts/game/enemy/snowball_boss/states/snowball_boss_idle.gd" id="7_0yoke"]
 [ext_resource type="Texture2D" uid="uid://slyufsyam5qf" path="res://assets/particles/snow_pellet_particle.png" id="7_vi6go"]
@@ -201,14 +202,9 @@ shape = SubResource("CircleShape2D_qhcmp")
 [node name="DMGParticle" type="GPUParticles2D" parent="."]
 rotation = 0.79220074
 emitting = false
-<<<<<<< HEAD
 amount = 100
 texture = ExtResource("7_vi6go")
 lifetime = 0.25
-=======
-amount = 50
-lifetime = 0.5
->>>>>>> 81dc4db40960c722cb60c35e422222d5a7dc5095
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_0yoke")
@@ -261,7 +257,6 @@ script = ExtResource("13_e7wsw")
 [node name="animation component" type="Node" parent="."]
 script = ExtResource("5_0yoke")
 
-<<<<<<< HEAD
 [node name="Useless" type="Node" parent="."]
 
 [node name="ChargePath" type="Path2D" parent="Useless"]
@@ -309,6 +304,3 @@ actor = NodePath("../..")
 
 [connection signal="body_entered" from="attack_hitbox" to="." method="_on_attack_hitbox_body_entered"]
 [connection signal="body_entered" from="self_hitbox" to="." method="_on_self_hitbox_body_entered"]
-=======
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
->>>>>>> 81dc4db40960c722cb60c35e422222d5a7dc5095

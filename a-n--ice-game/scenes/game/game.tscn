@@ -80,7 +80,8 @@ color_initial_ramp = SubResource("GradientTexture1D_f2m1r")
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "save_manager", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 0
+debug_world_scene_path = 3
+debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
 save_manager = NodePath("SaveManager")
@@ -116,6 +117,7 @@ camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 process_mode = 3
+zoom = Vector2(3.5, 3.5)
 script = ExtResource("8_kp23o")
 strength = Vector2(4, 0)
 frequency = 16.0
