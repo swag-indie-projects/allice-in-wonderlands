@@ -32,7 +32,7 @@ func _ready() -> void:
 
 func reset_game() -> void:
 	player.HP = player.MAX_HP
-	player_ui.update_healthbar.emit(player.HP+1, player.MAX_HP)
+	player_ui.update_healthbar.emit(player.HP, player.MAX_HP)
 	current_world.setup(player, 0)
 	add_child.call_deferred(current_world)
 	apply_camera_border_limit()
@@ -53,8 +53,6 @@ func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 var world_change_debounce = true
 
 func _on_world_exited(result: SpawnResult) -> void:
-	print("WORLD CHANGED")
-	print(result)
 	if (world_change_debounce):
 		world_change_debounce = false
 		var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])

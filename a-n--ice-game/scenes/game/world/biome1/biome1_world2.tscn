@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://btv1i2rhqhpvw"]
+[gd_scene load_steps=24 format=4 uid="uid://btv1i2rhqhpvw"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_3q01c"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_is0yn"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/enemy/boar.tscn" id="15_l6cnp"]
 [ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/enemy/ISlim.tscn" id="16_ldu02"]
 [ext_resource type="PackedScene" uid="uid://br5vseyxakyry" path="res://scenes/game/enemy/pissing_goblin.tscn" id="17_3njj1"]
+[ext_resource type="PackedScene" uid="uid://bw680060lr2gw" path="res://scenes/game/hp_shard.tscn" id="18_3njj1"]
 
 [sub_resource type="Resource" id="Resource_0ihr6"]
 script = ExtResource("2_is0yn")
@@ -110,6 +111,7 @@ color = Color(0.8924, 0.91218, 0.92, 1)
 
 [node name="Coin" parent="." instance=ExtResource("10_0ihr6")]
 position = Vector2(420, 222)
+type = 1
 
 [node name="Coin2" parent="." instance=ExtResource("10_0ihr6")]
 position = Vector2(179, -13)
@@ -137,3 +139,6 @@ position = Vector2(60, 27)
 
 [node name="PissingGoblin" parent="." instance=ExtResource("17_3njj1")]
 position = Vector2(138, 68)
+
+[node name="Shard" parent="." instance=ExtResource("18_3njj1")]
+position = Vector2(364, 61)

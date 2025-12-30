@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://bw680060lr2gw"]
+
+[ext_resource type="Script" uid="uid://dnqo6slfw7wf6" path="res://scripts/game/hp_shard.gd" id="1_fb4xb"]
+[ext_resource type="Texture2D" uid="uid://f5jy8pvn73qs" path="res://assets/object/player-hp-shard-sheet.png" id="2_fb4xb"]
+[ext_resource type="AudioStream" uid="uid://bepwvwe0v7ref" path="res://sounds/pickupCoin.wav" id="4_aswsk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k50o3"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvc3t"]
+atlas = ExtResource("2_fb4xb")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f2re"]
+atlas = ExtResource("2_fb4xb")
+region = Rect2(15, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sohn"]
+atlas = ExtResource("2_fb4xb")
+region = Rect2(30, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aswsk"]
+atlas = ExtResource("2_fb4xb")
+region = Rect2(45, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aotjh"]
+atlas = ExtResource("2_fb4xb")
+region = Rect2(60, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqkgn"]
+atlas = ExtResource("2_fb4xb")
+region = Rect2(75, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dceuh"]
+atlas = ExtResource("2_fb4xb")
+region = Rect2(90, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfc25"]
+atlas = ExtResource("2_fb4xb")
+region = Rect2(105, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckkh5"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvc3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f2re")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sohn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aswsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aotjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqkgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dceuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfc25")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_fb4xb"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vvc3t"]
+gradient = SubResource("Gradient_fb4xb")
+fill = 1
+fill_from = Vector2(0.52136755, 0.52991456)
+fill_to = Vector2(0.8717949, 0.1923077)
+
+[node name="Shard" type="Area2D" node_paths=PackedStringArray("animation", "audio_player")]
+script = ExtResource("1_fb4xb")
+animation = NodePath("AnimatedSprite2D")
+audio_player = NodePath("AudioStreamPlayer2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_k50o3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ckkh5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aswsk")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.59375, 0.59375)
+energy = 0.2
+texture = SubResource("GradientTexture2D_vvc3t")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://8kt8v7jl8hex"]
+[gd_scene load_steps=15 format=3 uid="uid://8kt8v7jl8hex"]
 
 [ext_resource type="Texture2D" uid="uid://dx0qqd70payon" path="res://assets/object/coin.png" id="1_f4wbi"]
 [ext_resource type="Script" uid="uid://dnc8vt8ysjjvv" path="res://scripts/game/coin.gd" id="2_3qbsy"]
+[ext_resource type="Texture2D" uid="uid://bcge1dluxdb1t" path="res://assets/object/silver_coin.png" id="3_fedvt"]
 [ext_resource type="AudioStream" uid="uid://bepwvwe0v7ref" path="res://sounds/pickupCoin.wav" id="3_k50o3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k50o3"]
@@ -24,6 +25,22 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("1_f4wbi")
 region = Rect2(48, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckkh5"]
+atlas = ExtResource("3_fedvt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt4d7"]
+atlas = ExtResource("3_fedvt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gwh4"]
+atlas = ExtResource("3_fedvt")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tj2x"]
+atlas = ExtResource("3_fedvt")
+region = Rect2(48, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ckkh5"]
 resource_local_to_scene = true
 animations = [{
@@ -41,7 +58,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_srnyu")
 }],
 "loop": true,
-"name": &"default",
+"name": &"gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckkh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt4d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gwh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tj2x")
+}],
+"loop": true,
+"name": &"silver",
 "speed": 5.0
 }]
 
@@ -56,7 +90,7 @@ shape = SubResource("CapsuleShape2D_k50o3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ckkh5")
-frame_progress = 0.9117126
+animation = &"gold"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_k50o3")
