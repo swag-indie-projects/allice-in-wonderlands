@@ -4,6 +4,7 @@ extends Enemy
 @export var speed: float
 @export var animation: AnimatedSprite2D
 @export var health_bar: ProgressBar
+@export var death_particle : GPUParticles2D
 
 var world: World
 
@@ -36,9 +37,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	super(delta)
-	
-	
+	super(delta)	
 	health_bar.value = HP
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
@@ -51,3 +50,18 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	$NavigationAgent2D.target_position = world.player.global_position
 	
+func get_hit(amount: int, direction_vector: Vector2) -> void:
+	# if it's knockback animation isn't even half way done, then the attack does not count
+	if knockback_component.time_due > knockback_component.knockback_duration / 2:
+		return
+	
+	animation_component.play_hit_flash()
+	
+	if HP - amount <= 0:
+		animation.visible = false
+		death_particle.emitting = true
+		await get_tree().create_timer(death_particle.lifetime).timeout
+		queue_free()
+	
+	HP -= amount
+	knockback_component.setup(direction_vector)
