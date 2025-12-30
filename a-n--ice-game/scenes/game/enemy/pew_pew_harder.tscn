@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/enemy/ISlim.png" id="2_gifkr"]
 [ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_imgrc"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_1k6jl"]
-[ext_resource type="Script" uid="uid://cyijvh5s8a0rt" path="res://scripts/game/components/projectiles/wave_proj_anim.gd" id="5_nv8e7"]
+[ext_resource type="Script" uid="uid://cyijvh5s8a0rt" path="res://scripts/game/projectiles/wave_proj_anim.gd" id="5_nv8e7"]
 [ext_resource type="PackedScene" uid="uid://rouf1jakkebt" path="res://scenes/game/projectiles/snowball_projectile.tscn" id="6_ncb54"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
@@ -104,7 +104,6 @@ _data = {
 }
 
 [node name="Pew Pew Harder" type="CharacterBody2D" node_paths=PackedStringArray("player_detection_box", "avoidance_box", "hysteresis", "animation", "health_bar", "projectile_animation", "knockback_component", "animation_component")]
-modulate = Color(0.49, 1, 0.53249997, 1)
 collision_layer = 7
 script = ExtResource("1_nv8e7")
 player_detection_box = NodePath("detection_box")
@@ -145,6 +144,7 @@ shape = SubResource("CircleShape2D_2bu2f")
 debug_color = Color(0.56733334, 0.92, 0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.93333334, 0.49019608, 1)
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_n3byp")
 frame_progress = 0.98271334
