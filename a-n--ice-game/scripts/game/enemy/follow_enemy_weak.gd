@@ -2,11 +2,13 @@ extends Enemy
 
 @export var detection_box: Area2D
 @export var speed: float
+
 @export var animation: AnimatedSprite2D
 @export var health_bar: ProgressBar
 @export var death_particle : GPUParticles2D
 
 var world: World
+var dying : bool = false
 
 func _ready() -> void:
 	if !get_parent() is World:
@@ -40,12 +42,22 @@ func _process(delta: float) -> void:
 	super(delta)	
 	health_bar.value = HP
 
+
 func _on_hitbox_body_entered(body: Node2D) -> void:
+	if dying:
+		return
 	if body is Player:
 		body.get_hit(1)
-		health_bar.value -= 1
-		queue_free()
+		self.get_hit(1, Vector2(0,0))
+		
 
+func die() -> void:
+	dying = true
+	animation.visible = false
+	death_particle.emitting = true
+		
+	await get_tree().create_timer(death_particle.lifetime).timeout
+	queue_free()
 
 func _on_timer_timeout() -> void:
 	$NavigationAgent2D.target_position = world.player.global_position
@@ -58,10 +70,7 @@ func get_hit(amount: int, direction_vector: Vector2) -> void:
 	animation_component.play_hit_flash()
 	
 	if HP - amount <= 0:
-		animation.visible = false
-		death_particle.emitting = true
-		await get_tree().create_timer(death_particle.lifetime).timeout
-		queue_free()
+		die()
 	
 	HP -= amount
 	knockback_component.setup(direction_vector)

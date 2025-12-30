@@ -4,7 +4,7 @@ class_name PlayerIdleState
 
 func setup(new_actor: CharacterBody2D) -> void:
 	actor = new_actor
-	state_name = StateName.Name.IDLE
+	state_name = PlayerStateName.Name.IDLE
 
 func enter() -> void:
 	super()
@@ -13,15 +13,15 @@ func enter() -> void:
 func exit() -> void:
 	super()
 
-func process_frame(_delta: float) -> StateName.Name:
+func process_frame(_delta: float) -> PlayerStateName.Name:
 	var animation_string: StringName = "idle_" + actor.facing_component.facing_name_dictionary[actor.facing_component.facing]
 	actor.play_animation(animation_string)
 	
 	var direction_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction_vector == Vector2.ZERO:
-		return StateName.Name.IDLE
+		return PlayerStateName.Name.IDLE
 	
-	return StateName.Name.WALK
+	return PlayerStateName.Name.WALK
 
-func process_physics_frame(_delta: float) -> StateName.Name:
-	return StateName.Name.IDLE
+func process_physics_frame(_delta: float) -> PlayerStateName.Name:
+	return PlayerStateName.Name.IDLE

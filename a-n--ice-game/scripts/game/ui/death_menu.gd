@@ -10,12 +10,12 @@ signal on_die
 var in_death_menu: bool
 
 func _ready() -> void:
-	
+	self.visible = false
 	on_die.connect(_show_death_menu)
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_escape"):
-		if get_tree().paused:
+		if in_death_menu:
 			retry()
 
 func _show_death_menu() -> void:
@@ -36,6 +36,10 @@ func retry() -> void:
 	print("pressed reset")
 	$AnimationPlayer.play(&"retry")
 	in_death_menu = false
+	get_tree().paused = false
+
+	if (Globals.get_game()):
+		Globals.get_game().reset_game()
 
 func _on_retry_pressed() -> void:
 	retry()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvbw60itw5tpc"
-path="res://.godot/imported/snow_particle.png-35164313814175efa6fe6a0a8de54c74.ctex"
+uid="uid://8a0p3tfjo1ah"
+path="res://.godot/imported/ice_spike.png-de37609164a699f3f56526986c8eb33d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/snow_particle.png"
-dest_files=["res://.godot/imported/snow_particle.png-35164313814175efa6fe6a0a8de54c74.ctex"]
+source_file="res://assets/tileset/ice_spike.png"
+dest_files=["res://.godot/imported/ice_spike.png-de37609164a699f3f56526986c8eb33d.ctex"]
 
 [params]
 

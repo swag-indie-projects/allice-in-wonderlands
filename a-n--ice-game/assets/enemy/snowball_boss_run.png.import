@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3fyxiv224ekh"
-path="res://.godot/imported/ice_hp_shine-Sheet.png-3028b2410c79ef110d0f65ac3099a8b7.ctex"
+uid="uid://xydco80edq3r"
+path="res://.godot/imported/snowball_boss_run.png-22cf61261b681d0500bf57f27365ca63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ice_hp_shine-Sheet.png"
-dest_files=["res://.godot/imported/ice_hp_shine-Sheet.png-3028b2410c79ef110d0f65ac3099a8b7.ctex"]
+source_file="res://assets/enemy/snowball_boss_run.png"
+dest_files=["res://.godot/imported/snowball_boss_run.png-22cf61261b681d0500bf57f27365ca63.ctex"]
 
 [params]
 

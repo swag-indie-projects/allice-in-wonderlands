@@ -42,16 +42,16 @@ func exit() -> void:
 
 func setup(new_actor: CharacterBody2D) -> void:
 	actor = new_actor
-	state_name = StateName.Name.DASH
+	state_name = PlayerStateName.Name.DASH
 
-func process_frame(_delta: float) -> StateName.Name:
+func process_frame(_delta: float) -> PlayerStateName.Name:
 	#print(cooldown_timer.is_stopped())
 	if !cooldown_timer.is_stopped():
-		return StateName.Name.WALK
+		return PlayerStateName.Name.WALK
 	
 	if leave_state == true:
 		leave_state = false
-		return StateName.Name.WALK
+		return PlayerStateName.Name.WALK
 	
 	var current_time: float = dash_timer.wait_time - dash_timer.time_left
 	if last_saved_time < current_time:
@@ -60,7 +60,7 @@ func process_frame(_delta: float) -> StateName.Name:
 	
 	return state_name
 
-func process_physics_frame(_delta: float) -> StateName.Name:
+func process_physics_frame(_delta: float) -> PlayerStateName.Name:
 	return state_name
 
 func add_dash_shade(

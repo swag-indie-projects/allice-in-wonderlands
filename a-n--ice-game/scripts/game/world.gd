@@ -26,7 +26,6 @@ func setup(new_player: Player, spawnpoint_index: int):
 		exitpoint.hide()
 
 func _on_exitpoint_body_entered(body: Node2D, exitpoint: Area2D) -> void:
-	print("Here")
 	if !(body is Player):
 		return
 	exited.emit(exitpoint_to_scenepath[exitpoint])

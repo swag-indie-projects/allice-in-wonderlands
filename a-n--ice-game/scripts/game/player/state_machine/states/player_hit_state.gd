@@ -29,18 +29,18 @@ func exit() -> void:
 
 func setup(new_actor: CharacterBody2D) -> void:
 	actor = new_actor
-	state_name = StateName.Name.HIT
+	state_name = PlayerStateName.Name.HIT
 
-func process_frame(_delta: float) -> StateName.Name:
+func process_frame(_delta: float) -> PlayerStateName.Name:
 	if Input.is_action_just_pressed("dash"):
-		return StateName.Name.DASH
+		return PlayerStateName.Name.DASH
 	if time_elapsed >= knockback_duration:
-		return StateName.Name.IDLE
+		return PlayerStateName.Name.IDLE
 	return state_name
 
-func process_physics_frame(delta: float) -> StateName.Name:
+func process_physics_frame(delta: float) -> PlayerStateName.Name:
 	if time_elapsed >= knockback_duration:
-		return StateName.Name.IDLE
+		return PlayerStateName.Name.IDLE
 	actor.velocity -= acceleration * delta * direction_vector
 	time_elapsed += delta
 	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkxic7oeswtt5"
-path="res://.godot/imported/ice_torch.png-20e0bb635d88c53e9cdb962947129175.ctex"
+uid="uid://crib2tcqkaoha"
+path="res://.godot/imported/player_walk_animation.png-15c547f7676dda39d0f794103927243e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ice_torch.png"
-dest_files=["res://.godot/imported/ice_torch.png-20e0bb635d88c53e9cdb962947129175.ctex"]
+source_file="res://assets/player/player_walk_animation.png"
+dest_files=["res://.godot/imported/player_walk_animation.png-15c547f7676dda39d0f794103927243e.ctex"]
 
 [params]
 
