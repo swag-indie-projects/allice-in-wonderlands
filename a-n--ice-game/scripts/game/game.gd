@@ -19,7 +19,6 @@ func _ready() -> void:
 	player.HP_changed.connect(_on_player_HP_changed)
 	save_manager.load_game()
 	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
-	print(saved_world)
 	
 	if debug_mod:
 		#player.get_node("Camera2D").Zoom.x = 0.5
@@ -54,6 +53,8 @@ func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 var world_change_debounce = true
 
 func _on_world_exited(result: SpawnResult) -> void:
+	print("WORLD CHANGED")
+	print(result)
 	if (world_change_debounce):
 		world_change_debounce = false
 		var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])

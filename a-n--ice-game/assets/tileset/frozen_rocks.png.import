@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crib2tcqkaoha"
-path="res://.godot/imported/player_walk_animation.png-4544cacd7566066d47b80baa39fb2f9f.ctex"
+uid="uid://qnt10ktnwdwu"
+path="res://.godot/imported/frozen_rocks.png-d2fffa952a406f8c099a960f98c0bddd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_walk_animation.png"
-dest_files=["res://.godot/imported/player_walk_animation.png-4544cacd7566066d47b80baa39fb2f9f.ctex"]
+source_file="res://assets/tileset/frozen_rocks.png"
+dest_files=["res://.godot/imported/frozen_rocks.png-d2fffa952a406f8c099a960f98c0bddd.ctex"]
 
 [params]
 

@@ -22,7 +22,10 @@ func get_hit(amount: int, direction_vector: Vector2) -> void:
 	animation_component.play_hit_flash()
 	
 	if HP - amount <= 0:
-		queue_free()
+		die()
 	
 	HP -= amount
 	knockback_component.setup(direction_vector)
+
+func die() -> void:
+	queue_free()

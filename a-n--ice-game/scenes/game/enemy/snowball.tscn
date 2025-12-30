@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dud025mgrfyer" path="res://assets/enemy/snowball_run.png" id="3_h5cot"]
 [ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_uc82o"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_h5cot"]
-[ext_resource type="Texture2D" uid="uid://dvbw60itw5tpc" path="res://assets/aseprite/snow_particle.png" id="6_uc82o"]
+[ext_resource type="Texture2D" uid="uid://slyufsyam5qf" path="res://assets/particles/snow_pellet_particle.png" id="6_uc82o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
 radius = 2.9999952
@@ -107,7 +107,7 @@ scale_curve = SubResource("CurveTexture_kkhfq")
 collision_layer = 7
 script = ExtResource("1_1orvf")
 detection_box = NodePath("detection_box")
-speed = 100.0
+speed = 80.0
 animation = NodePath("AnimatedSprite2D")
 health_bar = NodePath("ProgressBar")
 death_particle = NodePath("DeathParticle")

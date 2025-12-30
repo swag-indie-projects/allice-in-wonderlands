@@ -48,8 +48,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		return
 	if body is Player:
 		body.get_hit(1)
-		health_bar.value -= 1
-		die()
+		self.get_hit(1, Vector2(0,0))
+		
 
 func die() -> void:
 	dying = true

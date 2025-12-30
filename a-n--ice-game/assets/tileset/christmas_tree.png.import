@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do5dwlccmwrgt"
-path="res://.godot/imported/snowman.png-9c0947309ed23866c82337a44c7bb020.ctex"
+uid="uid://drxfmgikbo7ok"
+path="res://.godot/imported/christmas_tree.png-c1787a936bbbf1892fa831b95c99e03e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/snowman.png"
-dest_files=["res://.godot/imported/snowman.png-9c0947309ed23866c82337a44c7bb020.ctex"]
+source_file="res://assets/tileset/christmas_tree.png"
+dest_files=["res://.godot/imported/christmas_tree.png-c1787a936bbbf1892fa831b95c99e03e.ctex"]
 
 [params]
 

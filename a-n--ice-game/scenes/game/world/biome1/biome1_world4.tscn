@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cgu3qwehsenbp"]
+[gd_scene load_steps=21 format=4 uid="uid://cgu3qwehsenbp"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_1ovx2"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_81jhw"]
@@ -40,12 +40,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(85, 8, 556, 31, 565, 23
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_gn433"]
-outlines = Array[PackedVector2Array]([PackedVector2Array(69, 24, 557, 44, 557, 258, 69, 264)])
-source_geometry_mode = 1
-source_geometry_group_name = &"navigation"
-
-[node name="world2" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
 script = ExtResource("1_1ovx2")
 spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
 exitpoint_to_scenepath = {
@@ -130,9 +125,8 @@ position = Vector2(191, 233)
 [node name="IceTorch" parent="." instance=ExtResource("12_81jhw")]
 position = Vector2(263, 18)
 
-[node name="ISlim" parent="." instance=ExtResource("14_gn433")]
-position = Vector2(314, 109)
+[node name="snowball" parent="." instance=ExtResource("14_gn433")]
+position = Vector2(352, 48)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="ISlim"]
-position = Vector2(-334, -159)
-navigation_polygon = SubResource("NavigationPolygon_gn433")
+[node name="snowball2" parent="." instance=ExtResource("14_gn433")]
+position = Vector2(356, 170)
