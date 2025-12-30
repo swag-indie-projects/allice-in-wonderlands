@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://mux80ftnsjv2"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://mux80ftnsjv2"]
 
 [ext_resource type="Texture2D" uid="uid://dc523gg8xetqd" path="res://assets/tileset/snow_tile.png" id="1_05luo"]
 [ext_resource type="Texture2D" uid="uid://cc27t1soumlon" path="res://assets/tileset/white_snow_tile.png" id="2_0v461"]
+[ext_resource type="Texture2D" uid="uid://bad15ggc6pk7i" path="res://assets/tileset/iced_grass_tile.png" id="3_n8rnh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tawp"]
 texture = ExtResource("1_05luo")
@@ -29,8 +30,28 @@ texture = ExtResource("2_0v461")
 2:3/0 = 0
 3:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umyh1"]
+texture = ExtResource("3_n8rnh")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
 [resource]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1tawp")
 sources/1 = SubResource("TileSetAtlasSource_f2m1r")
+sources/2 = SubResource("TileSetAtlasSource_umyh1")

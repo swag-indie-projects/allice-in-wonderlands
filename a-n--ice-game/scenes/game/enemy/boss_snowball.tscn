@@ -1,12 +1,10 @@
-[gd_scene load_steps=79 format=3 uid="uid://bc56rqnaht3f2"]
+[gd_scene load_steps=50 format=3 uid="uid://bc56rqnaht3f2"]
 
 [ext_resource type="Script" uid="uid://y8x860ncxjee" path="res://scripts/game/enemy/snowball_boss/snowball_boss_enemy.gd" id="1_kbn1u"]
 [ext_resource type="Texture2D" uid="uid://ccq1nahyfxvfu" path="res://assets/enemy/snowball_boss_idle.png" id="2_kbn1u"]
 [ext_resource type="Texture2D" uid="uid://xydco80edq3r" path="res://assets/enemy/snowball_boss_run.png" id="3_0n8fv"]
 [ext_resource type="Texture2D" uid="uid://d2fthe2q70j0n" path="res://assets/enemy/snowball_boss_stun.png" id="4_0n8fv"]
-[ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="4_4pykn"]
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="5_0yoke"]
-[ext_resource type="Texture2D" uid="uid://dvbw60itw5tpc" path="res://assets/aseprite/snow_particle.png" id="7_vi6go"]
 [ext_resource type="Script" uid="uid://bfqr0we5oyg8v" path="res://scripts/game/enemy/snowball_boss/snowball_boss_state_machine.gd" id="8_4pykn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
@@ -1061,141 +1059,7 @@ _data = {
 &"stun": SubResource("Animation_0yoke")
 }
 
-[sub_resource type="Curve2D" id="Curve2D_8h4ky"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0)
-}
-point_count = 2
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0n8fv"]
-animation = &"RESET"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lcphb"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vi6go"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4pykn"]
-animation = &"roll_down"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0yoke"]
-animation = &"roll_down_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qhcmp"]
-animation = &"roll_down_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s4auk"]
-animation = &"roll_follow"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_03xwr"]
-animation = &"roll_grow"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_necua"]
-animation = &"roll_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mfi1p"]
-animation = &"roll_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qcvnp"]
-animation = &"roll_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e7wsw"]
-animation = &"roll_up_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8h4ky"]
-animation = &"roll_up_right"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lcphb"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kqvq4"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "get_parent().luck >= 0 and get_parent().luck <= 1"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_el2sr"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "get_parent().luck > 1/8 and get_parent().luck <= 2/8"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0w2l6"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "get_parent().luck > 2/8 and get_parent().luck <= 3/8"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jsu45"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "get_parent().luck > 3/8 and get_parent().luck <= 4/8"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ttaer"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "get_parent().luck > 4/8 and get_parent().luck <= 5/8"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_prwa1"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "get_parent().luck > 5/8 and get_parent().luck <= 6/8"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6pbsw"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "get_parent().luck > 6/8 and get_parent().luck <= 7/8"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_312xd"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "get_parent().luck > 7/8 and get_parent().luck <= 1"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s4auk"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s7cfj"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "get_parent().entity.scale.x <= 1"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qu34j"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4pykn"]
-states/End/position = Vector2(1163, 9)
-states/RESET/node = SubResource("AnimationNodeAnimation_0n8fv")
-states/RESET/position = Vector2(448, -33)
-states/Start/position = Vector2(244, -33)
-states/idle/node = SubResource("AnimationNodeAnimation_vi6go")
-states/idle/position = Vector2(687, 127)
-"states/idle 2/node" = SubResource("AnimationNodeAnimation_lcphb")
-"states/idle 2/position" = Vector2(597, -61)
-states/roll_down/node = SubResource("AnimationNodeAnimation_4pykn")
-states/roll_down/position = Vector2(208, 245)
-states/roll_down_left/node = SubResource("AnimationNodeAnimation_0yoke")
-states/roll_down_left/position = Vector2(349, 245)
-states/roll_down_right/node = SubResource("AnimationNodeAnimation_qhcmp")
-states/roll_down_right/position = Vector2(504, 245)
-states/roll_follow/node = SubResource("AnimationNodeAnimation_s4auk")
-states/roll_follow/position = Vector2(956, 66)
-states/roll_grow/node = SubResource("AnimationNodeAnimation_03xwr")
-states/roll_grow/position = Vector2(944, -61)
-states/roll_left/node = SubResource("AnimationNodeAnimation_necua")
-states/roll_left/position = Vector2(638, 245)
-states/roll_right/node = SubResource("AnimationNodeAnimation_mfi1p")
-states/roll_right/position = Vector2(752, 245)
-states/roll_up/node = SubResource("AnimationNodeAnimation_qcvnp")
-states/roll_up/position = Vector2(864, 245)
-states/roll_up_left/node = SubResource("AnimationNodeAnimation_e7wsw")
-states/roll_up_left/position = Vector2(980, 245)
-states/roll_up_right/node = SubResource("AnimationNodeAnimation_8h4ky")
-states/roll_up_right/position = Vector2(1114, 245)
-transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_lcphb"), "idle", "roll_down", SubResource("AnimationNodeStateMachineTransition_kqvq4"), "idle", "roll_down_left", SubResource("AnimationNodeStateMachineTransition_el2sr"), "idle", "roll_down_right", SubResource("AnimationNodeStateMachineTransition_0w2l6"), "idle", "roll_left", SubResource("AnimationNodeStateMachineTransition_jsu45"), "idle", "roll_right", SubResource("AnimationNodeStateMachineTransition_ttaer"), "idle", "roll_up", SubResource("AnimationNodeStateMachineTransition_prwa1"), "idle", "roll_up_left", SubResource("AnimationNodeStateMachineTransition_6pbsw"), "idle", "roll_up_right", SubResource("AnimationNodeStateMachineTransition_312xd"), "RESET", "idle 2", SubResource("AnimationNodeStateMachineTransition_s4auk"), "idle 2", "roll_grow", SubResource("AnimationNodeStateMachineTransition_s7cfj"), "roll_grow", "roll_follow", SubResource("AnimationNodeStateMachineTransition_qu34j")]
-graph_offset = Vector2(-158, -139)
-
 [node name="entity" type="CharacterBody2D" node_paths=PackedStringArray("dmg_particle", "state_machine", "animation_component")]
-position = Vector2(-1, 0)
 rotation = -0.79220074
 collision_layer = 7
 script = ExtResource("1_kbn1u")
@@ -1204,7 +1068,7 @@ state_machine = NodePath("StateMachine")
 animation_component = NodePath("animation component")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.70227635, 0.71189296)
+position = Vector2(0.009620309, -1.4141809)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_vhjlo")
 debug_color = Color(0.9744286, 0, 0.43028787, 0.41960785)
@@ -1226,7 +1090,6 @@ shape = SubResource("CapsuleShape2D_s4mds")
 rotation = 0.79220074
 emitting = false
 amount = 50
-texture = ExtResource("7_vi6go")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
@@ -1243,55 +1106,5 @@ script = ExtResource("8_4pykn")
 [node name="animation component" type="Node" parent="." node_paths=PackedStringArray("target_animation")]
 script = ExtResource("5_0yoke")
 target_animation = NodePath("../AnimatedSprite2D")
-
-[node name="Useless" type="Node" parent="."]
-
-[node name="ChargePath" type="Path2D" parent="Useless"]
-position = Vector2(-1, 0)
-curve = SubResource("Curve2D_0n8fv")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Useless/ChargePath"]
-rotation = -0.79220074
-rotates = false
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Useless/ChargePath/PathFollow2D"]
-remote_path = NodePath("../../../../entity")
-
-[node name="FollowChargePath" type="Path2D" parent="Useless"]
-position = Vector2(-1, 0)
-curve = SubResource("Curve2D_8h4ky")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Useless/FollowChargePath"]
-position = Vector2(1, 0)
-rotation = -0.79220074
-progress = 1.0
-rotates = false
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Useless/FollowChargePath/PathFollow2D"]
-remote_path = NodePath("../../../../entity")
-
-[node name="AnimationTree" type="AnimationTree" parent="Useless"]
-root_node = NodePath("../..")
-tree_root = SubResource("AnimationNodeStateMachine_4pykn")
-anim_player = NodePath("../../AnimationPlayer")
-
-[node name="ProgressBar" type="ProgressBar" parent="Useless"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -587.0
-offset_top = -317.0
-offset_right = -487.0
-offset_bottom = -290.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-metadata/_edit_use_anchors_ = true
-
-[node name="knockback component" type="Node" parent="Useless" node_paths=PackedStringArray("actor")]
-script = ExtResource("4_4pykn")
-actor = NodePath("../..")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
