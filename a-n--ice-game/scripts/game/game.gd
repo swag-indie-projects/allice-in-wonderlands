@@ -4,7 +4,7 @@ extends Node2D
 #@export var starting_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_STARTING_WORLD
 @export var debug_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
 @export var debug_mod: bool = false
-@export var player_healthbar_ui: PlayerHealthbarUI
+@export var player_ui: PlayerUI
 @export var player_save_tooltip_ui : SavePopupUI
 @export var save_manager : SaveManager
 
@@ -19,6 +19,8 @@ func _ready() -> void:
 	player.HP_changed.connect(_on_player_HP_changed)
 	save_manager.load_game()
 	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
+	var coins : int = save_manager.get_save_data("coins")
+	player_ui.update_coin.emit(coins)
 	
 	if debug_mod:
 		#player.get_node("Camera2D").Zoom.x = 0.5
@@ -30,12 +32,10 @@ func _ready() -> void:
 
 func reset_game() -> void:
 	player.HP = player.MAX_HP
-	player_healthbar_ui.update_healthbar.emit(player.HP+1, player.MAX_HP)
+	player_ui.update_healthbar.emit(player.HP, player.MAX_HP)
 	current_world.setup(player, 0)
 	add_child.call_deferred(current_world)
 	apply_camera_border_limit()
-
-	
 
 func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 	if is_instance_valid(current_world):
@@ -53,8 +53,6 @@ func play_world(scene: PackedScene, spawn_point_index: int) -> void:
 var world_change_debounce = true
 
 func _on_world_exited(result: SpawnResult) -> void:
-	print("WORLD CHANGED")
-	print(result)
 	if (world_change_debounce):
 		world_change_debounce = false
 		var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
@@ -63,13 +61,12 @@ func _on_world_exited(result: SpawnResult) -> void:
 		world_change_debounce = true
 
 func _on_player_HP_changed(HP: int, max_HP: int):
-	player_healthbar_ui.update_healthbar.emit(HP, max_HP)
+	player_ui.update_healthbar.emit(HP, max_HP)
 
 func apply_camera_border_limit() -> void:
 	var camera := player.get_node("Camera2D") as Camera2D
 	if camera == null:
-		return
-	
+		return	
 	var border_rectangle: Rect2 = current_world.get_border_rectangle()
 	camera.limit_left   = int(border_rectangle.position.x)
 	camera.limit_top    = int(border_rectangle.position.y)

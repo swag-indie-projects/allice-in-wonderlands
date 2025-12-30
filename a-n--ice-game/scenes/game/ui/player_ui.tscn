@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3u75osf3k4m4"]
+
+[ext_resource type="Script" uid="uid://d3n6ggtbombbo" path="res://scripts/game/ui/player_healthbar_ui.gd" id="1_4jm44"]
+[ext_resource type="Texture2D" uid="uid://cutk2sacqod4a" path="res://assets/ui/player-hp-shard.png" id="2_jue3g"]
+[ext_resource type="Texture2D" uid="uid://b35rgpdb71i0k" path="res://assets/ui/player-hp-shard-empty.png" id="3_ulple"]
+[ext_resource type="Texture2D" uid="uid://1xm4o7k0yth2" path="res://assets/ui/player-healthbar-ui-icon.png" id="4_kqf2o"]
+[ext_resource type="Texture2D" uid="uid://bbaffc8n6h32k" path="res://assets/ui/player-healthbar-ui.png" id="5_4r36r"]
+[ext_resource type="Texture2D" uid="uid://dfjmfsofkdfa4" path="res://assets/object/coin_icon.png" id="6_7rrdl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0itym"]
+texture = ExtResource("5_4r36r")
+
+[node name="player ui" type="Control" node_paths=PackedStringArray("HP_shards", "coins_text")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 440.0
+offset_bottom = 100.0
+script = ExtResource("1_4jm44")
+HP_shard_full = ExtResource("2_jue3g")
+HP_shard_empty = ExtResource("3_ulple")
+HP_shards = [NodePath("HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect1"), NodePath("HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect2"), NodePath("HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect3"), NodePath("HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect4"), NodePath("HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect5")]
+coins_text = NodePath("HBoxContainer/Coins/MarginContainer/HBoxContainer/NumCoins")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 440.0
+offset_bottom = 100.0
+theme_override_constants/separation = 0
+
+[node name="NICE icon" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+texture = ExtResource("4_kqf2o")
+expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0itym")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect1" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Coins" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0itym")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Coins"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Coins/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect1" type="TextureRect" parent="HBoxContainer/Coins/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_7rrdl")
+expand_mode = 2
+
+[node name="NumCoins" type="RichTextLabel" parent="HBoxContainer/Coins/MarginContainer/HBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "20"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1

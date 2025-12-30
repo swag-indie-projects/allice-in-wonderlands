@@ -154,6 +154,7 @@ navigation_polygon = SubResource("NavigationPolygon_06jbn")
 
 [node name="Coin" parent="." instance=ExtResource("13_als7v")]
 position = Vector2(254, 319)
+type = 1
 
 [node name="Fridge" parent="." instance=ExtResource("14_okr80")]
 position = Vector2(399, 251)
