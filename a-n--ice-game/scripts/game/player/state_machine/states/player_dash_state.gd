@@ -16,8 +16,13 @@ func _ready() -> void:
 
 func enter() -> void:
 	super()
+	
+	leave_state = false
+	last_saved_time = 0.0
+
 	# Means we are in cool down. Don't do anything fancy
 	if !cooldown_timer.is_stopped():
+		leave_state = true
 		return
 	
 	#$AnimationPlayer.play("dash")
@@ -28,8 +33,6 @@ func enter() -> void:
 	
 	dash_particles.rotation = actor.velocity.angle()
 	
-	leave_state = false
-	last_saved_time = 0.0
 
 func exit() -> void:
 	super()
