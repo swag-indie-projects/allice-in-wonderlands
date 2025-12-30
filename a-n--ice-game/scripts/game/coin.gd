@@ -16,6 +16,8 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		audio_player.play()
 		await audio_player.finished
+		
 		if (Globals.game):
 			Globals.game.save_manager.update_save_data("coins", Globals.game.save_manager.get_save_data("coins") + 1)
+			Globals.game.player_ui.update_coin.emit(Globals.game.save_manager.get_save_data("coins"))
 		queue_free()

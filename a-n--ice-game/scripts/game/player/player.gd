@@ -9,7 +9,7 @@ var HP: int
 var is_invincible: bool
 
 @export var state_machine: PlayerStateMachine
-#@export var healthbar_ui: PlayerHealthbarUI
+#@export var healthbar_ui: PlayerUI
 
 @export var facing_component: FacingComponent
 
