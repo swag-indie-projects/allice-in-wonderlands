@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bc56rqnaht3f2"]
+[gd_scene load_steps=34 format=3 uid="uid://btgf15ckrch3b"]
 
 [ext_resource type="Script" uid="uid://y8x860ncxjee" path="res://scripts/game/enemy/snowball_boss/snowball_boss_enemy.gd" id="1_kbn1u"]
 [ext_resource type="Texture2D" uid="uid://ccq1nahyfxvfu" path="res://assets/enemy/snowball_boss_idle.png" id="2_kbn1u"]
@@ -146,18 +146,6 @@ scale_min = 2.0
 scale_max = 2.0
 scale_curve = SubResource("CurveTexture_kkhfq")
 
-[sub_resource type="Curve2D" id="Curve2D_0n8fv"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_8h4ky"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0)
-}
-point_count = 2
-
 [node name="snowball_boss" type="CharacterBody2D" node_paths=PackedStringArray("dmg_particle", "death_particle", "state_machine", "animation_sprite", "animation_component")]
 collision_layer = 7
 script = ExtResource("1_kbn1u")
@@ -166,7 +154,7 @@ dmg_particle = NodePath("DMGParticle")
 death_particle = NodePath("DeathParticle")
 state_machine = NodePath("StateMachine")
 animation_sprite = NodePath("AnimatedSprite2D")
-MAX_HP = 10
+MAX_HP = 50
 animation_component = NodePath("animation component")
 
 [node name="self_shape" type="CollisionShape2D" parent="."]
@@ -201,14 +189,9 @@ shape = SubResource("CircleShape2D_qhcmp")
 [node name="DMGParticle" type="GPUParticles2D" parent="."]
 rotation = 0.79220074
 emitting = false
-<<<<<<< HEAD
 amount = 100
 texture = ExtResource("7_vi6go")
 lifetime = 0.25
-=======
-amount = 50
-lifetime = 0.5
->>>>>>> 81dc4db40960c722cb60c35e422222d5a7dc5095
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_0yoke")
@@ -260,55 +243,3 @@ script = ExtResource("13_e7wsw")
 
 [node name="animation component" type="Node" parent="."]
 script = ExtResource("5_0yoke")
-
-<<<<<<< HEAD
-[node name="Useless" type="Node" parent="."]
-
-[node name="ChargePath" type="Path2D" parent="Useless"]
-position = Vector2(-1, 0)
-curve = SubResource("Curve2D_0n8fv")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Useless/ChargePath"]
-rotation = -0.79220074
-rotates = false
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Useless/ChargePath/PathFollow2D"]
-remote_path = NodePath("../../../../entity")
-
-[node name="FollowChargePath" type="Path2D" parent="Useless"]
-position = Vector2(-1, 0)
-curve = SubResource("Curve2D_8h4ky")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Useless/FollowChargePath"]
-position = Vector2(1, 0)
-rotation = -0.79220074
-progress = 1.0
-rotates = false
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Useless/FollowChargePath/PathFollow2D"]
-remote_path = NodePath("../../../../entity")
-
-[node name="ProgressBar" type="ProgressBar" parent="Useless"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -587.0
-offset_top = -317.0
-offset_right = -487.0
-offset_bottom = -290.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-metadata/_edit_use_anchors_ = true
-
-[node name="knockback component" type="Node" parent="Useless" node_paths=PackedStringArray("actor")]
-script = ExtResource("4_4pykn")
-actor = NodePath("../..")
-
-[connection signal="body_entered" from="attack_hitbox" to="." method="_on_attack_hitbox_body_entered"]
-[connection signal="body_entered" from="self_hitbox" to="." method="_on_self_hitbox_body_entered"]
-=======
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
->>>>>>> 81dc4db40960c722cb60c35e422222d5a7dc5095

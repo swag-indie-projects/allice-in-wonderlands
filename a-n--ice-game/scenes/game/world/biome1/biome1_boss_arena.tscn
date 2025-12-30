@@ -8,8 +8,8 @@
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="6_kxf7d"]
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="7_8rs3m"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="8_8567w"]
-[ext_resource type="Script" uid="uid://bd6hadag7ntp1" path="res://scenes/game/world/biome1/arena_box.gd" id="11_2nrtd"]
-[ext_resource type="PackedScene" uid="uid://bc56rqnaht3f2" path="res://scenes/game/enemy/boss_snowball.tscn" id="11_gx3pl"]
+[ext_resource type="Script" uid="uid://bd6hadag7ntp1" path="res://scripts/game/arena_box.gd" id="11_2nrtd"]
+[ext_resource type="PackedScene" uid="uid://btgf15ckrch3b" path="res://scenes/game/enemy/boss_snowball.tscn" id="11_gx3pl"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="11_r0mky"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="13_n3s17"]
 
@@ -91,6 +91,6 @@ position = Vector2(-25.5, 57.5)
 shape = SubResource("RectangleShape2D_gx3pl")
 debug_color = Color(0.56733334, 0.92, 0, 0)
 
-[node name="Fridge" parent="." instance=ExtResource("12_s5bqf")]
-position = Vector2(568, 119)
-spawnpoint = 10
+[node name="snowball_boss" parent="." node_paths=PackedStringArray("detection_box") instance=ExtResource("11_gx3pl")]
+position = Vector2(233, 28)
+detection_box = NodePath("../arena_box")
