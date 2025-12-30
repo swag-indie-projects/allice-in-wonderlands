@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cgu3qwehsenbp"]
+[gd_scene load_steps=20 format=4 uid="uid://cgu3qwehsenbp"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_1ovx2"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_81jhw"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="9_uvg4t"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="10_jxrcn"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="11_ho1b8"]
-[ext_resource type="PackedScene" uid="uid://br5vseyxakyry" path="res://scenes/game/enemy/pissing_goblin.tscn" id="11_uvg4t"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="12_81jhw"]
 [ext_resource type="PackedScene" uid="uid://cmpvjyk8ikibt" path="res://scenes/game/enemy/snowball.tscn" id="14_gn433"]
 
@@ -94,9 +93,6 @@ texture = ExtResource("10_jxrcn")
 position = Vector2(0, -35.5)
 shape = SubResource("RectangleShape2D_0ihr6")
 
-[node name="IceTorch" parent="exitpoint2" instance=ExtResource("11_uvg4t")]
-position = Vector2(229, -183)
-
 [node name="exitpoint" type="Area2D" parent="."]
 position = Vector2(642, 32)
 
@@ -118,9 +114,6 @@ position = Vector2(219, 189)
 
 [node name="Coin2" parent="." instance=ExtResource("11_ho1b8")]
 position = Vector2(72, -2)
-
-[node name="Coin3" parent="." instance=ExtResource("11_ho1b8")]
-position = Vector2(191, 233)
 
 [node name="IceTorch" parent="." instance=ExtResource("12_81jhw")]
 position = Vector2(263, 18)
