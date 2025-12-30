@@ -1,15 +1,15 @@
 extends Node
 
-class_name StateMachine
+class_name PlayerStateMachine
 
 @export var actor: CharacterBody2D
 @export var starting_state: PlayerState
-@export var state_dictionary: Dictionary[StateName.Name, PlayerState]
+@export var state_dictionary: Dictionary[PlayerStateName.Name, PlayerState]
 
 var current_state: PlayerState
 
 func setup() -> void:
-	for key: StateName.Name in state_dictionary:
+	for key: PlayerStateName.Name in state_dictionary:
 		state_dictionary[key].setup(actor)
 	
 	change_state(starting_state)

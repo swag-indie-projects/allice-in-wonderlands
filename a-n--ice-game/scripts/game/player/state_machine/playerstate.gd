@@ -3,7 +3,7 @@
 extends Node
 
 var actor: Player
-var state_name: StateName.Name
+var state_name: PlayerStateName.Name
 
 func enter() -> void:
 	#print("Entered state ", state_name)
@@ -15,6 +15,6 @@ func exit() -> void:
 
 @abstract func setup(new_actor: Player) -> void
 
-@abstract func process_frame(delta: float) -> StateName.Name
+@abstract func process_frame(delta: float) -> PlayerStateName.Name
 
-@abstract func process_physics_frame(delta: float) -> StateName.Name
+@abstract func process_physics_frame(delta: float) -> PlayerStateName.Name

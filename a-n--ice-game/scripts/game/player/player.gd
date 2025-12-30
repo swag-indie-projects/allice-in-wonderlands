@@ -8,7 +8,7 @@ var MAX_HP: int = Constant.PLAYER_STARTING_HP
 var HP: int
 var is_invincible: bool
 
-@export var state_machine: StateMachine
+@export var state_machine: PlayerStateMachine
 #@export var healthbar_ui: PlayerHealthbarUI
 
 @export var facing_component: FacingComponent
@@ -61,7 +61,7 @@ func get_hit(damage: int) -> void:
 		return
 	
 	HP -= damage
-	state_machine.change_state.call_deferred(state_machine.state_dictionary[StateName.Name.HIT])
+	state_machine.change_state.call_deferred(state_machine.state_dictionary[PlayerStateName.Name.HIT])
 	HP_changed.emit(HP, MAX_HP)
 	
 	# The "freeze" when hit
