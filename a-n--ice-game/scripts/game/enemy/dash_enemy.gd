@@ -32,6 +32,10 @@ func _physics_process(delta: float) -> void:
 	
 	var player: Player = world.player
 	
+ 	# Used to face the player while not dashing
+	if !is_dashing:
+		animation.flip_h = global_position.direction_to(player.global_position).x > 0
+			
 	if is_dashing:
 		velocity = dash_dir * dash_speed
 	elif dash_detection_box.overlaps_body(player):
@@ -47,7 +51,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity = Vector2.ZERO
 	
-	animation.flip_h = velocity.x > 0
+	if velocity.x != 0:
+		animation.flip_h = velocity.x > 0
 		
 	if velocity != Vector2.ZERO:
 		animation.play("dashing")
