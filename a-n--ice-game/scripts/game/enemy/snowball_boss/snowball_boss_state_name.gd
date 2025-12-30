@@ -1,3 +1,3 @@
 class_name SnowballBossStateName
 
-enum Name { IDLE, ROLL, GROW, STUN, HIT, PHASE_TWO, TARGET_ROLL }
+enum Name { IDLE, GROW_CENTER, GROW_SPIRAL, ROLL, STUN, TARGET_ROLL, END }

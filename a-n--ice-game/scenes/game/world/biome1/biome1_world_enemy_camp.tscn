@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://c2liotbx2xl72"]
+[gd_scene load_steps=30 format=4 uid="uid://c2liotbx2xl72"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_ctgmr"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_1eg10"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/enemy/pewpew Slime.tscn" id="16_1eg10"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="17_5lvj4"]
 [ext_resource type="PackedScene" uid="uid://cmpvjyk8ikibt" path="res://scenes/game/enemy/snowball.tscn" id="22_5lvj4"]
+[ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="23_kinlv"]
 
 [sub_resource type="Resource" id="Resource_1eg10"]
 script = ExtResource("2_1eg10")
@@ -233,3 +234,6 @@ position = Vector2(100, 144)
 
 [node name="snowball8" parent="." instance=ExtResource("22_5lvj4")]
 position = Vector2(197, -18)
+
+[node name="Fridge" parent="." instance=ExtResource("23_kinlv")]
+position = Vector2(-467, 144)

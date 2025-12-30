@@ -1,8 +1,7 @@
 @abstract class_name SnowballBossState
-
 extends Node
 
-var actor: Player
+var actor: SnowballBoss
 var state_name: SnowballBossStateName.Name
 
 func enter() -> void:
@@ -15,6 +14,4 @@ func exit() -> void:
 
 @abstract func setup(new_actor: SnowballBoss) -> void
 
-@abstract func process_frame(delta: float) -> PlayerStateName.Name
-
-@abstract func process_physics_frame(delta: float) -> PlayerStateName.Name
+@abstract func process_physics_frame(delta: float) -> SnowballBossStateName.Name
