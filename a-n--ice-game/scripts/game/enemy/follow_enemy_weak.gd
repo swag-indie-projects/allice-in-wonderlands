@@ -45,6 +45,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.get_hit(1)
 		health_bar.value -= 1
+		queue_free()
 
 
 func _on_timer_timeout() -> void:
