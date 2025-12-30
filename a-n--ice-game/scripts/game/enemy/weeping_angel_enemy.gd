@@ -9,6 +9,7 @@ extends Enemy
 
 var world: World
 var is_looked_at: bool
+var hit_cooldown: float = 0
 
 func _ready() -> void:
 	if !get_parent() is World:
@@ -21,6 +22,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+	if hit_cooldown > 0:
+		hit_cooldown -= delta
+		return
+	
 	if knockback_component.time_due > 0.0:
 		knockback_component.process_physics_frame(delta)
 		move_and_slide()
@@ -49,10 +54,10 @@ func _process(delta: float) -> void:
 	
 	health_bar.value = HP
 
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body is Player:
-		print("touching plr")
-		body.get_hit(1)
+	for body in $hitbox.get_overlapping_bodies():
+		if body is Player:
+			body.get_hit(1)
+			hit_cooldown = 0.5
 
 func _on_timer_timeout() -> void:
 	if !is_looked_at:

@@ -33,7 +33,6 @@ func enter() -> void:
 	
 	dash_particles.rotation = actor.velocity.angle()
 	
-
 func exit() -> void:
 	super()
 	if cooldown_timer.is_stopped():
@@ -45,7 +44,6 @@ func setup(new_actor: CharacterBody2D) -> void:
 	state_name = PlayerStateName.Name.DASH
 
 func process_frame(_delta: float) -> PlayerStateName.Name:
-	#print(cooldown_timer.is_stopped())
 	if !cooldown_timer.is_stopped():
 		return PlayerStateName.Name.WALK
 	
