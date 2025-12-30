@@ -27,7 +27,6 @@ func _ready() -> void:
 		texture_rect.texture = HP_shard_full
 
 func _on_healthbar_update(HP: int, _max_HP: int) -> void:
-	print("healthbar update:", HP, _max_HP)
 	if (HP > _max_HP):
 		return
 	for i in range(HP):

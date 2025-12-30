@@ -26,30 +26,29 @@ func _show_death_menu() -> void:
 		#button.disabled = false
 	
 	$AnimationPlayer.play(&"blur")
-	print("anin is indeed playing...?")
 
 func _process(delta: float) -> void:
 	if in_death_menu:
 		get_tree().paused = true
 
+func _on_retry_pressed() -> void:
+	retry()
+
 func retry() -> void:
-	print("pressed reset")
+	print("pressed reset!")
 	$AnimationPlayer.play(&"retry")
+
+# This is called without the animation player after the screen goes black!
+func actually_retry_game() -> void:
 	in_death_menu = false
 	get_tree().paused = false
 
 	if (Globals.get_game()):
 		Globals.get_game().reset_game()
 
-func _on_retry_pressed() -> void:
-	retry()
 	
 func _on_exit_pressed() -> void:
 	get_tree().paused = false
 	$AnimationPlayer.play(&"RESET")
-	$AnimationPlayer.stop()
+	
 	get_tree().change_scene_to_packed(main_menu_scene)
-
-func _on_settings_quit() -> void:
-	#vbox_containing_buttons.show()
-	pass
