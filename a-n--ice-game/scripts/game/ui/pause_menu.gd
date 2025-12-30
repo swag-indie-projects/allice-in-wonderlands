@@ -10,6 +10,7 @@ class_name PauseMenu
 @export var settings: Settings
 
 func _ready() -> void:
+	self.visible = false
 	animation_player.animation_finished.connect(_on_animation_player_finished)
 	for button: Button in vbox_containing_buttons.get_children():
 		button.disabled = true
@@ -23,7 +24,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			pause()
 
 func pause() -> void:
-	
+	self.visible = true
 	for button: Button in vbox_containing_buttons.get_children():
 		button.disabled = false
 	
@@ -31,6 +32,7 @@ func pause() -> void:
 	animation_player.play(&"blur")
 
 func resume() -> void:
+	self.visible = false
 	get_tree().paused = false
 	animation_player.play_backwards(&"blur")
 	in_back_play = true
