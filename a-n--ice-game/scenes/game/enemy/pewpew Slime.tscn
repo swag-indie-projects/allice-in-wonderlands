@@ -97,7 +97,7 @@ shape = SubResource("CircleShape2D_2bu2f")
 debug_color = Color(0.56733334, 0.92, 0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.49019608, 1, 0.53333336, 1)
+self_modulate = Color(0.49019608, 1, 0.53333336, 1)
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_n3byp")
 frame_progress = 0.98271334
