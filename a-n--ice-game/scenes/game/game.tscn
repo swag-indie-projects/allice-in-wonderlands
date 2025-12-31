@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cyi7otpakwjkg"]
+[gd_scene load_steps=29 format=3 uid="uid://cyi7otpakwjkg"]
 
 [ext_resource type="PackedScene" uid="uid://d204nsy8svfev" path="res://scenes/game/player/player.tscn" id="1_nl0sk"]
 [ext_resource type="Script" uid="uid://clhsdbanamdpr" path="res://scripts/game/game.gd" id="1_qh8lf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://j2xustrm625i" path="res://scripts/save/save_manager.gd" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
 [ext_resource type="Script" uid="uid://cu85s2qhnd1j0" path="res://scripts/game/camera_2d.gd" id="8_kp23o"]
+[ext_resource type="PackedScene" uid="uid://bkbxgw2imymgx" path="res://scenes/game/ui/reward_screen.tscn" id="8_vaxfo"]
 [ext_resource type="AudioStream" uid="uid://drvv1ooh2sm3r" path="res://sounds/ost/winter.ogg" id="9_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_ui.tscn" id="9_t28dr"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
@@ -144,6 +145,8 @@ mouse_filter = 2
 
 [node name="death_menu" parent="UI" instance=ExtResource("3_5jirj")]
 
+[node name="reward_screen" parent="UI" instance=ExtResource("8_vaxfo")]
+
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 process_mode = 3
 zoom = Vector2(3.5, 3.5)
@@ -170,9 +173,10 @@ trail_enabled = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_wft85")
 
-[node name="player" parent="." node_paths=PackedStringArray("get_hit_ui", "death_menu", "camera") instance=ExtResource("1_nl0sk")]
+[node name="player" parent="." node_paths=PackedStringArray("get_hit_ui", "death_menu", "reward_screen", "camera") instance=ExtResource("1_nl0sk")]
 get_hit_ui = NodePath("../UI/get hit ui")
 death_menu = NodePath("../UI/death_menu")
+reward_screen = NodePath("../UI/reward_screen")
 camera = NodePath("../Camera2D")
 
 [node name="Shadow Light" type="PointLight2D" parent="player"]
