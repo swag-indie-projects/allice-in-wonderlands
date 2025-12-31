@@ -63,7 +63,7 @@ animations = [{
 [node name="sword_swipe" type="Area2D" node_paths=PackedStringArray("animation")]
 script = ExtResource("1_4yc1g")
 animation = NodePath("AnimatedSprite2D")
-attack_distance = 5.0
+attack_distance = 7.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-11, 3, -7, 3, 0, 6, 7, 3, 11, 3, 4, 10, -4, 10)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dfwuk00eei4hy"]
+[gd_scene load_steps=12 format=4 uid="uid://dfwuk00eei4hy"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_2khui"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_0c4et"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_rwdrh"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_vlc2e"]
 [ext_resource type="PackedScene" uid="uid://dhynn60ywn3kl" path="res://scenes/game/enemy/pew pew ice block.tscn" id="8_0c4et"]
+[ext_resource type="PackedScene" uid="uid://vw4kqkap01sm" path="res://scenes/game/enemy/ice block.tscn" id="9_pmhu5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
@@ -27,7 +28,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAgACAAEAAAAAAAEAAgACAAEAAAAAAAIAAgACAAE
 tile_set = ExtResource("2_0c4et")
 
 [node name="base_overlay" type="TileMapLayer" parent="." groups=["navigation"]]
-tile_map_data = PackedByteArray("AAAZAAMAAAABAAIAAAAaAAMAAAABAAIAAAAbAAMAAAACAAIAAAAbAAEAAAACAAEAAAAbAAIAAAACAAEAAAAbAAAAAAACAAAAAAAZAAAAAAABAAAAAAAaAAAAAAABAAAAAAAYAAAAAAAAAAAAAAAYAAEAAAAAAAEAAAAYAAIAAAAAAAEAAAAYAAMAAAAAAAIAAAAZAAEAAAABAAEAAAAZAAIAAAABAAEAAAAaAAEAAAABAAEAAAAaAAIAAAABAAEAAAATAAMAAAABAAAAAAATAAQAAAABAAEAAAATAAUAAAABAAEAAAATAAYAAAABAAIAAAAUAAMAAAACAAAAAAAUAAQAAAACAAEAAAAUAAUAAAACAAEAAAAUAAYAAAACAAIAAAARAAMAAAAAAAAAAAARAAQAAAAAAAEAAAARAAUAAAAAAAEAAAARAAYAAAAAAAIAAAASAAMAAAABAAAAAAASAAQAAAABAAEAAAASAAUAAAABAAEAAAASAAYAAAABAAIAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAEAAAAKAAQAAAAAAAEAAAAKAAUAAAAAAAIAAAALAAIAAAABAAAAAAALAAMAAAABAAEAAAALAAQAAAABAAEAAAALAAUAAAABAAIAAAAMAAIAAAABAAAAAAAMAAMAAAABAAEAAAAMAAQAAAABAAEAAAAMAAUAAAABAAIAAAANAAIAAAACAAAAAAANAAMAAAACAAEAAAANAAQAAAACAAEAAAANAAUAAAACAAIAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAEAAYAAAAAAAEAAAAEAAcAAAAAAAEAAAAFAAQAAAABAAEAAAAFAAUAAAABAAEAAAAFAAYAAAABAAEAAAAFAAcAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAAAGAAYAAAABAAEAAAAGAAcAAAABAAEAAAAHAAQAAAACAAEAAAAHAAUAAAACAAEAAAAHAAYAAAACAAEAAAAHAAcAAAACAAEAAAAFAAIAAAABAAEAAAAFAAMAAAABAAEAAAAGAAIAAAABAAEAAAAGAAMAAAABAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAEAAAAAAAEAAAAFAAEAAAABAAEAAAAGAAEAAAABAAEAAAAEAAAAAAAAAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAACAAAAAAAHAAEAAAACAAEAAAAHAAIAAAACAAEAAAAHAAMAAAACAAEAAAAHAAgAAAACAAIAAAAFAAgAAAABAAIAAAAGAAgAAAABAAIAAAAEAAgAAAAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAAZAAMAAAABAAIAAAAaAAMAAAABAAIAAAAbAAMAAAACAAIAAAAbAAEAAAACAAEAAAAbAAIAAAACAAEAAAAbAAAAAAACAAAAAAAZAAAAAAABAAAAAAAaAAAAAAABAAAAAAAYAAAAAAAAAAAAAAAYAAEAAAAAAAEAAAAYAAIAAAAAAAEAAAAYAAMAAAAAAAIAAAAZAAEAAAABAAEAAAAZAAIAAAABAAEAAAAaAAEAAAABAAEAAAAaAAIAAAABAAEAAAATAAMAAAABAAAAAAATAAQAAAABAAEAAAATAAUAAAABAAEAAAATAAYAAAABAAIAAAAUAAMAAAACAAAAAAAUAAQAAAACAAEAAAAUAAUAAAACAAEAAAAUAAYAAAACAAIAAAARAAMAAAAAAAAAAAARAAQAAAAAAAEAAAARAAUAAAAAAAEAAAARAAYAAAAAAAIAAAASAAMAAAABAAAAAAASAAQAAAABAAEAAAASAAUAAAABAAEAAAASAAYAAAABAAIAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAEAAAAKAAQAAAAAAAEAAAAKAAUAAAAAAAIAAAALAAIAAAABAAAAAAALAAMAAAABAAEAAAALAAQAAAABAAEAAAALAAUAAAABAAIAAAAMAAIAAAABAAAAAAAMAAMAAAABAAEAAAAMAAQAAAABAAEAAAAMAAUAAAABAAIAAAANAAIAAAACAAAAAAANAAMAAAACAAEAAAANAAQAAAACAAEAAAANAAUAAAACAAIAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAEAAYAAAAAAAEAAAAEAAcAAAAAAAEAAAAFAAQAAAABAAEAAAAFAAUAAAABAAEAAAAFAAYAAAABAAEAAAAFAAcAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAAAGAAYAAAABAAEAAAAGAAcAAAABAAEAAAAHAAQAAAACAAEAAAAHAAUAAAACAAEAAAAHAAYAAAACAAEAAAAHAAcAAAACAAEAAAAFAAIAAAABAAEAAAAFAAMAAAABAAEAAAAGAAIAAAABAAEAAAAGAAMAAAABAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAHAAIAAAACAAEAAAAHAAMAAAACAAEAAAAHAAgAAAACAAIAAAAFAAgAAAABAAIAAAAGAAgAAAABAAIAAAAEAAgAAAAAAAIAAAAEAAEAAAAAAAAAAAAFAAEAAAABAAAAAAAGAAEAAAABAAAAAAAHAAEAAAACAAAAAAA=")
 tile_set = ExtResource("3_pmhu5")
 
 [node name="object" type="TileMapLayer" parent="." groups=["navigation"]]
@@ -40,7 +41,7 @@ tile_map_data = PackedByteArray("AAAAAAEAAwAFAAEAAAAAAAIAAwAFAAEAAAAAAAMAAwAFAAI
 tile_set = ExtResource("5_x208h")
 
 [node name="spawnpoint" type="Node2D" parent="."]
-position = Vector2(515, 74)
+position = Vector2(148, 69)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint"]
 texture = ExtResource("6_rwdrh")
@@ -59,6 +60,62 @@ navigation_polygon = SubResource("NavigationPolygon_llcsg")
 
 [node name="pew pew IceBlock" parent="." instance=ExtResource("8_0c4et")]
 position = Vector2(382, 26)
+wait_timer_interval = 1.5
+num_shot_before_wait = 10
 
 [node name="pew pew IceBlock2" parent="." instance=ExtResource("8_0c4et")]
 position = Vector2(382, 42)
+wait_timer_interval = 1.5
+num_shot_before_wait = 10
+
+[node name="pew pew IceBlock3" parent="." instance=ExtResource("8_0c4et")]
+position = Vector2(295, 46)
+bullet_direction = 1.571
+wait_timer_interval = 1.5
+num_shot_before_wait = 10
+
+[node name="pew pew IceBlock4" parent="." instance=ExtResource("8_0c4et")]
+position = Vector2(313, 46)
+bullet_direction = 1.571
+wait_timer_interval = 1.5
+num_shot_before_wait = 10
+
+[node name="pew pew IceBlock5" parent="." instance=ExtResource("8_0c4et")]
+position = Vector2(184, 27)
+bullet_direction = 1.571
+wait_timer_interval = 1.5
+num_shot_before_wait = 10
+
+[node name="pew pew IceBlock6" parent="." instance=ExtResource("8_0c4et")]
+position = Vector2(200, 27)
+bullet_direction = 1.571
+wait_timer_interval = 1.5
+num_shot_before_wait = 10
+
+[node name="pew pew IceBlock7" parent="." instance=ExtResource("8_0c4et")]
+position = Vector2(23, 19)
+wait_timer_interval = 0.0
+
+[node name="pew pew IceBlock8" parent="." instance=ExtResource("8_0c4et")]
+position = Vector2(83, 21)
+bullet_direction = 1.571
+wait_timer_interval = 0.0
+
+[node name="pew pew IceBlock9" parent="." instance=ExtResource("8_0c4et")]
+position = Vector2(25, 119)
+wait_timer_interval = 0.0
+
+[node name="IceBlock" parent="." instance=ExtResource("9_pmhu5")]
+position = Vector2(183, 93)
+
+[node name="IceBlock2" parent="." instance=ExtResource("9_pmhu5")]
+position = Vector2(233, 69)
+
+[node name="IceBlock3" parent="." instance=ExtResource("9_pmhu5")]
+position = Vector2(251, 50)
+
+[node name="IceBlock4" parent="." instance=ExtResource("9_pmhu5")]
+position = Vector2(343, 58)
+
+[node name="IceBlock5" parent="." instance=ExtResource("9_pmhu5")]
+position = Vector2(122, 19)

@@ -37,6 +37,8 @@ health_bar = NodePath("ProgressBar")
 animation = NodePath("AnimatedSprite2D")
 bullet_scene = ExtResource("2_os3k8")
 bullet_speed = 100.0
+shoot_timer_interval = 0.3
+wait_timer_interval = 3.0
 MAX_HP = 2
 knockback_component = NodePath("knockback component")
 animation_component = NodePath("AnimationComponent")
@@ -90,9 +92,12 @@ position = Vector2(2.3841858e-07, 2)
 scale = Vector2(0.81249994, 1.0789473)
 texture = ExtResource("6_5q5w2")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+[node name="shoot_timer" type="Timer" parent="."]
 autostart = true
 
+[node name="wait_timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]
