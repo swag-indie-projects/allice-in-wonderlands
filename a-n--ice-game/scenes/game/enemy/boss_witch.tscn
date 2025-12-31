@@ -1,0 +1,230 @@
+[gd_scene load_steps=35 format=3 uid="uid://cpbhf5b6yau7"]
+
+[ext_resource type="Script" uid="uid://12paoiy8rnpv" path="res://scripts/game/enemy/witch_boss/witch_boss_enemy.gd" id="1_djmgc"]
+[ext_resource type="Texture2D" uid="uid://b1y4bsakugkb5" path="res://assets/enemy/witch_placeholder_cast.png" id="2_n8gvv"]
+[ext_resource type="Texture2D" uid="uid://3808qbawt1fq" path="res://assets/enemy/witch_placeholder_idle.png" id="3_u4wws"]
+[ext_resource type="Texture2D" uid="uid://opbk3i4t08g2" path="res://assets/enemy/witch_placeholder_teleport.png" id="4_83uju"]
+[ext_resource type="Texture2D" uid="uid://dnxddg557hnwt" path="res://assets/enemy/witch_placeholder_walk_down.png" id="5_d0se6"]
+[ext_resource type="Texture2D" uid="uid://q15nbg2lpsne" path="res://assets/enemy/witch_placeholder_walk_left.png" id="6_ek4sv"]
+[ext_resource type="Texture2D" uid="uid://dtoudtr3t1qo" path="res://assets/enemy/witch_placeholder_walk_right.png" id="7_40evf"]
+[ext_resource type="Texture2D" uid="uid://m7uoi8oqbh8u" path="res://assets/enemy/witch_placeholder_walk_up.png" id="8_abapv"]
+[ext_resource type="Texture2D" uid="uid://cqtglsrnasa7l" path="res://assets/particles/magic_particle.png" id="9_djmgc"]
+[ext_resource type="Script" uid="uid://0ldylsoyg007" path="res://scripts/game/enemy/witch_boss/witch_boss_state_machine.gd" id="11_n8gvv"]
+[ext_resource type="Script" uid="uid://btq6ajkglemtg" path="res://scripts/game/enemy/witch_boss/states/witch_boss_idle_state.gd" id="12_56xgm"]
+[ext_resource type="Script" uid="uid://cq7dkpxan61n7" path="res://scripts/game/enemy/witch_boss/states/witch_boss_spawn_enemy_state.gd" id="13_4kfso"]
+[ext_resource type="Script" uid="uid://cl7lrhrnn6usl" path="res://scripts/game/enemy/witch_boss/states/witch_boss_run_away_state.gd" id="14_jy3k8"]
+[ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="15_7tjmh"]
+[ext_resource type="Script" uid="uid://yjmcgi2sg562" path="res://scripts/game/enemy/witch_boss/states/witch_boss_shoot_projectile_state.gd" id="15_yuftj"]
+[ext_resource type="Script" uid="uid://bjl4myiaosktm" path="res://scripts/game/enemy/witch_boss/states/witch_boss_destroy_ice_state.gd" id="16_23m8k"]
+[ext_resource type="Script" uid="uid://drdbo7le6cwn1" path="res://scripts/game/enemy/witch_boss/states/witch_boss_teleport_state.gd" id="17_odb5q"]
+[ext_resource type="Script" uid="uid://dsmjkloogj50" path="res://scripts/game/enemy/witch_boss/states/witch_boss_end_state.gd" id="18_p7rmy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
+radius = 10.297724
+height = 33.423786
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56xgm"]
+atlas = ExtResource("2_n8gvv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kfso"]
+atlas = ExtResource("3_u4wws")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy3k8"]
+atlas = ExtResource("4_83uju")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuftj"]
+atlas = ExtResource("4_83uju")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23m8k"]
+atlas = ExtResource("4_83uju")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odb5q"]
+atlas = ExtResource("4_83uju")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7rmy"]
+atlas = ExtResource("5_d0se6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3t4l"]
+atlas = ExtResource("6_ek4sv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi2aj"]
+atlas = ExtResource("7_40evf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weqpi"]
+atlas = ExtResource("8_abapv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhcmp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56xgm")
+}],
+"loop": true,
+"name": &"cast",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kfso")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy3k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuftj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23m8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odb5q")
+}],
+"loop": true,
+"name": &"teleport",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7rmy")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3t4l")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi2aj")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weqpi")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhcmp"]
+radius = 9.108894
+
+[sub_resource type="Curve" id="Curve_4pykn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9876325, 0.4967469), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kkhfq"]
+curve = SubResource("Curve_4pykn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0yoke"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 99.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_kkhfq")
+
+[node name="witch" type="CharacterBody2D" node_paths=PackedStringArray("dmg_particle", "death_particle", "state_machine", "animation_sprite", "animation_component")]
+collision_layer = 7
+script = ExtResource("1_djmgc")
+dmg_particle = NodePath("DMGParticle")
+death_particle = NodePath("DeathParticle")
+state_machine = NodePath("StateMachine")
+animation_sprite = NodePath("AnimatedSprite2D")
+MAX_HP = 10
+animation_component = NodePath("animation component")
+
+[node name="self_shape" type="CollisionShape2D" parent="."]
+position = Vector2(0.70227635, 0.71189296)
+shape = SubResource("CapsuleShape2D_vhjlo")
+debug_color = Color(0.9744286, 0, 0.43028787, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qhcmp")
+animation = &"walk_right"
+
+[node name="self_hitbox" type="Area2D" parent="."]
+position = Vector2(0.83532166, 0.60993576)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="self_hitbox"]
+shape = SubResource("CircleShape2D_qhcmp")
+
+[node name="DMGParticle" type="GPUParticles2D" parent="."]
+z_index = 10
+rotation = 0.79220074
+emitting = false
+amount = 50
+texture = ExtResource("9_djmgc")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_0yoke")
+
+[node name="DeathParticle" type="GPUParticles2D" parent="."]
+z_index = 10
+rotation = 1.5844015
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 200
+texture = ExtResource("9_djmgc")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_0yoke")
+
+[node name="animation component" type="Node" parent="."]
+script = ExtResource("15_7tjmh")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("actor", "starting_state")]
+script = ExtResource("11_n8gvv")
+actor = NodePath("..")
+starting_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("12_56xgm")
+
+[node name="SpawnEnemyState" type="Node" parent="StateMachine"]
+script = ExtResource("13_4kfso")
+
+[node name="RunAwayState" type="Node" parent="StateMachine"]
+script = ExtResource("14_jy3k8")
+
+[node name="ShootProjectileState" type="Node" parent="StateMachine"]
+script = ExtResource("15_yuftj")
+
+[node name="DestroyIceState" type="Node" parent="StateMachine"]
+script = ExtResource("16_23m8k")
+
+[node name="TeleportState" type="Node" parent="StateMachine"]
+script = ExtResource("17_odb5q")
+
+[node name="EndState" type="Node" parent="StateMachine"]
+script = ExtResource("18_p7rmy")
