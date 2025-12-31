@@ -20,6 +20,8 @@ func process_frame(_delta: float) -> PlayerStateName.Name:
 	
 	if Input.is_action_just_pressed("dash"):
 		return PlayerStateName.Name.DASH
+	if Input.is_action_just_pressed("mouse_click_right"):
+		return PlayerStateName.Name.DO_FREEZE
 	
 	if direction_vector == Vector2.ZERO:
 		return PlayerStateName.Name.IDLE

@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name IceFloat
+
 @export var base_overlay_tilemap: TileMapLayer
 
 @export var river_yes_source_id: int = 0

@@ -53,7 +53,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-555, -150, 584, -120, 
 source_geometry_mode = 2
 source_geometry_group_name = &"navigation"
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile", "overlay_tile")]
 script = ExtResource("1_ctgmr")
 spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
 exitpoint_to_scenepath = {
@@ -61,6 +61,7 @@ NodePath("exitpoint"): SubResource("Resource_1eg10"),
 NodePath("exitpoint2"): SubResource("Resource_5lvj4")
 }
 base_tile = NodePath("base")
+overlay_tile = NodePath("baseOverlay")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="MoveObjectComponent" type="Node" parent="." node_paths=PackedStringArray("pathfollows")]
