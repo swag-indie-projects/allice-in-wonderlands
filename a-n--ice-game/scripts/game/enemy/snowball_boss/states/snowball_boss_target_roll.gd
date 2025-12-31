@@ -5,6 +5,7 @@ var anim_finished = false
 var walls_hit = 0
 var walls_max = 5
 var accel = 1;
+var debounce = true
 
 func enter() -> void:
 	print("Entered state ", state_name)
@@ -28,13 +29,15 @@ func setup(new_actor: SnowballBoss) -> void:
 	
 
 func process_physics_frame(delta: float) -> SnowballBossStateName.Name:
-	
-	var next_position = self.actor.global_position + self.actor.velocity * delta
-	
-	if (self.actor.velocity.length() <= self.actor.speed * 0.5 or self.actor.detection_box.check_outside_boundary(next_position)):
+	if (self.actor.velocity.length() < self.actor.speed):
+		self.actor.velocity = self.actor.velocity.normalized() * self.actor.speed
+	if debounce and (self.actor.detection_box.check_outside_boundary(self.actor.global_position +  self.actor.velocity * 0.1 * self.actor.scale.x)):
+		debounce = false
 		print("wall hit")
 		walls_hit += 1
 		set_random_velocity()
+		
+		debounce = true
 	
 	if walls_hit >= walls_max:
 		return SnowballBossStateName.Name.STUN

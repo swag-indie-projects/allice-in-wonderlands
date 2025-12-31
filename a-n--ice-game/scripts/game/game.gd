@@ -38,6 +38,7 @@ func reset_game() -> void:
 	player_ui.update_healthbar.emit(player.HP, player.MAX_HP)
 	current_world.setup(player, 0)
 	add_child.call_deferred(current_world)
+	get_tree().reload_current_scene()
 	apply_camera_border_limit()
 
 func play_world(scene: PackedScene, spawn_point_index: int) -> void:
