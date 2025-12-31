@@ -47,3 +47,5 @@ offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.2, 0.2)
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

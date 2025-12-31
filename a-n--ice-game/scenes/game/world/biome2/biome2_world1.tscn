@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://1se6t12qxwmn"]
+[gd_scene load_steps=11 format=4 uid="uid://1se6t12qxwmn"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_u6atw"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_dx1cx"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="5_pc0qc"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_oeixu"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_xd7uw"]
+[ext_resource type="PackedScene" uid="uid://vw4kqkap01sm" path="res://scenes/game/enemy/ice block.tscn" id="8_dx1cx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
@@ -55,3 +56,6 @@ shape = SubResource("CircleShape2D_fhhrb")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_llcsg")
+
+[node name="IceBlock" parent="." instance=ExtResource("8_dx1cx")]
+position = Vector2(326, 176)
