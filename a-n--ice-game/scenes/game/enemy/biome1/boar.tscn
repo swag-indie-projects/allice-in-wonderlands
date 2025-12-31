@@ -1,0 +1,278 @@
+[gd_scene load_steps=22 format=3 uid="uid://be1ddaxdk35fo"]
+
+[ext_resource type="Script" uid="uid://dxr00mc2xmst" path="res://scripts/game/enemy/dash_enemy.gd" id="1_scd7v"]
+[ext_resource type="Texture2D" uid="uid://d1lme6i08r5f1" path="res://assets/enemy/boar.png" id="2_7berh"]
+[ext_resource type="Texture2D" uid="uid://wpfm3pbfll1o" path="res://assets/enemy/boar_idle.png" id="3_5u8pb"]
+[ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_7do6t"]
+[ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="4_5u8pb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
+radius = 5.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4mds"]
+radius = 6.0
+height = 21.69
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s4mds"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scd7v"]
+radius = 117.01709
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6i0p"]
+atlas = ExtResource("2_7berh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwrke"]
+atlas = ExtResource("2_7berh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cte78"]
+atlas = ExtResource("2_7berh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p6yw"]
+atlas = ExtResource("2_7berh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3ms4"]
+atlas = ExtResource("3_5u8pb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buqf5"]
+atlas = ExtResource("3_5u8pb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kql8q"]
+atlas = ExtResource("3_5u8pb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20cj7"]
+atlas = ExtResource("3_5u8pb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n3byp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6i0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwrke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cte78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p6yw")
+}],
+"loop": true,
+"name": &"dashing",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3ms4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buqf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kql8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20cj7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_7do6t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7berh"]
+resource_name = "dash"
+length = 3.0
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.14285715, 0.2857143, 0.42857146, 0.5714286, 0.71428573, 0.8571429, 1.0000001, 1.1428572, 1.2857144, 1.4285715, 1.8571428),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.7142857, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"dash"
+}, {
+"args": [],
+"method": &"stop_dash"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.7142857, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"dashing", &"default"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.7142857, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1.5, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5u8pb"]
+_data = {
+&"RESET": SubResource("Animation_7do6t"),
+&"dash": SubResource("Animation_7berh")
+}
+
+[node name="Boar" type="CharacterBody2D" node_paths=PackedStringArray("player_detection_box", "dash_detection_box", "animation", "health_bar", "dash_animation", "knockback_component", "animation_component")]
+collision_layer = 7
+script = ExtResource("1_scd7v")
+player_detection_box = NodePath("player_detection_box")
+dash_detection_box = NodePath("dash_box")
+speed = 35.0
+dash_speed = 150.0
+animation = NodePath("AnimatedSprite2D")
+health_bar = NodePath("ProgressBar")
+dash_animation = NodePath("DashAnimation")
+MAX_HP = 4
+knockback_component = NodePath("knockback component")
+animation_component = NodePath("animation component")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_vhjlo")
+debug_color = Color(0.9744286, 0, 0.43028787, 0.41960785)
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_s4mds")
+
+[node name="player_detection_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection_box"]
+modulate = Color(0.56733334, 0.92, 0, 1)
+shape = SubResource("CircleShape2D_s4mds")
+debug_color = Color(0.56733334, 0.92, 0, 0)
+
+[node name="dash_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dash_box"]
+modulate = Color(0.56733334, 0.92, 0, 1)
+shape = SubResource("CircleShape2D_scd7v")
+debug_color = Color(0.56733334, 0.92, 0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(0, -6)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_n3byp")
+
+[node name="knockback component" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_7do6t")
+knockback = 15.0
+knockback_duration = 0.15
+actor = NodePath("..")
+
+[node name="animation component" type="Node" parent="." node_paths=PackedStringArray("target_animation")]
+script = ExtResource("4_5u8pb")
+target_animation = NodePath("../AnimatedSprite2D")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = 7.0
+offset_right = 90.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 2.0
+avoidance_enabled = true
+
+[node name="Timer" type="Timer" parent="NavigationAgent2D"]
+wait_time = 0.2
+autostart = true
+
+[node name="DashAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5u8pb")
+}
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="NavigationAgent2D/Timer" to="." method="_on_timer_timeout"]
