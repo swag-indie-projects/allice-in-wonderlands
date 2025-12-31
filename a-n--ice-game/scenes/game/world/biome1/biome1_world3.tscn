@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cgu3qwehsenbp"]
+[gd_scene load_steps=21 format=4 uid="uid://ctdeun1fl2gc"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_1ovx2"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_81jhw"]
@@ -40,7 +40,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -28, 572, -15, 570,
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 
-[node name="world2" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
+[node name="world3" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
 script = ExtResource("1_1ovx2")
 spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
 exitpoint_to_scenepath = {
@@ -69,13 +69,13 @@ tile_map_data = PackedByteArray("AAAAAA0AAQAEAAEAAAABAA0AAQAEAAEAAAACAA0AAQAEAAE
 tile_set = ExtResource("7_fbi57")
 
 [node name="spawnpoint" type="Node2D" parent="."]
-position = Vector2(471, 123)
+position = Vector2(515, 100)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint"]
 texture = ExtResource("8_eja7u")
 
 [node name="spawnpoint2" type="Node2D" parent="."]
-position = Vector2(112, 23)
+position = Vector2(62, 24)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint2"]
 texture = ExtResource("9_h04wm")
@@ -96,6 +96,8 @@ shape = SubResource("RectangleShape2D_0ihr6")
 position = Vector2(551, 126)
 
 [node name="Sprite2D" type="Sprite2D" parent="exitpoint"]
+position = Vector2(0, -27)
+scale = Vector2(0.8125012, 6.3125)
 texture = ExtResource("9_uvg4t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exitpoint"]
