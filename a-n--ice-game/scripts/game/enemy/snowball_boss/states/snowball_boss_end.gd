@@ -7,10 +7,10 @@ func enter() -> void:
 	print("Entered state ", state_name)
 
 	anim_finished = false
-	actor.animation_sprite.play("idle")
+	actor.animation_sprite.visible = false
 	self.actor.death_particle.emitting = true
 	print("dooooooing")
-	await get_tree().create_timer(1.5).timeout # 5s delay
+	await get_tree().create_timer(1.0).timeout # 5s delay
 	anim_finished = true
 	#actor.animation_sprite.animation_finished.connect(_on_animation_finished)
 	

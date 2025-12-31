@@ -7,6 +7,7 @@ extends Node2D
 @export var player_ui: PlayerUI
 @export var player_save_tooltip_ui : SavePopupUI
 @export var save_manager : SaveManager
+@export var ui_animations : AnimationPlayer
 
 @export var audio_stream_player: AudioStreamPlayer2D
 
@@ -55,6 +56,15 @@ var world_change_debounce = true
 func _on_world_exited(result: SpawnResult) -> void:
 	if (world_change_debounce):
 		world_change_debounce = false
+		if (result.scene_path == Constant.Paths.PATH_TO_BIOME1_BOSS_ARENA):
+			print("BOSS ENTERED")
+			if ui_animations.has_animation("boss_camera_zoom"):
+				print("Animation exists")
+				ui_animations.play("boss_camera_zoom")
+				print("Is playing: ", ui_animations.is_playing())
+			else:
+				print("Animation not found!")
+			
 		var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
 		play_world(target_scene, result.spawnpoint_index)
 		await get_tree().create_timer(0.5).timeout

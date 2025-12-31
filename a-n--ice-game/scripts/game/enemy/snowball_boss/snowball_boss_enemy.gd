@@ -10,6 +10,7 @@ class_name SnowballBoss
 @export var state_machine: SnowballBossStateMachine
 #@export var animation_component : AnimationComponent
 @export var animation_sprite : AnimatedSprite2D
+@export var grow_path : Path2D
 #@export var MAX_HP : int
 #@onready var HP : int = MAX_HP
 
@@ -47,7 +48,8 @@ func _on_attack_hitbox_body_entered(body: Node2D) -> void:
 #		self.get_hit(1, Vector2(0,0))	
 	
 func get_hit(amount: int, direction_vector: Vector2) -> void:
-	dmg_particle.emitting = true
+	
+	dmg_particle.restart()
 	animation_component.play_hit_flash()
 	if self.scale.x >= 1:
 		self.scale.x -= 0.1
@@ -57,5 +59,4 @@ func get_hit(amount: int, direction_vector: Vector2) -> void:
 		print("dying")
 		self.state_machine.change_state(state_machine.state_dictionary[SnowballBossStateName.Name.END])
 		
-	
 	HP -= amount
