@@ -8,8 +8,15 @@ func enter() -> void:
 	self.actor.velocity = Vector2.ZERO
 
 	anim_finished = false
-	actor.animation_sprite.play("idle")
+	if (actor.scale.x >= 2):	
+		actor.animation_sprite.play("idle")
+	else:
+		actor.animation_sprite.play("small_idle")
+		actor.animation_sprite.scale.x = 2
+		actor.animation_sprite.scale.y = 2
 	await get_tree().create_timer(3.0).timeout # 5s delay
+	actor.animation_sprite.scale.x = 1
+	actor.animation_sprite.scale.y = 1
 	anim_finished = true
 	#actor.animation_sprite.animation_finished.connect(_on_animation_finished)
 	
@@ -25,14 +32,9 @@ func process_physics_frame(delta: float) -> SnowballBossStateName.Name:
 	if (self.actor.HP <= 0):
 			return SnowballBossStateName.Name.END
 	if anim_finished:
-		if (self.actor.HP <= self.actor.MAX_HP/2):
-			print("were going to roll!")
+		if (self.actor.scale.x <= 1):
+			print("border consol")
+			return SnowballBossStateName.Name.GROW_CENTER
+		elif (self.actor.scale.x > 1):
 			return SnowballBossStateName.Name.TARGET_ROLL
-		else:	
-			if (self.actor.scale.x <= 1):
-				pass
-				return SnowballBossStateName.Name.GROW_CENTER
-			elif (self.actor.scale.x > 1):
-				pass
-				return SnowballBossStateName.Name.ROLL
 	return SnowballBossStateName.Name.IDLE

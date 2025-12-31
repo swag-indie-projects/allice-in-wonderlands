@@ -25,8 +25,8 @@ func setup(new_actor: SnowballBoss) -> void:
 
 func process_physics_frame(delta: float) -> SnowballBossStateName.Name:
 	set_normalized_vector()
-	if (self.actor.global_position - self.actor.detection_box.global_position).length() < 1:
+	if (self.actor.global_position - self.actor.detection_box.global_position).length() < self.actor.speed/4:
 		print("end o tha road")
-		return SnowballBossStateName.Name.GROW_SPIRAL
+		return SnowballBossStateName.Name.GROW_BORDER
 	return SnowballBossStateName.Name.GROW_CENTER
 		

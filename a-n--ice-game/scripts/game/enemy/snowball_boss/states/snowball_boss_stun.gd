@@ -8,10 +8,9 @@ func enter() -> void:
 	self.actor.velocity = Vector2(0,0)
 	anim_finished = false
 	actor.animation_sprite.play("stun")
-	await get_tree().create_timer(10.0).timeout 
+	await get_tree().create_timer(6.0).timeout 
 	anim_finished = true
 	print("finished this ajimat")
-	
 	
 	#actor.animation_sprite.animation_finished.connect(_on_animation_finished)
 	
@@ -24,6 +23,7 @@ func setup(new_actor: SnowballBoss) -> void:
 	self.state_name = SnowballBossStateName.Name.STUN
 
 func process_physics_frame(delta: float) -> SnowballBossStateName.Name:
+	self.actor.velocity = Vector2(0,0)
 	if (self.actor.HP <= 0):
 		return SnowballBossStateName.Name.END
 	if (anim_finished):
