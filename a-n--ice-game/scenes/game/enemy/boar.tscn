@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://be1ddaxdk35fo"]
+[gd_scene load_steps=22 format=3 uid="uid://dcj0h5424i35w"]
 
 [ext_resource type="Script" uid="uid://dxr00mc2xmst" path="res://scripts/game/enemy/dash_enemy.gd" id="1_scd7v"]
 [ext_resource type="Texture2D" uid="uid://d1lme6i08r5f1" path="res://assets/enemy/boar.png" id="2_7berh"]

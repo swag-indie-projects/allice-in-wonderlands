@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://3d0l5tbmkpyg"]
+[gd_scene load_steps=30 format=3 uid="uid://dfdg3rdw5qvl6"]
 
 [ext_resource type="Script" uid="uid://cw1e2vdnyoyfw" path="res://scripts/game/enemy/icicle_enemy.gd" id="1_rpno7"]
 [ext_resource type="Texture2D" uid="uid://dhif4g0t3rudm" path="res://assets/enemy/ice_summoner_summon.png" id="2_rpno7"]

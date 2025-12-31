@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cqgf8cnttfoo3"]
+[gd_scene load_steps=10 format=4 uid="uid://cc2xm1o2f6mod"]
 
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="1_0y766"]
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_fhhrb"]

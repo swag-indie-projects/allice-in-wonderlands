@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cmpvjyk8ikibt"]
+[gd_scene load_steps=22 format=3 uid="uid://bqd6wkd6jaky4"]
 
 [ext_resource type="Script" uid="uid://svnyiy2ea5mn" path="res://scripts/game/enemy/follow_enemy_weak.gd" id="1_1orvf"]
 [ext_resource type="Texture2D" uid="uid://dl8nvibv7eupb" path="res://assets/enemy/snowball_idle.png" id="2_uc82o"]
