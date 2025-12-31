@@ -40,13 +40,14 @@ _data = {
 }
 point_count = 3
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile", "overlay_tile")]
 script = ExtResource("1_3hxre")
 spawnpoints = [NodePath("spawnpoint")]
 exitpoint_to_scenepath = {
 NodePath("exitpoint"): SubResource("Resource_5a3xp")
 }
 base_tile = NodePath("base")
+overlay_tile = NodePath("base_tile_overlay")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="MoveObjectComponent" type="Node" parent="." node_paths=PackedStringArray("pathfollows")]

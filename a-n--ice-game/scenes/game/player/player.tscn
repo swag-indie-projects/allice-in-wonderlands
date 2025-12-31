@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://d204nsy8svfev"]
+[gd_scene load_steps=65 format=3 uid="uid://d204nsy8svfev"]
 
 [ext_resource type="Script" uid="uid://1igbt58bdgcj" path="res://scripts/game/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://p625padn7ffo" path="res://assets/player/player_backward.png" id="2_d2wvv"]
@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://dncd5essow0fd" path="res://assets/player/player_right.png" id="5_jej6c"]
 [ext_resource type="Texture2D" uid="uid://crib2tcqkaoha" path="res://assets/player/player_walk_animation.png" id="6_ymle5"]
 [ext_resource type="Script" uid="uid://l6bu0532m1w2" path="res://scripts/game/player/state_machine/states/player_hit_state.gd" id="7_ur7pv"]
+[ext_resource type="PackedScene" uid="uid://dtdrp61wq0d48" path="res://scenes/game/player/freeze burst.tscn" id="8_34lq7"]
 [ext_resource type="Script" uid="uid://c6jtd5gviucn0" path="res://scripts/game/components/facing_component.gd" id="11_d2wvv"]
 [ext_resource type="Script" uid="uid://h86erx154auq" path="res://scripts/game/player/state_machine/states/player_dash_state.gd" id="12_ixkur"]
 [ext_resource type="AudioStream" uid="uid://cd54m5ukxr841" path="res://sounds/DSGNMisc_STEP-Bubblier Step_HY_PC-001.wav" id="13_sxkrj"]
+[ext_resource type="Script" uid="uid://blojfq5n4pv2m" path="res://scripts/game/player/state_machine/states/player_do_freeze_state.gd" id="14_t5vmf"]
 [ext_resource type="Texture2D" uid="uid://d3hlu38ej1qxp" path="res://assets/misc/snow_flake_1.png" id="15_jvpd5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
@@ -501,8 +503,9 @@ starting_state = NodePath("idle state")
 state_dictionary = {
 0: NodePath("idle state"),
 1: NodePath("walk state"),
-3: NodePath("hit state"),
-4: NodePath("dash state")
+2: NodePath("hit state"),
+3: NodePath("dash state"),
+4: NodePath("do freeze state")
 }
 
 [node name="idle state" type="Node" parent="state machine"]
@@ -539,6 +542,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_t5vmf")
 }
 
+[node name="do freeze state" type="Node" parent="state machine" node_paths=PackedStringArray("pre_freeze_timer")]
+script = ExtResource("14_t5vmf")
+pre_freeze_timer = NodePath("pre freeze timer")
+freeze_burst_scene = ExtResource("8_34lq7")
+metadata/_custom_type_script = "uid://blojfq5n4pv2m"
+
+[node name="pre freeze timer" type="Timer" parent="state machine/do freeze state"]
+wait_time = 0.2
+one_shot = true
+
 [node name="attack component" type="Node" parent="."]
 script = SubResource("GDScript_y4r1p")
 
@@ -553,3 +566,4 @@ autoplay = true
 bus = &"sound effect"
 
 [connection signal="timeout" from="invincibility" to="." method="_on_invincibility_timeout"]
+[connection signal="timeout" from="state machine/do freeze state/pre freeze timer" to="state machine/do freeze state" method="_on_pre_freeze_timer_timeout"]

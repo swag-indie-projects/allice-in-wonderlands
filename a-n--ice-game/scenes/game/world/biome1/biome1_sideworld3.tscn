@@ -31,10 +31,11 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, -2, 564, -1, 562, 52
 source_geometry_mode = 2
 source_geometry_group_name = &"navigation"
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile", "overlay_tile")]
 script = ExtResource("1_yfud6")
 spawnpoints = [NodePath("spawnpoint")]
 base_tile = NodePath("base")
+overlay_tile = NodePath("base_overlay")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="MoveObjectComponent" type="Node" parent="." node_paths=PackedStringArray("pathfollows")]

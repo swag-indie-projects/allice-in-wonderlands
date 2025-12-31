@@ -6,6 +6,7 @@ class_name World
 @export var exitpoint_to_scenepath: Dictionary[Area2D, SpawnResult]
 
 @export var base_tile: TileMapLayer
+@export var overlay_tile: TileMapLayer
 
 var player: Player
 signal exited(result: SpawnResult)
