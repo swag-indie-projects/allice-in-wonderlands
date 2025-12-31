@@ -1,20 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://vw4kqkap01sm"]
+[gd_scene load_steps=11 format=3 uid="uid://dhynn60ywn3kl"]
 
-[ext_resource type="Script" uid="uid://da3mtw2i7iy6f" path="res://scripts/game/enemy/ice_block.gd" id="1_orp3y"]
-[ext_resource type="Texture2D" uid="uid://dv6bn7efq4a15" path="res://assets/enemy/ice_block1.png" id="2_84nkt"]
-[ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_2wflh"]
-[ext_resource type="Texture2D" uid="uid://d2ruqnt7wchij" path="res://assets/enemy/ice_block2.png" id="3_fq2ey"]
-[ext_resource type="Texture2D" uid="uid://blkdl16nleu0j" path="res://assets/shadow.png" id="5_fq2ey"]
-[ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="5_uo8oj"]
+[ext_resource type="Script" uid="uid://cm4i5d3cencj0" path="res://scripts/game/enemy/pew_pew_ice_block.gd" id="1_eknk8"]
+[ext_resource type="PackedScene" uid="uid://rouf1jakkebt" path="res://scenes/game/projectiles/snowball_projectile.tscn" id="2_os3k8"]
+[ext_resource type="Texture2D" uid="uid://dv6bn7efq4a15" path="res://assets/enemy/ice_block1.png" id="2_wtggp"]
+[ext_resource type="Texture2D" uid="uid://d2ruqnt7wchij" path="res://assets/enemy/ice_block2.png" id="3_os3k8"]
+[ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="4_p5blj"]
+[ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="5_pbyvp"]
+[ext_resource type="Texture2D" uid="uid://blkdl16nleu0j" path="res://assets/shadow.png" id="6_5q5w2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uo8oj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_84nkt")
+"texture": ExtResource("2_wtggp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_fq2ey")
+"texture": ExtResource("3_os3k8")
 }],
 "loop": true,
 "name": &"default",
@@ -29,16 +30,19 @@ height = 10.0
 radius = 7.0
 height = 18.0
 
-[node name="IceBlock" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation", "knockback_component", "animation_component")]
+[node name="pew pew IceBlock" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation", "knockback_component", "animation_component")]
 collision_mask = 512
-script = ExtResource("1_orp3y")
+script = ExtResource("1_eknk8")
 health_bar = NodePath("ProgressBar")
 animation = NodePath("AnimatedSprite2D")
-MAX_HP = 8
+bullet_scene = ExtResource("2_os3k8")
+bullet_speed = 100.0
+MAX_HP = 2
 knockback_component = NodePath("knockback component")
 animation_component = NodePath("AnimationComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.9529412, 0, 0.6509804, 1)
 sprite_frames = SubResource("SpriteFrames_uo8oj")
 frame_progress = 0.6888706
 
@@ -55,12 +59,13 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_58dks")
 
 [node name="knockback component" type="Node" parent="." node_paths=PackedStringArray("actor")]
-script = ExtResource("3_2wflh")
+script = ExtResource("4_p5blj")
+knockback = 0.4
 knockback_duration = 0.1
 actor = NodePath("..")
 
 [node name="AnimationComponent" type="Node" parent="." node_paths=PackedStringArray("target_animation")]
-script = ExtResource("5_uo8oj")
+script = ExtResource("5_pbyvp")
 target_animation = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://btduhx2an1ps6"
 
@@ -83,6 +88,11 @@ modulate = Color(0, 0, 0, 0.050980393)
 z_index = 10
 position = Vector2(2.3841858e-07, 2)
 scale = Vector2(0.81249994, 1.0789473)
-texture = ExtResource("5_fq2ey")
+texture = ExtResource("6_5q5w2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

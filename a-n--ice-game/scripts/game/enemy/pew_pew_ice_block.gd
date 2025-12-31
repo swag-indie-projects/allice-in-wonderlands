@@ -3,6 +3,11 @@ extends Enemy
 @export var health_bar: ProgressBar
 @export var animation: AnimatedSprite2D
 
+@export var bullet_scene: PackedScene
+
+@export var bullet_speed: float
+@export var bullet_direction: float
+
 var world: World
 var dying: bool = false
 
@@ -13,6 +18,7 @@ func _ready() -> void:
 	
 	if health_bar != null:
 		health_bar.max_value = MAX_HP
+	rotate(bullet_direction)
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -58,3 +64,9 @@ func get_hit(amount: int, direction_vector: Vector2) -> void:
 	
 	if knockback_component != null:
 		knockback_component.setup(direction_vector)
+
+func _on_timer_timeout() -> void:
+	var bullet: SnowballProjectile = bullet_scene.instantiate()
+	bullet.global_position = global_position
+	bullet._set_data(Vector2(cos(bullet_direction), sin(bullet_direction)), bullet_speed)
+	get_parent().add_child(bullet)

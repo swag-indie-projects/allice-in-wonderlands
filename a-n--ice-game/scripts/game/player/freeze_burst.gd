@@ -22,8 +22,8 @@ func _on_body_entered(body: Node) -> void:
 	if body is Enemy:
 		body.get_hit(1, direction_vector)
 
-func burst(direction_vector: Vector2) -> void:
-	self.direction_vector = direction_vector
+func burst(new_direction_vector: Vector2) -> void:
+	self.direction_vector = new_direction_vector
 	
 	if direction_vector.length_squared() < 0.000001:
 		direction_vector = Vector2.DOWN
