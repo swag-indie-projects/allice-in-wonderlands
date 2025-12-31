@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtdrp61wq0d48"]
+[gd_scene load_steps=5 format=3 uid="uid://dtdrp61wq0d48"]
 
 [ext_resource type="Script" uid="uid://di6r83uf1mql" path="res://scripts/game/player/freeze_burst.gd" id="1_d160j"]
-[ext_resource type="TileSet" uid="uid://bam1ln05uasgr" path="res://resources/base_tiles_overlay.tres" id="2_4fnu1"]
 [ext_resource type="PackedScene" uid="uid://dyp5tee4bjs6m" path="res://scenes/game/floating_ice.tscn" id="3_ma7di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08bv5"]
@@ -13,8 +12,6 @@ size = Vector2(20, 29)
 script = ExtResource("1_d160j")
 attack_distance = 25.0
 timer = NodePath("Timer")
-water_tileset = ExtResource("2_4fnu1")
-water_tileset_id = null
 ice_scene = ExtResource("3_ma7di")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
