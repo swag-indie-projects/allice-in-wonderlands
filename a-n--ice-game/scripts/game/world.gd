@@ -19,6 +19,7 @@ func setup(new_player: Player, spawnpoint_index: int):
 	player = new_player
 	player.reparent(self)
 	player.position = spawnpoints[spawnpoint_index].position
+	player.camera.global_position = spawnpoints[spawnpoint_index].position
 	
 	for spawnpoint: Node2D in spawnpoints:
 		spawnpoint.hide()

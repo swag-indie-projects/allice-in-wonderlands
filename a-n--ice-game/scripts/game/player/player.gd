@@ -19,6 +19,8 @@ var is_invincible: bool
 
 @export var get_hit_ui: GetHitUI
 @export var death_menu: DeathMenu
+@export var reward_screen: RewardScreen
+
 @export var camera: Camera2D
 
 @export var dash_progress_bar: ProgressBar
