@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://vw4kqkap01sm"]
+
+[ext_resource type="Script" uid="uid://da3mtw2i7iy6f" path="res://scripts/game/enemy/ice_block.gd" id="1_orp3y"]
+[ext_resource type="Texture2D" uid="uid://bt03esmvm7oay" path="res://assets/ice cube enemy.png" id="2_58dks"]
+[ext_resource type="Script" uid="uid://dgbuaum7kpd0p" path="res://scripts/game/components/knockback_component.gd" id="3_2wflh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wflh"]
+size = Vector2(12, 12)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58dks"]
+radius = 12.0
+height = 24.0
+
+[node name="IceBlock" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "knockback_component")]
+script = ExtResource("1_orp3y")
+health_bar = NodePath("ProgressBar")
+MAX_HP = 8
+knockback_component = NodePath("knockback component")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_58dks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2wflh")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_58dks")
+
+[node name="knockback component" type="Node" parent="."]
+script = ExtResource("3_2wflh")
+knockback = 12.0
+knockback_duration = 0.1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = 7.0
+offset_right = 90.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
