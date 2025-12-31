@@ -137,6 +137,21 @@ _data = {
 &"open": SubResource("Animation_x4oot")
 }
 
+[sub_resource type="Animation" id="Animation_hta2a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_1jpaa"]
 resource_name = "happy"
 length = 0.5
@@ -151,22 +166,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.12217304763960307, 0.12217304763960307]
-}
-
-[sub_resource type="Animation" id="Animation_hta2a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [-0.12217304763960309, 0.12217304763960309]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ky6ge"]
@@ -256,7 +256,7 @@ offset_bottom = 60.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
-text = "Press SHIFT to dash in the direction you're walking!"
+text = "Temporary text!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

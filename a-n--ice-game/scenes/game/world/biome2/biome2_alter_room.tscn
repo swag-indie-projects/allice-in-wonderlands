@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://gklivht80d2f"]
+[gd_scene load_steps=14 format=4 uid="uid://gklivht80d2f"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_rmdot"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="2_lvnjt"]
@@ -7,10 +7,8 @@
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="5_4vu44"]
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="6_c1qi1"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="7_cki8u"]
+[ext_resource type="PackedScene" uid="uid://b0v66y5nk1m20" path="res://scenes/game/world/alter.tscn" id="8_p26gm"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="8_xysfb"]
-[ext_resource type="Texture2D" uid="uid://c8nnghvupemtq" path="res://assets/object/alter-base.png" id="9_0rpes"]
-[ext_resource type="Texture2D" uid="uid://cpbf6tpvfmorm" path="res://assets/object/alter_glass_back.png" id="10_vee8f"]
-[ext_resource type="Texture2D" uid="uid://dtj2ppwwjn5vd" path="res://assets/object/alter_glass_front.png" id="11_tjn30"]
 [ext_resource type="Script" uid="uid://c35o6h5drp6vy" path="res://scripts/game/set_camera_position_trigger.gd" id="12_5y8mk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
@@ -20,7 +18,7 @@ source_geometry_mode = 2
 source_geometry_group_name = &"navigation"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1b64"]
-size = Vector2(150, 171)
+size = Vector2(150, 132)
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile", "overlay_tile")]
 script = ExtResource("1_rmdot")
@@ -50,6 +48,9 @@ position = Vector2(525, 129)
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint"]
 texture = ExtResource("7_cki8u")
 
+[node name="Alter" parent="." instance=ExtResource("8_p26gm")]
+position = Vector2(240, -52)
+
 [node name="exitpoint" type="Area2D" parent="."]
 position = Vector2(556, 128)
 
@@ -62,20 +63,6 @@ shape = SubResource("CircleShape2D_fhhrb")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_llcsg")
 
-[node name="Alter Stuff" type="Node2D" parent="."]
-position = Vector2(240, -52)
-scale = Vector2(1.28, 1.28)
-
-[node name="AlterBase" type="Sprite2D" parent="Alter Stuff"]
-material = ExtResource("2_lvnjt")
-texture = ExtResource("9_0rpes")
-
-[node name="AlterGlassBack" type="Sprite2D" parent="Alter Stuff"]
-texture = ExtResource("10_vee8f")
-
-[node name="AlterGlassFront" type="Sprite2D" parent="Alter Stuff"]
-texture = ExtResource("11_tjn30")
-
 [node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("focal_node2d")]
 position = Vector2(243, 26)
 script = ExtResource("12_5y8mk")
@@ -83,7 +70,7 @@ focal_node2d = NodePath("../Focal Position")
 lerp_duration = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-3, -55.5)
+position = Vector2(-3, -75)
 shape = SubResource("RectangleShape2D_c1b64")
 
 [node name="Focal Position" type="Node2D" parent="."]

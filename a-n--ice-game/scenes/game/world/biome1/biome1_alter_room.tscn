@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cqquwl3sis0np"]
+[gd_scene load_steps=14 format=4 uid="uid://cqquwl3sis0np"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_bfwf2"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="2_174xs"]
@@ -8,12 +8,8 @@
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="5_65i8j"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_x0w58"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_c1b64"]
-[ext_resource type="Texture2D" uid="uid://c8nnghvupemtq" path="res://assets/object/alter-base.png" id="9_rqgi5"]
-[ext_resource type="Texture2D" uid="uid://cpbf6tpvfmorm" path="res://assets/object/alter_glass_back.png" id="10_65i8j"]
-[ext_resource type="Texture2D" uid="uid://dtj2ppwwjn5vd" path="res://assets/object/alter_glass_front.png" id="11_x0w58"]
+[ext_resource type="PackedScene" uid="uid://b0v66y5nk1m20" path="res://scenes/game/world/alter.tscn" id="10_rqgi5"]
 [ext_resource type="Script" uid="uid://c35o6h5drp6vy" path="res://scripts/game/set_camera_position_trigger.gd" id="12_x0w58"]
-[ext_resource type="Texture2D" uid="uid://oa4agkrlbpfe" path="res://assets/misc/dash_icon.png" id="13_bi1wy"]
-[ext_resource type="Script" uid="uid://6cfgrjvbtcyk" path="res://scripts/game/alter.gd" id="14_8d0x3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
@@ -22,59 +18,7 @@ source_geometry_mode = 2
 source_geometry_group_name = &"navigation"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1b64"]
-size = Vector2(150, 171)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0w58"]
-size = Vector2(15, 11)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi1wy"]
-size = Vector2(4, 25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d0x3"]
-size = Vector2(34, 3)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3f1xi"]
-size = Vector2(14, 13)
-
-[sub_resource type="Animation" id="Animation_xxr15"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_3f1xi"]
-resource_name = "spin"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0.033333335, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(-1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsw1b"]
-_data = {
-&"RESET": SubResource("Animation_xxr15"),
-&"spin": SubResource("Animation_3f1xi")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxr15"]
-size = Vector2(38, 20)
+size = Vector2(150, 137.5)
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile", "overlay_tile")]
 script = ExtResource("1_bfwf2")
@@ -123,77 +67,16 @@ focal_node2d = NodePath("../Focal Position")
 lerp_duration = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-14, -57)
+position = Vector2(-14, -73.75)
 shape = SubResource("RectangleShape2D_c1b64")
 debug_color = Color(0, 0.5950001, 0.7, 0.043137256)
 
-[node name="Alter" type="Node2D" parent="." node_paths=PackedStringArray("reward_icon")]
+[node name="Alter" parent="." instance=ExtResource("10_rqgi5")]
 position = Vector2(240, -52)
-script = ExtResource("14_8d0x3")
-reward_icon = NodePath("Reward Icon")
-
-[node name="AlterBase" type="Sprite2D" parent="Alter"]
-material = ExtResource("2_174xs")
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("9_rqgi5")
-
-[node name="AlterGlassBack" type="Sprite2D" parent="Alter"]
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("10_65i8j")
-
-[node name="AlterGlassFront" type="Sprite2D" parent="Alter"]
-z_index = 1
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("11_x0w58")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Alter"]
-scale = Vector2(1.25, 1.25)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Alter/StaticBody2D"]
-position = Vector2(-13.5, -9.5)
-shape = SubResource("RectangleShape2D_x0w58")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Alter/StaticBody2D"]
-position = Vector2(13.5, -9.5)
-shape = SubResource("RectangleShape2D_x0w58")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Alter/StaticBody2D"]
-position = Vector2(-19, -27.5)
-shape = SubResource("RectangleShape2D_bi1wy")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Alter/StaticBody2D"]
-position = Vector2(19, -27.5)
-shape = SubResource("RectangleShape2D_bi1wy")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Alter/StaticBody2D"]
-position = Vector2(0, -38.5)
-shape = SubResource("RectangleShape2D_8d0x3")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Alter/StaticBody2D"]
-position = Vector2(0, -30.5)
-shape = SubResource("RectangleShape2D_3f1xi")
-
-[node name="Reward Icon" type="Sprite2D" parent="Alter"]
-position = Vector2(0, -38)
-texture = ExtResource("13_bi1wy")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Alter/Reward Icon"]
-libraries = {
-&"": SubResource("AnimationLibrary_tsw1b")
-}
-autoplay = "spin"
-
-[node name="Alter Reward Area" type="Area2D" parent="Alter"]
-collision_mask = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Alter/Alter Reward Area"]
-position = Vector2(0, -35)
-shape = SubResource("RectangleShape2D_xxr15")
-debug_color = Color(0.906675, 0.00013053059, 0.7442755, 0.41960785)
+reward = 0
 
 [node name="Focal Position" type="Node2D" parent="."]
-position = Vector2(240, -69)
+position = Vector2(240, -75)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
-[connection signal="body_entered" from="Alter/Alter Reward Area" to="Alter" method="_on_alter_reward_giver_body_entered"]

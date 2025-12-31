@@ -11,7 +11,7 @@ signal on_reward(reward: Reward)
 
 const reward_to_icon: Dictionary[Reward, String] = {
 	Reward.DASH: "res://assets/misc/dash_icon.png",
-	Reward.FREEZE_SPELL: "bazinga"	
+	Reward.FREEZE_SPELL: "res://assets/misc/spell_icon.png"	
 }
 
 const reward_to_description: Dictionary[Reward, String] = {
@@ -27,10 +27,11 @@ func _ready() -> void:
 	on_reward.connect(show_reward_screen)
 
 func show_reward_screen(reward: Reward):
-	print("SHOWING SCREEEEEN!")
 	get_tree().paused = true
 	$AnimationPlayer.speed_scale = 1
 	$AnimationPlayer.play("open")
+	print(reward)
+	text.text = reward_to_description[reward]
 	icon.texture = (load(RewardScreen.reward_to_icon[reward]) as CompressedTexture2D)
 
 func hide_screen():
