@@ -30,10 +30,11 @@ _data = {
 }
 point_count = 3
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile", "overlay_tile")]
 script = ExtResource("1_hd2y3")
 spawnpoints = [NodePath("spawnpoint")]
 base_tile = NodePath("base")
+overlay_tile = NodePath("base_overlay")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
 
 [node name="MoveObjectComponent" type="Node" parent="."]

@@ -14,6 +14,9 @@ func exit() -> void:
 	super()
 
 func process_frame(_delta: float) -> PlayerStateName.Name:
+	if Input.is_action_just_pressed("mouse_click_right"):
+		return PlayerStateName.Name.DO_FREEZE
+	
 	var animation_string: StringName = "idle_" + actor.facing_component.facing_name_dictionary[actor.facing_component.facing]
 	actor.play_animation(animation_string)
 	

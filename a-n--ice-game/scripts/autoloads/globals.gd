@@ -1,8 +1,8 @@
 extends Node
 
-var game: Node2D = null
+var game: Game = null
 
-func get_game() -> Node2D:
+func get_game() -> Game:
 	if game == null:
 		printerr("Global: function get_game: game does not exist")
 	

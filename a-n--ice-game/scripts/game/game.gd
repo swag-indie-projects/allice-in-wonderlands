@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Game
+
 @export var player: Player
 #@export var starting_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_STARTING_WORLD
 @export var debug_world_scene_path: Constant.Paths = Constant.Paths.PATH_TO_TEST_SCENE
