@@ -1,15 +1,34 @@
-[gd_scene load_steps=11 format=4 uid="uid://b55s83hbc5m0w"]
+[gd_scene load_steps=17 format=4 uid="uid://b55s83hbc5m0w"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_u7kv2"]
+[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_wlx53"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_x0pqd"]
 [ext_resource type="TileSet" uid="uid://bam1ln05uasgr" path="res://resources/base_tiles_overlay.tres" id="3_fx8mp"]
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="4_sqvpe"]
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="5_hhtxu"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_5wxfu"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_dgya8"]
+[ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="8_id6st"]
 [ext_resource type="PackedScene" uid="uid://ddsadip6j3uxu" path="res://scenes/game/enemy/weeping_tree.tscn" id="8_w6a1i"]
+[ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="9_wlx53"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
+[sub_resource type="Resource" id="Resource_5u2rq"]
+script = ExtResource("2_wlx53")
+scene_path = 8
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_wlx53"]
+script = ExtResource("2_wlx53")
+scene_path = 11
+spawnpoint_index = 2
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6a1i"]
+size = Vector2(12, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u2rq"]
+size = Vector2(68, 10)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w6a1i"]
 vertices = PackedVector2Array(311.1797, 26, 311.71875, 26, 311.1797, 42, 263.8125, 55.632813, 358, 58, 359.71875, 58, 359.1797, 74, 312, 86, 264.0625, 3, 311.95313, 3, 264.35156, 6, 359.71875, 74, 359.3203, 86, 312, 122, 359.71875, 122, 359.3203, 134, 312, 134, 312, 170, 359.71875, 170, 359.3203, 182, 312, 182, 312, 218, 359.71875, 218, 359.3203, 230, 312, 230, 312, 266, 359.71875, 266, 359.3203, 278, 312, 278, 312, 314, 359.71875, 314, 359.3203, 326, 312, 326, 218, 58, 218, 55.976563, 234, 56.351563, 264, 86, 234, 55.976563, 250, 56.351563, 263.9922, 6, 346, 56.25, 346, 55.976563, 358, 56.25, 264, 374, 215.99219, 374, 216.35156, 358, 312, 362, 215.99219, 358, 216.35156, 342, 215.99219, 342, 216.35156, 326, 264, 314, 264, 230, 215.99219, 230, 216.35156, 214, 215.99219, 214, 216.35156, 198, 215.99219, 198, 216.35156, 182, 264, 170, 215.99219, 86, 216.35156, 70, 264.25, 22, 263.9922, 22, 218, 422, 215.99219, 422, 216.25781, 410, 264, 410, 215.99219, 326, 216.25781, 314, 264, 278, 215.99219, 278, 216.25781, 266, 264, 266, 215.99219, 182, 216.25781, 170, 264, 134, 215.99219, 134, 216.25781, 122, 264, 122, 215.99219, 70, 216.25781, 58, 358, 424.71094, 346, 424.84375, 346, 424.67188, 358, 422, 330, 424.84375, 330, 424.67188, 314, 424.84375, 314, 424.67188, 298, 424.84375, 298, 424.67188, 312, 410, 282, 424.84375, 282, 424.67188, 266, 424.84375, 266, 424.67188, 250, 424.84375, 250, 424.67188, 234, 424.84375, 234, 424.67188, 218, 424.84375, 311.70313, 42, 311.70313, 55.8125, 359.70313, 362, 359.70313, 374, 312, 374, 359.52344, 410, 359.52344, 422, 250, 55.8125, 378.15625, 376.03906, 378.1172, 392.8828, 360, 392.64844, 360, 375.8125)
@@ -18,9 +37,13 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(188, -7, 389, -7, 388, 
 source_geometry_mode = 2
 source_geometry_group_name = &"navigation"
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile", "overlay_tile")]
+[node name="sideworld2" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile", "overlay_tile")]
 script = ExtResource("1_u7kv2")
-spawnpoints = [NodePath("spawnpoint")]
+spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_5u2rq"),
+NodePath("exitpoint2"): SubResource("Resource_wlx53")
+}
 base_tile = NodePath("base")
 overlay_tile = NodePath("base_overlay")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
@@ -41,19 +64,34 @@ tile_map_data = PackedByteArray("AAAPAAAAAQAFAAEAAAAPAAEAAQAFAAEAAAAPAAIAAQAFAAI
 tile_set = ExtResource("5_hhtxu")
 
 [node name="spawnpoint" type="Node2D" parent="."]
-position = Vector2(300, 31)
+position = Vector2(356, 406)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint"]
 texture = ExtResource("6_5wxfu")
 
 [node name="exitpoint" type="Area2D" parent="."]
-position = Vector2(369, 384)
+position = Vector2(383, 384)
 
 [node name="Sprite2D" type="Sprite2D" parent="exitpoint"]
 texture = ExtResource("7_dgya8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exitpoint"]
-shape = SubResource("CircleShape2D_fhhrb")
+shape = SubResource("RectangleShape2D_w6a1i")
+
+[node name="spawnpoint2" type="Node2D" parent="."]
+position = Vector2(289, 39)
+
+[node name="Sprite2D" type="Sprite2D" parent="spawnpoint2"]
+texture = ExtResource("8_id6st")
+
+[node name="exitpoint2" type="Area2D" parent="."]
+position = Vector2(289, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="exitpoint2"]
+texture = ExtResource("9_wlx53")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitpoint2"]
+shape = SubResource("RectangleShape2D_5u2rq")
 
 [node name="Weeping Tree" parent="." instance=ExtResource("8_w6a1i")]
 position = Vector2(242, 334)

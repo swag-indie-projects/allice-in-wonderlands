@@ -1,0 +1,215 @@
+[gd_scene load_steps=34 format=3 uid="uid://ui8a8ylgqros"]
+
+[ext_resource type="PackedScene" uid="uid://dgkbd2nqlldrp" path="res://scenes/game/world/biome1/starting_world.tscn" id="1_pcnmk"]
+[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_878j6"]
+[ext_resource type="PackedScene" uid="uid://buial0xs2kvov" path="res://scenes/game/world/biome1/biome1_world1.tscn" id="3_5hepe"]
+[ext_resource type="PackedScene" uid="uid://btv1i2rhqhpvw" path="res://scenes/game/world/biome1/biome1_world2.tscn" id="5_ss0ua"]
+[ext_resource type="PackedScene" uid="uid://cgu3qwehsenbp" path="res://scenes/game/world/biome1/biome1_world4.tscn" id="6_dm4aq"]
+[ext_resource type="PackedScene" uid="uid://c2liotbx2xl72" path="res://scenes/game/world/biome1/biome1_world_enemy_camp.tscn" id="7_7bfk8"]
+[ext_resource type="PackedScene" uid="uid://boqqshjsmshys" path="res://scenes/game/world/biome1/biome1_sideworld3.tscn" id="8_aicwq"]
+[ext_resource type="PackedScene" uid="uid://by15f4mk2h8i" path="res://scenes/game/world/biome1/biome1_sideworld4.tscn" id="9_cgt6g"]
+[ext_resource type="PackedScene" uid="uid://b55s83hbc5m0w" path="res://scenes/game/world/biome1/biome1_sideworld2.tscn" id="11_jjemk"]
+[ext_resource type="PackedScene" uid="uid://ctdeun1fl2gc" path="res://scenes/game/world/biome1/biome1_sideworld1.tscn" id="11_pcnmk"]
+
+[sub_resource type="Resource" id="Resource_2aw0p"]
+script = ExtResource("2_878j6")
+scene_path = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_06jbn"]
+script = ExtResource("2_878j6")
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_5a3xp"]
+script = ExtResource("2_878j6")
+scene_path = 2
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_3x3w6"]
+script = ExtResource("2_878j6")
+scene_path = 6
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_g0dfn"]
+script = ExtResource("2_878j6")
+scene_path = 1
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_tbl8u"]
+script = ExtResource("2_878j6")
+scene_path = 3
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_0ihr6"]
+script = ExtResource("2_878j6")
+scene_path = 2
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_bvefd"]
+script = ExtResource("2_878j6")
+scene_path = 4
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_x3bfl"]
+script = ExtResource("2_878j6")
+scene_path = 3
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_ou6ym"]
+script = ExtResource("2_878j6")
+scene_path = 9
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_ynn5f"]
+script = ExtResource("2_878j6")
+scene_path = 8
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_1eg10"]
+script = ExtResource("2_878j6")
+scene_path = 4
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_5lvj4"]
+script = ExtResource("2_878j6")
+scene_path = 10
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_kinlv"]
+script = ExtResource("2_878j6")
+scene_path = 7
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_hrj0w"]
+script = ExtResource("2_878j6")
+scene_path = 7
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_g6vgq"]
+script = ExtResource("2_878j6")
+scene_path = 4
+spawnpoint_index = 2
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_4lcjr"]
+script = ExtResource("2_878j6")
+scene_path = 9
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_64plo"]
+script = ExtResource("2_878j6")
+scene_path = 8
+spawnpoint_index = 2
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_om4ew"]
+script = ExtResource("2_878j6")
+scene_path = 6
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_ec7es"]
+script = ExtResource("2_878j6")
+scene_path = 1
+spawnpoint_index = 2
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_88w2d"]
+script = ExtResource("2_878j6")
+scene_path = 9
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_5u2rq"]
+script = ExtResource("2_878j6")
+scene_path = 8
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="Resource" id="Resource_wlx53"]
+script = ExtResource("2_878j6")
+scene_path = 11
+spawnpoint_index = 2
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[node name="literally the whole world" type="Node2D"]
+
+[node name="starting_world" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("1_pcnmk")]
+position = Vector2(672, 123)
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_2aw0p")
+}
+
+[node name="world1" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("3_5hepe")]
+position = Vector2(224, 107)
+exitpoint_to_scenepath = {
+NodePath("exitpoint2"): SubResource("Resource_06jbn"),
+NodePath("exitpoint"): SubResource("Resource_5a3xp"),
+NodePath("exitpoint3"): SubResource("Resource_3x3w6")
+}
+
+[node name="world2" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("5_ss0ua")]
+position = Vector2(-384, 43)
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_g0dfn"),
+NodePath("exitpoint2"): SubResource("Resource_tbl8u")
+}
+
+[node name="world3" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("11_pcnmk")]
+position = Vector2(-944, 75)
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_0ihr6"),
+NodePath("exitpoint2"): SubResource("Resource_bvefd")
+}
+
+[node name="world4" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("6_dm4aq")]
+position = Vector2(-1600, 75)
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_x3bfl"),
+NodePath("exitpoint2"): SubResource("Resource_ou6ym"),
+NodePath("exitpoint3"): SubResource("Resource_ynn5f")
+}
+
+[node name="enemy_camp" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("7_7bfk8")]
+position = Vector2(-2160, -85)
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_1eg10"),
+NodePath("exitpoint2"): SubResource("Resource_5lvj4"),
+NodePath("exitpoint3"): SubResource("Resource_kinlv")
+}
+
+[node name="sideworld3" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("8_aicwq")]
+position = Vector2(-1520, 395)
+exitpoint_to_scenepath = {
+NodePath("exitpoint2"): SubResource("Resource_hrj0w"),
+NodePath("exitpoint"): SubResource("Resource_g6vgq"),
+NodePath("exitpoint3"): SubResource("Resource_4lcjr")
+}
+
+[node name="sideworld4" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("9_cgt6g")]
+position = Vector2(-898, 572.00006)
+scale = Vector2(0.987, 0.987)
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_64plo"),
+NodePath("exitpoint2"): SubResource("Resource_om4ew")
+}
+
+[node name="sideworld1" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("11_pcnmk")]
+position = Vector2(224, 475)
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_ec7es"),
+NodePath("exitpoint2"): SubResource("Resource_88w2d")
+}
+
+[node name="sideworld2" parent="." node_paths=PackedStringArray("exitpoint_to_scenepath") instance=ExtResource("11_jjemk")]
+position = Vector2(-1900, 385)
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_5u2rq"),
+NodePath("exitpoint2"): SubResource("Resource_wlx53")
+}
