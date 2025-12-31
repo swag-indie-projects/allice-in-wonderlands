@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="10_jxrcn"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="11_ho1b8"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="12_81jhw"]
-[ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/pewpew Slime.tscn" id="14_rneju"]
-[ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/ISlim.tscn" id="15_ynn5f"]
+[ext_resource type="PackedScene" uid="uid://ohl5we47hg83" path="res://scenes/game/enemy/pewpew Slime.tscn" id="14_rneju"]
+[ext_resource type="PackedScene" uid="uid://cxe20ic4rhmwf" path="res://scenes/game/enemy/ISlim.tscn" id="15_ynn5f"]
 
 [sub_resource type="Resource" id="Resource_0ihr6"]
 script = ExtResource("2_81jhw")

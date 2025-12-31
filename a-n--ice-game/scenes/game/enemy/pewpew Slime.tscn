@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ohl5we47hg83"]
+[gd_scene load_steps=16 format=3 uid="uid://bcx07kjyvj8kr"]
 
 [ext_resource type="Script" uid="uid://cxlp4ycd4q3eb" path="res://scripts/game/enemy/projectile_enemy.gd" id="1_1iby1"]
 [ext_resource type="Texture2D" uid="uid://bfjly2im2g7j8" path="res://assets/enemy/ISlim.png" id="2_2bu2f"]

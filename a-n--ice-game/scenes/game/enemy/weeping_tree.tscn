@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tnu2tqr6w8nt"]
+[gd_scene load_steps=14 format=3 uid="uid://ddsadip6j3uxu"]
 
 [ext_resource type="Script" uid="uid://bx1jqnfrv4tht" path="res://scripts/game/enemy/weeping_angel_enemy.gd" id="1_y26v5"]
 [ext_resource type="Texture2D" uid="uid://bjor08dcjdnl1" path="res://assets/enemy/weepingtree_idle.png" id="2_yl7ki"]
