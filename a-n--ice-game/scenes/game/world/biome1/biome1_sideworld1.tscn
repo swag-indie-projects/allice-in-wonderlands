@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_88w2d"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="11_0r05u"]
 [ext_resource type="PackedScene" uid="uid://dyp5tee4bjs6m" path="res://scenes/game/floating_ice.tscn" id="11_4okpq"]
-[ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/enemy/pewpew Slime.tscn" id="11_o6rfj"]
+[ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/pewpew Slime.tscn" id="11_o6rfj"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="11_vv3uc"]
 [ext_resource type="Script" uid="uid://ci88obq6lyt40" path="res://scripts/game/components/move_object_component.gd" id="12_bt5nt"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="13_oh0a8"]

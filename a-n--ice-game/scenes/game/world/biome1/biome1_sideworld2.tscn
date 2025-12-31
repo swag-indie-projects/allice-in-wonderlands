@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_5wxfu"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_dgya8"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="8_id6st"]
-[ext_resource type="PackedScene" uid="uid://ddsadip6j3uxu" path="res://scenes/game/enemy/weeping_tree.tscn" id="8_w6a1i"]
+[ext_resource type="PackedScene" uid="uid://ddsadip6j3uxu" path="res://scenes/game/weeping_tree.tscn" id="8_w6a1i"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="9_wlx53"]
 
 [sub_resource type="Resource" id="Resource_5u2rq"]

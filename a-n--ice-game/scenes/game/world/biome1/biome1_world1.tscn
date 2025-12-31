@@ -10,14 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="7_u0o5v"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="8_cks57"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="9_5a3xp"]
-[ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/enemy/ISlim.tscn" id="9_06jbn"]
+[ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/ISlim.tscn" id="9_06jbn"]
 [ext_resource type="Texture2D" uid="uid://o4mjp1l2bns" path="res://assets/markers/entrance_marker3.png" id="10_lnup1"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="11_agetj"]
 [ext_resource type="PackedScene" uid="uid://dyp5tee4bjs6m" path="res://scenes/game/floating_ice.tscn" id="11_uhydd"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="13_als7v"]
 [ext_resource type="Texture2D" uid="uid://c8u3hxtkaccae" path="res://assets/markers/exit_marker3.png" id="14_lged5"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_okr80"]
-[ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/enemy/boar.tscn" id="16_agetj"]
+[ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/boar.tscn" id="16_agetj"]
 
 [sub_resource type="Resource" id="Resource_06jbn"]
 script = ExtResource("3_o6ox3")
