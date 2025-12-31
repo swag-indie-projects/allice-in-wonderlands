@@ -10,6 +10,7 @@ class_name Game
 @export var player_ui: PlayerUI
 @export var player_save_tooltip_ui : SavePopupUI
 @export var save_manager : SaveManager
+@export var boss_manager : BossManager
 @export var ui_animations : AnimationPlayer
 
 @export var audio_stream_player: AudioStreamPlayer2D
@@ -25,13 +26,13 @@ func _ready() -> void:
 	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
 	var coins : int = save_manager.get_save_data("coins")
 	player_ui.update_coin.emit(coins)
+
 	
 	if debug_mod:
 		#player.get_node("Camera2D").Zoom.x = 0.5
 		#player.get_node("Camera2D").Zoom.y = 0.5
 		play_world(load(Constant.path_to_string[debug_world_scene_path]), debug_spawn_point_index)
 		return
-	
 	play_world(load(Constant.path_to_string[saved_world]), 0)
 
 func reset_game() -> void:
@@ -61,13 +62,7 @@ func _on_world_exited(result: SpawnResult) -> void:
 	if (world_change_debounce):
 		world_change_debounce = false
 		if (result.scene_path == Constant.Paths.PATH_TO_BIOME1_BOSS_ARENA):
-			print("BOSS ENTERED")
-			if ui_animations.has_animation("boss_camera_zoom"):
-				print("Animation exists")
-				ui_animations.play("boss_camera_zoom")
-				print("Is playing: ", ui_animations.is_playing())
-			else:
-				print("Animation not found!")
+			boss_manager.setup_boss(Constant.Boss_Enum.Snowball)
 			
 		var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
 		play_world(target_scene, result.spawnpoint_index)

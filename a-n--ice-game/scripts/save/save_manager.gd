@@ -9,8 +9,13 @@ var default_save_data : SaveResource
 
 func _ready() ->void:
 	default_save_data = SaveResource.new()
-	default_save_data.set("coins", 0)
+	default_save_data.set("coins", 10)
 	default_save_data.set("spawn", Constant.Paths.PATH_TO_STARTING_WORLD)
+	default_save_data.bosses_killed = {
+		Constant.Boss_Enum.Snowball: false,
+		Constant.Boss_Enum.Witch: false
+	}
+
 
 
 func save_game() -> void:
@@ -28,13 +33,14 @@ func load_game() -> bool:
 	if not ResourceLoader.exists(SAVE_PATH):
 		print("no save found, making meow moew moew moew save")
 		current_save = default_save_data
-		
+		print(current_save)
 		return false
 	
 	var loaded_resource = ResourceLoader.load(SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE)
 	if (loaded_resource is SaveResource):
 		current_save = loaded_resource
 		print("game loaded successfully")
+		print(current_save)
 		return true
 	else:
 		print("failed to load save, making a new one")

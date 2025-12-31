@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cyi7otpakwjkg"]
+[gd_scene load_steps=30 format=3 uid="uid://cyi7otpakwjkg"]
 
 [ext_resource type="PackedScene" uid="uid://d204nsy8svfev" path="res://scenes/game/player/player.tscn" id="1_nl0sk"]
 [ext_resource type="Script" uid="uid://clhsdbanamdpr" path="res://scripts/game/game.gd" id="1_qh8lf"]
@@ -9,9 +9,11 @@
 [ext_resource type="Script" uid="uid://j2xustrm625i" path="res://scripts/save/save_manager.gd" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
 [ext_resource type="Script" uid="uid://cu85s2qhnd1j0" path="res://scripts/game/camera_2d.gd" id="8_kp23o"]
+[ext_resource type="PackedScene" uid="uid://hjrtlgokfpms" path="res://scenes/game/ui/boss_health_ui.tscn" id="8_vaxfo"]
 [ext_resource type="AudioStream" uid="uid://drvv1ooh2sm3r" path="res://sounds/ost/winter.ogg" id="9_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_ui.tscn" id="9_t28dr"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
+[ext_resource type="Script" uid="uid://c288j07dk6o3x" path="res://scripts/game/boss_manager.gd" id="13_ftsea"]
 
 [sub_resource type="Curve" id="Curve_apjul"]
 _data = [Vector2(0.022727266, 0.9662922), 0.0, 0.0, 0, 0, Vector2(1, 0.79775286), 0.0, 0.0, 0, 0]
@@ -113,14 +115,15 @@ _data = {
 &"boss_camera_zoom": SubResource("Animation_5jirj")
 }
 
-[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "save_manager", "ui_animations", "audio_stream_player")]
+[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "save_manager", "boss_manager", "ui_animations", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 12
+debug_world_scene_path = 4
 debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
 save_manager = NodePath("SaveManager")
+boss_manager = NodePath("BossManager")
 ui_animations = NodePath("AnimationPlayer")
 audio_stream_player = NodePath("AudioStreamPlayer2D")
 
@@ -142,6 +145,12 @@ z_as_relative = false
 mouse_filter = 2
 
 [node name="death_menu" parent="UI" instance=ExtResource("3_5jirj")]
+
+[node name="BossHealthUI" parent="UI" instance=ExtResource("8_vaxfo")]
+offset_left = 296.0
+offset_top = 541.0
+offset_right = -231.0
+offset_bottom = 1.0
 
 [node name="player" parent="." node_paths=PackedStringArray("get_hit_ui", "death_menu", "camera") instance=ExtResource("1_nl0sk")]
 position = Vector2(93, 67)
@@ -188,6 +197,10 @@ texture = ExtResource("3_ian8s")
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("7_bdhmt")
+
+[node name="BossManager" type="Node" parent="." node_paths=PackedStringArray("boss_health_ui")]
+script = ExtResource("13_ftsea")
+boss_health_ui = NodePath("../UI/BossHealthUI")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3

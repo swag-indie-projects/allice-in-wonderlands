@@ -6,6 +6,8 @@ const PLAYER_STARTING_HP: int = 5
 # So from now on, everytime when the path is changed you have to manually change it here
 const PATH_TO_MAIN_MENU: String = "res://scenes/main_menu.tscn"
 
+enum Boss_Enum {Snowball, Witch}
+
 enum Paths {
 	PATH_TO_STARTING_WORLD, 
 	PATH_TO_BIOME1_WORLD1,
