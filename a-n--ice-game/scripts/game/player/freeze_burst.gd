@@ -5,7 +5,6 @@ class_name FreezeBurst
 @export var attack_distance: float
 @export var timer: Timer
 
-@export var water_tileset: TileSet
 @export var water_tileset_id: int
 
 @export var ice_scene: PackedScene

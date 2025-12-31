@@ -32,6 +32,11 @@ func _on_exitpoint_body_entered(body: Node2D, exitpoint: Area2D) -> void:
 	exited.emit(exitpoint_to_scenepath[exitpoint])
 
 func get_border_rectangle() -> Rect2:
+	if base_tile == null:
+		push_error("%s: base_tile is null. Scene=%s NodePath=%s"
+			% [name, get_tree().current_scene.name, get_path()])
+		return Rect2()
+	
 	var rectangle: Rect2i = base_tile.get_used_rect()
 	var tile_size: Vector2 = base_tile.tile_set.tile_size
 	

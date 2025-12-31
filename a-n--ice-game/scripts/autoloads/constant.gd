@@ -19,9 +19,15 @@ enum Paths {
 	PATH_TO_BIOME1_SIDEWORLD3,
 	PATH_TO_BIOME1_SIDEWORLD4,
 	
-	PATH_TO_TEST_SCENE,
 	PATH_TO_BIOME1_ENEMY_BASE,
 	PATH_TO_BIOME1_BOSS_ARENA,
+	
+	PATH_TO_BIOME2_WORLD1,
+	PATH_TO_BIOME2_WORLD2,
+	PATH_TO_BIOME2_WORLD3,
+	PATH_TO_BIOME2_BOSS_ARENA,
+	
+	PATH_TO_TEST_SCENE,
 }
 
 var path_to_string: Dictionary[Paths, String] = {
@@ -38,6 +44,12 @@ var path_to_string: Dictionary[Paths, String] = {
 	
 	Paths.PATH_TO_BIOME1_ENEMY_BASE: "res://scenes/game/world/biome1/biome1_world_enemy_camp.tscn",
 	Paths.PATH_TO_BIOME1_BOSS_ARENA : "res://scenes/game/world/biome1/biome1_boss_arena.tscn",
+	
+	Paths.PATH_TO_BIOME2_WORLD1: "res://scenes/game/world/biome2/biome2_world1.tscn",
+	Paths.PATH_TO_BIOME2_WORLD2: "res://scenes/game/world/biome2/biome2_world2.tscn",
+	Paths.PATH_TO_BIOME2_WORLD3: "res://scenes/game/world/biome2/biome2_world3.tscn",
+	Paths.PATH_TO_BIOME2_BOSS_ARENA: "res://scenes/game/world/biome2/biome2_boss_arena.tscn",
+	
 	Paths.PATH_TO_TEST_SCENE: "res://scenes/game/world/test_world1.tscn",
 	
 }

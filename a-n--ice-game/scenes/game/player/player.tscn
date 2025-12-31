@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://1igbt58bdgcj" path="res://scripts/game/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://p625padn7ffo" path="res://assets/player/player_backward.png" id="2_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://c8a42qxd1yk8s" path="res://assets/player/player_forward.png" id="2_fjrip"]
-[ext_resource type="Script" path="res://scripts/game/player/state_machine/player_state_machine.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://ca1eg4g6huui3" path="res://scripts/game/player/state_machine/player_state_machine.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://vjq8xnf05boi" path="res://scenes/game/player/sword_swipe.tscn" id="3_smehm"]
 [ext_resource type="Texture2D" uid="uid://b0t7qp2q4sqov" path="res://assets/player/player_left.png" id="4_3v2ag"]
 [ext_resource type="Script" uid="uid://ne0dvviqaf83" path="res://scripts/game/player/state_machine/states/player_idle_state.gd" id="4_dqkch"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dncd5essow0fd" path="res://assets/player/player_right.png" id="5_jej6c"]
 [ext_resource type="Texture2D" uid="uid://crib2tcqkaoha" path="res://assets/player/player_walk_animation.png" id="6_ymle5"]
 [ext_resource type="Script" uid="uid://l6bu0532m1w2" path="res://scripts/game/player/state_machine/states/player_hit_state.gd" id="7_ur7pv"]
-[ext_resource type="PackedScene" path="res://scenes/game/player/freeze burst.tscn" id="8_34lq7"]
+[ext_resource type="PackedScene" uid="uid://dtdrp61wq0d48" path="res://scenes/game/player/freeze burst.tscn" id="8_34lq7"]
 [ext_resource type="Texture2D" uid="uid://b85hkim12126n" path="res://assets/misc/snow_flake_2.png" id="9_hs005"]
 [ext_resource type="Script" uid="uid://c6jtd5gviucn0" path="res://scripts/game/components/facing_component.gd" id="11_d2wvv"]
 [ext_resource type="Script" uid="uid://h86erx154auq" path="res://scripts/game/player/state_machine/states/player_dash_state.gd" id="12_ixkur"]
@@ -412,8 +412,8 @@ emission_shape = 1
 emission_sphere_radius = 5.0
 angle_min = 1.0728835e-05
 angle_max = 360.00003
-initial_velocity_min = 16.05
-initial_velocity_max = 100.479996
+initial_velocity_min = 4.0
+initial_velocity_max = 81.78
 angular_velocity_min = -294.95
 angular_velocity_max = 719.99994
 tangential_accel_min = -100.0
@@ -508,13 +508,13 @@ explosiveness = 0.7
 process_material = SubResource("ParticleProcessMaterial_hs005")
 
 [node name="Ice Spell Particles" type="GPUParticles2D" parent="."]
+modulate = Color(0.09411765, 0.5254902, 0.9607843, 1)
 emitting = false
 amount = 250
 texture = ExtResource("9_hs005")
-lifetime = 0.62
+lifetime = 0.4
 one_shot = true
-speed_scale = 0.7
-explosiveness = 0.7
+explosiveness = 0.4
 process_material = SubResource("ParticleProcessMaterial_g11kp")
 
 [node name="dash ProgressBar" type="ProgressBar" parent="."]

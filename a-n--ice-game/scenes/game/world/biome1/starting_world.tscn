@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://bam1ln05uasgr" path="res://resources/base_tiles_overlay.tres" id="4_u26kk"]
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="5_i2gnd"]
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="6_811eb"]
-[ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/enemy/ISlim.tscn" id="7_2a0xr"]
+[ext_resource type="PackedScene" uid="uid://cxe20ic4rhmwf" path="res://scenes/game/enemy/ISlim.tscn" id="7_2a0xr"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="8_oy2ch"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_ij7r7"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="9_qjipn"]

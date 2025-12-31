@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="8_1fuae"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_wmdd5"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="10_0ihr6"]
-[ext_resource type="PackedScene" uid="uid://ddsadip6j3uxu" path="res://scenes/game/enemy/weeping_tree.tscn" id="13_jsmsh"]
+[ext_resource type="PackedScene" uid="uid://tnu2tqr6w8nt" path="res://scenes/game/enemy/weeping_tree.tscn" id="13_jsmsh"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_m6otp"]
-[ext_resource type="PackedScene" uid="uid://be1ddaxdk35fo" path="res://scenes/game/enemy/boar.tscn" id="15_l6cnp"]
-[ext_resource type="PackedScene" uid="uid://bd7kj04cf4mom" path="res://scenes/game/enemy/ISlim.tscn" id="16_ldu02"]
+[ext_resource type="PackedScene" uid="uid://dcj0h5424i35w" path="res://scenes/game/enemy/boar.tscn" id="15_l6cnp"]
+[ext_resource type="PackedScene" uid="uid://cxe20ic4rhmwf" path="res://scenes/game/enemy/ISlim.tscn" id="16_ldu02"]
 [ext_resource type="PackedScene" uid="uid://br5vseyxakyry" path="res://scenes/game/enemy/pissing_goblin.tscn" id="17_3njj1"]
 [ext_resource type="PackedScene" uid="uid://bw680060lr2gw" path="res://scenes/game/hp_shard.tscn" id="18_3njj1"]
 
