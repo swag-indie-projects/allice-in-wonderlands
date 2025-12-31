@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://btgf15ckrch3b"]
+[gd_scene load_steps=43 format=3 uid="uid://btgf15ckrch3b"]
 
 [ext_resource type="Script" uid="uid://y8x860ncxjee" path="res://scripts/game/enemy/snowball_boss/snowball_boss_enemy.gd" id="1_kbn1u"]
 [ext_resource type="Texture2D" uid="uid://ccq1nahyfxvfu" path="res://assets/enemy/snowball_boss_idle.png" id="2_kbn1u"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://slyufsyam5qf" path="res://assets/particles/snow_pellet_particle.png" id="7_vi6go"]
 [ext_resource type="Script" uid="uid://bfqr0we5oyg8v" path="res://scripts/game/enemy/snowball_boss/snowball_boss_state_machine.gd" id="8_4pykn"]
 [ext_resource type="Script" uid="uid://xd81jd51733f" path="res://scripts/game/enemy/snowball_boss/states/snowball_boss_grow_center.gd" id="8_qhcmp"]
-[ext_resource type="Script" uid="uid://b4ohcwluxkj63" path="res://scripts/game/enemy/snowball_boss/states/snowball_boss_grow_spiral.gd" id="9_03xwr"]
 [ext_resource type="Script" uid="uid://bxkiq4i7j5kbs" path="res://scripts/game/enemy/snowball_boss/states/snowball_boss_stun.gd" id="11_mfi1p"]
 [ext_resource type="Script" uid="uid://csqqxi7vdls5r" path="res://scripts/game/enemy/snowball_boss/states/snowball_boss_target_roll.gd" id="12_qcvnp"]
 [ext_resource type="Script" uid="uid://bqx3qfomntjsx" path="res://scripts/game/enemy/snowball_boss/states/snowball_boss_end.gd" id="13_e7wsw"]
@@ -215,53 +214,6 @@ scale_max = 2.0
 scale_curve = SubResource("CurveTexture_kkhfq")
 color = Color(0.8784475, 0.980995, 0.97842366, 1)
 
-[sub_resource type="GDScript" id="GDScript_qcvnp"]
-script/source = "extends SnowballBossState
-class_name SnowballBossRollState
-
-var anim_finished = false
-var walls_hit = 0
-var walls_max = 10
-var accel = 4;
-
-func enter() -> void:
-	walls_hit = 0
-	print(\"Entered state \", state_name)
-	
-	set_random_velocity()
-	actor.animation_sprite.play(\"run\")
-	#actor.animation_sprite.animation_finished.connect(_on_animation_finished)
-	
-func exit() -> void:
-	print(\"Exited state  \", state_name)
-	pass
-
-func set_random_velocity() -> void:
-	accel += 0.1
-	var rand_theta = randi_range(0, 8) * PI/4
-	self.actor.velocity = Vector2(cos(rand_theta), sin(rand_theta)) * self.actor.speed * accel
-	print(\"new velocity:\", self.actor.velocity)
-
-func setup(new_actor: SnowballBoss) -> void:
-	self.actor = new_actor
-	self.state_name = SnowballBossStateName.Name.ROLL
-	
-
-func process_physics_frame(delta: float) -> SnowballBossStateName.Name:
-	
-	var next_position = self.actor.global_position + self.actor.velocity * delta
-	print(self.actor.velocity)
-	if (self.actor.velocity.length() <= self.actor.speed or self.actor.detection_box.check_outside_boundary(next_position)):
-		print(\"wall hit\")
-		walls_hit += 1
-		set_random_velocity()
-	
-	if walls_hit >= walls_max:
-		
-		return SnowballBossStateName.Name.STUN
-	return SnowballBossStateName.Name.ROLL
-"
-
 [node name="snowball_boss" type="CharacterBody2D" node_paths=PackedStringArray("dmg_particle", "death_particle", "state_machine", "animation_sprite", "animation_component")]
 collision_layer = 7
 script = ExtResource("1_kbn1u")
@@ -329,12 +281,10 @@ starting_state = NodePath("IdleState")
 state_dictionary = {
 0: NodePath("IdleState"),
 1: NodePath("GrowCenterState"),
-2: NodePath("GrowSpiralState"),
-3: NodePath("GrowBorderState"),
-4: NodePath("RollState"),
-5: NodePath("StunState"),
-6: NodePath("TargetRollState"),
-7: NodePath("EndState")
+2: NodePath("GrowBorderState"),
+3: NodePath("StunState"),
+4: NodePath("TargetRollState"),
+5: NodePath("EndState")
 }
 
 [node name="IdleState" type="Node" parent="StateMachine"]
@@ -342,12 +292,6 @@ script = ExtResource("7_0yoke")
 
 [node name="GrowCenterState" type="Node" parent="StateMachine"]
 script = ExtResource("8_qhcmp")
-
-[node name="GrowSpiralState" type="Node" parent="StateMachine"]
-script = ExtResource("9_03xwr")
-
-[node name="RollState" type="Node" parent="StateMachine"]
-script = SubResource("GDScript_qcvnp")
 
 [node name="StunState" type="Node" parent="StateMachine"]
 script = ExtResource("11_mfi1p")
