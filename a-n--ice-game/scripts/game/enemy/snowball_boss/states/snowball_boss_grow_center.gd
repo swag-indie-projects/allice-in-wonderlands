@@ -6,7 +6,7 @@ var anim_finished = false
 func set_normalized_vector() -> void:
 	var center_vector = self.actor.detection_box.global_position
 	var current_vector = self.actor.global_position
-	var normalized_vector = (center_vector-current_vector).normalized() * self.actor.speed
+	var normalized_vector = (center_vector-current_vector).normalized() * self.actor.speed * 0.75
 	self.actor.velocity = normalized_vector
 	
 func enter() -> void:
