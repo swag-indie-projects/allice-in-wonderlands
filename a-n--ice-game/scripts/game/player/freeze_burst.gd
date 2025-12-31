@@ -23,8 +23,8 @@ func _on_body_entered(body: Node) -> void:
 	if body is Enemy:
 		body.get_hit(1, direction_vector)
 
-func burst() -> void:
-	direction_vector = (get_global_mouse_position() - Globals.get_game().player.global_position).normalized()
+func burst(direction_vector: Vector2) -> void:
+	self.direction_vector = direction_vector
 	
 	if direction_vector.length_squared() < 0.000001:
 		direction_vector = Vector2.DOWN

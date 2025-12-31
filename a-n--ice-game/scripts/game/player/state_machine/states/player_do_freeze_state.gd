@@ -4,6 +4,7 @@ class_name PlayerDoFreezeState
 
 @export var pre_freeze_timer: Timer
 @export var freeze_burst_scene: PackedScene
+@export var freeze_particles: GPUParticles2D
 
 @onready var pre_freeze_ended: bool = true
 
@@ -34,7 +35,12 @@ func process_physics_frame(_delta: float) -> PlayerStateName.Name:
 	return PlayerStateName.Name.IDLE
 
 func _on_pre_freeze_timer_timeout() -> void:
+	var direction_vector = (freeze_particles.get_global_mouse_position() - actor.global_position).normalized()
+	
+	freeze_particles.emitting = true
+	freeze_particles.rotation = direction_vector.angle()
+	
 	var freeze_burst: FreezeBurst = freeze_burst_scene.instantiate()
 	Globals.get_game().add_child(freeze_burst)
-	freeze_burst.burst()
+	freeze_burst.burst(direction_vector)
 	pre_freeze_ended = true
