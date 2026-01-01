@@ -9,8 +9,10 @@ size = Vector2(20, 29)
 [sub_resource type="CanvasTexture" id="CanvasTexture_d160j"]
 
 [node name="FreezeBurst" type="Area2D" node_paths=PackedStringArray("timer")]
+collision_layer = 33
+collision_mask = 33
 script = ExtResource("1_d160j")
-attack_distance = 25.0
+attack_distance = 20.0
 timer = NodePath("Timer")
 ice_scene = ExtResource("3_ma7di")
 

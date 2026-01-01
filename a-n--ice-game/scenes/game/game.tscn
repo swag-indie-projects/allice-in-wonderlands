@@ -158,7 +158,7 @@ player = NodePath("../player")
 
 [node name="Snow" type="GPUParticles2D" parent="Camera2D"]
 position = Vector2(0, -1)
-amount = 500
+amount = 500 
 lifetime = 20.0
 preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_apjul")
