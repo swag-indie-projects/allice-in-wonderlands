@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dfwuk00eei4hy"]
+[gd_scene load_steps=26 format=4 uid="uid://dfwuk00eei4hy"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_2khui"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_0c4et"]
@@ -9,12 +9,76 @@
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_vlc2e"]
 [ext_resource type="PackedScene" uid="uid://dhynn60ywn3kl" path="res://scenes/game/enemy/pew pew ice block.tscn" id="8_0c4et"]
 [ext_resource type="PackedScene" uid="uid://vw4kqkap01sm" path="res://scenes/game/enemy/ice block.tscn" id="9_pmhu5"]
+[ext_resource type="Script" uid="uid://lejpa7jtnty8" path="res://scripts/game/components/enemy_mover_component.gd" id="9_x208h"]
+[ext_resource type="Script" uid="uid://bsousmcw248gs" path="res://scripts/game/datatype (tuple)/move_action.gd" id="10_rwdrh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_llcsg"]
 source_geometry_mode = 2
 source_geometry_group_name = &"navigation"
+
+[sub_resource type="Resource" id="Resource_x208h"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(70, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_rwdrh"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(-70, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_dwt1r"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(40, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_hu8p4"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(0, -40)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_jwtgo"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(-40, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_w3bqi"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(0, 40)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_2p5hc"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(64, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_c53q4"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(0, 64)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_e4sk3"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(-64, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_r66pw"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(0, -64)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_vlc2e"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(0, 100)
+speed = 60.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_jo460"]
+script = ExtResource("10_rwdrh")
+displacement = Vector2(0, -100)
+speed = 60.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile", "overlay_tile")]
 script = ExtResource("1_2khui")
@@ -41,7 +105,7 @@ tile_map_data = PackedByteArray("AAAAAAEAAwAFAAEAAAAAAAIAAwAFAAEAAAAAAAMAAwAFAAI
 tile_set = ExtResource("5_x208h")
 
 [node name="spawnpoint" type="Node2D" parent="."]
-position = Vector2(148, 69)
+position = Vector2(495, 95)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint"]
 texture = ExtResource("6_rwdrh")
@@ -108,8 +172,20 @@ wait_timer_interval = 0.0
 [node name="IceBlock" parent="." instance=ExtResource("9_pmhu5")]
 position = Vector2(183, 93)
 
+[node name="ActionMoverComponent" type="Node" parent="IceBlock" node_paths=PackedStringArray("actor")]
+script = ExtResource("9_x208h")
+actor = NodePath("..")
+actions = Array[ExtResource("10_rwdrh")]([SubResource("Resource_x208h"), SubResource("Resource_rwdrh")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
 [node name="IceBlock2" parent="." instance=ExtResource("9_pmhu5")]
 position = Vector2(233, 69)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock2" node_paths=PackedStringArray("actor")]
+script = ExtResource("9_x208h")
+actor = NodePath("..")
+actions = Array[ExtResource("10_rwdrh")]([SubResource("Resource_dwt1r"), SubResource("Resource_hu8p4"), SubResource("Resource_jwtgo"), SubResource("Resource_w3bqi")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
 
 [node name="IceBlock3" parent="." instance=ExtResource("9_pmhu5")]
 position = Vector2(251, 50)
@@ -117,5 +193,17 @@ position = Vector2(251, 50)
 [node name="IceBlock4" parent="." instance=ExtResource("9_pmhu5")]
 position = Vector2(343, 58)
 
+[node name="ActionMoverComponent" type="Node" parent="IceBlock4" node_paths=PackedStringArray("actor")]
+script = ExtResource("9_x208h")
+actor = NodePath("..")
+actions = Array[ExtResource("10_rwdrh")]([SubResource("Resource_2p5hc"), SubResource("Resource_c53q4"), SubResource("Resource_e4sk3"), SubResource("Resource_r66pw")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
 [node name="IceBlock5" parent="." instance=ExtResource("9_pmhu5")]
 position = Vector2(122, 19)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock5" node_paths=PackedStringArray("actor")]
+script = ExtResource("9_x208h")
+actor = NodePath("..")
+actions = Array[ExtResource("10_rwdrh")]([SubResource("Resource_vlc2e"), SubResource("Resource_jo460")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
