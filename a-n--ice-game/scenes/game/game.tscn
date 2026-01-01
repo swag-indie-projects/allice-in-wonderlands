@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://covdnykiv6j42" path="res://scenes/game/ui/death_menu.tscn" id="3_5jirj"]
 [ext_resource type="Texture2D" uid="uid://sllat2rhkysm" path="res://assets/misc/light.png" id="3_ian8s"]
 [ext_resource type="PackedScene" uid="uid://dt1xhxgttwufa" path="res://scenes/game/ui/save_popup.tscn" id="5_87uf6"]
-[ext_resource type="PackedScene" uid="uid://35y5wwh18vc4" path="res://scenes/game/ui/get hit ui.tscn" id="6_4j704"]
+[ext_resource type="PackedScene" path="res://scenes/game/ui/get hit ui.tscn" id="6_4j704"]
 [ext_resource type="Script" uid="uid://j2xustrm625i" path="res://scripts/save/save_manager.gd" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
 [ext_resource type="Script" uid="uid://cu85s2qhnd1j0" path="res://scripts/game/camera_2d.gd" id="8_kp23o"]
@@ -119,7 +119,7 @@ _data = {
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "save_manager", "boss_manager", "ui_animations", "camera", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 15
+debug_world_scene_path = 6
 debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")

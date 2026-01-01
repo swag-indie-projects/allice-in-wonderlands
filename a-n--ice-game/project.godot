@@ -104,6 +104,7 @@ mouse_click_right={
 
 2d_physics/layer_2="ice_platform"
 2d_physics/layer_4="player"
+2d_physics/layer_7="kido test"
 
 [rendering]
 
