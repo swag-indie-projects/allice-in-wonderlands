@@ -11,8 +11,8 @@
 [ext_resource type="Script" uid="uid://lejpa7jtnty8" path="res://scripts/game/components/enemy_mover_component.gd" id="9_hbx7r"]
 [ext_resource type="Script" uid="uid://bsousmcw248gs" path="res://scripts/game/datatype (tuple)/move_action.gd" id="10_pc0qc"]
 [ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/enemy/pewpew Slime.tscn" id="11_xd7uw"]
-[ext_resource type="PackedScene" uid="uid://cmpvjyk8ikibt" path="res://scenes/game/enemy/snowball.tscn" id="12_xa44q"]
-[ext_resource type="PackedScene" uid="uid://3d0l5tbmkpyg" path="res://scenes/game/enemy/icicle_summoner.tscn" id="13_riiwr"]
+[ext_resource type="PackedScene" uid="uid://cmpvjyk8ikibt" path="res://assets/snowball.tscn" id="12_xa44q"]
+[ext_resource type="PackedScene" uid="uid://dfdg3rdw5qvl6" path="res://scenes/game/enemy/icicle_summoner.tscn" id="13_riiwr"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_xa44q"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="15_sgb5i"]
 [ext_resource type="PackedScene" uid="uid://cxe20ic4rhmwf" path="res://scenes/game/enemy/ISlim.tscn" id="16_mkjgk"]
@@ -93,7 +93,6 @@ tile_set = ExtResource("3_735wq")
 
 [node name="object" type="TileMapLayer" parent="." groups=["navigation"]]
 z_index = 1
-tile_map_data = PackedByteArray("AAASAAUACgABAAAAAAASAAYACgABAAEAAAASAAcACgABAAIAAAASAAgACgABAAMAAAASAAkACgABAAQAAAAUAP//CgABAAAAAAAUAAAACgABAAEAAAAUAAEACgABAAIAAAAUAAIACgABAAMAAAAUAAMACgABAAQAAAAMAAIACgABAAAAAAAMAAMACgABAAEAAAAMAAQACgABAAIAAAAMAAUACgABAAMAAAAMAAYACgABAAQAAAAFAAUACgABAAAAAAAFAAYACgABAAEAAAAFAAcACgABAAIAAAAFAAgACgABAAMAAAAFAAkACgABAAQAAAA=")
 tile_set = ExtResource("4_hbx7r")
 
 [node name="upper" type="TileMapLayer" parent="." groups=["navigation"]]
@@ -171,3 +170,9 @@ position = Vector2(548, 80)
 
 [node name="ISlim" parent="." instance=ExtResource("16_mkjgk")]
 position = Vector2(445, 56)
+
+[node name="Coin2" parent="." instance=ExtResource("15_sgb5i")]
+position = Vector2(545, 235)
+
+[node name="Coin3" parent="." instance=ExtResource("15_sgb5i")]
+position = Vector2(338, 24)

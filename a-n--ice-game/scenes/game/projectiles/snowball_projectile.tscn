@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cp1dhpakkwiua" path="res://assets/tileset/overlay_snow_tiles.png" id="2_5y63b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfc78"]
-radius = 3.0
+radius = 2.5
 
 [node name="SnowballProjectile2" type="Node2D"]
 z_index = 20
