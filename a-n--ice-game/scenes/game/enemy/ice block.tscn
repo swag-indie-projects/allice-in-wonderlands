@@ -34,7 +34,7 @@ collision_mask = 512
 script = ExtResource("1_orp3y")
 health_bar = NodePath("ProgressBar")
 animation = NodePath("AnimatedSprite2D")
-MAX_HP = 8
+MAX_HP = 5
 knockback_component = NodePath("knockback component")
 animation_component = NodePath("AnimationComponent")
 

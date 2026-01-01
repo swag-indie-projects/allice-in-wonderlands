@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://chd7h61271cbb"]
+[gd_scene load_steps=40 format=4 uid="uid://chd7h61271cbb"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_1ufbh"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_3ogbq"]
@@ -7,12 +7,152 @@
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="5_dpv4i"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_engmn"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_cjysk"]
+[ext_resource type="PackedScene" uid="uid://br5vseyxakyry" path="res://scenes/game/enemy/pissing_goblin.tscn" id="8_fevjm"]
+[ext_resource type="PackedScene" uid="uid://dhynn60ywn3kl" path="res://scenes/game/enemy/pew pew ice block.tscn" id="9_2w32q"]
+[ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="10_2arn3"]
+[ext_resource type="PackedScene" uid="uid://vw4kqkap01sm" path="res://scenes/game/enemy/ice block.tscn" id="11_2arn3"]
+[ext_resource type="Script" uid="uid://lejpa7jtnty8" path="res://scripts/game/components/enemy_mover_component.gd" id="11_k0x5u"]
+[ext_resource type="Script" uid="uid://bsousmcw248gs" path="res://scripts/game/datatype (tuple)/move_action.gd" id="12_b35f0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_llcsg"]
 source_geometry_mode = 2
 source_geometry_group_name = &"navigation"
+
+[sub_resource type="Resource" id="Resource_ivpyi"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(90, 0)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_k0x5u"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(-90, 0)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_b35f0"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, -160)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_fgwvx"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, 160)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_yhud5"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, -70)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_nlqlx"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(-30, 0)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_j1goc"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, 70)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_lwvoh"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(30, 0)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_ajbnh"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, -40)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_y6ckr"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, 40)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_wiw85"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(8, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_squeo"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, 6)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_03x4w"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(-8, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_fvwrf"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, -6)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_l0sux"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, 75)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_iurum"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, -75)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_8rk7u"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, -70)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_wr2lf"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, 70)
+speed = 100.0
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_eoxk4"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(10, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_bxnpm"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(-10, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_iaog7"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(24, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_picpv"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, 10)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_h423j"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(-24, 0)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
+
+[sub_resource type="Resource" id="Resource_1a3ta"]
+script = ExtResource("12_b35f0")
+displacement = Vector2(0, -10)
+metadata/_custom_type_script = "uid://bsousmcw248gs"
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile", "overlay_tile")]
 script = ExtResource("1_1ufbh")
@@ -30,14 +170,15 @@ tile_map_data = PackedByteArray("AAATAAoAAAABAAAAAAATAAsAAAABAAEAAAATAAwAAAABAAI
 tile_set = ExtResource("3_4yre2")
 
 [node name="object" type="TileMapLayer" parent="." groups=["navigation"]]
+tile_map_data = PackedByteArray("AAAJAA0AAAABAAAAAAADAAcAAAACAAAAAAAPAAYAAwAAAAMAAAA=")
 tile_set = ExtResource("4_dfvr1")
 
 [node name="upper" type="TileMapLayer" parent="." groups=["navigation"]]
-tile_map_data = PackedByteArray("AAAiAAUAAwAEAAAAAAAgAAUAAwAEAAAAAAAhAAUAAwAEAAAAAAAfAAUAAwADAAAAAAAfAAYAAwADAAEAAAAfAAcAAwADAAEAAAAfAAgAAwADAAIAAAAfAAIAAwADAAIAAAAgAAIAAwAEAAIAAAAhAAIAAwAEAAIAAAAiAAIAAwAEAAIAAAAfAAEAAwADAAEAAAAfAAAAAwAFAAQAAAAbAAAAAwAEAAIAAAAcAAAAAwAEAAIAAAAdAAAAAwAEAAIAAAAeAAAAAwAEAAIAAAAaAAAAAwAEAAQAAAAaAAEAAwAFAAEAAAAaAAIAAwAFAAEAAAAaAAMAAwAFAAEAAAAaAAQAAwAFAAIAAAAaAAcAAwADAAAAAAAbAAcAAwAEAAAAAAAcAAcAAwAFAAAAAAAcAAgAAwAFAAEAAAAcAAkAAwAFAAEAAAAaAAgAAwADAAEAAAAaAAkAAwADAAEAAAAaAAoAAwADAAIAAAAbAAoAAwAEAAIAAAAcAAoAAwAFAAIAAAAbAAgAAwAEAAEAAAAbAAkAAwAEAAEAAAAgAAgAAwAEAAIAAAAhAAgAAwAFAAQAAAAhAAkAAwADAAEAAAAhAAoAAwADAAEAAAAhAAsAAwADAAEAAAAhAAwAAwADAAEAAAAhAA0AAwADAAEAAAAhAA4AAwAFAAUAAAAOAA4AAwAEAAAAAAAPAA4AAwAEAAAAAAAQAA4AAwAEAAAAAAARAA4AAwAEAAAAAAASAA4AAwAEAAAAAAATAA4AAwAEAAAAAAAUAA4AAwAEAAAAAAAVAA4AAwAEAAAAAAAWAA4AAwAEAAAAAAAXAA4AAwAEAAAAAAAYAA4AAwAEAAAAAAAZAA4AAwAEAAAAAAAaAA4AAwAEAAAAAAAbAA4AAwAEAAAAAAAcAA4AAwAEAAAAAAAdAA4AAwAEAAAAAAAeAA4AAwAEAAAAAAAfAA4AAwAEAAAAAAAgAA4AAwAEAAAAAAAGAA4AAwADAAAAAAAHAA4AAwAEAAAAAAAIAA4AAwAEAAAAAAAJAA4AAwAEAAAAAAAKAA4AAwAEAAAAAAALAA4AAwAEAAAAAAAMAA4AAwAEAAAAAAANAA4AAwAEAAAAAAADAA4AAwAFAAAAAAABAA4AAwAEAAAAAAACAA4AAwAEAAAAAAAAAA4AAwAEAAUAAAAAAAEAAwAFAAEAAAAAAAIAAwAFAAEAAAAAAAMAAwAFAAEAAAAAAAQAAwAFAAEAAAAAAAUAAwAFAAEAAAAAAAYAAwAFAAEAAAAAAAcAAwAFAAEAAAAAAAgAAwAFAAEAAAAAAAkAAwAFAAEAAAAAAAoAAwAFAAEAAAAAAAsAAwAFAAEAAAAAAAwAAwAFAAEAAAAAAA0AAwAFAAEAAAAAAAAAAwAEAAQAAAABAAAAAwAEAAIAAAACAAAAAwAEAAIAAAADAAAAAwAEAAIAAAAEAAAAAwAEAAIAAAAFAAAAAwAEAAIAAAAGAAAAAwAEAAIAAAAHAAAAAwAEAAIAAAAIAAAAAwAEAAIAAAAJAAAAAwAEAAIAAAAKAAAAAwAEAAIAAAALAAAAAwAEAAIAAAAMAAAAAwAEAAIAAAANAAAAAwAEAAIAAAAOAAAAAwAEAAIAAAAPAAAAAwAEAAIAAAAQAAAAAwAEAAIAAAARAAAAAwAEAAIAAAASAAAAAwAEAAIAAAATAAAAAwAEAAIAAAAUAAAAAwAFAAQAAAAUAAEAAwADAAEAAAAUAAIAAwADAAEAAAAUAAMAAwADAAEAAAAUAAQAAwADAAIAAAAVAAQAAwAEAAIAAAAWAAQAAwAEAAIAAAAXAAQAAwAEAAIAAAAYAAQAAwAEAAIAAAAZAAQAAwAEAAIAAAAWAAIAAwAEAAEAAAAWAAEAAwAEAAEAAAAWAAAAAwAEAAEAAAAVAAAAAwAEAAEAAAAVAAEAAwAEAAEAAAAVAAIAAwAEAAEAAAAVAAMAAwAEAAEAAAAWAAMAAwAEAAEAAAAXAAMAAwAEAAEAAAAXAAIAAwAEAAEAAAAXAAEAAwAEAAEAAAAXAAAAAwAEAAEAAAAYAAAAAwAEAAEAAAAYAAEAAwAEAAEAAAAYAAIAAwAEAAEAAAAYAAMAAwAEAAEAAAAZAAMAAwAEAAEAAAAZAAIAAwAEAAEAAAAZAAEAAwAEAAEAAAAZAAAAAwAEAAEAAAASAAoAAwADAAMAAAAZAAoAAwAFAAMAAAATAAoAAwAEAAMAAAAUAAoAAwAEAAMAAAAVAAoAAwAEAAMAAAAWAAoAAwAEAAMAAAAXAAoAAwAEAAMAAAAYAAoAAwAEAAMAAAAVAAYAAwADAAAAAAAVAAcAAwADAAEAAAAVAAgAAwADAAIAAAAWAAYAAwAEAAAAAAAWAAcAAwAEAAEAAAAWAAgAAwAEAAIAAAAXAAYAAwAFAAAAAAAXAAcAAwAFAAEAAAAXAAgAAwAFAAIAAAAPAAIAAwADAAAAAAAPAAMAAwADAAEAAAAPAAQAAwADAAIAAAAQAAIAAwAEAAAAAAAQAAMAAwAEAAEAAAAQAAQAAwAEAAIAAAARAAIAAwAFAAAAAAARAAMAAwAFAAEAAAARAAQAAwAFAAIAAAAHAAYAAwADAAAAAAAHAAcAAwADAAEAAAAHAAgAAwADAAIAAAAIAAYAAwAEAAAAAAAIAAcAAwAEAAEAAAAIAAgAAwAEAAIAAAAJAAYAAwAFAAAAAAAJAAcAAwAFAAEAAAAJAAgAAwAFAAIAAAALAAoAAwADAAAAAAALAAsAAwADAAEAAAALAAwAAwADAAIAAAAMAAoAAwAEAAAAAAAMAAsAAwAEAAEAAAAMAAwAAwAEAAIAAAANAAoAAwAFAAAAAAANAAsAAwAFAAEAAAANAAwAAwAFAAIAAAANAAYAAwADAAMAAAAOAAYAAwAFAAMAAAASAAgAAwAFAAMAAAARAAgAAwADAAMAAAAXAAwAAwACAAAAAAAXAA0AAwACAAIAAAAQAAwAAwADAAAAAAARAAwAAwAFAAAAAAARAA0AAwAFAAIAAAAQAA0AAwADAAIAAAAFAAQAAwADAAMAAAAGAAQAAwAEAAMAAAAHAAQAAwAEAAMAAAAIAAQAAwAEAAMAAAAJAAQAAwAEAAMAAAAKAAQAAwAEAAMAAAALAAQAAwAFAAMAAAAOAAQAAwACAAAAAAAOAAUAAwACAAIAAAALAAgAAwADAAMAAAAMAAgAAwAFAAMAAAAMAAYAAwACAAAAAAAMAAcAAwACAAIAAAASAAEAAwACAAAAAAASAAIAAwACAAIAAAA=")
+tile_map_data = PackedByteArray("AAAiAAUAAwAEAAAAAAAgAAUAAwAEAAAAAAAhAAUAAwAEAAAAAAAfAAUAAwADAAAAAAAfAAYAAwADAAEAAAAfAAcAAwADAAEAAAAfAAgAAwADAAIAAAAfAAIAAwADAAIAAAAgAAIAAwAEAAIAAAAhAAIAAwAEAAIAAAAiAAIAAwAEAAIAAAAfAAEAAwADAAEAAAAfAAAAAwAFAAQAAAAbAAAAAwAEAAIAAAAcAAAAAwAEAAIAAAAdAAAAAwAEAAIAAAAeAAAAAwAEAAIAAAAaAAAAAwAEAAQAAAAaAAEAAwAFAAEAAAAaAAIAAwAFAAEAAAAaAAMAAwAFAAEAAAAaAAQAAwAFAAIAAAAaAAcAAwADAAAAAAAbAAcAAwAEAAAAAAAcAAcAAwAFAAAAAAAcAAgAAwAFAAEAAAAcAAkAAwAFAAEAAAAaAAgAAwADAAEAAAAaAAkAAwADAAEAAAAaAAoAAwADAAIAAAAbAAoAAwAEAAIAAAAcAAoAAwAFAAIAAAAbAAgAAwAEAAEAAAAbAAkAAwAEAAEAAAAgAAgAAwAEAAIAAAAhAAgAAwAFAAQAAAAhAAkAAwADAAEAAAAhAAoAAwADAAEAAAAhAAsAAwADAAEAAAAhAAwAAwADAAEAAAAhAA0AAwADAAEAAAAhAA4AAwAFAAUAAAAOAA4AAwAEAAAAAAAPAA4AAwAEAAAAAAAQAA4AAwAEAAAAAAARAA4AAwAEAAAAAAASAA4AAwAEAAAAAAATAA4AAwAEAAAAAAAUAA4AAwAEAAAAAAAVAA4AAwAEAAAAAAAWAA4AAwAEAAAAAAAXAA4AAwAEAAAAAAAYAA4AAwAEAAAAAAAZAA4AAwAEAAAAAAAaAA4AAwAEAAAAAAAbAA4AAwAEAAAAAAAcAA4AAwAEAAAAAAAdAA4AAwAEAAAAAAAeAA4AAwAEAAAAAAAfAA4AAwAEAAAAAAAgAA4AAwAEAAAAAAAGAA4AAwAEAAAAAAAHAA4AAwAEAAAAAAAIAA4AAwAEAAAAAAAJAA4AAwAEAAAAAAAKAA4AAwAEAAAAAAALAA4AAwAEAAAAAAAMAA4AAwAEAAAAAAANAA4AAwAEAAAAAAADAA4AAwAEAAAAAAABAA4AAwAEAAAAAAACAA4AAwAEAAAAAAAAAA4AAwAEAAUAAAAAAAEAAwAEAAEAAAAAAAIAAwAEAAEAAAAAAAMAAwAEAAEAAAAAAAQAAwAEAAQAAAAAAAUAAwAFAAIAAAAAAAgAAwAFAAAAAAAAAAkAAwAFAAEAAAAAAAoAAwAFAAEAAAAAAAsAAwAFAAEAAAAAAAwAAwAFAAEAAAAAAA0AAwAFAAEAAAAAAAAAAwAEAAEAAAABAAAAAwAEAAEAAAACAAAAAwAEAAEAAAADAAAAAwAEAAEAAAAEAAAAAwAEAAQAAAAFAAAAAwAEAAIAAAAGAAAAAwAEAAIAAAAHAAAAAwAEAAIAAAAIAAAAAwAEAAIAAAAJAAAAAwAEAAIAAAAKAAAAAwAEAAIAAAALAAAAAwAEAAIAAAAMAAAAAwAEAAIAAAANAAAAAwAEAAIAAAAOAAAAAwAEAAIAAAAPAAAAAwAEAAIAAAATAAAAAwAEAAIAAAAUAAAAAwAFAAQAAAAUAAEAAwADAAEAAAAUAAIAAwADAAEAAAAVAAQAAwADAAIAAAAWAAQAAwAEAAIAAAAXAAQAAwAEAAIAAAAYAAQAAwAEAAIAAAAZAAQAAwAEAAIAAAAWAAIAAwAEAAEAAAAWAAEAAwAEAAEAAAAWAAAAAwAEAAEAAAAVAAAAAwAEAAEAAAAVAAEAAwAEAAEAAAAVAAIAAwAEAAEAAAAVAAMAAwAFAAQAAAAWAAMAAwAEAAEAAAAXAAMAAwAEAAEAAAAXAAIAAwAEAAEAAAAXAAEAAwAEAAEAAAAXAAAAAwAEAAEAAAAYAAAAAwAEAAEAAAAYAAEAAwAEAAEAAAAYAAIAAwAEAAEAAAAYAAMAAwAEAAEAAAAZAAMAAwAEAAEAAAAZAAIAAwAEAAEAAAAZAAEAAwAEAAEAAAAZAAAAAwAEAAEAAAASAAoAAwADAAMAAAAZAAoAAwAFAAMAAAATAAoAAwAEAAMAAAAUAAoAAwAFAAMAAAAYAAoAAwADAAMAAAALAAoAAwADAAAAAAALAAsAAwADAAEAAAALAAwAAwADAAIAAAAMAAoAAwAEAAAAAAAMAAsAAwAEAAEAAAAMAAwAAwAEAAIAAAANAAoAAwAFAAAAAAANAAsAAwAFAAEAAAANAAwAAwAFAAIAAAAXAAwAAwACAAAAAAAXAA0AAwACAAIAAAASAAIAAwAFAAAAAAAiAA4AAwAEAAEAAAAiAA0AAwAEAAEAAAAiAAwAAwAEAAEAAAAiAAsAAwAEAAEAAAAiAAoAAwAEAAEAAAAiAAkAAwAEAAEAAAAiAAgAAwAEAAEAAAAiAAcAAwAEAAEAAAAiAAYAAwAEAAEAAAAhAAYAAwAEAAEAAAAhAAcAAwAEAAEAAAAgAAcAAwAEAAEAAAAgAAYAAwAEAAEAAAAgAAAAAwAEAAEAAAAgAAEAAwAEAAEAAAAhAAEAAwAEAAEAAAAiAAEAAwAEAAEAAAAiAAAAAwAEAAEAAAAhAAAAAwAEAAEAAAAIAAoAAwAFAAMAAAAQAAIAAwADAAAAAAAQAAMAAwADAAEAAAARAAIAAwAEAAAAAAARAAMAAwAEAAEAAAASAAMAAwAFAAEAAAALAAEAAwACAAAAAAALAAIAAwACAAIAAAAVAAgAAwADAAAAAAAVAAkAAwADAAEAAAAVAAoAAwADAAIAAAAWAAgAAwAEAAAAAAAWAAkAAwAEAAEAAAAWAAoAAwAEAAIAAAAXAAgAAwAFAAAAAAAXAAkAAwAFAAEAAAAXAAoAAwAFAAIAAAAOAAQAAwACAAAAAAAOAAUAAwACAAIAAAAQAAgAAwACAAAAAAAQAAkAAwACAAIAAAARAAcAAwADAAMAAAASAAcAAwAEAAMAAAAMAAcAAwACAAAAAAAMAAgAAwACAAEAAAAMAAkAAwACAAIAAAAQAAQAAwADAAIAAAARAAQAAwAEAAIAAAASAAQAAwAFAAIAAAAUAAMAAwADAAIAAAAUAAUAAwACAAIAAAAUAAQAAwACAAAAAAATAAcAAwAFAAMAAAARAAwAAwADAAAAAAASAAwAAwAFAAAAAAARAA0AAwADAAIAAAASAA0AAwAFAAIAAAANAAUAAwAFAAMAAAAMAAUAAwADAAMAAAAKAAUAAwAFAAMAAAAFAA4AAwAEAAAAAAAEAA4AAwAEAAAAAAAQAAAAAwAEAAIAAAARAAAAAwAEAAIAAAASAAAAAwAEAAIAAAABAAQAAwAFAAIAAAACAAMAAwAFAAIAAAADAAIAAwAFAAIAAAAEAAEAAwAFAAIAAAABAAMAAwAEAAQAAAACAAIAAwAEAAQAAAADAAEAAwAEAAQAAAABAAEAAwAEAAEAAAABAAIAAwAEAAEAAAACAAEAAwAEAAEAAAAIAAgAAwACAAIAAAAHAAUAAwADAAMAAAAIAAUAAwAEAAMAAAAIAAcAAwACAAAAAAAJAAUAAwAEAAMAAAAHAAoAAwADAAMAAAAGAAsAAwACAAAAAAAGAAwAAwACAAIAAAA=")
 tile_set = ExtResource("5_dpv4i")
 
 [node name="spawnpoint" type="Node2D" parent="."]
-position = Vector2(491, 61)
+position = Vector2(544, 63)
 
 [node name="Sprite2D" type="Sprite2D" parent="spawnpoint"]
 texture = ExtResource("6_engmn")
@@ -53,3 +194,206 @@ shape = SubResource("CircleShape2D_fhhrb")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_llcsg")
+
+[node name="PissingGoblin" parent="." instance=ExtResource("8_fevjm")]
+position = Vector2(441, 138)
+
+[node name="Coin" parent="." instance=ExtResource("10_2arn3")]
+position = Vector2(393, 212)
+
+[node name="Coin2" parent="." instance=ExtResource("10_2arn3")]
+position = Vector2(520, 154)
+
+[node name="IceBlock" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(393, 88)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock" node_paths=PackedStringArray("actor")]
+script = ExtResource("11_k0x5u")
+actor = NodePath("..")
+actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_ivpyi"), SubResource("Resource_k0x5u")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
+[node name="IceBlock2" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(468, 170)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock2" node_paths=PackedStringArray("actor")]
+script = ExtResource("11_k0x5u")
+actor = NodePath("..")
+actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_b35f0"), SubResource("Resource_fgwvx")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
+[node name="IceBlock3" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(523, 218)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock3" node_paths=PackedStringArray("actor")]
+script = ExtResource("11_k0x5u")
+actor = NodePath("..")
+actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_yhud5"), SubResource("Resource_nlqlx"), SubResource("Resource_j1goc"), SubResource("Resource_lwvoh")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
+[node name="IceBlock4" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(276, 182)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock4" node_paths=PackedStringArray("actor")]
+script = ExtResource("11_k0x5u")
+actor = NodePath("..")
+actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_ajbnh"), SubResource("Resource_y6ckr")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
+[node name="IceBlock5" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(295, 88)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock5" node_paths=PackedStringArray("actor")]
+script = ExtResource("11_k0x5u")
+actor = NodePath("..")
+actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_wiw85"), SubResource("Resource_squeo"), SubResource("Resource_03x4w"), SubResource("Resource_fvwrf")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
+[node name="IceBlock6" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(236, 132)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock6" node_paths=PackedStringArray("actor")]
+script = ExtResource("11_k0x5u")
+actor = NodePath("..")
+actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_l0sux"), SubResource("Resource_iurum")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
+[node name="IceBlock7" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(154, 216)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock7" node_paths=PackedStringArray("actor")]
+script = ExtResource("11_k0x5u")
+actor = NodePath("..")
+actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_8rk7u"), SubResource("Resource_wr2lf")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
+[node name="IceBlock8" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(154, 166)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock8" node_paths=PackedStringArray("actor")]
+script = ExtResource("11_k0x5u")
+actor = NodePath("..")
+actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_eoxk4"), SubResource("Resource_bxnpm")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
+[node name="IceBlock9" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(155, 102)
+
+[node name="ActionMoverComponent" type="Node" parent="IceBlock9" node_paths=PackedStringArray("actor")]
+script = ExtResource("11_k0x5u")
+actor = NodePath("..")
+actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_iaog7"), SubResource("Resource_picpv"), SubResource("Resource_h423j"), SubResource("Resource_1a3ta")])
+metadata/_custom_type_script = "uid://lejpa7jtnty8"
+
+[node name="pew pew IceBlock" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(410, 203)
+bullet_speed = 200.0
+shoot_timer_interval = 0.5
+wait_timer_interval = 0.0
+
+[node name="pew pew IceBlock2" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(441, 23)
+bullet_direction = 1.571
+num_shot_before_wait = 5
+
+[node name="pew pew IceBlock3" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(268, 102)
+bullet_speed = 160.0
+shoot_timer_interval = 0.65
+wait_timer_interval = 0.0
+
+[node name="pew pew IceBlock4" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(250, 117)
+bullet_speed = 160.0
+bullet_direction = 1.571
+shoot_timer_interval = 0.65
+
+[node name="pew pew IceBlock5" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(236, 102)
+bullet_speed = 160.0
+bullet_direction = 3.142
+shoot_timer_interval = 0.5
+
+[node name="pew pew IceBlock6" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(250, 84)
+bullet_speed = 160.0
+bullet_direction = 4.712
+shoot_timer_interval = 0.65
+
+[node name="pew pew IceBlock7" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(410, 218)
+bullet_speed = 200.0
+shoot_timer_interval = 0.5
+wait_timer_interval = 0.0
+
+[node name="pew pew IceBlock8" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(429, 218)
+bullet_speed = 200.0
+bullet_direction = 4.712
+shoot_timer_interval = 0.25
+wait_timer_interval = 0.0
+
+[node name="pew pew IceBlock9" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(241, 207)
+bullet_speed = 80.0
+bullet_direction = 5.498
+shoot_timer_interval = 0.5
+wait_timer_interval = 1.0
+num_shot_before_wait = 5
+
+[node name="pew pew IceBlock10" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(184, 144)
+bullet_direction = 2.356
+wait_timer_interval = 1.0
+num_shot_before_wait = 5
+
+[node name="pew pew IceBlock11" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(23, 84)
+bullet_speed = 500.0
+bullet_direction = 1.571
+shoot_timer_interval = 0.1
+
+[node name="pew pew IceBlock12" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(41, 67)
+bullet_speed = 500.0
+bullet_direction = 1.571
+shoot_timer_interval = 0.1
+
+[node name="pew pew IceBlock13" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(58, 51)
+bullet_speed = 500.0
+bullet_direction = 1.571
+shoot_timer_interval = 0.1
+
+[node name="pew pew IceBlock14" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(74, 35)
+bullet_speed = 500.0
+bullet_direction = 1.571
+shoot_timer_interval = 0.1
+
+[node name="pew pew IceBlock16" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(125, 104)
+shoot_timer_interval = 0.1
+
+[node name="pew pew IceBlock17" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(184, 104)
+bullet_speed = 160.0
+bullet_direction = 2.356
+shoot_timer_interval = 0.5
+
+[node name="pew pew IceBlock18" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(22, 151)
+bullet_speed = 160.0
+shoot_timer_interval = 0.5
+
+[node name="Coin3" parent="." instance=ExtResource("10_2arn3")]
+position = Vector2(258, 100)
+
+[node name="Coin4" parent="." instance=ExtResource("10_2arn3")]
+position = Vector2(313, 25)
+
+[node name="Coin5" parent="." instance=ExtResource("10_2arn3")]
+position = Vector2(94, 25)
+
+[node name="Coin6" parent="." instance=ExtResource("10_2arn3")]
+position = Vector2(5, 111)
