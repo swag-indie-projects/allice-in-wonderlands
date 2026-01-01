@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hgq1"]
 size = Vector2(36, 36)
 
-[node name="floating_ice" type="Area2D" node_paths=PackedStringArray("main_collision_shape")]
+[node name="floating_ice" type="Area2D" node_paths=PackedStringArray("main_collision_shape") groups=["ice_float"]]
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_vgrgu")

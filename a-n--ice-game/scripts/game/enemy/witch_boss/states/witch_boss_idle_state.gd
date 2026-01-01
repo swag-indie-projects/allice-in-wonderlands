@@ -4,11 +4,12 @@ class_name WitchBossIdleState
 var anim_finished = false
 
 func enter() -> void:
+	self.anim_finished = false
 	print("Entered state ", state_name)
 	self.actor.velocity = Vector2.ZERO
 	
 	actor.animation_sprite.play("idle")
-	await get_tree().create_timer(2.0).timeout # 5s delay
+	await get_tree().create_timer(1).timeout # 5s delay
 	anim_finished = true
 	#actor.animation_sprite.animation_finished.connect(_on_animation_finished)
 	
@@ -20,15 +21,20 @@ func setup(new_actor: WitchBoss) -> void:
 	self.actor = new_actor
 	self.state_name = WitchBossStateName.Name.IDLE
 
+func count_spawns() -> int:
+	return Globals.get_game().current_world.get_tree().get_nodes_in_group("ice_block_enemy").size()
+
 func process_physics_frame(delta: float) -> WitchBossStateName.Name:
 	if anim_finished:
 		if self.actor.HP >= self.actor.MAX_HP/2:
-			return WitchBossStateName.Name.SPAWN_ENEMY
-		else:
-			print("SECOND PHASE!!")
-			if self.actor.luck <= 1/3:
+			if ( count_spawns() <= 6):
 				return WitchBossStateName.Name.SPAWN_ENEMY
-			elif self.actor.luck > 1/3 and self.actor.luck <= 2/3:
+			else:
+				return  WitchBossStateName.Name.RUN_AWAY
+		else:
+			if self.actor.luck <= 0.333:
+				return WitchBossStateName.Name.SPAWN_ENEMY
+			elif self.actor.luck > 0.333 and self.actor.luck <= 0.666:
 				return WitchBossStateName.Name.DESTROY_ICE
 			else:
 				return WitchBossStateName.Name.SHOOT_PROJECTILE

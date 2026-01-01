@@ -152,13 +152,12 @@ scale_min = 2.0
 scale_max = 2.0
 scale_curve = SubResource("CurveTexture_kkhfq")
 
-[node name="witch" type="CharacterBody2D" node_paths=PackedStringArray("dmg_particle", "death_particle", "summon_particle", "state_machine", "animation_sprite", "animation_component")]
+[node name="witch" type="CharacterBody2D" node_paths=PackedStringArray("dmg_particle", "death_particle", "state_machine", "animation_sprite", "animation_component")]
 collision_layer = 7
 script = ExtResource("1_djmgc")
 speed = 50.0
 dmg_particle = NodePath("DMGParticle")
 death_particle = NodePath("DeathParticle")
-summon_particle = NodePath("SummonParticle")
 state_machine = NodePath("StateMachine")
 animation_sprite = NodePath("AnimatedSprite2D")
 MAX_HP = 10
@@ -187,17 +186,6 @@ emitting = false
 amount = 50
 texture = ExtResource("9_djmgc")
 lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_0yoke")
-
-[node name="SummonParticle" type="GPUParticles2D" parent="."]
-z_index = 10
-rotation = 0.79220074
-emitting = false
-amount = 10
-texture = ExtResource("9_djmgc")
-lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_0yoke")

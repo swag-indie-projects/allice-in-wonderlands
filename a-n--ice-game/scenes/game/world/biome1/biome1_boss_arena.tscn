@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://bmbqpln4e8x36"]
 
-[ext_resource type="Script" uid="uid://durh4w2hyix3c" path="res://scripts/game/biome_1_boss_arena_world.gd" id="1_s5bqf"]
+[ext_resource type="Script" path="res://scripts/game/biome_1_boss_arena_world.gd" id="1_s5bqf"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_ek4x0"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="3_qt5jd"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="4_qlxro"]
