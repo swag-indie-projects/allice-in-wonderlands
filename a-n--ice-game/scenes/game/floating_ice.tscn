@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyp5tee4bjs6m"]
+[gd_scene load_steps=7 format=3 uid="uid://dyp5tee4bjs6m"]
 
 [ext_resource type="Script" uid="uid://c7vdrdxkh5ibu" path="res://scripts/game/IceFloat.gd" id="1_vgrgu"]
 [ext_resource type="Texture2D" uid="uid://dyr4d4077l2fd" path="res://assets/tileset/ice_block.png" id="2_bt77n"]
+[ext_resource type="Script" uid="uid://1h21mxrp1xvi" path="res://scenes/game/ice_block_guard.gd" id="3_tapw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hgq1"]
-size = Vector2(36, 36)
+size = Vector2(46, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o55wj"]
+size = Vector2(6, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tapw2"]
+size = Vector2(18, 6)
 
 [node name="floating_ice" type="Area2D" node_paths=PackedStringArray("main_collision_shape")]
 z_index = 1
@@ -14,6 +21,7 @@ main_collision_shape = NodePath("CollisionShape2D")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.30980393)
+z_index = -1
 position = Vector2(3, 2)
 texture = ExtResource("2_bt77n")
 
@@ -21,6 +29,88 @@ texture = ExtResource("2_bt77n")
 texture = ExtResource("2_bt77n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_2hgq1")
 debug_color = Color(0.9495742, 3.465414e-06, 0.57520866, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 9
+
+[node name="Area2D1" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
+collision_layer = 131072
+collision_mask = 131168
+script = ExtResource("3_tapw2")
+ice_float = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D1"]
+position = Vector2(-23, -10)
+shape = SubResource("RectangleShape2D_o55wj")
+
+[node name="Area2D2" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
+collision_layer = 131072
+collision_mask = 131168
+script = ExtResource("3_tapw2")
+ice_float = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D2"]
+position = Vector2(23, -9.5)
+shape = SubResource("RectangleShape2D_o55wj")
+
+[node name="Area2D3" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
+collision_layer = 131072
+collision_mask = 131168
+script = ExtResource("3_tapw2")
+ice_float = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D3"]
+position = Vector2(-23, 10)
+shape = SubResource("RectangleShape2D_o55wj")
+
+[node name="Area2D4" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
+collision_layer = 131072
+collision_mask = 131168
+script = ExtResource("3_tapw2")
+ice_float = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D4"]
+position = Vector2(23, 10)
+shape = SubResource("RectangleShape2D_o55wj")
+
+[node name="Area2D5" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
+collision_layer = 131072
+collision_mask = 131168
+script = ExtResource("3_tapw2")
+ice_float = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D5"]
+position = Vector2(-10, 23)
+shape = SubResource("RectangleShape2D_tapw2")
+
+[node name="Area2D6" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
+collision_layer = 131072
+collision_mask = 131168
+script = ExtResource("3_tapw2")
+ice_float = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D6"]
+position = Vector2(10, 23)
+shape = SubResource("RectangleShape2D_tapw2")
+
+[node name="Area2D7" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
+collision_layer = 131072
+collision_mask = 131168
+script = ExtResource("3_tapw2")
+ice_float = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D7"]
+position = Vector2(-10, -23)
+shape = SubResource("RectangleShape2D_tapw2")
+
+[node name="Area2D8" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
+collision_layer = 131072
+collision_mask = 131168
+script = ExtResource("3_tapw2")
+ice_float = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D8"]
+position = Vector2(10, -23)
+shape = SubResource("RectangleShape2D_tapw2")
