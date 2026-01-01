@@ -37,7 +37,7 @@ collision_mask = 9
 
 [node name="Area2D1" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
 collision_layer = 131072
-collision_mask = 131168
+collision_mask = 131170
 script = ExtResource("3_tapw2")
 ice_float = NodePath("../..")
 
@@ -47,7 +47,7 @@ shape = SubResource("RectangleShape2D_o55wj")
 
 [node name="Area2D2" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
 collision_layer = 131072
-collision_mask = 131168
+collision_mask = 131170
 script = ExtResource("3_tapw2")
 ice_float = NodePath("../..")
 
@@ -57,7 +57,7 @@ shape = SubResource("RectangleShape2D_o55wj")
 
 [node name="Area2D3" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
 collision_layer = 131072
-collision_mask = 131168
+collision_mask = 131170
 script = ExtResource("3_tapw2")
 ice_float = NodePath("../..")
 
@@ -67,7 +67,7 @@ shape = SubResource("RectangleShape2D_o55wj")
 
 [node name="Area2D4" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
 collision_layer = 131072
-collision_mask = 131168
+collision_mask = 131170
 script = ExtResource("3_tapw2")
 ice_float = NodePath("../..")
 
@@ -77,7 +77,7 @@ shape = SubResource("RectangleShape2D_o55wj")
 
 [node name="Area2D5" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
 collision_layer = 131072
-collision_mask = 131168
+collision_mask = 131170
 script = ExtResource("3_tapw2")
 ice_float = NodePath("../..")
 
@@ -87,7 +87,7 @@ shape = SubResource("RectangleShape2D_tapw2")
 
 [node name="Area2D6" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
 collision_layer = 131072
-collision_mask = 131168
+collision_mask = 131170
 script = ExtResource("3_tapw2")
 ice_float = NodePath("../..")
 
@@ -97,7 +97,7 @@ shape = SubResource("RectangleShape2D_tapw2")
 
 [node name="Area2D7" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
 collision_layer = 131072
-collision_mask = 131168
+collision_mask = 131170
 script = ExtResource("3_tapw2")
 ice_float = NodePath("../..")
 
@@ -107,7 +107,7 @@ shape = SubResource("RectangleShape2D_tapw2")
 
 [node name="Area2D8" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("ice_float")]
 collision_layer = 131072
-collision_mask = 131168
+collision_mask = 131170
 script = ExtResource("3_tapw2")
 ice_float = NodePath("../..")
 
