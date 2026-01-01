@@ -6,6 +6,7 @@ signal on_die
 
 @onready var main_menu_scene: PackedScene = load(Constant.PATH_TO_MAIN_MENU)
 #@export var vbox_containing_buttons: VBoxContainer
+@export var on_die_anim_player: AnimationPlayer
 
 var in_death_menu: bool
 
@@ -26,6 +27,8 @@ func _show_death_menu() -> void:
 		#button.disabled = false
 	
 	$AnimationPlayer.play(&"blur")
+	print(on_die_anim_player.get_animation_list())
+	on_die_anim_player.play("death")
 
 func _process(_delta: float) -> void:
 	if in_death_menu:
@@ -37,6 +40,7 @@ func _on_retry_pressed() -> void:
 func retry() -> void:
 	print("pressed reset!")
 	$AnimationPlayer.play(&"retry")
+	on_die_anim_player.play(&"retry")
 
 # This is called without the animation player after the screen goes black!
 func actually_retry_game() -> void:
@@ -50,5 +54,6 @@ func actually_retry_game() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().paused = false
 	$AnimationPlayer.play(&"RESET")
+	on_die_anim_player.play(&"RESET")
 	
 	get_tree().change_scene_to_packed(main_menu_scene)

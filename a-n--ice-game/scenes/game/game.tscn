@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cyi7otpakwjkg"]
+[gd_scene load_steps=33 format=3 uid="uid://cyi7otpakwjkg"]
 
 [ext_resource type="PackedScene" uid="uid://d204nsy8svfev" path="res://scenes/game/player/player.tscn" id="1_nl0sk"]
 [ext_resource type="Script" uid="uid://clhsdbanamdpr" path="res://scripts/game/game.gd" id="1_qh8lf"]
@@ -114,10 +114,88 @@ _data = {
 &"boss_camera_zoom": SubResource("Animation_5jirj")
 }
 
+[sub_resource type="Animation" id="Animation_ftsea"]
+resource_name = "death"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.5]
+}
+
+[sub_resource type="Animation" id="Animation_otnwt"]
+resource_name = "retry"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4666667, 1.8333333, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -40.23, -40.23, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_3xj4h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5v6r0"]
+_data = {
+&"RESET": SubResource("Animation_3xj4h"),
+&"death": SubResource("Animation_ftsea"),
+&"retry": SubResource("Animation_otnwt")
+}
+
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "save_manager", "ui_animations", "camera", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 6
+debug_world_scene_path = 12
 debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
@@ -142,7 +220,8 @@ z_as_relative = false
 [node name="get hit ui" parent="UI" instance=ExtResource("6_4j704")]
 mouse_filter = 2
 
-[node name="death_menu" parent="UI" instance=ExtResource("3_5jirj")]
+[node name="death_menu" parent="UI" node_paths=PackedStringArray("on_die_anim_player") instance=ExtResource("3_5jirj")]
+on_die_anim_player = NodePath("../../On Die Animation Player")
 
 [node name="reward_screen" parent="UI" instance=ExtResource("8_vaxfo")]
 
@@ -206,6 +285,12 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ftsea")
+}
+
+[node name="On Die Animation Player" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_5v6r0")
 }
 
 [connection signal="timeout" from="AudioStreamPlayer2D/music  await" to="." method="_on_music__await_timeout"]
