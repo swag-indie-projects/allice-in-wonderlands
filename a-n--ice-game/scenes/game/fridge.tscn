@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjvwyaude6u2b"]
+[gd_scene load_steps=12 format=3 uid="uid://bjvwyaude6u2b"]
 
 [ext_resource type="Texture2D" uid="uid://bcnsxtwmmq2la" path="res://assets/object/fridge.png" id="1_y8we2"]
 [ext_resource type="Script" uid="uid://bj1fcqe8pkjnr" path="res://scripts/game/fridge.gd" id="1_ycerp"]
 [ext_resource type="AudioStream" uid="uid://b37v7bdho4l7q" path="res://sounds/fridgeOpen.wav" id="3_5uyol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uyol"]
-size = Vector2(14, 32)
+size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8we2"]
 size = Vector2(14, 32)
@@ -43,6 +43,9 @@ animations = [{
 cull_mode = 1
 polygon = PackedVector2Array(-7, 16, -7, 9, 7, 9, 7, 16)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uyol"]
+radius = 27.313
+
 [node name="Fridge" type="Area2D" groups=["navigation"]]
 script = ExtResource("1_ycerp")
 
@@ -63,4 +66,11 @@ occluder = SubResource("OccluderPolygon2D_gjeag")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5uyol")
 
+[node name="Far away detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Far away detector"]
+shape = SubResource("CircleShape2D_5uyol")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="area_exited" from="Far away detector" to="." method="_on_far_away_detector_area_exited"]

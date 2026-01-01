@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dgkbd2nqlldrp"]
+[gd_scene load_steps=22 format=4 uid="uid://dgkbd2nqlldrp"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_2aw0p"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="3_u26kk"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_ij7r7"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="9_qjipn"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="10_ij7r7"]
+[ext_resource type="Texture2D" uid="uid://blcnu004i1gw3" path="res://assets/sign_ctrls.png" id="12_4fiwg"]
 
 [sub_resource type="Resource" id="Resource_2aw0p"]
 script = ExtResource("3_u26kk")
@@ -26,6 +27,58 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(31, 11, 687, 7, 695, 250, 53, 255)])
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4fiwg"]
+polygon = PackedVector2Array(-2, -5, 3, -5, 3, -3, -2, -3)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i2gnd"]
+polygon = PackedVector2Array(-2, -5, 3, -5, 3, -3, -2, -3)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_811eb"]
+polygon = PackedVector2Array(-6, -6, -2, -6, -2, -4, -6, -4)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2a0xr"]
+polygon = PackedVector2Array(3, -6, 7, -6, 7, -4, 3, -4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oy2ch"]
+texture = ExtResource("12_4fiwg")
+0:0/0 = 0
+0:0/0/z_index = 20
+1:0/0 = 0
+1:0/0/z_index = 20
+2:0/0 = 0
+2:0/0/z_index = 20
+0:1/0 = 0
+0:1/0/z_index = 5
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/z_index = 5
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/z_index = 5
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/z_index = 5
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/z_index = 5
+0:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_4fiwg")
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -4, -8, -4)
+2:2/0 = 0
+2:2/0/z_index = 5
+2:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_i2gnd")
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -4, -8, -4)
+3:2/0 = 0
+3:2/0/z_index = 5
+3:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_811eb")
+3:2/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_2a0xr")
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -4, -8, -4)
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qjipn"]
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_oy2ch")
 
 [node name="starting_world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile", "overlay_tile")]
 z_index = -1
@@ -98,3 +151,9 @@ position = Vector2(724, 62)
 
 [node name="ISlim2" parent="." instance=ExtResource("7_2a0xr")]
 position = Vector2(534, 49)
+
+[node name="Signs" type="TileMapLayer" parent="."]
+light_mask = 2
+z_index = 5
+tile_map_data = PackedByteArray("AAAmAAYAAAAAAAAAAAAmAAcAAAAAAAEAAAAmAAgAAAAAAAIAAAAnAAYAAAABAAAAAAAnAAcAAAABAAEAAAAnAAgAAAABAAIAAAAoAAYAAAACAAAAAAAoAAcAAAACAAEAAAAoAAgAAAACAAIAAAAqAAcAAAADAAEAAAAqAAgAAAADAAIAAAA=")
+tile_set = SubResource("TileSet_qjipn")
