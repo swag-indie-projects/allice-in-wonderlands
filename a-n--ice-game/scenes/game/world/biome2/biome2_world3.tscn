@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://chd7h61271cbb"]
+[gd_scene load_steps=41 format=4 uid="uid://chd7h61271cbb"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_1ufbh"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_3ogbq"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://vw4kqkap01sm" path="res://scenes/game/enemy/ice block.tscn" id="11_2arn3"]
 [ext_resource type="Script" uid="uid://lejpa7jtnty8" path="res://scripts/game/components/enemy_mover_component.gd" id="11_k0x5u"]
 [ext_resource type="Script" uid="uid://bsousmcw248gs" path="res://scripts/game/datatype (tuple)/move_action.gd" id="12_b35f0"]
+[ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="14_b35f0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
@@ -405,3 +406,23 @@ position = Vector2(311, 24)
 bullet_speed = 160.0
 bullet_direction = 1.571
 shoot_timer_interval = 0.5
+
+[node name="pew pew IceBlock19" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(239, 185)
+bullet_speed = 160.0
+shoot_timer_interval = 0.5
+
+[node name="IceTorch" parent="." instance=ExtResource("14_b35f0")]
+position = Vector2(437, 117)
+
+[node name="IceTorch2" parent="." instance=ExtResource("14_b35f0")]
+position = Vector2(362, 136)
+
+[node name="IceTorch3" parent="." instance=ExtResource("14_b35f0")]
+position = Vector2(287, 112)
+
+[node name="IceTorch4" parent="." instance=ExtResource("14_b35f0")]
+position = Vector2(201, 173)
+
+[node name="IceBlock10" parent="." instance=ExtResource("11_2arn3")]
+position = Vector2(459, 177)
