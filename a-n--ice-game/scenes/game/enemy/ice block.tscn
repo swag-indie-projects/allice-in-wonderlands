@@ -29,8 +29,9 @@ height = 10.0
 radius = 7.0
 height = 18.0
 
-[node name="IceBlock" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation", "knockback_component", "animation_component")]
-collision_mask = 512
+[node name="IceBlock" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation", "knockback_component", "animation_component") groups=["ice_block_enemy"]]
+collision_layer = 247
+collision_mask = 513
 script = ExtResource("1_orp3y")
 health_bar = NodePath("ProgressBar")
 animation = NodePath("AnimatedSprite2D")
@@ -48,6 +49,8 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_uo8oj")
 
 [node name="hitbox" type="Area2D" parent="."]
+collision_layer = 255
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, 1)

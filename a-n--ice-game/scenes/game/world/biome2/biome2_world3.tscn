@@ -426,3 +426,15 @@ position = Vector2(201, 173)
 
 [node name="IceBlock10" parent="." instance=ExtResource("11_2arn3")]
 position = Vector2(459, 177)
+
+[node name="pew pew IceBlock20" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(284, 88)
+bullet_speed = 160.0
+bullet_direction = 2.356
+shoot_timer_interval = 0.5
+
+[node name="pew pew IceBlock21" parent="." instance=ExtResource("9_2w32q")]
+position = Vector2(250, 84)
+bullet_speed = 160.0
+bullet_direction = 2.356
+shoot_timer_interval = 0.5

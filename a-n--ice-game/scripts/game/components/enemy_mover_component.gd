@@ -12,17 +12,20 @@ func _ready() -> void:
 		return
 
 func _physics_process(_delta: float) -> void:
-	var target_vector: Vector2 = target_point - actor.global_position
-	var distance: float = target_vector.length()
-	
-	if distance <= 0.1:
-		actor.velocity = Vector2.ZERO
-		index += 1
-		if index == actions.size():
-			index = 0
+	if not is_instance_valid(actor):
+		self.queue_free()
+	else:
+		var target_vector: Vector2 = target_point - actor.global_position
+		var distance: float = target_vector.length()
 		
-		target_point = actor.global_position + actions[index].displacement
-		return
-	
-	actor.velocity = (target_vector / distance) * actions[index].speed
-	actor.move_and_slide()
+		if distance <= 0.1:
+			actor.velocity = Vector2.ZERO
+			index += 1
+			if index == actions.size():
+				index = 0
+			
+			target_point = actor.global_position + actions[index].displacement
+			return
+		
+		actor.velocity = (target_vector / distance) * actions[index].speed
+		actor.move_and_slide()

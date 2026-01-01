@@ -13,7 +13,7 @@ size = Vector2(6, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tapw2"]
 size = Vector2(18, 6)
 
-[node name="floating_ice" type="Area2D" node_paths=PackedStringArray("main_collision_shape")]
+[node name="floating_ice" type="Area2D" node_paths=PackedStringArray("main_collision_shape") groups=["ice_float"]]
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_vgrgu")
