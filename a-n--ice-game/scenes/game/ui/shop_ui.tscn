@@ -1,0 +1,161 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcxhfnwdj7ilw"]
+
+[ext_resource type="Texture2D" uid="uid://b15ganjsd5l7o" path="res://assets/ui/player hp shard shine/ice_hp_shine-Sheet9.png" id="1_yy22d"]
+[ext_resource type="Texture2D" uid="uid://dfjmfsofkdfa4" path="res://assets/object/coin_icon.png" id="2_t6bjx"]
+[ext_resource type="Texture2D" uid="uid://dq580h0x7ju3a" path="res://assets/ui/dmg_range.png" id="3_3kn0d"]
+[ext_resource type="Texture2D" uid="uid://c2xnsjt10uvet" path="res://assets/ui/shop_keeper_ui.png" id="4_gk8te"]
+
+[node name="ShopUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -313.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 12.0
+offset_right = 483.0
+offset_bottom = 284.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="HPContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HPContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HPContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HPContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+texture = ExtResource("1_yy22d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HPContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HPContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "MAXHP + 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HPContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HPContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("2_t6bjx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HPContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "20"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/HPContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "BUY"
+
+[node name="RangeContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/RangeContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/RangeContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/RangeContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+texture = ExtResource("3_3kn0d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/RangeContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/RangeContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "RANGE +1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/RangeContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/RangeContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("2_t6bjx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/RangeContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "20"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/RangeContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "BUY"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 324.0
+offset_right = 325.0
+offset_bottom = 387.0
+theme_override_font_sizes/font_size = 40
+text = "LEAVE"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 5.0
+offset_right = 812.0
+offset_bottom = 523.0
+texture = ExtResource("4_gk8te")
