@@ -33,6 +33,10 @@ window/stretch/aspect="expand"
 
 navigation="Ask @kido._."
 
+[gui]
+
+theme/custom_font="uid://dj382x2x3ufox"
+
 [input]
 
 ui_left={
