@@ -2,7 +2,7 @@ extends Enemy
 class_name WitchBoss
 
 @export var detection_box: Arena_Box
-@export var teleportation_points: Array[Arena_Box]
+@export var teleportation_points: Array[Node2D]
 @export var arena_world : World
 @export var speed: float
 @export var dmg_particle : GPUParticles2D
@@ -14,7 +14,7 @@ class_name WitchBoss
 #@onready var HP : int = MAX_HP
 
 var world: World
-
+var tp_position : int = 0
 
 func _ready() -> void:
 	if !get_parent() is World:
@@ -25,9 +25,12 @@ func _ready() -> void:
 	# setup the ui elements
 	Globals.game.boss_manager.boss_health_ui.setup_health.emit(self.MAX_HP)
 
-func random_position_prng(position : int) -> int:
-	return (3*position+1) % 4
-
+func teleport_random() :
+	var newpos = randi() % 4
+	if newpos == tp_position:
+		newpos = (tp_position+1) % 4
+	tp_position = newpos
+	self.global_position = self.teleportation_points[newpos].global_position
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics_frame(delta)
@@ -40,6 +43,7 @@ func get_hit(amount: int, direction_vector: Vector2) -> void:
 	dmg_particle.restart()
 	animation_component.play_hit_flash()
 	
+	self.state_machine.change_state(self.state_machine.state_dictionary[WitchBossStateName.Name.TELEPORT])
 	Globals.game.boss_manager.boss_health_ui.update_health.emit(self.HP)
 	if HP - amount <= 0:
 		print("dying")

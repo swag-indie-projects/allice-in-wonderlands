@@ -9,11 +9,11 @@
 [ext_resource type="Script" uid="uid://j2xustrm625i" path="res://scripts/save/save_manager.gd" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
 [ext_resource type="Script" uid="uid://cu85s2qhnd1j0" path="res://scripts/game/camera_2d.gd" id="8_kp23o"]
-[ext_resource type="PackedScene" uid="uid://hjrtlgokfpms" path="res://scenes/game/ui/boss_health_ui.tscn" id="8_vaxfo"]
+[ext_resource type="PackedScene" path="res://scenes/game/ui/boss_health_ui.tscn" id="8_vaxfo"]
 [ext_resource type="AudioStream" uid="uid://drvv1ooh2sm3r" path="res://sounds/ost/winter.ogg" id="9_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_ui.tscn" id="9_t28dr"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
-[ext_resource type="Script" uid="uid://c288j07dk6o3x" path="res://scripts/game/boss_manager.gd" id="13_ftsea"]
+[ext_resource type="Script" path="res://scripts/game/boss_manager.gd" id="13_ftsea"]
 
 [sub_resource type="Curve" id="Curve_apjul"]
 _data = [Vector2(0.022727266, 0.9662922), 0.0, 0.0, 0, 0, Vector2(1, 0.79775286), 0.0, 0.0, 0, 0]
@@ -138,7 +138,6 @@ z_index = 100
 z_as_relative = false
 
 [node name="SavePopup" parent="UI" instance=ExtResource("5_87uf6")]
-visible = false
 z_as_relative = false
 
 [node name="get hit ui" parent="UI" instance=ExtResource("6_4j704")]

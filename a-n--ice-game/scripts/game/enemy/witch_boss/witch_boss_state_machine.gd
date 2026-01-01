@@ -9,7 +9,7 @@ class_name WitchBossStateMachine
 var current_state: WitchBossState
 
 func setup() -> void:
-
+	print("THE ACTOR IS:", self.actor)
 	for key: WitchBossStateName.Name in state_dictionary:
 		state_dictionary[key].setup(self.actor)
 	

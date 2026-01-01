@@ -1,27 +1,32 @@
 extends WitchBossState
 class_name WitchBossShootProjectileState
 
+
 var anim_finished = false
 
 func enter() -> void:
 	print("Entered state ", state_name)
-	self.actor.velocity = Vector2.ZERO
 
 	anim_finished = false
-	if (actor.scale.x >= 2):	
-		actor.animation_sprite.play("idle")
-	await get_tree().create_timer(3.0).timeout # 5s delay
+	actor.animation_sprite.play("cast")
+	# spawn enemy
+	await get_tree().create_timer(2).timeout # 5s delay
 	anim_finished = true
-	#actor.animation_sprite.animation_finished.connect(_on_animation_finished)
 	
 func exit() -> void:
 	print("Exited state  ", state_name)
 	pass
-
+	
 func setup(new_actor: WitchBoss) -> void:
 	self.actor = new_actor
-	self.state_name = WitchBossStateName.Name.IDLE
+	self.state_name = WitchBossStateName.Name.SHOOT_PROJECTILE
 
 func process_physics_frame(delta: float) -> WitchBossStateName.Name:
+	if anim_finished:
+		# check player position:
+		if (self.actor.global_position - Globals.get_game().player.global_position).length() < 50:
+			print("RUN AWAY!!")
+			return WitchBossStateName.Name.RUN_AWAY
+		return WitchBossStateName.Name.IDLE
 	return WitchBossStateName.Name.SHOOT_PROJECTILE
 	
