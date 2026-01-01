@@ -22,15 +22,16 @@ func _on_body_entered(body: Node) -> void:
 	if body is Enemy:
 		body.get_hit(1, direction_vector)
 
-func burst(direction_vector: Vector2) -> void:
-	self.direction_vector = direction_vector
+func burst(new_direction_vector: Vector2) -> void:
+	self.direction_vector = new_direction_vector
 	
 	if direction_vector.length_squared() < 0.000001:
 		direction_vector = Vector2.DOWN
 	
-	global_position = direction_vector * attack_distance + Globals.get_game().player.global_position
-	
-	attempt_freeze_water()
+	var impact_point: Vector2 = direction_vector * attack_distance + Globals.get_game().player.global_position
+	global_position = impact_point
+	attempt_freeze_water_at_point(impact_point)
+
 	
 	rotation = direction_vector.angle() - PI / 2
 	#animation.play(&"default")
@@ -39,18 +40,37 @@ func burst(direction_vector: Vector2) -> void:
 func _on_timer_timeout() -> void:
 	queue_free()
 
-func attempt_freeze_water() -> void:
-	var world: World = Globals.get_game().current_world
-	
-	var tilemap_layer: TileMapLayer = world.overlay_tile
-	
-	var cell: Vector2i = tilemap_layer.local_to_map(tilemap_layer.to_local(global_position))
-	if tilemap_layer.get_cell_source_id(cell) != water_tileset_id:
+func attempt_freeze_water_at_point(point: Vector2) -> void:
+	print("water_hit=", is_water_collision_at_point(point), " point=", point)
+	if !is_water_collision_at_point(point):
 		return
 	
-	# Spawn ice aligned to the cell
-	var ice: IceFloat = ice_scene.instantiate()
+	var world: World = Globals.get_game().current_world
+	var tilemap_layer: TileMapLayer = world.overlay_tile
+	
+	var cell: Vector2i = tilemap_layer.local_to_map(tilemap_layer.to_local(point))
+	
+	var ice: IceFloat = ice_scene.instantiate() as IceFloat
 	ice.base_overlay_tilemap = tilemap_layer
 	world.add_child(ice)
-	
 	ice.global_position = tilemap_layer.to_global(tilemap_layer.map_to_local(cell))
+
+
+func is_water_collision_at_point(point: Vector2) -> bool:
+	var world: World = Globals.get_game().current_world
+	var overlay: TileMapLayer = world.overlay_tile
+	
+	var space: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
+	
+	var params: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
+	params.position = point
+	params.collide_with_areas = true
+	params.collide_with_bodies = true
+	
+	var hits: Array[Dictionary] = space.intersect_point(params, 32)
+	
+	for hit: Dictionary in hits:
+		if hit.has("collider") and hit["collider"] == overlay:
+			return true
+	
+	return false

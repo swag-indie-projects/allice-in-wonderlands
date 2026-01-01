@@ -13,6 +13,8 @@ class_name Game
 @export var boss_manager : BossManager
 @export var ui_animations : AnimationPlayer
 
+@export var camera: Camera
+
 @export var audio_stream_player: AudioStreamPlayer2D
 
 var current_world: World = null
@@ -73,7 +75,6 @@ func _on_player_HP_changed(HP: int, max_HP: int):
 	player_ui.update_healthbar.emit(HP, max_HP)
 
 func apply_camera_border_limit() -> void:
-	var camera := player.get_node("Camera2D") as Camera2D
 	if camera == null:
 		return
 	var border_rectangle: Rect2 = current_world.get_border_rectangle()

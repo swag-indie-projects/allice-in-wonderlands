@@ -23,7 +23,8 @@ func _ready() -> void:
 	world = get_parent()
 	state_machine.setup()
 	# setup the ui elements
-	Globals.game.boss_manager.boss_health_ui.setup_health.emit(self.MAX_HP)
+	
+	Globals.get_game().boss_manager.boss_health_ui.setup_health.emit(self.MAX_HP)
 
 func teleport_random() :
 	var newpos = randi() % 4
@@ -37,7 +38,6 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	luck = randf()
-
 
 func get_hit(amount: int, direction_vector: Vector2) -> void:
 	dmg_particle.restart()

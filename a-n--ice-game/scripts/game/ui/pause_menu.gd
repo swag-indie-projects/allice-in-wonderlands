@@ -18,6 +18,9 @@ func _ready() -> void:
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_escape"):
+		if get_tree().paused and visible == false: 
+			return
+		
 		if get_tree().paused:
 			resume()
 		else:

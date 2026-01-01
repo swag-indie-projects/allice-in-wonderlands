@@ -19,8 +19,8 @@ func _on_area_entered(body) -> void:
 			game.save_manager.update_save_data("spawn", self.spawnpoint)
 			game.save_manager.save_game()
 			game.player_save_tooltip_ui.show_save_popup()
-		await get_tree().create_timer(10.0).timeout # 10s delay before next time its open
-		opened = false
-		sprite.frame = 0
+		#await get_tree().create_timer(10.0).timeout # 10s delay before next time its open
 
-			
+func _on_far_away_detector_area_exited(area: Area2D) -> void:
+	sprite.play_backwards("default")
+	opened = false

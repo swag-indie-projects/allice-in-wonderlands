@@ -1,17 +1,15 @@
 extends Enemy
 
 @export var health_bar: ProgressBar
+@export var animation: AnimatedSprite2D
 
 var world: World
 var dying: bool = false
 
 func _ready() -> void:
-	if !(get_parent() is World):
+	if !get_parent() is World:
 		push_error("Enemy's parent is not a world node")
 		queue_free()
-		return
-	
-	world = get_parent() as World
 	
 	if health_bar != null:
 		health_bar.max_value = MAX_HP
@@ -29,6 +27,8 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	super(delta)
+	
+	animation.play(&"default")
 	
 	if health_bar != null:
 		health_bar.value = HP

@@ -27,7 +27,7 @@ func _show_death_menu() -> void:
 	
 	$AnimationPlayer.play(&"blur")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if in_death_menu:
 		get_tree().paused = true
 

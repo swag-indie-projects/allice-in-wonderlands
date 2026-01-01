@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt03esmvm7oay"
-path="res://.godot/imported/ice cube enemy.png-a0003e4c7184f3fc70d94dd457b39762.ctex"
+uid="uid://dv6bn7efq4a15"
+path="res://.godot/imported/ice_block1.png-f7b8c4b252f32c92014de4aef10095f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ice cube enemy.png"
-dest_files=["res://.godot/imported/ice cube enemy.png-a0003e4c7184f3fc70d94dd457b39762.ctex"]
+source_file="res://assets/enemy/ice_block1.png"
+dest_files=["res://.godot/imported/ice_block1.png-f7b8c4b252f32c92014de4aef10095f2.ctex"]
 
 [params]
 

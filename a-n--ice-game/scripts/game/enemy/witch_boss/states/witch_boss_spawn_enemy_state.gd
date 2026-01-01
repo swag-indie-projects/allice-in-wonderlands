@@ -10,7 +10,7 @@ func enter() -> void:
 	actor.animation_sprite.play("cast")
 	# spawn enemy
 	
-	await get_tree().create_timer(2).timeout # 5s delay
+	await get_tree().create_timer(2).timeout 
 	anim_finished = true
 	
 func exit() -> void:

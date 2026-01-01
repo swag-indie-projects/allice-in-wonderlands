@@ -7,6 +7,7 @@
 size = Vector2(36, 36)
 
 [node name="floating_ice" type="Area2D" node_paths=PackedStringArray("main_collision_shape")]
+z_index = 1
 collision_layer = 2
 script = ExtResource("1_vgrgu")
 main_collision_shape = NodePath("CollisionShape2D")
