@@ -57,14 +57,20 @@ func attempt_freeze_water_at_point(point: Vector2) -> void:
 
 
 func is_water_collision_at_point(point: Vector2) -> bool:
+	var world: World = Globals.get_game().current_world
+	var overlay: TileMapLayer = world.overlay_tile
+	
 	var space: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
 	
 	var params: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 	params.position = point
 	params.collide_with_areas = true
 	params.collide_with_bodies = true
-	params.collision_mask = 0x7FFFFFFF
 	
 	var hits: Array[Dictionary] = space.intersect_point(params, 32)
-	print("hits=", hits.size())
-	return !hits.is_empty()
+	
+	for hit: Dictionary in hits:
+		if hit.has("collider") and hit["collider"] == overlay:
+			return true
+	
+	return false

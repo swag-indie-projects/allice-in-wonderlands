@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cqquwl3sis0np"]
+[gd_scene load_steps=14 format=4 uid="uid://cytxojix5rix4"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_bfwf2"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="2_174xs"]
@@ -8,8 +8,8 @@
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="5_65i8j"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_x0w58"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_c1b64"]
-[ext_resource type="PackedScene" uid="uid://b0v66y5nk1m20" path="res://scenes/game/world/alter.tscn" id="10_rqgi5"]
-[ext_resource type="Script" uid="uid://c35o6h5drp6vy" path="res://scripts/game/set_camera_position_trigger.gd" id="12_x0w58"]
+[ext_resource type="PackedScene" path="res://scenes/game/world/alter.tscn" id="10_rqgi5"]
+[ext_resource type="Script" path="res://scripts/game/set_camera_position_trigger.gd" id="12_x0w58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
@@ -33,6 +33,7 @@ tile_map_data = PackedByteArray("AAAIAAAAAQACAAEAAAAIAAEAAQACAAEAAAAIAAIAAQACAAE
 tile_set = ExtResource("2_k2omk")
 
 [node name="base_overlay" type="TileMapLayer" parent="." groups=["navigation"]]
+visible = false
 tile_set = ExtResource("3_174xs")
 
 [node name="object" type="TileMapLayer" parent="." groups=["navigation"]]
