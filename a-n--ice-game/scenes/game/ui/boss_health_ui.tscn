@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://uojpts2xcgf0" path="res://assets/ui/boss_health_Bar_lower.png" id="2_s5te4"]
 [ext_resource type="Texture2D" uid="uid://d1jssxwxnre8q" path="res://assets/ui/snowball_boss_big_boss_icon.png" id="3_dvpg3"]
 [ext_resource type="Texture2D" uid="uid://c6mgg4fl62hi8" path="res://assets/ui/boss_health_Bar_.png" id="3_ejmme"]
-[ext_resource type="Texture2D" uid="uid://4uegxxehm8de" path="res://assets/ui/placeholder_witch_boss_big_boss_icon_.png" id="3_gkvpn"]
+[ext_resource type="Texture2D" uid="uid://bkh2mlldkgcwx" path="res://assets/ui/amethy_icon.png" id="3_gkvpn"]
 [ext_resource type="Texture2D" uid="uid://dx1ih6gp4svfr" path="res://assets/ui/boss_health_Bar_upper.png" id="4_dvpg3"]
 
 [node name="BossHealthUI" type="Control"]

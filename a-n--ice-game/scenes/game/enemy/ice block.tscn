@@ -30,7 +30,8 @@ radius = 7.0
 height = 18.0
 
 [node name="IceBlock" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation", "knockback_component", "animation_component") groups=["ice_block_enemy"]]
-collision_mask = 512
+collision_layer = 247
+collision_mask = 513
 script = ExtResource("1_orp3y")
 health_bar = NodePath("ProgressBar")
 animation = NodePath("AnimatedSprite2D")
