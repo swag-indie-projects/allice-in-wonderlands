@@ -10,6 +10,7 @@ class_name Game
 @export var player_ui: PlayerUI
 @export var player_save_tooltip_ui : SavePopupUI
 @export var save_manager : SaveManager
+@export var boss_manager : BossManager
 @export var ui_animations : AnimationPlayer
 
 @export var camera: Camera
@@ -27,14 +28,14 @@ func _ready() -> void:
 	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
 	var coins : int = save_manager.get_save_data("coins")
 	player_ui.update_coin.emit(coins)
+
 	
 	if debug_mod:
 		#player.get_node("Camera2D").Zoom.x = 0.5
 		#player.get_node("Camera2D").Zoom.y = 0.5
-		play_world(load(Constant.path_to_string[debug_world_scene_path]), debug_spawn_point_index)
+		play_world(debug_world_scene_path, debug_spawn_point_index)
 		return
-	
-	play_world(load(Constant.path_to_string[saved_world]), 0)
+	play_world(saved_world, 0)
 
 func reset_game() -> void:
 	player.HP = player.MAX_HP
@@ -44,14 +45,19 @@ func reset_game() -> void:
 	get_tree().reload_current_scene()
 	apply_camera_border_limit()
 
-func play_world(scene: PackedScene, spawn_point_index: int) -> void:
+func play_world(scene_path: Constant.Paths, spawn_point_index: int) -> void:
+	var scene: PackedScene = load(Constant.path_to_string[scene_path])
+
 	if is_instance_valid(current_world):
 		current_world.queue_free()
 	
 	current_world = scene.instantiate()
 	
 	current_world.exited.connect(_on_world_exited)
-	
+	if (scene_path == Constant.Paths.PATH_TO_BIOME1_BOSS_ARENA):
+		boss_manager.setup_boss(Constant.Boss_Enum.Snowball)
+	elif (scene_path == Constant.Paths.PATH_TO_BIOME2_BOSS_ARENA):
+		boss_manager.setup_boss(Constant.Boss_Enum.Witch)
 	current_world.setup(player, spawn_point_index)
 	add_child.call_deferred(current_world)
 	
@@ -62,17 +68,7 @@ var world_change_debounce = true
 func _on_world_exited(result: SpawnResult) -> void:
 	if (world_change_debounce):
 		world_change_debounce = false
-		if (result.scene_path == Constant.Paths.PATH_TO_BIOME1_BOSS_ARENA):
-			print("BOSS ENTERED")
-			if ui_animations.has_animation("boss_camera_zoom"):
-				print("Animation exists")
-				ui_animations.play("boss_camera_zoom")
-				print("Is playing: ", ui_animations.is_playing())
-			else:
-				print("Animation not found!")
-			
-		var target_scene: PackedScene = load(Constant.path_to_string[result.scene_path])
-		play_world(target_scene, result.spawnpoint_index)
+		play_world(result.scene_path, result.spawnpoint_index)
 		await get_tree().create_timer(0.5).timeout
 		world_change_debounce = true
 

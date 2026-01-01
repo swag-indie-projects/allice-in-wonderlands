@@ -222,7 +222,7 @@ dmg_particle = NodePath("DMGParticle")
 death_particle = NodePath("DeathParticle")
 state_machine = NodePath("StateMachine")
 animation_sprite = NodePath("AnimatedSprite2D")
-MAX_HP = 50
+MAX_HP = 10
 animation_component = NodePath("animation component")
 
 [node name="self_shape" type="CollisionShape2D" parent="."]

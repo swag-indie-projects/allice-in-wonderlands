@@ -1,0 +1,3 @@
+class_name WitchBossStateName
+
+enum Name { IDLE, SPAWN_ENEMY, RUN_AWAY, SHOOT_PROJECTILE, DESTROY_ICE, TELEPORT, END }

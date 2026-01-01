@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dap05mlt4apea"]
+
+[ext_resource type="Texture2D" uid="uid://bt05qloypesfs" path="res://assets/ui/boss_health_icon_bg.png" id="1_8t1je"]
+[ext_resource type="Script" path="res://scripts/game/ui/boss_health_ui.gd" id="1_ejmme"]
+[ext_resource type="Texture2D" uid="uid://uojpts2xcgf0" path="res://assets/ui/boss_health_Bar_lower.png" id="2_s5te4"]
+[ext_resource type="Texture2D" uid="uid://d1jssxwxnre8q" path="res://assets/ui/snowball_boss_big_boss_icon.png" id="3_dvpg3"]
+[ext_resource type="Texture2D" uid="uid://c6mgg4fl62hi8" path="res://assets/ui/boss_health_Bar_.png" id="3_ejmme"]
+[ext_resource type="Texture2D" uid="uid://4uegxxehm8de" path="res://assets/ui/placeholder_witch_boss_big_boss_icon_.png" id="3_gkvpn"]
+[ext_resource type="Texture2D" uid="uid://dx1ih6gp4svfr" path="res://assets/ui/boss_health_Bar_upper.png" id="4_dvpg3"]
+
+[node name="BossHealthUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -527.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ejmme")
+snowball_texture = ExtResource("3_dvpg3")
+witch_texture = ExtResource("3_gkvpn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(2, 2)
+size_flags_vertical = 4
+texture = ExtResource("1_8t1je")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.5
+offset_right = 44.0
+offset_bottom = 43.5
+
+[node name="Progress" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 17.0
+offset_right = 228.0
+offset_bottom = 35.0
+scale = Vector2(4, 4)
+value = 100.0
+texture_under = ExtResource("2_s5te4")
+texture_over = ExtResource("3_ejmme")
+texture_progress = ExtResource("4_dvpg3")
