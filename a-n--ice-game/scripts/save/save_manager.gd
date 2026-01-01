@@ -15,7 +15,7 @@ func _ready() ->void:
 		Constant.Boss_Enum.Snowball: false,
 		Constant.Boss_Enum.Witch: false
 	}
-
+	default_save_data.coins_collected_map = {}
 
 
 func save_game() -> void:
@@ -54,3 +54,6 @@ func update_save_data(key, val) -> void:
 	print("updated local save")
 	current_save.set(key, val)
 	print(key, " : ", get_save_data(key))
+
+func update_coin(uuid : String) -> void:
+	self.current_save.coins_collected_map.set(uuid, true)
