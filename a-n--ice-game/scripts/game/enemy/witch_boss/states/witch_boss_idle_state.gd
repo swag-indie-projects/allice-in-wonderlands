@@ -21,20 +21,18 @@ func setup(new_actor: WitchBoss) -> void:
 	self.actor = new_actor
 	self.state_name = WitchBossStateName.Name.IDLE
 
-func count_spawns() -> int:
-	return Globals.get_game().current_world.get_tree().get_nodes_in_group("ice_block_enemy").size()
 
 func process_physics_frame(delta: float) -> WitchBossStateName.Name:
 	if anim_finished:
 		if self.actor.HP >= self.actor.MAX_HP/2:
-			if ( count_spawns() <= 6):
+			if ( self.actor.count_spawns() <= 6):
 				return WitchBossStateName.Name.SPAWN_ENEMY
 			else:
 				return  WitchBossStateName.Name.RUN_AWAY
 		else:
-			if self.actor.luck <= 0.333:
+			if self.actor.luck <= 0.333 and self.actor.count_spawns() <= 10:
 				return WitchBossStateName.Name.SPAWN_ENEMY
-			elif self.actor.luck > 0.333 and self.actor.luck <= 0.666:
+			elif self.actor.luck > 0.333 and self.actor.luck <= 0.666 and self.actor.count_ice() >= 0:
 				return WitchBossStateName.Name.DESTROY_ICE
 			else:
 				return WitchBossStateName.Name.SHOOT_PROJECTILE

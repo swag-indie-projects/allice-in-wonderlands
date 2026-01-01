@@ -34,6 +34,13 @@ func teleport_random() :
 	tp_position = newpos
 	self.global_position = self.teleportation_points[tp_position].global_position
 
+func count_spawns() -> int:
+	return Globals.get_game().current_world.get_tree().get_nodes_in_group("ice_block_enemy").size()
+
+func count_ice() -> int:
+	return Globals.get_game().current_world.get_tree().get_nodes_in_group("ice_float").size()
+
+
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics_frame(delta)
 

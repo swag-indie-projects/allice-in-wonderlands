@@ -17,7 +17,7 @@ func enter() -> void:
 	projectile.global_position = actor.global_position
 	actor.get_parent().add_child(projectile)
 	# spawn enemy
-	await get_tree().create_timer(1).timeout # 5s delay
+	await get_tree().create_timer(0.5).timeout # 5s delay
 	anim_finished = true
 	
 func exit() -> void:
