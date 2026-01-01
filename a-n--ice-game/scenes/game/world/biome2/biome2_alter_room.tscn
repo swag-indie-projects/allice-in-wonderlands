@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://gklivht80d2f"]
+[gd_scene load_steps=14 format=4 uid="uid://uw1ccp6jkrbw"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_rmdot"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="2_lvnjt"]
@@ -7,9 +7,9 @@
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="5_4vu44"]
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="6_c1qi1"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="7_cki8u"]
-[ext_resource type="PackedScene" uid="uid://b0v66y5nk1m20" path="res://scenes/game/world/alter.tscn" id="8_p26gm"]
+[ext_resource type="PackedScene" path="res://scenes/game/world/alter.tscn" id="8_p26gm"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="8_xysfb"]
-[ext_resource type="Script" uid="uid://c35o6h5drp6vy" path="res://scripts/game/set_camera_position_trigger.gd" id="12_5y8mk"]
+[ext_resource type="Script" path="res://scripts/game/set_camera_position_trigger.gd" id="12_5y8mk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
@@ -50,6 +50,7 @@ texture = ExtResource("7_cki8u")
 
 [node name="Alter" parent="." instance=ExtResource("8_p26gm")]
 position = Vector2(240, -52)
+reward = 0
 
 [node name="exitpoint" type="Area2D" parent="."]
 position = Vector2(556, 128)

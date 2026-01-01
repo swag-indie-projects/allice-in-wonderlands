@@ -74,7 +74,6 @@ debug_color = Color(0, 0.5950001, 0.7, 0.043137256)
 
 [node name="Alter" parent="." instance=ExtResource("10_rqgi5")]
 position = Vector2(240, -52)
-reward = 0
 
 [node name="Focal Position" type="Node2D" parent="."]
 position = Vector2(240, -75)
