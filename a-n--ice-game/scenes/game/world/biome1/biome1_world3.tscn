@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://ctdeun1fl2gc"]
+[gd_scene load_steps=22 format=4 uid="uid://ctdeun1fl2gc"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_1ovx2"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_81jhw"]
@@ -13,8 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="10_jxrcn"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="11_ho1b8"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="12_81jhw"]
-[ext_resource type="PackedScene" uid="uid://ohl5we47hg83" path="res://scenes/game/enemy/pewpew Slime.tscn" id="14_rneju"]
+[ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/enemy/pewpew Slime.tscn" id="14_rneju"]
 [ext_resource type="PackedScene" uid="uid://cxe20ic4rhmwf" path="res://scenes/game/enemy/ISlim.tscn" id="15_ynn5f"]
+[ext_resource type="PackedScene" uid="uid://dy4eqxrnw6v0l" path="res://scenes/game/shop.tscn" id="16_7chlm"]
 
 [sub_resource type="Resource" id="Resource_0ihr6"]
 script = ExtResource("2_81jhw")
@@ -137,3 +138,6 @@ position = Vector2(320, -154)
 
 [node name="Pew Pew2" parent="." instance=ExtResource("14_rneju")]
 position = Vector2(342, -176)
+
+[node name="Shop" parent="." instance=ExtResource("16_7chlm")]
+position = Vector2(203, 14)

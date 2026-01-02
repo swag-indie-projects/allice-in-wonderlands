@@ -1,18 +1,19 @@
-[gd_scene load_steps=31 format=3 uid="uid://cyi7otpakwjkg"]
+[gd_scene load_steps=32 format=3 uid="uid://cyi7otpakwjkg"]
 
 [ext_resource type="PackedScene" uid="uid://d204nsy8svfev" path="res://scenes/game/player/player.tscn" id="1_nl0sk"]
 [ext_resource type="Script" uid="uid://clhsdbanamdpr" path="res://scripts/game/game.gd" id="1_qh8lf"]
 [ext_resource type="PackedScene" uid="uid://covdnykiv6j42" path="res://scenes/game/ui/death_menu.tscn" id="3_5jirj"]
 [ext_resource type="Texture2D" uid="uid://sllat2rhkysm" path="res://assets/misc/light.png" id="3_ian8s"]
 [ext_resource type="PackedScene" uid="uid://dt1xhxgttwufa" path="res://scenes/game/ui/save_popup.tscn" id="5_87uf6"]
-[ext_resource type="PackedScene" path="res://scenes/game/ui/get hit ui.tscn" id="6_4j704"]
+[ext_resource type="PackedScene" uid="uid://35y5wwh18vc4" path="res://scenes/game/ui/get hit ui.tscn" id="6_4j704"]
 [ext_resource type="Script" uid="uid://j2xustrm625i" path="res://scripts/save/save_manager.gd" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
 [ext_resource type="Script" uid="uid://cu85s2qhnd1j0" path="res://scripts/game/camera_2d.gd" id="8_kp23o"]
-[ext_resource type="PackedScene" path="res://scenes/game/ui/boss_health_ui.tscn" id="8_vaxfo"]
+[ext_resource type="PackedScene" uid="uid://dap05mlt4apea" path="res://scenes/game/ui/boss_health_ui.tscn" id="8_vaxfo"]
 [ext_resource type="AudioStream" uid="uid://drvv1ooh2sm3r" path="res://sounds/ost/winter.ogg" id="9_2a8rs"]
 [ext_resource type="PackedScene" path="res://scenes/game/ui/reward_screen.tscn" id="9_otnwt"]
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_ui.tscn" id="9_t28dr"]
+[ext_resource type="PackedScene" uid="uid://bcxhfnwdj7ilw" path="res://scenes/game/ui/shop_ui.tscn" id="10_3xj4h"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
 [ext_resource type="Script" path="res://scripts/game/boss_manager.gd" id="13_ftsea"]
 
@@ -116,16 +117,17 @@ _data = {
 &"boss_camera_zoom": SubResource("Animation_5jirj")
 }
 
-[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "save_manager", "boss_manager", "ui_animations", "camera", "audio_stream_player")]
+[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "save_manager", "boss_manager", "ui_animations", "shop_ui", "camera", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 6
+debug_world_scene_path = 3
 debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
 save_manager = NodePath("SaveManager")
 boss_manager = NodePath("BossManager")
 ui_animations = NodePath("AnimationPlayer")
+shop_ui = NodePath("UI/ShopUi")
 camera = NodePath("Camera2D")
 audio_stream_player = NodePath("AudioStreamPlayer2D")
 
@@ -139,9 +141,12 @@ offset_top = 548.0
 offset_right = 253.5
 offset_bottom = 548.0
 
-[node name="player_ui" parent="UI" instance=ExtResource("9_t28dr")]
+[node name="player_ui" parent="UI" node_paths=PackedStringArray("HP_shards") instance=ExtResource("9_t28dr")]
+visible = false
+HP_shards = [NodePath("HealthTexture"), null, null, null, null]
 
 [node name="pause_menu" parent="UI" instance=ExtResource("10_f2m1r")]
+visible = false
 z_index = 100
 z_as_relative = false
 
@@ -149,11 +154,19 @@ z_as_relative = false
 z_as_relative = false
 
 [node name="get hit ui" parent="UI" instance=ExtResource("6_4j704")]
+visible = false
 mouse_filter = 2
 
 [node name="death_menu" parent="UI" instance=ExtResource("3_5jirj")]
 
 [node name="reward_screen" parent="UI" instance=ExtResource("9_otnwt")]
+
+[node name="ShopUi" parent="UI" instance=ExtResource("10_3xj4h")]
+visible = false
+offset_left = 168.0
+offset_top = 127.0
+offset_right = 168.0
+offset_bottom = 127.0
 
 [node name="player" parent="." node_paths=PackedStringArray("get_hit_ui", "death_menu", "reward_screen", "camera") instance=ExtResource("1_nl0sk")]
 position = Vector2(93, 67)

@@ -12,6 +12,7 @@ class_name Game
 @export var save_manager : SaveManager
 @export var boss_manager : BossManager
 @export var ui_animations : AnimationPlayer
+@export var shop_ui : ShopUI
 
 @export var camera: Camera
 
@@ -19,17 +20,10 @@ class_name Game
 
 var current_world: World = null
 
-
 func _ready() -> void:
 	Globals.game = self
-	
-	player.HP_changed.connect(_on_player_HP_changed)
-	save_manager.load_game()
+	save_manager.load_game() # gets data, and sets up UI, stats, etc..
 	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
-	var coins : int = save_manager.get_save_data("coins")
-	player_ui.update_coin.emit(coins)
-
-	
 	if debug_mod:
 		#player.get_node("Camera2D").Zoom.x = 0.5
 		#player.get_node("Camera2D").Zoom.y = 0.5
@@ -72,8 +66,6 @@ func _on_world_exited(result: SpawnResult) -> void:
 		await get_tree().create_timer(0.5).timeout
 		world_change_debounce = true
 
-func _on_player_HP_changed(HP: int, max_HP: int):
-	player_ui.update_healthbar.emit(HP, max_HP)
 
 func apply_camera_border_limit() -> void:
 	if camera == null:

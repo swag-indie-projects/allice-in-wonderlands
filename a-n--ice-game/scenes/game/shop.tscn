@@ -5,10 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://b37v7bdho4l7q" path="res://sounds/fridgeOpen.wav" id="3_gps3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uyol"]
-size = Vector2(52, 48)
+size = Vector2(70, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8we2"]
-size = Vector2(55, 51)
+size = Vector2(53, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0kdc8"]
 atlas = ExtResource("2_5dhir")
@@ -40,13 +40,13 @@ polygon = PackedVector2Array(-7, 16, -5, 3, 31, 1, 47, -3, 49, 6, 34, 16)
 script = ExtResource("1_5dhir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 6)
+position = Vector2(-2, 5.5)
 shape = SubResource("RectangleShape2D_5uyol")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-2.5, 6.5)
+position = Vector2(-1.5, 6)
 shape = SubResource("RectangleShape2D_y8we2")
 debug_color = Color(0.7960051, 0.36230844, 0.5813463, 0.41960785)
 
@@ -61,5 +61,5 @@ occluder = SubResource("OccluderPolygon2D_gjeag")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gps3y")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

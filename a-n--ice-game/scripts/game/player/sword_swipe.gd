@@ -30,6 +30,8 @@ func swipe() -> void:
 	monitoring = true
 	animation.play(&"default")
 
+func update_range(scale_factor : int):
+	self.scale.y = scale_factor
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	monitoring = false

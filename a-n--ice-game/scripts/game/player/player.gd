@@ -29,12 +29,21 @@ var is_invincible: bool
 signal HP_changed(HP: int, max_HP: int)
 
 func _ready() -> void:
+	self.HP_changed.connect(_on_player_HP_changed)
 	state_machine.setup()
 	dash_progress_bar.max_value = dash_state.cooldown_timer.wait_time
-	
+	if Globals.get_game():
+		print("WE CAN UPDATE THE MAX HEALTH")
+		MAX_HP = Globals.game.save_manager.current_save.MAX_HP
 	HP = MAX_HP
-	
 	sword_swipe.swipe() # have to do this due to stupid bugs
+
+func _on_player_HP_changed(HP: int, max_HP: int):
+	self.HP = HP
+	self.MAX_HP = max_HP
+	print("self to self..")
+	Globals.game.save_manager.current_save.HP = HP
+	Globals.game.player_ui.update_healthbar.emit(HP, max_HP)
 
 func _process(delta: float) -> void:
 	facing_component.update_facing()
