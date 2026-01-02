@@ -4,6 +4,8 @@ class_name PlayerHitState
 
 @export var knockback_duration: float
 @export var knockback: float
+@export var sound: AudioStreamPlayer2D
+
 var acceleration: float = 0.0
 var time_elapsed: float = 0.0
 var direction_vector: Vector2
@@ -13,6 +15,7 @@ func enter() -> void:
 	
 	actor.get_hit_ui.get_hit.emit()
 	actor.camera.shaking.emit()
+	sound.play()
 	
 	print(actor.HP)
 	if actor.HP == 0:

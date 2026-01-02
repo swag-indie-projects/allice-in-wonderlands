@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://durh4w2hyix3c" path="res://scripts/game/biome_1_boss_arena_world.gd" id="1_s5bqf"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_ek4x0"]
-[ext_resource type="Shader" uid="uid://ciy0gvvny6oji" path="res://assets/ui/vs.gdshader" id="3_kxf7d"]
+[ext_resource type="Shader" path="res://assets/ui/vs.gdshader" id="3_kxf7d"]
 [ext_resource type="Texture2D" uid="uid://d1jssxwxnre8q" path="res://assets/ui/snowball_boss_big_boss_icon.png" id="3_qlxro"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="3_qt5jd"]
 [ext_resource type="Texture2D" uid="uid://cix4u62jvyfjc" path="res://assets/ui/VS.png" id="4_8rs3m"]
@@ -187,21 +187,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgnsd"]
 size = Vector2(20, 258)
 
-[sub_resource type="Animation" id="Animation_sgnsd"]
-resource_name = "close"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../undefeated_upper:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_ek4x0"]
 length = 0.001
 tracks/0/type = "value"
@@ -215,6 +200,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sgnsd"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../undefeated_upper:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qt5jd"]
@@ -340,6 +340,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FIGHT Animation" type="AnimationPlayer" parent="CanvasLayer"]
+process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_8rs3m")
 }
@@ -379,14 +380,13 @@ libraries = {
 }
 
 [node name="Set Camera Position Trigger" type="Area2D" parent="." node_paths=PackedStringArray("focal_node2d")]
-position = Vector2(732, 64)
 script = ExtResource("9_sgnsd")
 focal_node2d = NodePath("../arena_box")
 lerp_duration = 2.0
 zoom_scale = 0.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Set Camera Position Trigger"]
-position = Vector2(-316.5, -22.875)
+position = Vector2(417, 41)
 shape = SubResource("RectangleShape2D_ek4x0")
 debug_color = Color(0, 0.5950001, 0.7, 0.043137256)
 

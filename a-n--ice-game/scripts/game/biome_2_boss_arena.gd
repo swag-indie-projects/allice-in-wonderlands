@@ -32,7 +32,8 @@ func setup(new_player: Player, spawnpoint_index: int):
 
 func spawn_boss():
 	Globals.game.boss_manager.setup_boss(Constant.Boss_Enum.Witch)
-	
+	Globals.game.play_boss_music(Constant.Boss_Enum.Witch)
+
 	print("boss not yet defeated")
 	undefeated_upper.visible = true
 	undefeated_upper.collision_enabled = true

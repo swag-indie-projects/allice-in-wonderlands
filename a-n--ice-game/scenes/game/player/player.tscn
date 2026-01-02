@@ -1,9 +1,9 @@
-[gd_scene load_steps=67 format=3 uid="uid://d204nsy8svfev"]
+[gd_scene load_steps=69 format=3 uid="uid://d204nsy8svfev"]
 
 [ext_resource type="Script" uid="uid://1igbt58bdgcj" path="res://scripts/game/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://p625padn7ffo" path="res://assets/player/player_backward.png" id="2_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://c8a42qxd1yk8s" path="res://assets/player/player_forward.png" id="2_fjrip"]
-[ext_resource type="Script" uid="uid://ca1eg4g6huui3" path="res://scripts/game/player/state_machine/player_state_machine.gd" id="3_qhqgy"]
+[ext_resource type="Script" path="res://scripts/game/player/state_machine/player_state_machine.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://vjq8xnf05boi" path="res://scenes/game/player/sword_swipe.tscn" id="3_smehm"]
 [ext_resource type="Texture2D" uid="uid://b0t7qp2q4sqov" path="res://assets/player/player_left.png" id="4_3v2ag"]
 [ext_resource type="Script" uid="uid://ne0dvviqaf83" path="res://scripts/game/player/state_machine/states/player_idle_state.gd" id="4_dqkch"]
@@ -16,8 +16,10 @@
 [ext_resource type="Script" uid="uid://c6jtd5gviucn0" path="res://scripts/game/components/facing_component.gd" id="11_d2wvv"]
 [ext_resource type="Script" uid="uid://h86erx154auq" path="res://scripts/game/player/state_machine/states/player_dash_state.gd" id="12_ixkur"]
 [ext_resource type="AudioStream" uid="uid://cd54m5ukxr841" path="res://sounds/DSGNMisc_STEP-Bubblier Step_HY_PC-001.wav" id="13_sxkrj"]
+[ext_resource type="AudioStream" uid="uid://bjea6xs7jmtej" path="res://sounds/Retro Weapon Gun LoFi 03.wav" id="14_c7er3"]
 [ext_resource type="Script" uid="uid://blojfq5n4pv2m" path="res://scripts/game/player/state_machine/states/player_do_freeze_state.gd" id="14_t5vmf"]
 [ext_resource type="Texture2D" uid="uid://d3hlu38ej1qxp" path="res://assets/misc/snow_flake_1.png" id="15_jvpd5"]
+[ext_resource type="AudioStream" uid="uid://etbcin87jxay" path="res://sounds/Retro Water Drop 01.wav" id="17_g11kp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
 radius = 3.0
@@ -546,10 +548,15 @@ script = ExtResource("5_fjrip")
 speed = 80.0
 walk_audio_player = NodePath("../../walk audio player")
 
-[node name="hit state" type="Node" parent="state machine"]
+[node name="hit state" type="Node" parent="state machine" node_paths=PackedStringArray("sound")]
 script = ExtResource("7_ur7pv")
 knockback_duration = 0.3
 knockback = 20.0
+sound = NodePath("Hit Sound")
+
+[node name="Hit Sound" type="AudioStreamPlayer2D" parent="state machine/hit state"]
+stream = ExtResource("14_c7er3")
+volume_db = -0.81
 
 [node name="dash state" type="Node" parent="state machine" node_paths=PackedStringArray("dash_timer", "cooldown_timer", "dash_particles")]
 script = ExtResource("12_ixkur")
@@ -572,15 +579,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_t5vmf")
 }
 
-[node name="do freeze state" type="Node" parent="state machine" node_paths=PackedStringArray("pre_freeze_timer", "freeze_particles")]
+[node name="do freeze state" type="Node" parent="state machine" node_paths=PackedStringArray("pre_freeze_timer", "freeze_particles", "sound")]
 script = ExtResource("14_t5vmf")
 pre_freeze_timer = NodePath("pre freeze timer")
 freeze_burst_scene = ExtResource("8_34lq7")
 freeze_particles = NodePath("../../Ice Spell Particles")
+sound = NodePath("Freeze Sound")
 
 [node name="pre freeze timer" type="Timer" parent="state machine/do freeze state"]
 wait_time = 0.2
 one_shot = true
+
+[node name="Freeze Sound" type="AudioStreamPlayer2D" parent="state machine/do freeze state"]
+stream = ExtResource("17_g11kp")
+volume_db = -0.675
+pitch_scale = 0.5
 
 [node name="attack component" type="Node" parent="."]
 script = SubResource("GDScript_y4r1p")

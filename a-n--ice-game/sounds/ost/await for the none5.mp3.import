@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b32s5mrgxqr8r"
+path="res://.godot/imported/await for the none5.mp3-7fea0ed90d53c288eb4ebf4d7af917ec.mp3str"
+
+[deps]
+
+source_file="res://sounds/ost/await for the none5.mp3"
+dest_files=["res://.godot/imported/await for the none5.mp3-7fea0ed90d53c288eb4ebf4d7af917ec.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=37.0
+bpm=0.0
+beat_count=0
+bar_beats=4
