@@ -5,7 +5,7 @@ var anim_finished = false
 
 func enter() -> void:
 	print("Entered state ", state_name)
-	
+	self.actor.visible = false
 	actor.animation_sprite.play("idle")
 	for ice in Globals.get_game().current_world.get_tree().get_nodes_in_group("ice_block_enemy"):
 		ice.queue_free()

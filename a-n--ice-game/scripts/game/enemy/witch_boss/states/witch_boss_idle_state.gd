@@ -6,7 +6,7 @@ var anim_finished = false
 func enter() -> void:
 	self.anim_finished = false
 	print("Entered state ", state_name)
-	self.actor.velocity = Vector2.ZERO
+	actor.velocity = Vector2.ZERO
 	
 	actor.animation_sprite.play("idle")
 	await get_tree().create_timer(1).timeout # 5s delay
@@ -18,11 +18,14 @@ func exit() -> void:
 	pass
 
 func setup(new_actor: WitchBoss) -> void:
+
 	self.actor = new_actor
 	self.state_name = WitchBossStateName.Name.IDLE
 
 
 func process_physics_frame(delta: float) -> WitchBossStateName.Name:
+	if self.actor.velocity != Vector2.ZERO:
+		actor.velocity = Vector2.ZERO
 	if anim_finished:
 		if self.actor.HP >= self.actor.MAX_HP/2:
 			if ( self.actor.count_spawns() <= 6):
