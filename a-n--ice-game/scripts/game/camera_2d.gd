@@ -93,3 +93,10 @@ func clear_constant_position() -> void:
 func _cubic_ease_out(t: float) -> float:
 	var f := t - 1.0
 	return f * f * f + 1.0
+
+func on_world_set_up(spawn_position: Vector2) -> void:
+	transition_time = 1.0
+	constant_target_position = spawn_position
+	lerp_start_position = spawn_position
+	zoom_scale = 1.0
+	

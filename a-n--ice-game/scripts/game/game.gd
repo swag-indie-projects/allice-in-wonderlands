@@ -14,7 +14,7 @@ class_name Game
 @export var ui_animations : AnimationPlayer
 @export var shop_ui : ShopUI
 
-@export var camera: Camera
+@export var camera: Camera2D
 
 @export var audio_stream_player: AudioStreamPlayer2D
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://ctdeun1fl2gc"]
+[gd_scene load_steps=26 format=4 uid="uid://ctdeun1fl2gc"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_1ovx2"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_81jhw"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="10_jxrcn"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="11_ho1b8"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="12_81jhw"]
+[ext_resource type="Texture2D" uid="uid://o4mjp1l2bns" path="res://assets/markers/entrance_marker3.png" id="12_w225o"]
+[ext_resource type="Texture2D" uid="uid://c8u3hxtkaccae" path="res://assets/markers/exit_marker3.png" id="13_e763f"]
 [ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/enemy/pewpew Slime.tscn" id="14_rneju"]
 [ext_resource type="PackedScene" uid="uid://cxe20ic4rhmwf" path="res://scenes/game/enemy/ISlim.tscn" id="15_ynn5f"]
 [ext_resource type="PackedScene" uid="uid://dy4eqxrnw6v0l" path="res://scenes/game/shop.tscn" id="16_7chlm"]
@@ -28,11 +30,19 @@ script = ExtResource("2_81jhw")
 scene_path = 4
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
+[sub_resource type="Resource" id="Resource_rafal"]
+script = ExtResource("2_81jhw")
+scene_path = 12
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ihr6"]
 size = Vector2(20, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h04wm"]
 size = Vector2(20, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsqqr"]
+size = Vector2(33.965, 8.095)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rneju"]
 vertices = PackedVector2Array(152.09375, 182, 151.99219, 182, 152.04688, 179.25, 356, -9.859375, 356, -6, 348, -6, 348, -10, 314, -10.8125, 314, -10, 561.8906, -2, 560.1094, 199.25781, 534, 198.8125, 392.10938, 169.64063, 494, 14, 346.14844, 169.64844, 345.8672, 197.78125, 344, 186, 344, 150, 391.47656, 198.07813, 518, 198.8125, 26, 72.671875, 2.1796875, 72.92969, 5.609375, -17.773438, 130, -14.96875, 130, -6, 200.25781, 182, 200.15625, 182, 200.65625, 168.36719, 201.86719, 165.75, 472.02344, 202.49219, 456.29688, 202.40625, 456.34375, 200.96094, 471.97656, 199.29688, 378, 169.97656, 378, 169.86719, 154, -6, 154, -14.4296875, 166, -14.15625, 166, -6, 152.35156, 166, 151.99219, 166, 152.35156, 150, 166, 138, 151.99219, 150, 152.35156, 134, 166, 104, 151.99219, 134, 152.35156, 118, 151.99219, 118, 152.35156, 102, 151.99219, 102, 152.35156, 86, 202, 200.67188, 200.02344, 200.6875, 534, 199.09375, 518, 199.09375, 502, 198.8125, 502, 199.09375, 486, 198.8125, 184, 10, 230, 62, 152.07813, 86, 152.25781, 72.96094, 378, 198.03125, 378, 197.89844, 376, 14, 377.95313, 14, 377.8672, 21.75, 376, 26, 230, 200.71094, 218, 200.84375, 218, 200.67188, 229.95313, 166.0625, 442, 200.67188, 426, 200.84375, 426, 200.67188, 410, 200.84375, 410, 200.67188, 394, 200.84375, 394, 200.67188, 378, 200.84375, 378, 200.67188, 362, 200.84375, 362, 200.67188, 346, 200.84375, 346, 200.67188, 330, 200.84375, 330, 200.67188, 314, 200.84375, 314, 200.67188, 298, 200.84375, 298, 200.67188, 282, 200.84375, 282, 200.67188, 296, 186, 266, 200.84375, 266, 200.67188, 202, 200.84375, 138, 72.671875, 122, 72.84375, 122, 72.671875, 106, 72.84375, 106, 72.671875, 90, 72.84375, 90, 72.671875, 74, 72.84375, 74, 72.671875, 58, 72.84375, 58, 72.671875, 42, 72.84375, 42, 72.671875, 26, 72.84375, 254, 200.79688, 254, 106, 202.14844, 138, 166, 168.14844, 486, 199.35156, 184, -6, 230, 10, 254, 62, 254, -2, 262, -2, 262, 10, 290, 10, 290, 14, 250, 102, 322, 14, 322, 26, 250, 106, 405.95313, 22.0625, 405.95313, 14, 442, 200.96094, 178, 102, 178, 104, 229.95313, 138, 230, 138, 138, 72.96094, 152.3125, 167.74219, 296, 150, 498.35156, -2, 494, 2.3515625, 495.45313, -0.546875)
@@ -43,10 +53,11 @@ source_geometry_group_name = &"navigation"
 
 [node name="world3" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile", "overlay_tile")]
 script = ExtResource("1_1ovx2")
-spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
+spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2"), NodePath("spawnpoint3")]
 exitpoint_to_scenepath = {
 NodePath("exitpoint"): SubResource("Resource_0ihr6"),
-NodePath("exitpoint2"): SubResource("Resource_bvefd")
+NodePath("exitpoint2"): SubResource("Resource_bvefd"),
+NodePath("exitpoint3"): SubResource("Resource_rafal")
 }
 base_tile = NodePath("base")
 overlay_tile = NodePath("baseOverlay")
@@ -105,6 +116,22 @@ texture = ExtResource("9_uvg4t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exitpoint"]
 position = Vector2(0, -26)
 shape = SubResource("RectangleShape2D_h04wm")
+
+[node name="spawnpoint3" type="Node2D" parent="."]
+position = Vector2(321, -217)
+
+[node name="Sprite2D" type="Sprite2D" parent="spawnpoint3"]
+texture = ExtResource("12_w225o")
+
+[node name="exitpoint3" type="Area2D" parent="."]
+position = Vector2(321, -236)
+
+[node name="Sprite2D" type="Sprite2D" parent="exitpoint3"]
+scale = Vector2(0.813, 0.293)
+texture = ExtResource("13_e763f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitpoint3"]
+shape = SubResource("RectangleShape2D_lsqqr")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_rneju")
