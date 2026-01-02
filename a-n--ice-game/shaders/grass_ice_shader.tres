@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cghtmhg6syqkx"]
 
-[ext_resource type="Shader" path="res://scenes/game/world/biome2/grass_ice.gdshader" id="1_bbhv7"]
+[ext_resource type="Shader" uid="uid://crp4kdd33l80i" path="res://shaders/grass_ice.gdshader" id="1_bbhv7"]
 [ext_resource type="Texture2D" uid="uid://yn0105mj5ktj" path="res://assets/grass_ice_shader.png" id="2_t44ao"]
 
 [resource]
 shader = ExtResource("1_bbhv7")
 shader_parameter/overlay_tex = ExtResource("2_t44ao")
-shader_parameter/scale = 0.03
+shader_parameter/scale = 0.015
