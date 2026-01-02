@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://cytxojix5rix4"]
+[gd_scene load_steps=16 format=4 uid="uid://cytxojix5rix4"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_bfwf2"]
+[ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_65i8j"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="2_174xs"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_k2omk"]
 [ext_resource type="TileSet" uid="uid://bam1ln05uasgr" path="res://resources/base_tiles_overlay.tres" id="3_174xs"]
@@ -8,8 +9,14 @@
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="5_65i8j"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_x0w58"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_c1b64"]
-[ext_resource type="PackedScene" path="res://scenes/game/world/alter.tscn" id="10_rqgi5"]
-[ext_resource type="Script" path="res://scripts/game/set_camera_position_trigger.gd" id="12_x0w58"]
+[ext_resource type="PackedScene" uid="uid://b0v66y5nk1m20" path="res://scenes/game/world/alter.tscn" id="10_rqgi5"]
+[ext_resource type="Script" uid="uid://c35o6h5drp6vy" path="res://scripts/game/set_camera_position_trigger.gd" id="12_x0w58"]
+
+[sub_resource type="Resource" id="Resource_x0w58"]
+script = ExtResource("2_65i8j")
+scene_path = 11
+spawnpoint_index = 1
+metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhhrb"]
 
@@ -20,9 +27,12 @@ source_geometry_group_name = &"navigation"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1b64"]
 size = Vector2(150, 137.5)
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "base_tile", "overlay_tile")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("spawnpoints", "exitpoint_to_scenepath", "base_tile", "overlay_tile")]
 script = ExtResource("1_bfwf2")
 spawnpoints = [NodePath("spawnpoint")]
+exitpoint_to_scenepath = {
+NodePath("exitpoint"): SubResource("Resource_x0w58")
+}
 base_tile = NodePath("base")
 overlay_tile = NodePath("base_overlay")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
@@ -65,7 +75,8 @@ navigation_polygon = SubResource("NavigationPolygon_llcsg")
 position = Vector2(243, 26)
 script = ExtResource("12_x0w58")
 focal_node2d = NodePath("../Focal Position")
-lerp_duration = 4.0
+lerp_duration = 3.0
+zoom_scale = 0.9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-14, -73.75)

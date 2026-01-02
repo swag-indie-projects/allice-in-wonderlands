@@ -35,8 +35,6 @@ func _process(delta: float) -> void:
 	var overlapping_areas = get_overlapping_areas()
 	
 	if overlapping_areas.size() > 0:
-		print(overlapping_areas[0].name, "overlapping ", name)
-		print("hello?")
 		duplicated_shape.disabled = true
 	else:
 		duplicated_shape.disabled = false

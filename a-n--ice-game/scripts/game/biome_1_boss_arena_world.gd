@@ -5,6 +5,7 @@ class_name Boss1Arena
 @export var defeated_upper : TileMapLayer
 @export var arena_box : Area2D 
 
+var boss_not_defeated:= false
 
 func boss_killed_changes() -> void:
 	undefeated_upper.visible = false
@@ -14,6 +15,10 @@ func boss_killed_changes() -> void:
 
 func _ready() -> void:
 	pass
+
+
+func is_boss_defeated():
+	return Globals.get_game() and Globals.get_game().save_manager.current_save["bosses_killed"][Constant.Boss_Enum.Snowball]
 
 func setup(new_player: Player, spawnpoint_index: int):
 	if spawnpoint_index >= spawnpoints.size():
@@ -30,24 +35,28 @@ func setup(new_player: Player, spawnpoint_index: int):
 		exitpoint.hide()
 
 	# check if boss is defeated
-	if Globals.get_game():
-		if Globals.get_game().save_manager.current_save["bosses_killed"][Constant.Boss_Enum.Snowball]:
-			boss_killed_changes()
-			
-		else:
-			print("boss not yet defeated")
-			undefeated_upper.visible = true
-			undefeated_upper.collision_enabled = true
-			defeated_upper.visible = false
-			defeated_upper.collision_enabled = false
-			var snowball_boss_scene = preload("res://scenes/game/enemy/boss_snowball.tscn")
-			var snowball_boss : SnowballBoss = snowball_boss_scene.instantiate()
-			snowball_boss.detection_box = arena_box
-			snowball_boss.global_position = arena_box.global_position
-			snowball_boss.arena_world = self
-			self.add_child(snowball_boss)
-			
-			
+	
+	boss_killed_changes()
+		# Otherwise we wait for the Start Boss Area to invoke "spawn boss"
+
+
+func spawn_boss():
+	
+	Globals.game.boss_manager.setup_boss(Constant.Boss_Enum.Snowball)
+	
+	
+	print("boss not yet defeated")
+	boss_not_defeated = true
+	undefeated_upper.visible = true
+	undefeated_upper.collision_enabled = true
+	#defeated_upper.visible = false
+	#defeated_upper.collision_enabled = false
+	var snowball_boss_scene = preload("res://scenes/game/enemy/boss_snowball.tscn")
+	var snowball_boss : SnowballBoss = snowball_boss_scene.instantiate()
+	snowball_boss.detection_box = arena_box
+	snowball_boss.global_position = arena_box.global_position
+	snowball_boss.arena_world = self
+	self.add_child.call_deferred(snowball_boss)	
 
 func get_border_rectangle() -> Rect2:
 	if base_tile == null:
