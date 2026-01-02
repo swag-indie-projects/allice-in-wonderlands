@@ -1,12 +1,17 @@
-[gd_scene load_steps=25 format=4 uid="uid://bmbqpln4e8x36"]
+[gd_scene load_steps=36 format=4 uid="uid://bmbqpln4e8x36"]
 
 [ext_resource type="Script" uid="uid://durh4w2hyix3c" path="res://scripts/game/biome_1_boss_arena_world.gd" id="1_s5bqf"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_ek4x0"]
+[ext_resource type="Shader" uid="uid://ciy0gvvny6oji" path="res://assets/ui/vs.gdshader" id="3_kxf7d"]
+[ext_resource type="Texture2D" uid="uid://d1jssxwxnre8q" path="res://assets/ui/snowball_boss_big_boss_icon.png" id="3_qlxro"]
 [ext_resource type="Material" uid="uid://qdsmfsfd8nn3" path="res://resources/snow_shader.tres" id="3_qt5jd"]
+[ext_resource type="Texture2D" uid="uid://cix4u62jvyfjc" path="res://assets/ui/VS.png" id="4_8rs3m"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="4_qlxro"]
+[ext_resource type="Texture2D" uid="uid://c8a42qxd1yk8s" path="res://assets/player/player_forward.png" id="4_un4pn"]
 [ext_resource type="TileSet" uid="uid://bam1ln05uasgr" path="res://resources/base_tiles_overlay.tres" id="5_un4pn"]
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="6_kxf7d"]
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="7_8rs3m"]
+[ext_resource type="FontFile" uid="uid://clo2m17s3l4tm" path="res://assets/fonts/rainyhearts.ttf" id="7_8567w"]
 [ext_resource type="Script" uid="uid://crbqva2ywqvid" path="res://scenes/game/world/biome1/start_boss_1.gd" id="8_2ccau"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="8_8567w"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_2nrtd"]
@@ -26,6 +31,158 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 script = ExtResource("2_ek4x0")
 scene_path = 16
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rabp5"]
+bg_color = Color(0.52, 0, 0, 0.5411765)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgv1c"]
+shader = ExtResource("3_kxf7d")
+shader_parameter/scroll_speed = Vector2(-0.5, 0.5)
+shader_parameter/angle_degrees = 45.0
+shader_parameter/alpha = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_qt5jd"]
+font = ExtResource("7_8567w")
+font_size = 176
+font_color = Color(0.88, 0.88, 0.88, 1)
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 21
+shadow_color = Color(0, 0, 0, 0.8235294)
+shadow_offset = Vector2(15.57, 21.265)
+
+[sub_resource type="Animation" id="Animation_un4pn"]
+resource_name = "FIGHT!"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.23333333, 2.5333333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Panel/Control/First thing:pivot_offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-5, 0), Vector2(0, 0), Vector2(12, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Panel/Control3/Player2:pivot_offset")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 0), Vector2(0, 0), Vector2(-12, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Panel/Vs:material:shader_parameter/alpha")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.16666667, 0.53333336, 2.3333333, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kxf7d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Panel/Control/First thing:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Panel/Control3/Player2:pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Panel/Vs:material:shader_parameter/alpha")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rs3m"]
+_data = {
+&"FIGHT!": SubResource("Animation_un4pn"),
+&"RESET": SubResource("Animation_kxf7d")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgnsd"]
 size = Vector2(20, 258)
@@ -88,6 +245,104 @@ NodePath("exitpoint2"): SubResource("Resource_gx3pl")
 base_tile = NodePath("base")
 overlay_tile = NodePath("baseOverlay")
 metadata/_custom_type_script = "uid://djhd4y8rg754v"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rabp5")
+
+[node name="Vs" type="TextureRect" parent="CanvasLayer/Control/Panel"]
+material = SubResource("ShaderMaterial_cgv1c")
+layout_mode = 0
+offset_left = -48.999954
+offset_top = -436.0
+offset_right = 1479.0
+offset_bottom = 1092.0
+rotation = 0.19930917
+texture = ExtResource("4_8rs3m")
+
+[node name="Control" type="Polygon2D" parent="CanvasLayer/Control/Panel"]
+clip_children = 1
+position = Vector2(229, 25)
+polygon = PackedVector2Array(-200.00002, -113.000015, 693, -107.000015, 699.90875, 80.90651, -134.7754, 499.12482, -325.28943, 476.02924)
+
+[node name="First thing" type="TextureRect" parent="CanvasLayer/Control/Panel/Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(12, 12)
+texture = ExtResource("3_qlxro")
+metadata/_edit_use_anchors_ = true
+
+[node name="Control3" type="Polygon2D" parent="CanvasLayer/Control/Panel"]
+clip_children = 1
+position = Vector2(254, 96)
+polygon = PackedVector2Array(1039, 86.999985, 699.90875, 80.90651, -134.7754, 499.12482, -143.00002, 554, 1009, 543)
+
+[node name="Player2" type="TextureRect" parent="CanvasLayer/Control/Panel/Control3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 263.0
+offset_top = 150.0
+offset_right = 295.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(12, 12)
+texture = ExtResource("4_un4pn")
+
+[node name="Control2" type="ColorRect" parent="CanvasLayer/Control/Panel"]
+layout_mode = 0
+offset_left = -43.304405
+offset_top = 592.61066
+offset_right = 1309.3694
+offset_bottom = 666.68524
+rotation = -0.46251225
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.083374
+offset_top = -77.0
+offset_right = 81.083374
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "VS!"
+label_settings = SubResource("LabelSettings_qt5jd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FIGHT Animation" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_8rs3m")
+}
 
 [node name="base" type="TileMapLayer" parent="."]
 material = ExtResource("3_qt5jd")

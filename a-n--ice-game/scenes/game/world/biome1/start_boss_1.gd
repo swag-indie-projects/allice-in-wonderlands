@@ -15,4 +15,4 @@ func _on_body_entered(body: Node2D) -> void:
 		boss_1.spawn_boss()
 		disable_spawning = true
 		$AnimationPlayer.play("close")
-		
+		$"../CanvasLayer/FIGHT Animation".play("FIGHT!")
