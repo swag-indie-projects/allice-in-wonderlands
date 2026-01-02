@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b37v7bdho4l7q" path="res://sounds/fridgeOpen.wav" id="3_gps3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uyol"]
-size = Vector2(70, 65)
+size = Vector2(85, 81.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8we2"]
 size = Vector2(53, 50)
@@ -40,7 +40,7 @@ polygon = PackedVector2Array(-7, 16, -5, 3, 31, 1, 47, -3, 49, 6, 34, 16)
 script = ExtResource("1_5dhir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 5.5)
+position = Vector2(0, 4.25)
 shape = SubResource("RectangleShape2D_5uyol")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

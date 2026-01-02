@@ -2,17 +2,18 @@ extends Area2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var sound = $AudioStreamPlayer
-@onready var collided = false
+@onready var collided : bool = false
 
 func _ready() -> void:
 	sprite.play("default")
+	
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
 	if collided == false:
-		self.collided = true
+		
 		if body is Player:
+			self.collided = true
 			sound.play()
 			var game = Globals.get_game()
 			if (game):
@@ -21,4 +22,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_body_exited(body: Node2D) -> void:
-	self.collided = false
+	if body is Player:
+		self.collided = false
