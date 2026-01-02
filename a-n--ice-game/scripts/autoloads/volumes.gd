@@ -4,7 +4,7 @@ extends Node
 var background_music_volume: float = -5.0
 var sound_effect_volume: float = -5.0
 
-const MININUM_VOLUME: float = -10.0
+const MININUM_VOLUME: float = -20.0
 const MAXIMUM_VOLUME: float = 10.0
 
 func _ready() -> void:
