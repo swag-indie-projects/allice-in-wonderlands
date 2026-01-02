@@ -21,6 +21,9 @@ func setup(new_player: Player, spawnpoint_index: int):
 	player.position = spawnpoints[spawnpoint_index].position
 	player.camera.global_position = spawnpoints[spawnpoint_index].position
 	
+	# Lowkey don't think this does anything
+	player.camera.on_world_set_up(spawnpoints[spawnpoint_index].position)
+	
 	for spawnpoint: Node2D in spawnpoints:
 		spawnpoint.hide()
 	for exitpoint: Area2D in exitpoint_to_scenepath.keys():

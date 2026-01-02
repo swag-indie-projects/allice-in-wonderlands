@@ -20,21 +20,8 @@ func is_boss_defeated():
 	return Globals.get_game() and Globals.get_game().save_manager.current_save["bosses_killed"][Constant.Boss_Enum.Snowball]
 
 func setup(new_player: Player, spawnpoint_index: int):
-	if spawnpoint_index >= spawnpoints.size():
-		printerr("World: function setup: Invalid spawanpoint_index")
-	
-	player = new_player
-	player.reparent(self)
-	player.position = spawnpoints[spawnpoint_index].position
-	
-	for spawnpoint: Node2D in spawnpoints:
-		spawnpoint.hide()
-	for exitpoint: Area2D in exitpoint_to_scenepath.keys():
-		exitpoint.body_entered.connect(_on_exitpoint_body_entered.bind(exitpoint))
-		exitpoint.hide()
-
-	# check if boss is defeated
 	boss_killed_changes()
+	super(new_player, spawnpoint_index)
 
 func spawn_boss():
 	
