@@ -66,6 +66,16 @@ scale = Vector2(0.7890625, 0.6953125)
 color = Color(1, 0.74179614, 0.6298712, 1)
 energy = 0.1
 texture = SubResource("GradientTexture2D_f5dgg")
+texture_scale = 2.2
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-4.7683716e-07, -6)
+scale = Vector2(0.7890625, 0.6953125)
+color = Color(1, 0.74179614, 0.6298712, 1)
+energy = 0.1
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_f5dgg")
+texture_scale = 2.2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

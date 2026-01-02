@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://eg815tvcyvj2"]
+[gd_scene load_steps=3 format=3 uid="uid://eg815tvcyvj2"]
 
 [ext_resource type="Script" uid="uid://d2nayxblnuoi4" path="res://scripts/game/ui/settings.gd" id="1_gp3iv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp3iv"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.14, 0.14, 0.14, 0.3372549)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Settings" type="Control" node_paths=PackedStringArray("background_music_slider", "sound_effect_slider")]
 layout_mode = 3
@@ -14,9 +25,13 @@ background_music_slider = NodePath("PanelContainer/VBoxContainer/background musi
 sound_effect_slider = NodePath("PanelContainer/VBoxContainer/sound effect volume/sound effect HSlider")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 308.0
-offset_bottom = 50.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gp3iv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -45,7 +60,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/sound effect volume"]
 layout_mode = 2
-text = "sound effect volume           "
+text = "sound effect volume      "
 
 [node name="sound effect HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/sound effect volume"]
 layout_mode = 2
