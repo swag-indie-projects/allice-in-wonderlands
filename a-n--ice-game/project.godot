@@ -35,6 +35,10 @@ navigation="Ask @kido._."
 ice_float=""
 ice_block_enemy=""
 
+[gui]
+
+theme/custom_font="uid://clo2m17s3l4tm"
+
 [input]
 
 ui_left={
