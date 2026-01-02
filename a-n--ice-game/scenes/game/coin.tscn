@@ -79,7 +79,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Coin" type="Area2D" node_paths=PackedStringArray("animation", "audio_player")]
+[node name="Coin" type="Area2D" node_paths=PackedStringArray("animation", "audio_player") groups=["coin"]]
 scale = Vector2(2, 2)
 script = ExtResource("2_3qbsy")
 animation = NodePath("AnimatedSprite2D")

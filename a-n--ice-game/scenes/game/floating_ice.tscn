@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7vdrdxkh5ibu" path="res://scripts/game/IceFloat.gd" id="1_vgrgu"]
 [ext_resource type="Texture2D" uid="uid://dyr4d4077l2fd" path="res://assets/tileset/ice_block.png" id="2_bt77n"]
-[ext_resource type="Script" uid="uid://1h21mxrp1xvi" path="res://scenes/game/ice_block_guard.gd" id="3_tapw2"]
+[ext_resource type="Script" uid="uid://1h21mxrp1xvi" path="res://scripts/game/ice_block_guard.gd" id="3_tapw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hgq1"]
 size = Vector2(46, 46)
