@@ -6,11 +6,11 @@ var anim_finished = false
 func enter() -> void:
 	print("Entered state ", state_name)
 	anim_finished = false
-	actor.velocity= Vector2.ZERO
+	actor.velocity = Vector2.ZERO
 	print("TPTP")
 	actor.animation_sprite.play("teleport")
 	# actor.animation_sprite.animation_finished.connect(_on_animation_finished)
-	await get_tree().create_timer(1.0).timeout # 5s delay
+	await get_tree().create_timer(0.7).timeout # 5s delay
 	actor.teleport_random()
 	anim_finished = true
 	

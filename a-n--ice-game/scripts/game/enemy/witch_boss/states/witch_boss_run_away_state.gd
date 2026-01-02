@@ -10,11 +10,11 @@ func enter() -> void:
 	
 	var dirvec = (actor.global_position - Globals.get_game().player.global_position).normalized()
 	if dirvec.dot(Vector2(cos(3*PI/4),sin(3*PI/4))) >= 0 and dirvec.dot(Vector2(cos(1*PI/4), sin(1*PI/4))) >= 0:
-		actor.animation_sprite.play("walk_up")
+		actor.animation_sprite.play("walk_left")
 	elif dirvec.dot(Vector2(cos(PI/4), sin(PI/4))) >= 0 and dirvec.dot(Vector2(cos(7*PI/4), sin(7*PI/4))) >= 0:
 		actor.animation_sprite.play("walk_right")
 	elif dirvec.dot(Vector2(cos(5*PI/4), sin(5*PI/4))) >= 0 and dirvec.dot(Vector2(cos(7*PI/4), sin(7*PI/4))) >= 0:
-		actor.animation_sprite.play("walk_down")
+		actor.animation_sprite.play("walk_right")
 	elif dirvec.dot(Vector2(cos(5*PI/4), sin(5*PI/4))) >= 0 and dirvec.dot(Vector2(cos(3*PI/4), sin(3*PI/4))) >= 0:
 		actor.animation_sprite.play("walk_left")
 

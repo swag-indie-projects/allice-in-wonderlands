@@ -48,6 +48,11 @@ func _process(delta: float) -> void:
 	luck = randf()
 
 func get_hit(amount: int, direction_vector: Vector2) -> void:
+	if HP - amount <= 0:
+		print("dying")
+		Globals.get_game().boss_manager.boss_killed.emit(Constant.Boss_Enum.Witch)
+		arena_world.boss_killed_changes()
+		self.state_machine.change_state(state_machine.state_dictionary[WitchBossStateName.Name.END])
 	if (self.state_machine.current_state == self.state_machine.state_dictionary[WitchBossStateName.Name.TELEPORT]):
 		return
 	dmg_particle.restart()
@@ -55,12 +60,7 @@ func get_hit(amount: int, direction_vector: Vector2) -> void:
 	
 	self.state_machine.change_state(self.state_machine.state_dictionary[WitchBossStateName.Name.TELEPORT])
 	Globals.game.boss_manager.boss_health_ui.update_health.emit(self.HP)
-	if HP - amount <= 0:
-		print("dying")
-		Globals.get_game().boss_manager.boss_killed.emit(Constant.Boss_Enum.Witch)
-		arena_world.boss_killed_changes()
-		self.state_machine.change_state(state_machine.state_dictionary[WitchBossStateName.Name.END])
-		
+	
 	HP -= amount
 
 func emit_summon_particle(position : Vector2):

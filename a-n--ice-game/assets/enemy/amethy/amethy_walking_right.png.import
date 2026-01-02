@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br8cs122hm418"
-path="res://.godot/imported/amethy_walking.png-96d162ab6983fd3b46178b9be661ab18.ctex"
+uid="uid://4mxkt5xj3d13"
+path="res://.godot/imported/amethy_walking_right.png-1d34c5aa02891d817420bd26ff14b610.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/amethy/amethy_walking.png"
-dest_files=["res://.godot/imported/amethy_walking.png-96d162ab6983fd3b46178b9be661ab18.ctex"]
+source_file="res://assets/enemy/amethy/amethy_walking_right.png"
+dest_files=["res://.godot/imported/amethy_walking_right.png-1d34c5aa02891d817420bd26ff14b610.ctex"]
 
 [params]
 
