@@ -49,9 +49,6 @@ func play_world(scene_path: Constant.Paths, spawn_point_index: int) -> void:
 	
 	current_world.exited.connect(_on_world_exited)
 	
-	# TODO: Fix for boss #2
-	if (scene_path == Constant.Paths.PATH_TO_BIOME2_BOSS_ARENA):
-		boss_manager.setup_boss(Constant.Boss_Enum.Witch)
 	current_world.setup(player, spawn_point_index)
 	add_child.call_deferred(current_world)
 	
