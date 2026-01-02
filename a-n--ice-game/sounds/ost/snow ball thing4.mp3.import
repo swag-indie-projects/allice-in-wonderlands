@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckyset3gmjdet"
+path="res://.godot/imported/snow ball thing4.mp3-451f99511da81a9a346e7790917a7fdd.mp3str"
+
+[deps]
+
+source_file="res://sounds/ost/snow ball thing4.mp3"
+dest_files=["res://.godot/imported/snow ball thing4.mp3-451f99511da81a9a346e7790917a7fdd.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=14.8
+bpm=0.0
+beat_count=0
+bar_beats=4

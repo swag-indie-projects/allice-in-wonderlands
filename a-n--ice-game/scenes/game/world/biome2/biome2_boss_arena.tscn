@@ -470,6 +470,9 @@ position = Vector2(186, 143)
 shape = SubResource("RectangleShape2D_g5fac")
 debug_color = Color(0, 0.5950001, 0.7, 0.043137256)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.48398998, 0.46409997, 0.51, 1)
+
 [connection signal="body_entered" from="Start Boss 2 Area" to="Start Boss 2 Area" method="_on_body_entered"]
 [connection signal="body_entered" from="Set Camera Position Trigger" to="Set Camera Position Trigger" method="_on_body_entered"]
 [connection signal="body_exited" from="Set Camera Position Trigger" to="Set Camera Position Trigger" method="_on_body_exited"]

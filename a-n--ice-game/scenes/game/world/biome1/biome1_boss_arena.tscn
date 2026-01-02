@@ -380,14 +380,13 @@ libraries = {
 }
 
 [node name="Set Camera Position Trigger" type="Area2D" parent="." node_paths=PackedStringArray("focal_node2d")]
-position = Vector2(732, 64)
 script = ExtResource("9_sgnsd")
 focal_node2d = NodePath("../arena_box")
 lerp_duration = 2.0
 zoom_scale = 0.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Set Camera Position Trigger"]
-position = Vector2(-316.5, -22.875)
+position = Vector2(417, 41)
 shape = SubResource("RectangleShape2D_ek4x0")
 debug_color = Color(0, 0.5950001, 0.7, 0.043137256)
 

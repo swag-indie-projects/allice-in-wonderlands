@@ -84,3 +84,27 @@ func _on_music__await_timeout() -> void:
 		0.0,
 		2.0
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+const boss_to_song: Dictionary[Constant.Boss_Enum, String] = {
+	Constant.Boss_Enum.Witch: "res://sounds/ost/await for the none5.mp3",
+	Constant.Boss_Enum.Snowball: "res://sounds/ost/snow ball thing4.mp3"
+}
+
+func play_boss_music(boss: Constant.Boss_Enum) -> void:
+	audio_stream_player.stream = load(boss_to_song[boss])
+	audio_stream_player.play()
+	pass
+
+enum Biome {
+	Biome1,
+	Biome2
+}
+
+const biome_to_song: Dictionary[Biome, String] = {
+	Biome.Biome1: "res://sounds/ost/winter.ogg",
+	Biome.Biome2: "res://sounds/ost/path to unknown.mp3"
+}
+
+func stop_playing_boss_music() -> void:
+	audio_stream_player.stream = load(biome_to_song[Biome.Biome1])
+	_on_music__await_timeout()

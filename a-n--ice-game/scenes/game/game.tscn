@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_ui.tscn" id="9_t28dr"]
 [ext_resource type="PackedScene" uid="uid://bcxhfnwdj7ilw" path="res://scenes/game/ui/shop_ui.tscn" id="10_3xj4h"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
-[ext_resource type="Script" path="res://scripts/game/boss_manager.gd" id="13_ftsea"]
+[ext_resource type="Script" uid="uid://c288j07dk6o3x" path="res://scripts/game/boss_manager.gd" id="13_ftsea"]
 
 [sub_resource type="Curve" id="Curve_apjul"]
 _data = [Vector2(0.022727266, 0.9662922), 0.0, 0.0, 0, 0, Vector2(1, 0.79775286), 0.0, 0.0, 0, 0]
@@ -170,10 +170,10 @@ tracks/0/path = NodePath("AudioStreamPlayer2D:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4666667, 1.6333333, 1.7666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.4666667, 1.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, -22.0, -22.0, 0.0]
+"values": [0.0, -22.0, -80.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -182,7 +182,7 @@ tracks/1/path = NodePath("AudioStreamPlayer2D:pitch_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.8),
+"times": PackedFloat32Array(1.6333333),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1.0]
@@ -199,6 +199,7 @@ _data = {
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
 debug_world_scene_path = 15
+debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
 save_manager = NodePath("SaveManager")
@@ -235,7 +236,7 @@ visible = false
 mouse_filter = 2
 
 [node name="death_menu" parent="UI" node_paths=PackedStringArray("on_death_anim_player") instance=ExtResource("3_5jirj")]
-on_death_anim_player = NodePath("../../On Death Anim Player")
+on_death_anim_player = NodePath("../../Audio Stream Anim Player")
 
 [node name="reward_screen" parent="UI" instance=ExtResource("9_otnwt")]
 
@@ -313,7 +314,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_ftsea")
 }
 
-[node name="On Death Anim Player" type="AnimationPlayer" parent="."]
+[node name="Audio Stream Anim Player" type="AnimationPlayer" parent="."]
 process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_uyinl")
