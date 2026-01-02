@@ -20,6 +20,7 @@ var constant_target_position := Vector2.ZERO
 var lerp_start_position := Vector2.ZERO
 var transition_time := 1.0  # 1.0 means "transition complete"
 var lerp_duration: float = 1.0
+var zoom_scale:= 1.0
 
 func _ready() -> void:
 	shaking.connect(_on_shaking)
@@ -30,22 +31,24 @@ func _process(delta: float) -> void:
 		if transition_time < 1.0:
 			transition_time += delta / lerp_duration
 			transition_time = clampf(transition_time, 0.0, 1.0)
-			
 			var t := _cubic_ease_out(transition_time)
+			
 			global_position = lerp_start_position.lerp(constant_target_position, t)
+			zoom = (Vector2.ONE * 3.5).lerp(Vector2.ONE * 3.5 * zoom_scale, t)
 		else:
 			global_position = constant_target_position
+			zoom = Vector2.ONE * 3.5 * zoom_scale
 	else:
-		
 		if transition_time < 1.0:
 			transition_time += delta / lerp_duration
 			transition_time = clampf(transition_time, 0.0, 1.0)
-			
 			var t := _cubic_ease_out(transition_time)
+			
 			global_position = constant_target_position.lerp(player.global_position, t)	
+			zoom = (Vector2.ONE * 3.5 * zoom_scale).lerp(Vector2.ONE * 3.5, t)
 		else:
 			global_position = player.global_position
-	
+			zoom = Vector2.ONE * 3.5	
 	# screen shake stuff
 	if time_left <= 0.0:
 		offset = Vector2.ZERO
@@ -70,11 +73,14 @@ func _on_shaking() -> void:
 
 # Sets the camera to a fixed position
 # Useful for dramatic stuff or boss fights
-func set_constant_position(target: Vector2, custom_lerp_time: float = 1.0) -> void:
+func set_constant_position(target: Vector2, custom_lerp_time:= 1.0, custom_zoom_scale:= 1.0) -> void:
 	use_constant_position = true
 	constant_target_position = target
 	lerp_start_position = global_position
 	transition_time = 0.0
+	
+	zoom_scale = custom_zoom_scale
+	print(custom_zoom_scale)
 	
 	lerp_duration = custom_lerp_time
 

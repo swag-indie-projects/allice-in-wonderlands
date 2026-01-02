@@ -10,8 +10,9 @@
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
 [ext_resource type="Script" uid="uid://cu85s2qhnd1j0" path="res://scripts/game/camera_2d.gd" id="8_kp23o"]
 [ext_resource type="PackedScene" uid="uid://dap05mlt4apea" path="res://scenes/game/ui/boss_health_ui.tscn" id="8_vaxfo"]
+[ext_resource type="PackedScene" uid="uid://dap05mlt4apea" path="res://scenes/game/ui/boss_health_ui.tscn" id="8_vaxfo"]
 [ext_resource type="AudioStream" uid="uid://drvv1ooh2sm3r" path="res://sounds/ost/winter.ogg" id="9_2a8rs"]
-[ext_resource type="PackedScene" path="res://scenes/game/ui/reward_screen.tscn" id="9_otnwt"]
+[ext_resource type="PackedScene" uid="uid://bkbxgw2imymgx" path="res://scenes/game/ui/reward_screen.tscn" id="9_otnwt"]
 [ext_resource type="PackedScene" uid="uid://b3u75osf3k4m4" path="res://scenes/game/ui/player_ui.tscn" id="9_t28dr"]
 [ext_resource type="PackedScene" uid="uid://bcxhfnwdj7ilw" path="res://scenes/game/ui/shop_ui.tscn" id="10_3xj4h"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
@@ -198,7 +199,7 @@ _data = {
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "save_manager", "boss_manager", "ui_animations", "shop_ui", "camera", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 15
+debug_world_scene_path = 11
 debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")

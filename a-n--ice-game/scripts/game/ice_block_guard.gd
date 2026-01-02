@@ -29,4 +29,7 @@ func _process(delta: float) -> void:
 	
 	var overlapping_areas = get_overlapping_areas()
 	
-	duplicated_shape.disabled = overlapping_areas.size() > 0
+	if overlapping_areas.size() > 0:
+		duplicated_shape.disabled = true
+	else:
+		duplicated_shape.disabled = false
