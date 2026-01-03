@@ -1,4 +1,3 @@
-class_name SaveManager
 extends Node
 
 const SAVE_PATH = "user://savegame.tres" # text format for debugging
@@ -19,8 +18,7 @@ func _ready() ->void:
 	default_save_data.HP = Constant.PLAYER_STARTING_HP
 	default_save_data.MAX_HP = Constant.PLAYER_STARTING_HP
 	default_save_data.sword_scale = Constant.PLAYER_STARTING_SWORD_SCALE
-	
-
+	self.load_game()
 
 func save_game() -> void:
 	print("GAME IS SAVING..")
@@ -48,6 +46,7 @@ func load_game() -> void:
 			print("failed to load save, making a new one")
 			current_save = default_save_data
 		
+func load_game_stats() -> void:
 	# setup all the proper UI, etc, etc
 	Globals.game.player.HP = self.current_save.HP
 	Globals.game.player.MAX_HP = self.current_save.MAX_HP

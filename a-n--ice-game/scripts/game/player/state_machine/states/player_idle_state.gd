@@ -15,7 +15,7 @@ func exit() -> void:
 
 func process_frame(_delta: float) -> PlayerStateName.Name:
 	if Input.is_action_just_pressed("mouse_click_right"):
-		if (Globals.game.save_manager.current_save.abilities_collected.get(Constant.Abilities.Freeze)):
+		if (SaveManager.current_save.abilities_collected.get(Constant.Abilities.Freeze)):
 			return PlayerStateName.Name.DO_FREEZE
 	
 	var animation_string: StringName = "idle_" + actor.facing_component.facing_name_dictionary[actor.facing_component.facing]

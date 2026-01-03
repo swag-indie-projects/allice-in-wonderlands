@@ -17,7 +17,7 @@ func _ready() -> void:
 	pass
 
 func is_boss_defeated():
-	return Globals.get_game() and Globals.get_game().save_manager.current_save["bosses_killed"][Constant.Boss_Enum.Snowball]
+	return Globals.get_game() and SaveManager.current_save["bosses_killed"][Constant.Boss_Enum.Snowball]
 
 func setup(new_player: Player, spawnpoint_index: int):
 	boss_killed_changes()

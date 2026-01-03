@@ -9,7 +9,6 @@ class_name Game
 @export var debug_mod: bool = false
 @export var player_ui: PlayerUI
 @export var player_save_tooltip_ui : SavePopupUI
-@export var save_manager : SaveManager
 @export var boss_manager : BossManager
 @export var ui_animations : AnimationPlayer
 @export var shop_ui : ShopUI
@@ -24,8 +23,8 @@ var current_world: World = null
 func _ready() -> void:
 	Globals.game = self
 	player.HP = player.MAX_HP
-	save_manager.load_game() # gets data, and sets up UI, stats, etc..
-	var saved_world : Constant.Paths = save_manager.current_save.spawn
+	SaveManager.load_game_stats()
+	var saved_world : Constant.Paths = SaveManager.current_save.spawn
 	current_biome = Constant.path_info[saved_world][0]
 	if debug_mod:
 		#player.get_node("Camera2D").Zoom.x = 0.5
@@ -43,7 +42,7 @@ func reset_game() -> void:
 	current_world.setup(player, 0)
 	add_child.call_deferred(current_world)
 	get_tree().reload_current_scene()
-	play_world(self.save_manager.current_save.spawn, 0)
+	play_world(SaveManager.current_save.spawn, 0)
 	apply_camera_border_limit()
 
 func play_world(scene_path: Constant.Paths, spawn_point_index: int) -> void:

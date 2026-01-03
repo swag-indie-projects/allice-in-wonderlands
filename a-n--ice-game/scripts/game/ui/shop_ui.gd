@@ -24,24 +24,24 @@ func setup() -> void:
 func _on_maxhpplus_button_pressed() -> void:
 	print("CLICKED!")
 	# check price
-	if (Globals.game.save_manager.current_save.coins >= 20):
-		Globals.game.save_manager.current_save.coins -= 20;
+	if (SaveManager.current_save.coins >= 20):
+		SaveManager.current_save.coins -= 20;
 		# increase global hp
 		Globals.game.player.HP_changed.emit(Globals.game.player.HP+1, Globals.game.player.MAX_HP+1)
-		Globals.game.save_manager.current_save.MAX_HP += 1;
-		Globals.game.player_ui._on_coin_update(Globals.game.save_manager.current_save.coins)
+		SaveManager.current_save.MAX_HP += 1;
+		Globals.game.player_ui._on_coin_update(SaveManager.current_save.coins)
 		# play sound
 		
 
 
 func _on_maxrangeplus_button_pressed() -> void:
 	print("CLICKED!")
-	if (Globals.game.save_manager.current_save.coins >= 20):
-		Globals.game.save_manager.current_save.coins -= 20
+	if (SaveManager.current_save.coins >= 20):
+		SaveManager.current_save.coins -= 20
 		var new_scale = Globals.game.player.sword_swipe.scale.y + 1
 		Globals.game.player.sword_swipe.update_range(new_scale)
-		Globals.game.save_manager.current_save.sword_scale = new_scale
-		Globals.game.player_ui._on_coin_update(Globals.game.save_manager.current_save.coins)
+		SaveManager.current_save.sword_scale = new_scale
+		Globals.game.player_ui._on_coin_update(SaveManager.current_save.coins)
 
 	pass # Replace with function body.
 
