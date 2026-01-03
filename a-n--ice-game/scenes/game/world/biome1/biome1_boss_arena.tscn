@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://durh4w2hyix3c" path="res://scripts/game/biome_1_boss_arena_world.gd" id="1_s5bqf"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_ek4x0"]
-[ext_resource type="Shader" path="res://assets/ui/vs.gdshader" id="3_kxf7d"]
+[ext_resource type="Shader" uid="uid://ciy0gvvny6oji" path="res://assets/ui/vs.gdshader" id="3_kxf7d"]
 [ext_resource type="Texture2D" uid="uid://d1jssxwxnre8q" path="res://assets/ui/snowball_boss_big_boss_icon.png" id="3_qlxro"]
 [ext_resource type="Texture2D" uid="uid://cix4u62jvyfjc" path="res://assets/ui/VS.png" id="4_8rs3m"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="4_qlxro"]
@@ -17,19 +17,19 @@
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_2nrtd"]
 [ext_resource type="Script" uid="uid://c35o6h5drp6vy" path="res://scripts/game/set_camera_position_trigger.gd" id="9_sgnsd"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="10_s5bqf"]
-[ext_resource type="Script" path="res://scripts/game/arena_box.gd" id="11_2nrtd"]
+[ext_resource type="Script" uid="uid://bd6hadag7ntp1" path="res://scripts/game/arena_box.gd" id="11_2nrtd"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="11_r0mky"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="13_n3s17"]
 
 [sub_resource type="Resource" id="Resource_0ihr6"]
 script = ExtResource("2_ek4x0")
-scene_path = 10
+scene_path = 101
 spawnpoint_index = 1
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_gx3pl"]
 script = ExtResource("2_ek4x0")
-scene_path = 16
+scene_path = 1000
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rabp5"]

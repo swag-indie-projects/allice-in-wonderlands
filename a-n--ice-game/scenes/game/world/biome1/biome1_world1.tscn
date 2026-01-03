@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_3x3w6"]
 script = ExtResource("3_o6ox3")
-scene_path = 6
+scene_path = 11
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Curve2D" id="Curve2D_uhydd"]
@@ -160,3 +160,6 @@ type = 1
 [node name="Fridge" parent="." instance=ExtResource("14_okr80")]
 position = Vector2(399, 251)
 spawnpoint = 1
+
+[node name="ISlim2" parent="." instance=ExtResource("9_06jbn")]
+position = Vector2(211, 258)

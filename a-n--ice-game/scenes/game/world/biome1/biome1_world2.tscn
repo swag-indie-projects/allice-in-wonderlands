@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://btv1i2rhqhpvw"]
+[gd_scene load_steps=26 format=4 uid="uid://btv1i2rhqhpvw"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_3q01c"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_is0yn"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cxe20ic4rhmwf" path="res://scenes/game/enemy/ISlim.tscn" id="16_ldu02"]
 [ext_resource type="PackedScene" uid="uid://br5vseyxakyry" path="res://scenes/game/enemy/pissing_goblin.tscn" id="17_3njj1"]
 [ext_resource type="PackedScene" uid="uid://bw680060lr2gw" path="res://scenes/game/hp_shard.tscn" id="18_3njj1"]
+[ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/enemy/pewpew Slime.tscn" id="19_muo48"]
+[ext_resource type="PackedScene" uid="uid://cmpvjyk8ikibt" path="res://scenes/game/enemy/snowball.tscn" id="20_rtwk3"]
 
 [sub_resource type="Resource" id="Resource_0ihr6"]
 script = ExtResource("2_is0yn")
@@ -142,3 +144,18 @@ position = Vector2(138, 68)
 
 [node name="Shard" parent="." instance=ExtResource("18_3njj1")]
 position = Vector2(364, 61)
+
+[node name="Pew Pew" parent="." instance=ExtResource("19_muo48")]
+position = Vector2(365, 64)
+
+[node name="Boar2" parent="." instance=ExtResource("15_l6cnp")]
+position = Vector2(135, 141)
+
+[node name="ISlim3" parent="." instance=ExtResource("16_ldu02")]
+position = Vector2(408, 82)
+
+[node name="ISlim4" parent="." instance=ExtResource("16_ldu02")]
+position = Vector2(397, 197)
+
+[node name="snowball" parent="." instance=ExtResource("20_rtwk3")]
+position = Vector2(249, 193)

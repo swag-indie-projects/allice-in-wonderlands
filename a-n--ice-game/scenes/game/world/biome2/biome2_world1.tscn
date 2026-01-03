@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_x8cl7"]
 script = ExtResource("2_x8cl7")
-scene_path = 13
+scene_path = 22
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oy31y"]
@@ -154,6 +154,7 @@ texture = ExtResource("11_6e3lj")
 shape = SubResource("RectangleShape2D_euadt")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_llcsg")
 
 [node name="IceBlock" parent="." instance=ExtResource("8_dx1cx")]

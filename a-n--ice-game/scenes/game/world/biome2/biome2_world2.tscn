@@ -18,13 +18,13 @@
 
 [sub_resource type="Resource" id="Resource_j2ics"]
 script = ExtResource("2_dwt1r")
-scene_path = 12
+scene_path = 21
 spawnpoint_index = 1
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_50ctb"]
 script = ExtResource("2_dwt1r")
-scene_path = 14
+scene_path = 23
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbflj"]
