@@ -278,7 +278,7 @@ actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_ivpyi"), SubReso
 metadata/_custom_type_script = "uid://lejpa7jtnty8"
 
 [node name="IceBlock2" parent="." instance=ExtResource("11_2arn3")]
-position = Vector2(473, 170)
+position = Vector2(476, 191)
 
 [node name="ActionMoverComponent" type="Node" parent="IceBlock2" node_paths=PackedStringArray("actor")]
 script = ExtResource("11_k0x5u")
@@ -314,7 +314,7 @@ actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_wiw85"), SubReso
 metadata/_custom_type_script = "uid://lejpa7jtnty8"
 
 [node name="IceBlock6" parent="." instance=ExtResource("11_2arn3")]
-position = Vector2(236, 132)
+position = Vector2(239, 118)
 
 [node name="ActionMoverComponent" type="Node" parent="IceBlock6" node_paths=PackedStringArray("actor")]
 script = ExtResource("11_k0x5u")
@@ -323,7 +323,7 @@ actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_l0sux"), SubReso
 metadata/_custom_type_script = "uid://lejpa7jtnty8"
 
 [node name="IceBlock7" parent="." instance=ExtResource("11_2arn3")]
-position = Vector2(154, 216)
+position = Vector2(157, 215)
 
 [node name="ActionMoverComponent" type="Node" parent="IceBlock7" node_paths=PackedStringArray("actor")]
 script = ExtResource("11_k0x5u")
@@ -332,7 +332,7 @@ actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_8rk7u"), SubReso
 metadata/_custom_type_script = "uid://lejpa7jtnty8"
 
 [node name="IceBlock8" parent="." instance=ExtResource("11_2arn3")]
-position = Vector2(154, 166)
+position = Vector2(152, 128)
 
 [node name="ActionMoverComponent" type="Node" parent="IceBlock8" node_paths=PackedStringArray("actor")]
 script = ExtResource("11_k0x5u")

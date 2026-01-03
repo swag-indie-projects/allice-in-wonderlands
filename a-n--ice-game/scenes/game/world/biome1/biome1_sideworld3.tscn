@@ -160,7 +160,7 @@ position = Vector2(281, 332)
 position = Vector2(307, 217)
 
 [node name="Coin" parent="." instance=ExtResource("10_chimv")]
-position = Vector2(492, 86)
+position = Vector2(486, 76)
 
 [node name="Pew Pew2" parent="." instance=ExtResource("8_ippiv")]
 position = Vector2(80, 344)
@@ -208,6 +208,15 @@ shape = SubResource("RectangleShape2D_7jfts")
 
 [node name="Focal Position" type="Node2D" parent="."]
 position = Vector2(481, 604)
+
+[node name="Pew Pew4" parent="." instance=ExtResource("12_fxnbb")]
+position = Vector2(207, 507)
+
+[node name="Pew Pew5" parent="." instance=ExtResource("12_fxnbb")]
+position = Vector2(284, 482)
+
+[node name="Coin4" parent="." instance=ExtResource("10_chimv")]
+position = Vector2(486, 99)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -19,9 +19,9 @@ func setup(new_player: Player, spawnpoint_index: int, spawning_at_fridge:= false
 	player = new_player
 	player.reparent(self)
 	
-	if spawning_at_fridge:
-		var fridge = find_child("Fridge") as Fridge
-		
+	var fridge = find_child("Fridge") as Fridge
+	
+	if fridge != null and spawning_at_fridge:
 		player.position = fridge.global_position + fridge.spawn_dir * 25
 		player.camera.global_position = fridge.global_position
 	else:
