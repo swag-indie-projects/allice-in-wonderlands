@@ -59,7 +59,7 @@ metadata/_custom_type_script = "uid://djhd4y8rg754v"
 [node name="MoveObjectComponent" type="Node" parent="." node_paths=PackedStringArray("pathfollows")]
 script = ExtResource("2_q6no2")
 pathfollows = [NodePath("../Path2D/PathFollow2D"), NodePath("../Path2D2/PathFollow2D")]
-progress_speeds = Array[float]([70.0, 70.0])
+progress_speeds = Array[float]([40.0, 40.0])
 metadata/_custom_type_script = "uid://ci88obq6lyt40"
 
 [node name="base" type="TileMapLayer" parent="."]

@@ -268,7 +268,7 @@ death_particle = NodePath("DeathParticle")
 summon_particle = NodePath("SummonParticle")
 state_machine = NodePath("StateMachine")
 animation_sprite = NodePath("AnimatedSprite2D")
-MAX_HP = 10
+MAX_HP = 20
 animation_component = NodePath("animation component")
 
 [node name="self_shape" type="CollisionShape2D" parent="."]
@@ -348,6 +348,7 @@ script = ExtResource("14_jy3k8")
 
 [node name="ShootProjectileState" type="Node" parent="StateMachine"]
 script = ExtResource("15_yuftj")
+bullet_speed = 100.0
 
 [node name="DestroyIceState" type="Node" parent="StateMachine"]
 script = ExtResource("16_23m8k")
