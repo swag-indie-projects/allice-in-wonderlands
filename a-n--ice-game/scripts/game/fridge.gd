@@ -18,6 +18,7 @@ func _on_area_entered(body) -> void:
 		print("game")
 		if (game):
 			Globals.game.player.HP_changed.emit(Globals.game.player.MAX_HP, Globals.game.player.MAX_HP)
+			
 			SaveManager.update_save_data("spawn", self.spawnpoint)
 			SaveManager.save_game()
 			game.player_save_tooltip_ui.show_save_popup()
