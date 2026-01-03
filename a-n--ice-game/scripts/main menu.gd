@@ -16,7 +16,11 @@ func _ready() -> void:
 		$CanvasLayer/VBoxContainer/lore.text = "Lore!"
 
 func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_packed(game_scene)
+	$AnimationPlayer.play("start_game")
+	
+	$AnimationPlayer.animation_finished.connect(
+		func(name): get_tree().change_scene_to_packed(game_scene)
+	)
 
 func _on_options_pressed() -> void:
 	options.hide()
