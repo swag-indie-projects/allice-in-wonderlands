@@ -19,7 +19,7 @@ func exit() -> void:
 	pass
 
 func set_random_velocity() -> void:
-	accel += 0.1
+	accel += 0.025
 	self.actor.velocity = (Globals.game.player.global_position - self.actor.global_position).normalized() * self.actor.speed * accel
 	print("new velocity:", self.actor.velocity)
 

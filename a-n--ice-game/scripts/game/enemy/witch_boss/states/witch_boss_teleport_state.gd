@@ -13,7 +13,7 @@ func enter() -> void:
 	# actor.animation_sprite.animation_finished.connect(_on_animation_finished)
 	await get_tree().create_timer(1.2).timeout # 5s delay
 	actor.teleport_random()
-	await get_tree().create_timer(1.3).timeout
+	await get_tree().create_timer(0.8).timeout
 	anim_finished = true
 	
 	

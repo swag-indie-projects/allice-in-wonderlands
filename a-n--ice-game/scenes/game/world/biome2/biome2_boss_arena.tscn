@@ -14,8 +14,8 @@
 [ext_resource type="FontFile" uid="uid://clo2m17s3l4tm" path="res://assets/fonts/rainyhearts.ttf" id="6_0adtb"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_5s54w"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_pudkl"]
-[ext_resource type="Script" uid="uid://bd6hadag7ntp1" path="res://scripts/game/arena_box.gd" id="9_pb5jr"]
-[ext_resource type="PackedScene" uid="uid://dewba7wawqi7t" path="res://scenes/game/enemy/pew pew ice block.tscn" id="10_mu2qm"]
+[ext_resource type="Script" path="res://scripts/game/arena_box.gd" id="9_pb5jr"]
+[ext_resource type="PackedScene" uid="uid://dhynn60ywn3kl" path="res://scenes/game/enemy/pew pew ice block.tscn" id="10_mu2qm"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="11_dvd3n"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="14_tp6mg"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="15_lkjq2"]
@@ -517,7 +517,6 @@ shape = SubResource("RectangleShape2D_rpopf")
 debug_color = Color(0, 0.5950001, 0.7, 0.043137256)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.48398998, 0.46409997, 0.51, 1)
 
 [node name="No Witch Allowed" type="StaticBody2D" parent="."]
@@ -544,6 +543,7 @@ shape = SubResource("RectangleShape2D_lkjq2")
 
 [node name="Fridge" parent="." instance=ExtResource("22_0adtb")]
 position = Vector2(411, 272)
+spawnpoint = 202
 
 [connection signal="body_entered" from="Start Boss 2 Area" to="Start Boss 2 Area" method="_on_body_entered"]
 [connection signal="body_entered" from="Set Camera Position Trigger" to="Set Camera Position Trigger" method="_on_body_entered"]

@@ -11,15 +11,22 @@ class_name World
 var player: Player
 signal exited(result: SpawnResult)
 
-func setup(new_player: Player, spawnpoint_index: int):
+func setup(new_player: Player, spawnpoint_index: int, spawning_at_fridge:= false):
 	
 	if spawnpoint_index >= spawnpoints.size():
 		printerr("World: function setup: Invalid spawanpoint_index")
 	
 	player = new_player
 	player.reparent(self)
-	player.position = spawnpoints[spawnpoint_index].position
-	player.camera.global_position = spawnpoints[spawnpoint_index].position
+	
+	if spawning_at_fridge:
+		var fridge = find_child("Fridge") as Fridge
+		
+		player.position = fridge.global_position + fridge.spawn_dir * 25
+		player.camera.global_position = fridge.global_position
+	else:
+		player.position = spawnpoints[spawnpoint_index].position
+		player.camera.global_position = spawnpoints[spawnpoint_index].position
 	
 	# Lowkey don't think this does anything
 	player.camera.on_world_set_up(spawnpoints[spawnpoint_index].position)

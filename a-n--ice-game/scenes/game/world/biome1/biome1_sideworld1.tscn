@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_88w2d"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="11_0r05u"]
 [ext_resource type="PackedScene" uid="uid://dyp5tee4bjs6m" path="res://scenes/game/floating_ice.tscn" id="11_4okpq"]
-[ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/enemy/pewpew Slime.tscn" id="11_o6rfj"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="11_vv3uc"]
 [ext_resource type="Script" uid="uid://ci88obq6lyt40" path="res://scripts/game/components/move_object_component.gd" id="12_bt5nt"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="13_oh0a8"]
+[ext_resource type="PackedScene" uid="uid://31a3vf7ekem" path="res://scenes/game/enemy/snowman.tscn" id="14_88w2d"]
 
 [sub_resource type="Resource" id="Resource_5a3xp"]
 script = ExtResource("2_2s2ke")
@@ -115,9 +115,6 @@ shape = SubResource("CircleShape2D_fhhrb")
 [node name="Coin" parent="." instance=ExtResource("13_oh0a8")]
 position = Vector2(-4, 150)
 
-[node name="Pew Pew" parent="." instance=ExtResource("11_o6rfj")]
-position = Vector2(107, 153)
-
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(311, 194)
 curve = SubResource("Curve2D_o6rfj")
@@ -151,3 +148,6 @@ position = Vector2(0, 1)
 
 [node name="floating ice3" parent="Path2D3/PathFollow2D" node_paths=PackedStringArray("base_overlay_tilemap") instance=ExtResource("11_4okpq")]
 base_overlay_tilemap = NodePath("../../../base_tile_overlay")
+
+[node name="Snowman" parent="." instance=ExtResource("14_88w2d")]
+position = Vector2(81, 139)
