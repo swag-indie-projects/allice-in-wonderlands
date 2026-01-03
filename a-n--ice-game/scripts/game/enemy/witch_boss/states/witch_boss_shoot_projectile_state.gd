@@ -2,7 +2,7 @@ extends WitchBossState
 class_name WitchBossShootProjectileState
 
 
-@export var bullet_speed:= 100.0
+@export var bullet_speed: float
 var anim_finished = false
 
 func spawn_bullet(direction: float) -> void:
@@ -18,7 +18,7 @@ func enter() -> void:
 	print("FIRE IN THE HOLE")
 	anim_finished = false
 	actor.animation_sprite.play("cast")
-
+	
 	for i in range(0, 3):
 		spawn_bullet((Globals.get_game().player.global_position - actor.global_position).angle() + i * PI / 6 - PI / 6)
 	await get_tree().create_timer(0.5).timeout
