@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://daom27lon73h8"]
+[gd_scene load_steps=17 format=3 uid="uid://daom27lon73h8"]
 
 [ext_resource type="Script" uid="uid://cwtec351y5i2q" path="res://scripts/main menu.gd" id="1_yqeox"]
 [ext_resource type="PackedScene" uid="uid://cyi7otpakwjkg" path="res://scenes/game/game.tscn" id="2_vjb58"]
@@ -7,12 +7,40 @@
 [ext_resource type="PackedScene" uid="uid://dsmdpfq0x277" path="res://assets/ui/title_world.tscn" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://ctn8cbrfqlrgu" path="res://assets/ui/pause/abutton.png" id="5_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://bd58jr7aq6r1d" path="res://assets/ui/pause/selected_abutton.png" id="6_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cetgeu5jhc0w3" path="res://assets/ui/lore/lore_background.PNG" id="8_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://pd16pqlbaga4" path="res://assets/ui/lore/amethy_cool.png" id="8_tbmy8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oa1go"]
+font = ExtResource("4_oa1go")
+font_size = 61
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 14
+shadow_color = Color(0.0952, 0.105173334, 0.17, 0.7529412)
+shadow_offset = Vector2(1, 2.815)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dd4i"]
 texture = ExtResource("5_tbmy8")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgwnu"]
 texture = ExtResource("6_jk1qb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tbmy8"]
+texture = ExtResource("5_tbmy8")
+modulate_color = Color(1, 1, 1, 0.5372549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.08416667, 0.081, 0.1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5dd4i"]
+font_size = 17
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flqon"]
+texture = ExtResource("5_tbmy8")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 
 [node name="main menu" type="Node2D" node_paths=PackedStringArray("settings", "options")]
 script = ExtResource("1_yqeox")
@@ -32,6 +60,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -289.0
+offset_top = -184.0
+offset_right = 302.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Allice in Wonderland"
+label_settings = SubResource("LabelSettings_oa1go")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -39,9 +84,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -102.5
-offset_top = -90.0
+offset_top = -94.0
 offset_right = 102.5
-offset_bottom = 90.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -75,9 +120,103 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lgwnu")
 text = " exit "
 
-[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer"]
+[node name="lore" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.28500006, 0.45, 1)
+theme_override_colors/font_disabled_color = Color(0, 0.28500006, 0.45, 0.58431375)
+theme_override_fonts/font = ExtResource("4_oa1go")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxTexture_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lgwnu")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_tbmy8")
+disabled = true
+text = "???"
+
+[node name="LORE" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/LORE"]
+modulate = Color(0.16, 0.16, 0.16, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -130.58826
+offset_top = -40.0
+offset_right = 130.58826
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_jk1qb")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/LORE"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 73.0
+offset_top = -263.3333
+offset_right = 389.0
+offset_bottom = 263.3333
+grow_vertical = 2
+texture = ExtResource("8_tbmy8")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/LORE"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -751.0
+offset_top = -295.5
+offset_right = -32.0
+offset_bottom = 295.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Amethy was born in a small mining village. 
+She was born with a rare disease, her blood was crystal-like, appeared purple, and shimmered like a jewelry. 
+It wasn’t amethyst though it did look one, and in a world filled with a thirst for amethyst, it was dangerous.
+
+A local merchant saw her scrape her knee and assumed the blood was amethyst. He quickly spread the rumor that the child was made out of pure amethyst.
+
+Her parents tried to hide Amethy away but got killed for doing so.
+No matter how much her parents explained to the hunters, no one listened to them.
+
+She fled to a forest where no one could find her, and used her magic to create creatures that protected her from any potential hunters that tried to track her down. 
+
+Though years of isolation started to make her believe that she is made out of amethyst. She became obsessed with the myth that if an ice crystal and amethyst melted together, it can create a wish.
+
+With that wish, she could become normal, and truly be safe..."
+label_settings = SubResource("LabelSettings_5dd4i")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Leave" type="Button" parent="CanvasLayer/LORE"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_top = 4.0
+offset_right = -3.0
+offset_bottom = 33.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0.21333328, 0.32, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_flqon")
+text = "X"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/start game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/lore" to="." method="_on_lore_pressed"]
+[connection signal="pressed" from="CanvasLayer/LORE/Leave" to="." method="_on_lore_leave_pressed"]
