@@ -41,7 +41,7 @@ func _on_healthbar_update(HP: int, _max_HP: int) -> void:
 		if (i >= children.size()):
 			var new_hp_texture : TextureRect = TextureRect.new()
 			HP_HBox.add_child(new_hp_texture)
-			new_hp_texture.custom_minimum_size = Vector2(50, 50)  # Adjust to your desired shard size
+			new_hp_texture.custom_minimum_size = Vector2(70, 70)  # Adjust to your desired shard size
 			new_hp_texture.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			new_hp_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE  # Or EXPAND_KEEP_SIZE if you want min size enforced by texture
 			
