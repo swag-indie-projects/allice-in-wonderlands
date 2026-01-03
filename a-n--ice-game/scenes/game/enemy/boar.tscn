@@ -194,6 +194,7 @@ _data = {
 
 [node name="Boar" type="CharacterBody2D" node_paths=PackedStringArray("player_detection_box", "dash_detection_box", "animation", "health_bar", "dash_animation", "knockback_component", "animation_component")]
 collision_layer = 7
+collision_mask = 97
 script = ExtResource("1_scd7v")
 player_detection_box = NodePath("player_detection_box")
 dash_detection_box = NodePath("dash_box")

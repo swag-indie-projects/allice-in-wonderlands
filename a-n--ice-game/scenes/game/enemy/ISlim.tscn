@@ -54,6 +54,7 @@ animations = [{
 
 [node name="ISlim" type="CharacterBody2D" node_paths=PackedStringArray("detection_box", "animation", "health_bar", "knockback_component", "animation_component")]
 collision_layer = 7
+collision_mask = 97
 script = ExtResource("1_s4mds")
 detection_box = NodePath("detection_box")
 speed = 40.0

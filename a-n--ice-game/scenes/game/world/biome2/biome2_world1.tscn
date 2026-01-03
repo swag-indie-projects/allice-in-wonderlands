@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://vw4kqkap01sm" path="res://scenes/game/enemy/ice block.tscn" id="8_dx1cx"]
 [ext_resource type="Script" uid="uid://lejpa7jtnty8" path="res://scripts/game/components/enemy_mover_component.gd" id="9_hbx7r"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_qegr5"]
-[ext_resource type="Script" uid="uid://bsousmcw248gs" path="res://scripts/game/datatype (tuple)/move_action.gd" id="10_pc0qc"]
+[ext_resource type="Script" path="res://scripts/game/datatype (tuple)/move_action.gd" id="10_pc0qc"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="11_6e3lj"]
 [ext_resource type="PackedScene" uid="uid://bcx07kjyvj8kr" path="res://scenes/game/enemy/pewpew Slime.tscn" id="11_xd7uw"]
 [ext_resource type="PackedScene" uid="uid://cmpvjyk8ikibt" path="res://scenes/game/enemy/snowball.tscn" id="12_xa44q"]
@@ -203,6 +203,7 @@ position = Vector2(113, 56)
 
 [node name="Fridge" parent="." instance=ExtResource("14_xa44q")]
 position = Vector2(519, 150)
+spawnpoint = 21
 
 [node name="Coin" parent="." instance=ExtResource("15_sgb5i")]
 position = Vector2(548, 80)

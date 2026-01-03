@@ -58,6 +58,7 @@ animations = [{
 
 [node name="Pew Pew" type="CharacterBody2D" node_paths=PackedStringArray("player_detection_box", "avoidance_box", "hysteresis", "animation", "health_bar", "projectile_animation", "knockback_component", "animation_component")]
 collision_layer = 7
+collision_mask = 97
 script = ExtResource("1_1iby1")
 player_detection_box = NodePath("detection_box")
 avoidance_box = NodePath("avoidance_hitbox")
