@@ -1,7 +1,7 @@
 extends Node
 
 const PLAYER_STARTING_HP: int = 5
-const PLAYER_STARTING_COINS : int = 60
+const PLAYER_STARTING_COINS : int = 0
 const PLAYER_STARTING_SWORD_SCALE : int = 1
 # I have to include this because otherwise I will be creating circular dependency.
 # So from now on, everytime when the path is changed you have to manually change it here
