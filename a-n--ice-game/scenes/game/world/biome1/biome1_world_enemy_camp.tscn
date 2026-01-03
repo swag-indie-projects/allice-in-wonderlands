@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://c2liotbx2xl72"]
+[gd_scene load_steps=36 format=4 uid="uid://c2liotbx2xl72"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_ctgmr"]
 [ext_resource type="Script" uid="uid://dkhpifov51nlj" path="res://scripts/game/datatype (tuple)/spawn_result.gd" id="2_1eg10"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="17_5lvj4"]
 [ext_resource type="PackedScene" uid="uid://cmpvjyk8ikibt" path="res://scenes/game/enemy/snowball.tscn" id="22_5lvj4"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="23_kinlv"]
+[ext_resource type="PackedScene" uid="uid://31a3vf7ekem" path="res://scenes/game/enemy/snowman.tscn" id="26_el4pc"]
+[ext_resource type="PackedScene" uid="uid://b271u57fesgfn" path="res://scenes/game/enemy/pew_pew_harder.tscn" id="27_5l4sk"]
 
 [sub_resource type="Resource" id="Resource_1eg10"]
 script = ExtResource("2_1eg10")
@@ -34,12 +36,12 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_5lvj4"]
 script = ExtResource("2_1eg10")
-scene_path = 11
+scene_path = 201
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_kinlv"]
 script = ExtResource("2_1eg10")
-scene_path = 7
+scene_path = 12
 spawnpoint_index = 1
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
@@ -161,7 +163,6 @@ texture = ExtResource("12_1eg10")
 shape = SubResource("RectangleShape2D_gl6e7")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_y4mbo")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -265,3 +266,57 @@ position = Vector2(197, -18)
 
 [node name="Fridge" parent="." instance=ExtResource("23_kinlv")]
 position = Vector2(-467, 144)
+
+[node name="Weeping Tree3" parent="." instance=ExtResource("14_suiii")]
+position = Vector2(417, 426)
+
+[node name="Coin7" parent="." instance=ExtResource("17_5lvj4")]
+position = Vector2(81, 392)
+
+[node name="Coin8" parent="." instance=ExtResource("17_5lvj4")]
+position = Vector2(193, 482)
+
+[node name="Coin9" parent="." instance=ExtResource("17_5lvj4")]
+position = Vector2(376, 293)
+
+[node name="Coin10" parent="." instance=ExtResource("17_5lvj4")]
+position = Vector2(342, 377)
+
+[node name="Weeping Tree4" parent="." instance=ExtResource("14_suiii")]
+position = Vector2(239, 368)
+
+[node name="Pew Pew5" parent="." instance=ExtResource("13_y4mbo")]
+position = Vector2(114, -22)
+
+[node name="Snowman" parent="." instance=ExtResource("26_el4pc")]
+position = Vector2(20, 106)
+
+[node name="Coin11" parent="." instance=ExtResource("17_5lvj4")]
+position = Vector2(-49, 433)
+
+[node name="Pew Pew Harder" parent="." instance=ExtResource("27_5l4sk")]
+position = Vector2(-134, 348)
+
+[node name="ISlim5" parent="." instance=ExtResource("12_30ji8")]
+position = Vector2(-120, 285)
+
+[node name="ISlim6" parent="." instance=ExtResource("12_30ji8")]
+position = Vector2(-176, 319)
+
+[node name="Coin12" parent="." instance=ExtResource("17_5lvj4")]
+position = Vector2(-358, 200)
+
+[node name="Coin13" parent="." instance=ExtResource("17_5lvj4")]
+position = Vector2(-239, 183)
+
+[node name="Coin14" parent="." instance=ExtResource("17_5lvj4")]
+position = Vector2(-335, -92)
+
+[node name="Coin15" parent="." instance=ExtResource("17_5lvj4")]
+position = Vector2(-307, 7)
+
+[node name="Weeping Tree5" parent="." instance=ExtResource("14_suiii")]
+position = Vector2(-267, -1)
+
+[node name="ISlim7" parent="." instance=ExtResource("12_30ji8")]
+position = Vector2(-228, -22)

@@ -196,7 +196,8 @@ _data = {
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "boss_manager", "ui_animations", "shop_ui", "camera", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 3
+debug_world_scene_path = 4
+debug_spawn_point_index = 1
 debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
@@ -229,7 +230,6 @@ z_as_relative = false
 z_as_relative = false
 
 [node name="get hit ui" parent="UI" instance=ExtResource("6_4j704")]
-visible = false
 mouse_filter = 2
 
 [node name="death_menu" parent="UI" node_paths=PackedStringArray("on_death_anim_player") instance=ExtResource("3_5jirj")]
