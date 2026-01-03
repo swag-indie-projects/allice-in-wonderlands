@@ -14,7 +14,7 @@ var is_invincible: bool
 @export var facing_component: FacingComponent
 
 @export var sword_swipe: SwordSwipe
-
+@export var sword_swipe_timer : Timer
 @export var animation: AnimatedSprite2D
 
 @export var get_hit_ui: GetHitUI
@@ -27,6 +27,7 @@ var is_invincible: bool
 @export var dash_state: PlayerDashState
 
 signal HP_changed(HP: int, max_HP: int)
+@onready var swipeable : bool = true
 
 func _ready() -> void:
 	self.HP_changed.connect(_on_player_HP_changed)
@@ -58,7 +59,10 @@ func _physics_process(delta: float) -> void:
 	state_machine.process_physics_frame(delta)
 	
 	if Input.is_action_just_pressed("mouse_click"):
-		sword_swipe.swipe()
+		if swipeable:
+			swipeable = false
+			sword_swipe.swipe()
+			sword_swipe_timer.start()
 		
 	# For invincibility frames
 	if is_invincible:
@@ -92,3 +96,6 @@ func _on_invincibility_timeout() -> void:
 	is_invincible = false
 	animation.visible = true
 	
+
+func _on_swipe_timer_timeout() -> void:
+	self.swipeable = true
