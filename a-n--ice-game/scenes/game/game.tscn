@@ -196,7 +196,7 @@ _data = {
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "boss_manager", "ui_animations", "shop_ui", "camera", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 4
+debug_world_scene_path = 202
 debug_spawn_point_index = 1
 debug_mod = true
 player_ui = NodePath("UI/player_ui")
