@@ -20,6 +20,8 @@ class_name Game
 var current_biome : Constant.Biome
 var current_world: World = null
 
+var first_load = true
+
 func _ready() -> void:
 	Globals.game = self
 	player.HP = player.MAX_HP
@@ -33,7 +35,8 @@ func _ready() -> void:
 		
 		play_world(debug_world_scene_path, debug_spawn_point_index) # make louder
 	else:
-		play_world(saved_world, 0)
+		play_world(saved_world, 0, first_load)
+		first_load = false
 	play_biome_music()
 
 func reset_game() -> void:
@@ -42,11 +45,11 @@ func reset_game() -> void:
 	current_world.setup(player, 0)
 	add_child.call_deferred(current_world)
 	get_tree().reload_current_scene()
-	play_world(SaveManager.current_save.spawn, 0)
+	play_world(SaveManager.current_save.spawn, 0, true)
 	apply_camera_border_limit()
 
-func play_world(scene_path: Constant.Paths, spawn_point_index: int) -> void:
-	print(scene_path)
+func play_world(scene_path: Constant.Paths, spawn_point_index: int, spawning_at_fridge:= false) -> void:
+	print("SPAWNING AT FRIDGE", spawning_at_fridge)
 	var scene: PackedScene = load(Constant.path_info[scene_path][1])
 	if (current_biome != Constant.path_info[scene_path][0]):
 		current_biome = Constant.path_info[scene_path][0]
@@ -63,7 +66,7 @@ func play_world(scene_path: Constant.Paths, spawn_point_index: int) -> void:
 	
 	current_world.exited.connect(_on_world_exited)
 	
-	current_world.setup(player, spawn_point_index)
+	current_world.setup(player, spawn_point_index, spawning_at_fridge)
 	add_child.call_deferred(current_world)
 	
 	apply_camera_border_limit()
