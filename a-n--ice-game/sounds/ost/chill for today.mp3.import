@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2ghws3ka4f2g"
+path="res://.godot/imported/chill for today.mp3-e57f05a80573d56a8818a3d6966f0441.mp3str"
+
+[deps]
+
+source_file="res://sounds/ost/chill for today.mp3"
+dest_files=["res://.godot/imported/chill for today.mp3-e57f05a80573d56a8818a3d6966f0441.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

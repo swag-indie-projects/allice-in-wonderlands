@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://daom27lon73h8"]
+[gd_scene load_steps=18 format=3 uid="uid://daom27lon73h8"]
 
 [ext_resource type="Script" uid="uid://cwtec351y5i2q" path="res://scripts/main menu.gd" id="1_yqeox"]
 [ext_resource type="PackedScene" uid="uid://cyi7otpakwjkg" path="res://scenes/game/game.tscn" id="2_vjb58"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bd58jr7aq6r1d" path="res://assets/ui/pause/selected_abutton.png" id="6_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://cetgeu5jhc0w3" path="res://assets/ui/lore/lore_background.PNG" id="8_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://pd16pqlbaga4" path="res://assets/ui/lore/amethy_cool.png" id="8_tbmy8"]
+[ext_resource type="AudioStream" uid="uid://b2ghws3ka4f2g" path="res://sounds/ost/chill for today.mp3" id="10_5dd4i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oa1go"]
 font = ExtResource("4_oa1go")
@@ -214,6 +215,11 @@ grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0.21333328, 0.32, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_flqon")
 text = "X"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_5dd4i")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/start game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/options" to="." method="_on_options_pressed"]
