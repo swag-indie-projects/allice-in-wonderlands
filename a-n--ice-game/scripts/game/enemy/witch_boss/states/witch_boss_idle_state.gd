@@ -31,7 +31,7 @@ func process_physics_frame(delta: float) -> WitchBossStateName.Name:
 			if ( self.actor.count_spawns() <= 6):
 				return WitchBossStateName.Name.SPAWN_ENEMY
 			else:
-				return  WitchBossStateName.Name.RUN_AWAY
+				return WitchBossStateName.Name.RUN_AWAY
 		else:
 			if self.actor.luck <= 0.333 and self.actor.count_spawns() <= 10:
 				return WitchBossStateName.Name.SPAWN_ENEMY

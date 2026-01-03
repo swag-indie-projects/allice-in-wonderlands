@@ -35,7 +35,7 @@ height = 18.0
 offsets = PackedFloat32Array(0.28061223, 0.61734694, 0.85714287, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.36, 0.74399996, 1, 1, 0, 0.3439999, 0.86, 1, 0, 0.3439999, 0.86, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_l6sfu"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_crddm"]
 gradient = SubResource("Gradient_crddm")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ypbg1"]
@@ -48,15 +48,17 @@ angular_velocity_max = 89.999985
 gravity = Vector3(0, 43.45, 0)
 linear_accel_min = -11.110002
 linear_accel_max = 0.84999776
-color_ramp = SubResource("GradientTexture1D_l6sfu")
+color_ramp = SubResource("GradientTexture1D_crddm")
 hue_variation_min = -0.06000002
 hue_variation_max = -2.2351742e-08
 
 [node name="IceBlock" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation", "knockback_component", "animation_component") groups=["ice_block_enemy"]]
+collision_mask = 97
+motion_mode = 1
 script = ExtResource("1_bmi10")
 health_bar = NodePath("ProgressBar")
 animation = NodePath("AnimatedSprite2D")
-MAX_HP = 5
+MAX_HP = 3
 knockback_component = NodePath("knockback component")
 animation_component = NodePath("AnimationComponent")
 
