@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dewba7wawqi7t"]
+[gd_scene load_steps=11 format=3 uid="uid://dhynn60ywn3kl"]
 
 [ext_resource type="Script" path="res://scripts/game/enemy/pew_pew_ice_block.gd" id="1_eknk8"]
 [ext_resource type="PackedScene" uid="uid://rouf1jakkebt" path="res://scenes/game/projectiles/snowball_projectile.tscn" id="2_os3k8"]
@@ -31,7 +31,7 @@ radius = 7.0
 height = 18.0
 
 [node name="pew pew IceBlock" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation", "knockback_component", "animation_component") groups=["enemy"]]
-collision_mask = 512
+collision_mask = 608
 script = ExtResource("1_eknk8")
 health_bar = NodePath("ProgressBar")
 animation = NodePath("AnimatedSprite2D")

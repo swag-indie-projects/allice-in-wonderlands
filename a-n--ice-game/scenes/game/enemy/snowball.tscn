@@ -105,6 +105,7 @@ scale_curve = SubResource("CurveTexture_kkhfq")
 
 [node name="snowball" type="CharacterBody2D" node_paths=PackedStringArray("detection_box", "animation", "health_bar", "death_particle", "knockback_component", "animation_component")]
 collision_layer = 7
+collision_mask = 97
 script = ExtResource("1_1orvf")
 detection_box = NodePath("detection_box")
 speed = 80.0
