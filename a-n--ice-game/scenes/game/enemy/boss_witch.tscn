@@ -571,6 +571,7 @@ script = ExtResource("14_jy3k8")
 
 [node name="ShootProjectileState" type="Node" parent="StateMachine"]
 script = ExtResource("15_yuftj")
+bullet_speed = 100.0
 
 [node name="DestroyIceState" type="Node" parent="StateMachine"]
 script = ExtResource("16_23m8k")
