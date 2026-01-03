@@ -9,7 +9,9 @@ func enter() -> void:
 	print("Crush all ice")
 	actor.animation_sprite.play("cast")
 	var world: World = Globals.get_game().current_world
-	for ice in world.get_tree().get_nodes_in_group("ice_float"):
+	for ice : IceFloat in world.get_tree().get_nodes_in_group("ice_float"):
+		if (ice.mounted_player is Player):
+			ice.mounted_player.global_position = self.actor.teleportation_points[randi() % 4].global_position
 		
 		ice.queue_free()
 	await get_tree().create_timer(1.0).timeout # 5s delay
