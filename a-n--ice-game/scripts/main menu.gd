@@ -6,6 +6,7 @@ extends Node2D
 
 func _ready() -> void:
 	settings.quit.connect(_on_settings_quit)
+	
 
 func _on_start_game_pressed() -> void:
 	get_tree().change_scene_to_packed(game_scene)
