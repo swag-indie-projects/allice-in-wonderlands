@@ -48,3 +48,15 @@ func _on_lore_pressed() -> void:
 
 func _on_lore_leave_pressed() -> void:
 	$CanvasLayer/LORE.visible = false
+
+
+func _on_delete_pressed() -> void:
+	
+	DirAccess.remove_absolute("user://savegame.tres")
+	SaveManager._ready()
+	
+	var old_text = $CanvasLayer/VBoxContainer/delete.text
+	$CanvasLayer/VBoxContainer/delete.text = "Deleted!"
+	await get_tree().create_timer(1).timeout
+	$CanvasLayer/VBoxContainer/delete.text = old_text
+	
