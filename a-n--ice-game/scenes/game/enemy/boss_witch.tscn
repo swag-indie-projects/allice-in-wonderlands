@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dyj1bi67sn66h"]
+[gd_scene load_steps=51 format=3 uid="uid://dyj1bi67sn66h"]
 
 [ext_resource type="Script" uid="uid://12paoiy8rnpv" path="res://scripts/game/enemy/witch_boss/witch_boss_enemy.gd" id="1_djmgc"]
 [ext_resource type="Texture2D" uid="uid://dv2c3el2dyob0" path="res://assets/enemy/amethy/amethy_attack.png" id="2_40evf"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="15_7tjmh"]
 [ext_resource type="Script" uid="uid://yjmcgi2sg562" path="res://scripts/game/enemy/witch_boss/states/witch_boss_shoot_projectile_state.gd" id="15_yuftj"]
 [ext_resource type="Script" uid="uid://bjl4myiaosktm" path="res://scripts/game/enemy/witch_boss/states/witch_boss_destroy_ice_state.gd" id="16_23m8k"]
+[ext_resource type="Texture2D" uid="uid://sllat2rhkysm" path="res://assets/misc/light.png" id="17_abapv"]
 [ext_resource type="Script" uid="uid://drdbo7le6cwn1" path="res://scripts/game/enemy/witch_boss/states/witch_boss_teleport_state.gd" id="17_odb5q"]
 [ext_resource type="Script" uid="uid://dsmjkloogj50" path="res://scripts/game/enemy/witch_boss/states/witch_boss_end_state.gd" id="18_p7rmy"]
 
@@ -152,7 +153,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"cast",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -163,7 +164,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -278,7 +279,7 @@ debug_color = Color(0.9744286, 0, 0.43028787, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qhcmp")
-animation = &"cast"
+animation = &"walk_left"
 
 [node name="self_hitbox" type="Area2D" parent="."]
 position = Vector2(0.83532166, 0.60993576)
@@ -357,3 +358,13 @@ script = ExtResource("17_odb5q")
 
 [node name="EndState" type="Node" parent="StateMachine"]
 script = ExtResource("18_p7rmy")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("17_abapv")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("17_abapv")

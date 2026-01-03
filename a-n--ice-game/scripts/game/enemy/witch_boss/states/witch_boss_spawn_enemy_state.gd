@@ -10,7 +10,7 @@ func enter() -> void:
 	actor.animation_sprite.play("cast")
 	# spawn enemy
 	var dirvec = (Globals.get_game().player.global_position - actor.global_position).normalized() * actor.speed
-	var enemyscene = preload("res://scenes/game/enemy/ice block.tscn")
+	var enemyscene = preload("res://scenes/game/enemy/summoned ice block.tscn")
 	var enemy : Enemy = enemyscene.instantiate()
 	var rand_pos = actor.teleportation_points[randi()%4]
 	enemy.global_position = rand_pos.global_position + dirvec/2
