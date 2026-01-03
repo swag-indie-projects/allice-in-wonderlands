@@ -17,13 +17,13 @@
 
 [sub_resource type="Resource" id="Resource_64plo"]
 script = ExtResource("2_be566")
-scene_path = 8
+scene_path = 13
 spawnpoint_index = 2
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_om4ew"]
 script = ExtResource("2_be566")
-scene_path = 6
+scene_path = 11
 spawnpoint_index = 1
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 

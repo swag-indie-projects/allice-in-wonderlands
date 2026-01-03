@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://chd7h61271cbb"]
+[gd_scene load_steps=48 format=4 uid="uid://chd7h61271cbb"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_1ufbh"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_3ogbq"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="11_lwvoh"]
 [ext_resource type="Script" uid="uid://bsousmcw248gs" path="res://scripts/game/datatype (tuple)/move_action.gd" id="12_b35f0"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="14_b35f0"]
+[ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="19_j1goc"]
 
 [sub_resource type="Resource" id="Resource_2nyws"]
 script = ExtResource("2_nlqlx")
@@ -27,7 +28,7 @@ metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="Resource" id="Resource_aj2hh"]
 script = ExtResource("2_nlqlx")
-scene_path = 15
+scene_path = 202
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ogdq"]
@@ -244,7 +245,7 @@ position = Vector2(393, 212)
 position = Vector2(520, 154)
 
 [node name="IceBlock" parent="." instance=ExtResource("11_2arn3")]
-position = Vector2(393, 88)
+position = Vector2(372, 85)
 
 [node name="ActionMoverComponent" type="Node" parent="IceBlock" node_paths=PackedStringArray("actor")]
 script = ExtResource("11_k0x5u")
@@ -253,7 +254,7 @@ actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_ivpyi"), SubReso
 metadata/_custom_type_script = "uid://lejpa7jtnty8"
 
 [node name="IceBlock2" parent="." instance=ExtResource("11_2arn3")]
-position = Vector2(468, 170)
+position = Vector2(473, 170)
 
 [node name="ActionMoverComponent" type="Node" parent="IceBlock2" node_paths=PackedStringArray("actor")]
 script = ExtResource("11_k0x5u")
@@ -262,7 +263,7 @@ actions = Array[ExtResource("12_b35f0")]([SubResource("Resource_b35f0"), SubReso
 metadata/_custom_type_script = "uid://lejpa7jtnty8"
 
 [node name="IceBlock3" parent="." instance=ExtResource("11_2arn3")]
-position = Vector2(523, 218)
+position = Vector2(519, 217)
 
 [node name="ActionMoverComponent" type="Node" parent="IceBlock3" node_paths=PackedStringArray("actor")]
 script = ExtResource("11_k0x5u")
@@ -476,3 +477,6 @@ position = Vector2(250, 84)
 bullet_speed = 160.0
 bullet_direction = 2.356
 shoot_timer_interval = 0.5
+
+[node name="Fridge" parent="." instance=ExtResource("19_j1goc")]
+position = Vector2(506, 64)

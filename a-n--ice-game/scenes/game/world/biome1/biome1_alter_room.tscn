@@ -14,7 +14,7 @@
 
 [sub_resource type="Resource" id="Resource_x0w58"]
 script = ExtResource("2_65i8j")
-scene_path = 11
+scene_path = 201
 spawnpoint_index = 1
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 

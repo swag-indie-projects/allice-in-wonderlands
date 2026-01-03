@@ -19,12 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="11_dvd3n"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="14_tp6mg"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="15_lkjq2"]
-[ext_resource type="Script" path="res://scenes/game/world/biome1/start_boss_2.gd" id="17_hbu7b"]
+[ext_resource type="Script" uid="uid://b5n8fla7iy00q" path="res://scenes/game/world/biome1/start_boss_2.gd" id="17_hbu7b"]
 [ext_resource type="Script" uid="uid://c35o6h5drp6vy" path="res://scripts/game/set_camera_position_trigger.gd" id="18_rpopf"]
 
 [sub_resource type="Resource" id="Resource_0adtb"]
 script = ExtResource("2_lkjq2")
-scene_path = 14
+scene_path = 23
 spawnpoint_index = 1
 metadata/_custom_type_script = "uid://dkhpifov51nlj"
 

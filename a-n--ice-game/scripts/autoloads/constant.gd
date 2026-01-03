@@ -36,30 +36,31 @@ const biome_to_song: Dictionary[Biome, String] = {
 }
 
 enum Paths {
-	PATH_TO_STARTING_WORLD, 
-	PATH_TO_BIOME1_WORLD1,
-	PATH_TO_BIOME1_WORLD2,
-	PATH_TO_BIOME1_WORLD3,
-	PATH_TO_BIOME1_WORLD4,
-	PATH_TO_BIOME1_WORLD5,
+	PATH_TO_STARTING_WORLD = 0,
+	PATH_TO_BIOME1_WORLD1 = 1,
+	PATH_TO_BIOME1_WORLD2 = 2,
+	PATH_TO_BIOME1_WORLD3 = 3,
+	PATH_TO_BIOME1_WORLD4 = 4,
 	
-	PATH_TO_BIOME1_SIDEWORLD1,
-	PATH_TO_BIOME1_SIDEWORLD2,
-	PATH_TO_BIOME1_SIDEWORLD3,
-	PATH_TO_BIOME1_SIDEWORLD4,
+	PATH_TO_BIOME1_SIDEWORLD1 = 11,
+	PATH_TO_BIOME1_SIDEWORLD2 = 12,
+	PATH_TO_BIOME1_SIDEWORLD3 = 13,
+	PATH_TO_BIOME1_SIDEWORLD4 = 14,
 	
-	PATH_TO_BIOME1_ENEMY_BASE,
-	PATH_TO_BIOME1_BOSS_ARENA,
+	PATH_TO_BIOME1_ENEMY_BASE = 101,
+	PATH_TO_BIOME1_BOSS_ARENA = 201,
 	
-	PATH_TO_BIOME2_WORLD1,
-	PATH_TO_BIOME2_WORLD2,
-	PATH_TO_BIOME2_WORLD3,
-	PATH_TO_BIOME2_BOSS_ARENA,
+	PATH_TO_BIOME2_WORLD1 = 21,
+	PATH_TO_BIOME2_WORLD2 = 22,
+	PATH_TO_BIOME2_WORLD3 = 23,
+	PATH_TO_BIOME2_SIDEWORLD1 = 31,
+	PATH_TO_BIOME2_SIDEWORLD2 = 32,
+	PATH_TO_BIOME2_BOSS_ARENA = 202,
 	
-	PATH_TO_BIOME1_ALTER_ROOM,
-	PATH_TO_BIOME2_ALTER_ROOM,
+	PATH_TO_BIOME1_ALTER_ROOM = 1000,
+	PATH_TO_BIOME2_ALTER_ROOM = 1001,
 	
-	PATH_TO_TEST_SCENE,
+	PATH_TO_TEST_SCENE = 9999,
 }
 
 const boss_to_song: Dictionary[Constant.Boss_Enum, String] = {
@@ -69,30 +70,33 @@ const boss_to_song: Dictionary[Constant.Boss_Enum, String] = {
 
 
 var path_info: Dictionary[Paths, Array] = {
-	Paths.PATH_TO_STARTING_WORLD: [Biome.Biome1,"res://scenes/game/world/biome1/starting_world.tscn"],
-	Paths.PATH_TO_BIOME1_WORLD1: [Biome.Biome1,"res://scenes/game/world/biome1/biome1_world1.tscn",],
-	Paths.PATH_TO_BIOME1_WORLD2: [Biome.Biome1,"res://scenes/game/world/biome1/biome1_world2.tscn"],
-	Paths.PATH_TO_BIOME1_WORLD3: [Biome.Biome1,"res://scenes/game/world/biome1/biome1_world3.tscn"],
+	Paths.PATH_TO_STARTING_WORLD: [Biome.Biome1, "res://scenes/game/world/biome1/starting_world.tscn"],
+
+	Paths.PATH_TO_BIOME1_WORLD1: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_world1.tscn"],
+	Paths.PATH_TO_BIOME1_WORLD2: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_world2.tscn"],
+	Paths.PATH_TO_BIOME1_WORLD3: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_world3.tscn"],
 	Paths.PATH_TO_BIOME1_WORLD4: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_world4.tscn"],
-		
+
 	Paths.PATH_TO_BIOME1_SIDEWORLD1: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_sideworld1.tscn"],
 	Paths.PATH_TO_BIOME1_SIDEWORLD2: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_sideworld2.tscn"],
 	Paths.PATH_TO_BIOME1_SIDEWORLD3: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_sideworld3.tscn"],
-	Paths.PATH_TO_BIOME1_SIDEWORLD4: [Biome.Biome1,"res://scenes/game/world/biome1/biome1_sideworld4.tscn"],
-	
-	Paths.PATH_TO_BIOME1_ENEMY_BASE: [ Biome.Biome1, "res://scenes/game/world/biome1/biome1_world_enemy_camp.tscn"],
-	Paths.PATH_TO_BIOME1_BOSS_ARENA : [Biome.Biome1,"res://scenes/game/world/biome1/biome1_boss_arena.tscn"],
-	
-	Paths.PATH_TO_BIOME1_ALTER_ROOM: [Biome.Biome1,"res://scenes/game/world/biome1/biome1_alter_room.tscn"],
-	
+	Paths.PATH_TO_BIOME1_SIDEWORLD4: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_sideworld4.tscn"],
+
+	Paths.PATH_TO_BIOME1_ENEMY_BASE: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_world_enemy_camp.tscn"],
+	Paths.PATH_TO_BIOME1_BOSS_ARENA: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_boss_arena.tscn"],
+	Paths.PATH_TO_BIOME1_ALTER_ROOM: [Biome.Biome1, "res://scenes/game/world/biome1/biome1_alter_room.tscn"],
+
 	Paths.PATH_TO_BIOME2_WORLD1: [Biome.Biome2, "res://scenes/game/world/biome2/biome2_world1.tscn"],
 	Paths.PATH_TO_BIOME2_WORLD2: [Biome.Biome2, "res://scenes/game/world/biome2/biome2_world2.tscn"],
-	Paths.PATH_TO_BIOME2_WORLD3: [Biome.Biome2,"res://scenes/game/world/biome2/biome2_world3.tscn"],
+	Paths.PATH_TO_BIOME2_WORLD3: [Biome.Biome2, "res://scenes/game/world/biome2/biome2_world3.tscn"],
+
+	Paths.PATH_TO_BIOME2_SIDEWORLD1: [Biome.Biome2, "res://scenes/game/world/biome2/biome2_sideworld1.tscn"],
+	Paths.PATH_TO_BIOME2_SIDEWORLD2: [Biome.Biome2, "res://scenes/game/world/biome2/biome2_sideworld2.tscn"],
+
 	Paths.PATH_TO_BIOME2_BOSS_ARENA: [Biome.Biome2, "res://scenes/game/world/biome2/biome2_boss_arena.tscn"],
-		
 	Paths.PATH_TO_BIOME2_ALTER_ROOM: [Biome.Biome2, "res://scenes/game/world/biome2/biome2_alter_room.tscn"],
-	
-	Paths.PATH_TO_TEST_SCENE: [Biome.Test,"res://scenes/game/world/test_world1.tscn"],
+
+	Paths.PATH_TO_TEST_SCENE: [Biome.Test, "res://scenes/game/world/test_world1.tscn"],
 }
 
 const VIEWPORT_SIZE_X = 1152
