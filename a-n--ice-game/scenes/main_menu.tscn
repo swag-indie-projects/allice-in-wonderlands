@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://daom27lon73h8"]
+[gd_scene load_steps=25 format=3 uid="uid://daom27lon73h8"]
 
 [ext_resource type="Script" uid="uid://cwtec351y5i2q" path="res://scripts/main menu.gd" id="1_yqeox"]
 [ext_resource type="PackedScene" uid="uid://cyi7otpakwjkg" path="res://scenes/game/game.tscn" id="2_vjb58"]
@@ -30,6 +30,18 @@ texture = ExtResource("6_jk1qb")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tbmy8"]
 texture = ExtResource("5_tbmy8")
 modulate_color = Color(1, 1, 1, 0.5372549)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcqid"]
+texture = ExtResource("5_tbmy8")
+modulate_color = Color(1, 0.61, 0.61, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
+texture = ExtResource("6_jk1qb")
+modulate_color = Color(1, 0.31, 0.31, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7b55j"]
+texture = ExtResource("6_jk1qb")
+modulate_color = Color(1, 0.31, 0.31, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
 bg_color = Color(0.08416667, 0.081, 0.1, 1)
@@ -198,16 +210,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_5dd4i")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lgwnu")
 text = " options "
 
-[node name="exit" type="Button" parent="CanvasLayer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 56)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.28500006, 0.45, 1)
-theme_override_fonts/font = ExtResource("4_oa1go")
-theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxTexture_5dd4i")
-theme_override_styles/hover = SubResource("StyleBoxTexture_lgwnu")
-text = " exit "
-
 [node name="lore" type="Button" parent="CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
@@ -220,6 +222,25 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_lgwnu")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_tbmy8")
 disabled = true
 text = "???"
+
+[node name="exit" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.28500006, 0.45, 1)
+theme_override_fonts/font = ExtResource("4_oa1go")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxTexture_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lgwnu")
+text = " exit "
+
+[node name="delete" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_rcqid")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1ajci")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7b55j")
+text = "Delete Save"
 
 [node name="LORE" type="Panel" parent="CanvasLayer"]
 visible = false
@@ -324,6 +345,7 @@ libraries = {
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/start game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/lore" to="." method="_on_lore_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="CanvasLayer/LORE/Leave" to="." method="_on_lore_leave_pressed"]

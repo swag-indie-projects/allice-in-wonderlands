@@ -36,9 +36,9 @@ func save_game() -> void:
 		print("Game saved at: %s" % SAVE_PATH)
 
 func load_game() -> void:
+	current_save = default_save_data
 	if not ResourceLoader.exists(SAVE_PATH):
 		print("no save found, making meow moew moew moew save")
-		current_save = default_save_data
 		print(current_save)
 	else:
 		var loaded_resource = ResourceLoader.load(SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE)
