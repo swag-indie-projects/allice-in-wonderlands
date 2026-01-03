@@ -33,7 +33,7 @@ func _ready() -> void:
 		#player.get_node("Camera2D").Zoom.y = 0.5
 		current_biome = Constant.path_info[debug_world_scene_path][0]
 		
-		play_world(debug_world_scene_path, debug_spawn_point_index) # make louder
+		play_world(debug_world_scene_path, debug_spawn_point_index, first_load) # make louder
 	else:
 		play_world(saved_world, 0, first_load)
 		first_load = false

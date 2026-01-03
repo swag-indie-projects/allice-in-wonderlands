@@ -51,6 +51,7 @@ shape = SubResource("RectangleShape2D_y8we2")
 debug_color = Color(0.7960051, 0.36230844, 0.5813463, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
 sprite_frames = SubResource("SpriteFrames_yjf4x")
 frame_progress = 0.34047964
 

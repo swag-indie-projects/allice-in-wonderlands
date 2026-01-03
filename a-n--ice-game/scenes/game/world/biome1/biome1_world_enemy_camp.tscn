@@ -267,6 +267,7 @@ position = Vector2(197, -18)
 [node name="Fridge" parent="." instance=ExtResource("23_kinlv")]
 position = Vector2(-467, 144)
 spawnpoint = 101
+spawn_dir = Vector2(1, 0)
 
 [node name="Weeping Tree3" parent="." instance=ExtResource("14_suiii")]
 position = Vector2(417, 426)
