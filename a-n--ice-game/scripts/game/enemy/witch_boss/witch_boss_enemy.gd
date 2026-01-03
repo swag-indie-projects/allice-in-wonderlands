@@ -29,6 +29,7 @@ func _ready() -> void:
 
 func teleport_random() :
 	var newpos = randi() % 4
+	print("TELEPORTING")
 	if newpos == tp_position:
 		newpos = (tp_position+1) % 4
 	tp_position = newpos

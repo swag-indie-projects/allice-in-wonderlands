@@ -18,19 +18,23 @@ class_name Game
 
 @export var audio_stream_player: AudioStreamPlayer2D
 
+var current_biome : Constant.Biome
 var current_world: World = null
 
 func _ready() -> void:
 	Globals.game = self
 	player.HP = player.MAX_HP
 	save_manager.load_game() # gets data, and sets up UI, stats, etc..
-	var saved_world : Constant.Paths = save_manager.get_save_data("spawn")
+	var saved_world : Constant.Paths = save_manager.current_save.spawn
+	current_biome = Constant.path_info[saved_world][0]
 	if debug_mod:
 		#player.get_node("Camera2D").Zoom.x = 0.5
 		#player.get_node("Camera2D").Zoom.y = 0.5
+		current_biome = Constant.path_info[debug_world_scene_path][0]
 		play_world(debug_world_scene_path, debug_spawn_point_index)
-		return
-	play_world(saved_world, 0)
+	else:
+		play_world(saved_world, 0)
+	play_biome_music()
 
 func reset_game() -> void:
 	player.HP = player.MAX_HP
@@ -38,11 +42,19 @@ func reset_game() -> void:
 	current_world.setup(player, 0)
 	add_child.call_deferred(current_world)
 	get_tree().reload_current_scene()
+	play_world(self.save_manager.current_save.spawn, 0)
 	apply_camera_border_limit()
 
 func play_world(scene_path: Constant.Paths, spawn_point_index: int) -> void:
-	var scene: PackedScene = load(Constant.path_to_string[scene_path])
-
+	print(scene_path)
+	var scene: PackedScene = load(Constant.path_info[scene_path][1])
+	if (current_biome != Constant.path_info[scene_path][0]):
+		current_biome = Constant.path_info[scene_path][0]
+		play_biome_music()
+	else:
+		current_biome = Constant.path_info[scene_path][0]
+	
+	
 	if is_instance_valid(current_world):
 		current_world.queue_free()
 	
@@ -74,10 +86,7 @@ func apply_camera_border_limit() -> void:
 	camera.limit_right  = int(border_rectangle.position.x + border_rectangle.size.x)
 	camera.limit_bottom = int(border_rectangle.position.y + border_rectangle.size.y)
 	
-	print("CAMERA: LIMIT LEFT:", camera.limit_left)
-	print("CAMERA: LIMIT RIGHT:", camera.limit_right)
-	print("CAMERA: LIMIT TOP:", camera.limit_top)
-	print("CAMERA: LIMIT BOTTOm:", camera.limit_bottom)
+
 func _on_music__await_timeout() -> void:
 	audio_stream_player.volume_db = -20.0
 	audio_stream_player.play()
@@ -90,26 +99,14 @@ func _on_music__await_timeout() -> void:
 		2.0
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
-const boss_to_song: Dictionary[Constant.Boss_Enum, String] = {
-	Constant.Boss_Enum.Witch: "res://sounds/ost/await for the none5.mp3",
-	Constant.Boss_Enum.Snowball: "res://sounds/ost/snow ball thing4.mp3"
-}
 
 func play_boss_music(boss: Constant.Boss_Enum) -> void:
-	audio_stream_player.stream = load(boss_to_song[boss])
+	audio_stream_player.stream = load(Constant.boss_to_song[boss])
 	audio_stream_player.play()
 	pass
 
-enum Biome {
-	Biome1,
-	Biome2
-}
-
-const biome_to_song: Dictionary[Biome, String] = {
-	Biome.Biome1: "res://sounds/ost/winter.ogg",
-	Biome.Biome2: "res://sounds/ost/path to unknown.mp3"
-}
-
-func stop_playing_boss_music() -> void:
-	audio_stream_player.stream = load(biome_to_song[Biome.Biome1])
+func play_biome_music() -> void:
+	print("current_biome: ", current_biome)
+	
+	audio_stream_player.stream = load(Constant.biome_to_song[current_biome])
 	_on_music__await_timeout()
