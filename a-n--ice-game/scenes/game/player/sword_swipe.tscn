@@ -70,7 +70,7 @@ sword_swipe = NodePath("AudioStreamPlayer")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -8)
 scale = Vector2(1.5, 1.5)
-polygon = PackedVector2Array(-11, 3, -7, 3, 0, 2, 7, 3, 11, 3, 4, 10, -4, 10)
+polygon = PackedVector2Array(-11, 3, -7, 3, 0, 2, 7, 3, 11, 3, 4, 12.666667, -4, 12.666667)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p3sl6")
