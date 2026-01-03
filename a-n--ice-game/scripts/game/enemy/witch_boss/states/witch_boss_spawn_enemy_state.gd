@@ -13,7 +13,8 @@ func enter() -> void:
 	var enemyscene = preload("res://scenes/game/enemy/summoned ice block.tscn")
 	var enemy : Enemy = enemyscene.instantiate()
 	
-	var rand_pos = actor.get_teleportation_points()[randi()%4]
+	var points = actor.get_teleportation_points()
+	var rand_pos = points[randi() % points.size()]
 	
 	enemy.global_position = rand_pos.global_position + dirvec/2
 	actor.emit_summon_particle(enemy.global_position)
@@ -54,7 +55,9 @@ func enter() -> void:
 		var action : MoveAction = MoveAction.new()
 		action.displacement = dirvec
 		mover.actions.append(action)
+	
 	actor.get_parent().add_child(mover)
+	
 	if (actor.HP <= actor.MAX_HP/2):
 		await get_tree().create_timer(1).timeout # 5s delay
 	else:

@@ -17,7 +17,8 @@ func enter() -> void:
 	print("Entered state ", state_name)
 	print("FIRE IN THE HOLE")
 	anim_finished = false
-	actor.animation_sprite.play("cast")
+	
+	$"../../AnimationPlayer".play("summon")
 	
 	for i in range(0, 3):
 		spawn_bullet((Globals.get_game().player.global_position - actor.global_position).angle() + i * PI / 6 - PI / 6)
@@ -27,7 +28,7 @@ func enter() -> void:
 	await get_tree().create_timer(0.5).timeout
 	for i in range(0, 3):
 		spawn_bullet((Globals.get_game().player.global_position - actor.global_position).angle() + i * PI / 6 - PI / 6)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1.5).timeout
 	anim_finished = true
 
 func exit() -> void:

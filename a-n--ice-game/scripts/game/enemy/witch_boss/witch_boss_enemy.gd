@@ -44,8 +44,20 @@ func count_ice() -> int:
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics_frame(delta)
 
+
+const left_wand_pos = Vector2(-10, -12)
+const right_wand_pos = Vector2(10, -12)
+
 func _process(delta: float) -> void:
 	luck = randf()
+	
+	if velocity.x != 0:
+		animation_sprite.flip_h = velocity.x > 0
+		
+	if animation_sprite.flip_h:
+		$"Wand Particle Root".position = right_wand_pos
+	else:
+		$"Wand Particle Root".position = left_wand_pos
 
 func get_hit(amount: int, direction_vector: Vector2) -> void:
 	if HP - amount <= 0:
@@ -69,10 +81,10 @@ func emit_summon_particle(position : Vector2):
 	
 	
 func get_teleportation_points():
-	#var copy = []
-	#
-	#for a in teleportation_points:
-		#if !a.get_overlapping_bodies().any(func(item): item == world.player):
-			#copy.append(a)
-	#print(copy)
-	return teleportation_points
+	var copy = []
+	
+	for a in teleportation_points:
+		if !a.get_overlapping_bodies().size() > 0:
+			copy.append(a)
+	
+	return copy

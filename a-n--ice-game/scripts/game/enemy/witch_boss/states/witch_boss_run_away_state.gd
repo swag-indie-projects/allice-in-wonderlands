@@ -10,8 +10,6 @@ func enter() -> void:
 	
 	actor.animation_sprite.play("walk_left")
 	
-	
-	
 	var dirvec = (actor.global_position - Globals.get_game().player.global_position).normalized()
 	#if dirvec.dot(Vector2(cos(3*PI/4),sin(3*PI/4))) >= 0 and dirvec.dot(Vector2(cos(1*PI/4), sin(1*PI/4))) >= 0:
 		#actor.animation_sprite.play("walk_left")
@@ -37,9 +35,7 @@ func setup(new_actor: WitchBoss) -> void:
 	self.state_name = WitchBossStateName.Name.RUN_AWAY
 
 func process_physics_frame(delta: float) -> WitchBossStateName.Name:
-	
-	if actor.velocity.x != 0:
-		actor.animation_sprite.flip_h = actor.velocity.x > 0
+
 	
 	if (anim_finished):
 		return WitchBossStateName.Name.IDLE
