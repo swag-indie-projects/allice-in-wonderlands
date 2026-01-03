@@ -11,7 +11,7 @@ func enter() -> void:
 	actor.animation_sprite.flip_h = actor.global_position.direction_to(Globals.game.player.global_position).x > 0
 	
 	actor.animation_sprite.play("idle")
-	await get_tree().create_timer(1).timeout # 5s delay
+	await get_tree().create_timer(0.5).timeout # 5s delay
 	anim_finished = true
 	
 	

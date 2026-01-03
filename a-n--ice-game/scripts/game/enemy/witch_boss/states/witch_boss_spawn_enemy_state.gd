@@ -24,7 +24,7 @@ func enter() -> void:
 	
 	var rand_theta = randf()*2*PI
 	print("LUCK:", actor.luck)
-	if (actor.luck <= 0.333):
+	if (actor.luck <= 0.4):
 		print("first")
 		enemy.set_collision_mask_value(1, false)
 		var movements = [
@@ -36,7 +36,7 @@ func enter() -> void:
 			var action : MoveAction = MoveAction.new()
 			action.displacement = movements[i]
 			mover.actions.append(action)
-	elif actor.luck >= 0.333 and actor.luck < 0.666:
+	elif actor.luck >= 0.4 and actor.luck < 0.8:
 		print("second")
 		enemy.set_collision_mask_value(1, false)
 		var movements = [
