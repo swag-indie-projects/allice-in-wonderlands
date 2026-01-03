@@ -454,24 +454,24 @@ shape = SubResource("RectangleShape2D_mu2qm")
 debug_color = Color(0.56733334, 0.92, 0, 0)
 
 [node name="pew pew IceBlock" parent="." instance=ExtResource("10_mu2qm")]
-position = Vector2(-13, 141)
+position = Vector2(-13, 147)
 bullet_speed = 60.0
 shoot_timer_interval = 2.0
 
 [node name="pew pew IceBlock2" parent="." instance=ExtResource("10_mu2qm")]
-position = Vector2(356, 138)
+position = Vector2(362, 133)
 bullet_speed = 60.0
 bullet_direction = 3.14
 shoot_timer_interval = 2.0
 
 [node name="pew pew IceBlock3" parent="." instance=ExtResource("10_mu2qm")]
-position = Vector2(179, -14)
+position = Vector2(170, -16)
 bullet_speed = 60.0
 bullet_direction = 1.5699999999999998
 shoot_timer_interval = 2.0
 
 [node name="pew pew IceBlock4" parent="." instance=ExtResource("10_mu2qm")]
-position = Vector2(175, 301)
+position = Vector2(182, 300)
 bullet_speed = 60.0
 bullet_direction = 4.71
 shoot_timer_interval = 2.0
