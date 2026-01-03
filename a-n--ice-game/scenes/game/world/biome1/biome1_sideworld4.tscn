@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://by15f4mk2h8i"]
+[gd_scene load_steps=21 format=4 uid="uid://by15f4mk2h8i"]
 
 [ext_resource type="Script" uid="uid://djhd4y8rg754v" path="res://scripts/game/world.gd" id="1_hd2y3"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_41ky1"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dyp5tee4bjs6m" path="res://scenes/game/floating_ice.tscn" id="9_7f107"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_lvwco"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="10_be566"]
+[ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="14_64plo"]
 
 [sub_resource type="Resource" id="Resource_64plo"]
 script = ExtResource("2_be566")
@@ -142,3 +143,6 @@ position = Vector2(0, -1)
 
 [node name="floating_ice2" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("base_overlay_tilemap") instance=ExtResource("9_7f107")]
 base_overlay_tilemap = NodePath("../../../base_overlay")
+
+[node name="Fridge" parent="." instance=ExtResource("14_64plo")]
+position = Vector2(788, 99)
