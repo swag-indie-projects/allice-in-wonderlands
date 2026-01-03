@@ -13,12 +13,12 @@ func _on_boss_killed(boss_enum : Constant.Boss_Enum) -> void:
 	boss_health_ui.visible = false
 	SaveManager.current_save["bosses_killed"].set(Constant.Boss_Enum.Snowball,true)
 	Globals.game.play_biome_music()
-
+	if (boss_enum == Constant.Boss_Enum.Snowball):
+		Globals.game.cutscene_manager.play_cutscene_two()
+	elif (boss_enum == Constant.Boss_Enum.Witch):
+		Globals.game.cutscene_manager.play_cutscene_three()
 func setup_boss(boss : Constant.Boss_Enum):
-
-	
 	if SaveManager.get_save_data("bosses_killed").get(boss) == false:
-	
 		boss_health_ui.visible = true
 		boss_health_ui.boss_icon = boss
 		boss_health_ui.update_boss_icon()
@@ -28,3 +28,4 @@ func setup_boss(boss : Constant.Boss_Enum):
 	#	print("Is playing: ", ui_animations.is_playing())
 	#else:
 	#	print("Animation not found!")
+	
