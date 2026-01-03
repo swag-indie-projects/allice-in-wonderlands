@@ -3,6 +3,7 @@ extends Area2D
 class_name SwordSwipe
 @export var animation: AnimatedSprite2D
 @export var attack_distance: float
+@export var sword_swipe : AudioStreamPlayer
 
 var direction_vector: Vector2
 
@@ -14,6 +15,8 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body is Enemy:
+		# play attack sound
+		sword_swipe.play()
 		body.get_hit(1, direction_vector)
 
 func swipe() -> void:

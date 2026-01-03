@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	state_machine.process_physics_frame(delta)
 
 func _process(delta: float) -> void:
+	print(self.global_position)
 	luck = randf()
 
 func get_hit(amount: int, direction_vector: Vector2) -> void:
