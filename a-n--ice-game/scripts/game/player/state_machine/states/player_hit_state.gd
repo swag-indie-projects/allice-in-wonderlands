@@ -36,7 +36,7 @@ func setup(new_actor: CharacterBody2D) -> void:
 
 func process_frame(_delta: float) -> PlayerStateName.Name:
 	if Input.is_action_just_pressed("dash"):
-		if (Globals.game.save_manager.current_save.abilities_collected.get(Constant.Abilities.Dash)):
+		if (SaveManager.current_save.abilities_collected.get(Constant.Abilities.Dash)):
 			return PlayerStateName.Name.DASH
 	if time_elapsed >= knockback_duration:
 		return PlayerStateName.Name.IDLE

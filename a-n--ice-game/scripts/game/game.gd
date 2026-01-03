@@ -9,7 +9,6 @@ class_name Game
 @export var debug_mod: bool = false
 @export var player_ui: PlayerUI
 @export var player_save_tooltip_ui : SavePopupUI
-@export var save_manager : SaveManager
 @export var boss_manager : BossManager
 @export var ui_animations : AnimationPlayer
 @export var shop_ui : ShopUI
@@ -24,15 +23,15 @@ var current_world: World = null
 func _ready() -> void:
 	Globals.game = self
 	player.HP = player.MAX_HP
-	player_ui.update_healthbar.emit(player.MAX_HP, player.MAX_HP)
-	save_manager.load_game() # gets data, and sets up UI, stats, etc..
-	var saved_world : Constant.Paths = save_manager.current_save.spawn
+	SaveManager.load_game_stats()
+	var saved_world : Constant.Paths = SaveManager.current_save.spawn
 	current_biome = Constant.path_info[saved_world][0]
 	if debug_mod:
 		#player.get_node("Camera2D").Zoom.x = 0.5
 		#player.get_node("Camera2D").Zoom.y = 0.5
 		current_biome = Constant.path_info[debug_world_scene_path][0]
-		play_world(debug_world_scene_path, debug_spawn_point_index)
+		
+		play_world(debug_world_scene_path, debug_spawn_point_index) # make louder
 	else:
 		play_world(saved_world, 0)
 	play_biome_music()
@@ -43,7 +42,7 @@ func reset_game() -> void:
 	current_world.setup(player, 0)
 	add_child.call_deferred(current_world)
 	get_tree().reload_current_scene()
-	play_world(self.save_manager.current_save.spawn, 0)
+	play_world(SaveManager.current_save.spawn, 0)
 	apply_camera_border_limit()
 
 func play_world(scene_path: Constant.Paths, spawn_point_index: int) -> void:
@@ -51,6 +50,7 @@ func play_world(scene_path: Constant.Paths, spawn_point_index: int) -> void:
 	var scene: PackedScene = load(Constant.path_info[scene_path][1])
 	if (current_biome != Constant.path_info[scene_path][0]):
 		current_biome = Constant.path_info[scene_path][0]
+		await get_tree().create_timer(5.0).timeout # 10s 
 		play_biome_music()
 	else:
 		current_biome = Constant.path_info[scene_path][0]
@@ -108,6 +108,7 @@ func play_boss_music(boss: Constant.Boss_Enum) -> void:
 
 func play_biome_music() -> void:
 	print("current_biome: ", current_biome)
+	print("AAAAAAAAAAAA")
 	
 	audio_stream_player.stream = load(Constant.biome_to_song[current_biome])
 	_on_music__await_timeout()

@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://w4hasgyi5d8"
 Constant="*res://scripts/autoloads/constant.gd"
 Globals="*res://scripts/autoloads/globals.gd"
 Volumes="*res://scripts/autoloads/volumes.gd"
+SaveManager="*res://scripts/autoloads/save/save_manager.gd"
 
 [display]
 

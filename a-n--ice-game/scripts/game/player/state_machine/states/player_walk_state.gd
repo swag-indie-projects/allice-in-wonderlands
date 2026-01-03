@@ -19,10 +19,10 @@ func process_frame(_delta: float) -> PlayerStateName.Name:
 	var direction_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	if Input.is_action_just_pressed("dash"):
-		if (Globals.game.save_manager.current_save.abilities_collected.get(Constant.Abilities.Dash)):
+		if (SaveManager.current_save.abilities_collected.get(Constant.Abilities.Dash)):
 			return PlayerStateName.Name.DASH
 	if Input.is_action_just_pressed("mouse_click_right"):
-		if (Globals.game.save_manager.current_save.abilities_collected.get(Constant.Abilities.Freeze)):
+		if (SaveManager.current_save.abilities_collected.get(Constant.Abilities.Freeze)):
 			return PlayerStateName.Name.DO_FREEZE
 	
 	if direction_vector == Vector2.ZERO:

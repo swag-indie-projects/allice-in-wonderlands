@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://btduhx2an1ps6" path="res://scripts/game/components/animation_component.gd" id="5_ypbg1"]
 [ext_resource type="Texture2D" uid="uid://blkdl16nleu0j" path="res://assets/shadow.png" id="6_apwu4"]
 [ext_resource type="Texture2D" uid="uid://d3hlu38ej1qxp" path="res://assets/misc/snow_flake_1.png" id="7_8uj7a"]
-[ext_resource type="Script" uid="uid://b3nxfwnufi58a" path="res://scenes/game/enemy/particle_on_ready.gd" id="8_crddm"]
+[ext_resource type="Script" uid="uid://b3nxfwnufi58a" path="res://scripts/game/particle_on_ready.gd" id="8_crddm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uo8oj"]
 animations = [{

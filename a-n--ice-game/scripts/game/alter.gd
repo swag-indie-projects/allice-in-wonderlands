@@ -12,6 +12,6 @@ func _on_alter_reward_giver_body_entered(body: Node2D) -> void:
 	if body is Player:
 		print("okay giving reward")
 		# Todo: Actually make it give the reward
-		Globals.game.save_manager.current_save.abilities_collected.set(reward, true)
+		SaveManager.current_save.abilities_collected.set(reward, true)
 		reward_icon.queue_free()
 		body.reward_screen.on_reward.emit(reward)
