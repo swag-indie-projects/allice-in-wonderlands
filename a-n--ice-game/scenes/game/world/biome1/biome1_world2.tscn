@@ -128,9 +128,10 @@ position = Vector2(227, 110)
 [node name="Fridge" parent="." instance=ExtResource("14_m6otp")]
 position = Vector2(139, 25)
 spawnpoint = 2
+spawn_dir = Vector2(0, -1)
 
 [node name="Boar" parent="." instance=ExtResource("15_l6cnp")]
-position = Vector2(159, 59)
+position = Vector2(163, 76)
 
 [node name="ISlim" parent="." instance=ExtResource("16_ldu02")]
 position = Vector2(65, 154)
