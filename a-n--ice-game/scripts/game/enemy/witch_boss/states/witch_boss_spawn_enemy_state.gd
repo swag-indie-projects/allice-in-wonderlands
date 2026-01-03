@@ -61,7 +61,7 @@ func enter() -> void:
 	if (actor.HP <= actor.MAX_HP/2):
 		await get_tree().create_timer(1).timeout # 5s delay
 	else:
-		await get_tree().create_timer(2).timeout 
+		await get_tree().create_timer(1.5).timeout 
 	anim_finished = true
 	
 func exit() -> void:
