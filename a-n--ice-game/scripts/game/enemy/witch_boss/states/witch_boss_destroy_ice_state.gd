@@ -10,9 +10,14 @@ func enter() -> void:
 	actor.animation_sprite.play("cast")
 	var world: World = Globals.get_game().current_world
 	for ice : IceFloat in world.get_tree().get_nodes_in_group("ice_float"):
+		print(ice.mounted_player)
 		if (ice.mounted_player is Player):
+			print("halo 2")
+			print((self.actor.teleportation_points[randi() % 4].global_position - ice.mounted_player.global_position).normalized() * 50)
+			ice.mounted_player.i_frame_start()
 			ice.mounted_player.global_position = self.actor.teleportation_points[randi() % 4].global_position
-		
+			#ice.mounted_player.velocity = (self.actor.teleportation_points[randi() % 4].global_position - ice.mounted_player.global_position).normalized() * 50
+			#ice.mounted_player.move_and_slide()
 		ice.queue_free()
 	await get_tree().create_timer(1.0).timeout # 5s delay
 	anim_finished = true

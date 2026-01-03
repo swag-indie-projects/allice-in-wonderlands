@@ -81,10 +81,14 @@ func get_hit(damage: int) -> void:
 	await get_tree().create_timer(0.20).timeout
 	get_tree().paused = false
 	
+	i_frame_start()
+
+func i_frame_start() -> void:
 	$invincibility.start()
 	is_invincible = true
-
+	$InvincibleParticle.emitting = true
 
 func _on_invincibility_timeout() -> void:
 	is_invincible = false
 	animation.visible = true
+	
