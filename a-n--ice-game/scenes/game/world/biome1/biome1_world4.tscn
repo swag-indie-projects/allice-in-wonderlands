@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="11_ho1b8"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="12_81jhw"]
 [ext_resource type="Texture2D" uid="uid://c8u3hxtkaccae" path="res://assets/markers/exit_marker3.png" id="13_eja7u"]
-[ext_resource type="PackedScene" uid="uid://cmpvjyk8ikibt" path="res://assets/snowball.tscn" id="14_gn433"]
+[ext_resource type="PackedScene" uid="uid://cmpvjyk8ikibt" path="res://scenes/game/enemy/snowball.tscn" id="14_gn433"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="17_fbi57"]
 
 [sub_resource type="Resource" id="Resource_x3bfl"]
