@@ -113,6 +113,10 @@ position = Vector2(2.3841858e-07, 2)
 scale = Vector2(0.81249994, 1.0789473)
 texture = ExtResource("6_apwu4")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, 4)
 emitting = false
@@ -125,3 +129,4 @@ process_material = SubResource("ParticleProcessMaterial_ypbg1")
 script = ExtResource("8_crddm")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="GPUParticles2D" method="_on_timer_timeout"]

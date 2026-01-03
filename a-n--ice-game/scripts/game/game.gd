@@ -23,6 +23,7 @@ var current_world: World = null
 
 func _ready() -> void:
 	Globals.game = self
+	player.HP = player.MAX_HP
 	save_manager.load_game() # gets data, and sets up UI, stats, etc..
 	var saved_world : Constant.Paths = save_manager.current_save.spawn
 	current_biome = Constant.path_info[saved_world][0]
