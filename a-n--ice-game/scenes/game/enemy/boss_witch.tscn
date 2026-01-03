@@ -491,7 +491,7 @@ summon_particle = NodePath("SummonParticle")
 luck = null
 state_machine = NodePath("StateMachine")
 animation_sprite = NodePath("AnimatedSprite2D")
-MAX_HP = 20
+MAX_HP = 15
 animation_component = NodePath("animation component")
 
 [node name="self_shape" type="CollisionShape2D" parent="."]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://covdnykiv6j42" path="res://scenes/game/ui/death_menu.tscn" id="3_5jirj"]
 [ext_resource type="Texture2D" uid="uid://sllat2rhkysm" path="res://assets/misc/light.png" id="3_ian8s"]
 [ext_resource type="PackedScene" uid="uid://dt1xhxgttwufa" path="res://scenes/game/ui/save_popup.tscn" id="5_87uf6"]
-[ext_resource type="PackedScene" path="res://scenes/game/ui/get hit ui.tscn" id="6_4j704"]
+[ext_resource type="PackedScene" uid="uid://35y5wwh18vc4" path="res://scenes/game/ui/get hit ui.tscn" id="6_4j704"]
 [ext_resource type="Script" uid="uid://bstej44grm8gb" path="res://scripts/game/ui/ui.gd" id="8_ian8s"]
 [ext_resource type="Script" uid="uid://cu85s2qhnd1j0" path="res://scripts/game/camera_2d.gd" id="8_kp23o"]
 [ext_resource type="PackedScene" uid="uid://dap05mlt4apea" path="res://scenes/game/ui/boss_health_ui.tscn" id="8_vaxfo"]
@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://bcxhfnwdj7ilw" path="res://scenes/game/ui/shop_ui.tscn" id="10_3xj4h"]
 [ext_resource type="PackedScene" uid="uid://bcbg4v28sofgf" path="res://scenes/game/ui/pause_menu.tscn" id="10_f2m1r"]
 [ext_resource type="Script" uid="uid://c288j07dk6o3x" path="res://scripts/game/boss_manager.gd" id="13_ftsea"]
+[ext_resource type="Script" uid="uid://co2rsoyjqbcjg" path="res://scripts/cutscene_manager.gd" id="15_otnwt"]
+[ext_resource type="PackedScene" uid="uid://docyorxuhx4wi" path="res://scenes/cutscenes/cutscene2.tscn" id="16_3xj4h"]
+[ext_resource type="PackedScene" uid="uid://4cgiaunsviok" path="res://scenes/cutscenes/cutscene3.tscn" id="17_5v6r0"]
+[ext_resource type="PackedScene" uid="uid://7lr2gd0oowfq" path="res://scenes/cutscenes/end credit roll.tscn" id="18_uyinl"]
 
 [sub_resource type="Animation" id="Animation_ftsea"]
 resource_name = "enter_world"
@@ -254,15 +258,17 @@ _data = {
 &"retry": SubResource("Animation_3xj4h")
 }
 
-[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "boss_manager", "ui_animations", "shop_ui", "camera", "audio_stream_player")]
+[node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "boss_manager", "ui_animations", "shop_ui", "cutscene_manager", "camera", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 0
+debug_world_scene_path = 202
+debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
 boss_manager = NodePath("BossManager")
 ui_animations = NodePath("AnimationPlayer")
 shop_ui = NodePath("UI/ShopUi")
+cutscene_manager = NodePath("CutsceneManager")
 camera = NodePath("Camera2D")
 audio_stream_player = NodePath("AudioStreamPlayer2D")
 
@@ -380,3 +386,23 @@ process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_uyinl")
 }
+
+[node name="CutsceneManager" type="Node" parent="." node_paths=PackedStringArray("cutscene2", "cutscene3", "endcredits")]
+script = ExtResource("15_otnwt")
+cutscene2 = NodePath("../CutScenes/Cutscene1")
+cutscene3 = NodePath("../CutScenes/Cutscene2")
+endcredits = NodePath("../CutScenes/Control")
+
+[node name="CutScenes" type="CanvasLayer" parent="."]
+
+[node name="Cutscene1" parent="CutScenes" instance=ExtResource("16_3xj4h")]
+process_mode = 3
+visible = false
+
+[node name="Cutscene2" parent="CutScenes" instance=ExtResource("17_5v6r0")]
+process_mode = 3
+visible = false
+
+[node name="Control" parent="CutScenes" instance=ExtResource("18_uyinl")]
+process_mode = 3
+visible = false
