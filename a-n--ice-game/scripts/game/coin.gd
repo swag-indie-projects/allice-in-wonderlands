@@ -14,7 +14,7 @@ var coinsvalue : Dictionary[CoinEnum, int] = {
 signal coin_collected
 
 func _ready():
-	if (Globals.game.save_manager.current_save.coins_collected_map.get(self.create_uuid()) == true):
+	if (SaveManager.current_save.coins_collected_map.get(self.create_uuid()) == true):
 		self.queue_free()
 	
 	if self.type == CoinEnum.Gold:
@@ -34,7 +34,7 @@ func _on_body_entered(body: Node2D) -> void:
 		await audio_player.finished
 		
 		if (Globals.game):
-			Globals.game.save_manager.update_save_data("coins", Globals.game.save_manager.get_save_data("coins") + coinsvalue[self.type])
-			Globals.game.save_manager.update_coin(self.create_uuid())
-			Globals.game.player_ui.update_coin.emit(Globals.game.save_manager.get_save_data("coins"))
+			SaveManager.update_save_data("coins", SaveManager.get_save_data("coins") + coinsvalue[self.type])
+			SaveManager.update_coin(self.create_uuid())
+			Globals.game.player_ui.update_coin.emit(SaveManager.get_save_data("coins"))
 		queue_free()

@@ -7,11 +7,11 @@ extends Node2D
 
 func _ready() -> void:
 	settings.quit.connect(_on_settings_quit)
-	
 	# TODO: Within the save, check if the "finished game" result is true
 	# of so, then do these things:
-	var finished_game = false # Temporary
-	if finished_game:
+	
+	
+	if SaveManager.current_save.bosses_killed.get(Constant.Boss_Enum.Witch):
 		$CanvasLayer/VBoxContainer/lore.disabled = false
 		$CanvasLayer/VBoxContainer/lore.text = "Lore!"
 

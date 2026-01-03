@@ -17,8 +17,10 @@ func _on_area_entered(body) -> void:
 		Globals.get_game().current_world.player.HP = Globals.get_game().current_world.player.MAX_HP
 		print("game")
 		if (game):
-			game.save_manager.update_save_data("spawn", self.spawnpoint)
-			game.save_manager.save_game()
+			Globals.game.player.HP_changed.emit(Globals.game.player.MAX_HP, Globals.game.player.MAX_HP)
+			
+			SaveManager.update_save_data("spawn", self.spawnpoint)
+			SaveManager.save_game()
 			game.player_save_tooltip_ui.show_save_popup()
 		#await get_tree().create_timer(10.0).timeout # 10s delay before next time its open
 

@@ -14,7 +14,7 @@ func boss_killed_changes() -> void:
 	defeated_upper.collision_enabled = true
 
 func is_boss_defeated():
-	return Globals.get_game() and Globals.get_game().save_manager.current_save["bosses_killed"][Constant.Boss_Enum.Witch]
+	return Globals.get_game() and SaveManager.current_save["bosses_killed"][Constant.Boss_Enum.Witch]
 
 func setup(new_player: Player, spawnpoint_index: int):
 	boss_killed_changes()

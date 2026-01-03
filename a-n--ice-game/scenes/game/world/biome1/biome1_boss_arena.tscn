@@ -11,7 +11,7 @@
 [ext_resource type="TileSet" uid="uid://1ssn02ckky52" path="res://resources/object_tiles.tres" id="6_kxf7d"]
 [ext_resource type="TileSet" uid="uid://dajfu3xxtbwkt" path="res://resources/upper_tiles.tres" id="7_8rs3m"]
 [ext_resource type="FontFile" uid="uid://clo2m17s3l4tm" path="res://assets/fonts/rainyhearts.ttf" id="7_8567w"]
-[ext_resource type="Script" uid="uid://crbqva2ywqvid" path="res://scenes/game/world/biome1/start_boss_1.gd" id="8_2ccau"]
+[ext_resource type="Script" path="res://scenes/game/world/biome1/start_boss_1.gd" id="8_2ccau"]
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="8_8567w"]
 [ext_resource type="Material" uid="uid://cghtmhg6syqkx" path="res://shaders/grass_ice_shader.tres" id="8_kxf7d"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="9_2nrtd"]
