@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var game_scene: PackedScene
+@export var cutscene_scene: PackedScene
+
 @export var settings: Settings
 @export var options: VBoxContainer
 
@@ -18,8 +20,14 @@ func _ready() -> void:
 func _on_start_game_pressed() -> void:
 	$AnimationPlayer.play("start_game")
 	
+	var first_cutscene_shown = false
+	
 	$AnimationPlayer.animation_finished.connect(
-		func(name): get_tree().change_scene_to_packed(game_scene)
+		func(name): 
+			if !first_cutscene_shown:
+				get_tree().change_scene_to_packed(cutscene_scene)
+			else:
+				get_tree().change_scene_to_packed(game_scene)
 	)
 
 func _on_options_pressed() -> void:

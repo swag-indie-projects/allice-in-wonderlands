@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://daom27lon73h8"]
+[gd_scene load_steps=22 format=3 uid="uid://daom27lon73h8"]
 
 [ext_resource type="Script" uid="uid://cwtec351y5i2q" path="res://scripts/main menu.gd" id="1_yqeox"]
 [ext_resource type="PackedScene" uid="uid://cyi7otpakwjkg" path="res://scenes/game/game.tscn" id="2_vjb58"]
 [ext_resource type="PackedScene" uid="uid://eg815tvcyvj2" path="res://scenes/game/ui/settings.tscn" id="3_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://d30o5i80e7tk6" path="res://scenes/cutscenes/cutscene1.tscn" id="3_lgwnu"]
 [ext_resource type="FontFile" uid="uid://clo2m17s3l4tm" path="res://assets/fonts/rainyhearts.ttf" id="4_oa1go"]
 [ext_resource type="PackedScene" uid="uid://dsmdpfq0x277" path="res://assets/ui/title_world.tscn" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://ctn8cbrfqlrgu" path="res://assets/ui/pause/abutton.png" id="5_tbmy8"]
@@ -131,6 +132,7 @@ _data = {
 [node name="main menu" type="Node2D" node_paths=PackedStringArray("settings", "options")]
 script = ExtResource("1_yqeox")
 game_scene = ExtResource("2_vjb58")
+cutscene_scene = ExtResource("3_lgwnu")
 settings = NodePath("CanvasLayer/Settings")
 options = NodePath("CanvasLayer/VBoxContainer")
 
