@@ -108,6 +108,7 @@ func play_boss_music(boss: Constant.Boss_Enum) -> void:
 
 func play_biome_music() -> void:
 	print("current_biome: ", current_biome)
+	print("AAAAAAAAAAAA")
 	
 	audio_stream_player.stream = load(Constant.biome_to_song[current_biome])
 	_on_music__await_timeout()

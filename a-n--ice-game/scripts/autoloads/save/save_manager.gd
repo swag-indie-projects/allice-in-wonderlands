@@ -18,6 +18,10 @@ func _ready() ->void:
 	default_save_data.HP = Constant.PLAYER_STARTING_HP
 	default_save_data.MAX_HP = Constant.PLAYER_STARTING_HP
 	default_save_data.sword_scale = Constant.PLAYER_STARTING_SWORD_SCALE
+	default_save_data.abilities_collected = {
+		Constant.Abilities.Dash: false,
+		Constant.Abilities.Freeze: false,
+	}
 	self.load_game()
 
 func save_game() -> void:

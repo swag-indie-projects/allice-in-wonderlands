@@ -196,7 +196,7 @@ _data = {
 [node name="game" type="Node2D" node_paths=PackedStringArray("player", "player_ui", "player_save_tooltip_ui", "boss_manager", "ui_animations", "shop_ui", "camera", "audio_stream_player")]
 script = ExtResource("1_qh8lf")
 player = NodePath("player")
-debug_world_scene_path = 0
+debug_world_scene_path = 3
 debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
@@ -296,11 +296,7 @@ boss_health_ui = NodePath("../UI/BossHealthUI")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 bus = &"background music"
-
-[node name="music  await" type="Timer" parent="AudioStreamPlayer2D"]
-wait_time = 3.0
-one_shot = true
-autostart = true
+playback_type = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -312,5 +308,3 @@ process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_uyinl")
 }
-
-[connection signal="timeout" from="AudioStreamPlayer2D/music  await" to="." method="_on_music__await_timeout"]

@@ -15,6 +15,7 @@ func exit() -> void:
 
 func process_frame(_delta: float) -> PlayerStateName.Name:
 	if Input.is_action_just_pressed("mouse_click_right"):
+		print(SaveManager.current_save.abilities_collected)
 		if (SaveManager.current_save.abilities_collected.get(Constant.Abilities.Freeze)):
 			return PlayerStateName.Name.DO_FREEZE
 	
