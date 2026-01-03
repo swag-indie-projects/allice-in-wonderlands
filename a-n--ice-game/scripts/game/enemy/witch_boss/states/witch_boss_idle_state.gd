@@ -8,10 +8,12 @@ func enter() -> void:
 	print("Entered state ", state_name)
 	actor.velocity = Vector2.ZERO
 	
+	actor.animation_sprite.flip_h = actor.global_position.direction_to(Globals.game.player.global_position).x > 0
+	
 	actor.animation_sprite.play("idle")
 	await get_tree().create_timer(1).timeout # 5s delay
 	anim_finished = true
-	#actor.animation_sprite.animation_finished.connect(_on_animation_finished)
+	
 	
 func exit() -> void:
 	print("Exited state  ", state_name)
