@@ -7,12 +7,14 @@ func enter() -> void:
 	print("Entered state ", state_name)
 	
 	anim_finished = false
-	actor.animation_sprite.play("cast")
+	$"../../AnimationPlayer".play("summon")
 	# spawn enemy
 	var dirvec = (Globals.get_game().player.global_position - actor.global_position).normalized() * actor.speed
 	var enemyscene = preload("res://scenes/game/enemy/summoned ice block.tscn")
 	var enemy : Enemy = enemyscene.instantiate()
-	var rand_pos = actor.teleportation_points[randi()%4]
+	
+	var rand_pos = actor.get_teleportation_points()[randi()%4]
+	
 	enemy.global_position = rand_pos.global_position + dirvec/2
 	actor.emit_summon_particle(enemy.global_position)
 	actor.get_parent().add_child(enemy)

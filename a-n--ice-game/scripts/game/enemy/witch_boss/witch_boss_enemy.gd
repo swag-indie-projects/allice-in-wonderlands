@@ -2,7 +2,7 @@ extends Enemy
 class_name WitchBoss
 
 @export var detection_box: Arena_Box
-@export var teleportation_points: Array[Node2D]
+@export var teleportation_points: Array[Area2D]
 @export var arena_world : World
 @export var speed: float
 @export var dmg_particle : GPUParticles2D
@@ -66,3 +66,13 @@ func get_hit(amount: int, direction_vector: Vector2) -> void:
 func emit_summon_particle(position : Vector2):
 	self.summon_particle.global_position = position
 	self.summon_particle.emitting = true
+	
+	
+func get_teleportation_points():
+	#var copy = []
+	#
+	#for a in teleportation_points:
+		#if !a.get_overlapping_bodies().any(func(item): item == world.player):
+			#copy.append(a)
+	#print(copy)
+	return teleportation_points

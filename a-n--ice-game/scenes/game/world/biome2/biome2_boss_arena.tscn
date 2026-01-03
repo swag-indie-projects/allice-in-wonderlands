@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://buvutrcy26r2b"]
+[gd_scene load_steps=38 format=4 uid="uid://buvutrcy26r2b"]
 
 [ext_resource type="Script" uid="uid://cqb2r386rea5q" path="res://scripts/game/biome_2_boss_arena.gd" id="1_dvd3n"]
 [ext_resource type="TileSet" uid="uid://mux80ftnsjv2" path="res://resources/base_tiles.tres" id="2_2wd1x"]
@@ -183,8 +183,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0adtb"]
 size = Vector2(20, 70)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbu7b"]
+size = Vector2(140, 106)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mu2qm"]
-size = Vector2(318, 251)
+size = Vector2(318, 252)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvr3o"]
 size = Vector2(6.942627, 713.8304)
@@ -228,11 +231,14 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5fac"]
 size = Vector2(337.5, 268)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkjq2"]
+size = Vector2(20, 320)
+
 [node name="world" type="Node2D" node_paths=PackedStringArray("undefeated_upper", "defeated_upper", "teleport_spots", "spawnpoints", "exitpoint_to_scenepath", "base_tile", "overlay_tile")]
 script = ExtResource("1_dvd3n")
 undefeated_upper = NodePath("undefeated_upper")
 defeated_upper = NodePath("defeated_upper")
-teleport_spots = [NodePath("TeleportSpots/Node2D"), NodePath("TeleportSpots/Node2D2"), NodePath("TeleportSpots/Node2D3"), NodePath("TeleportSpots/Node2D4")]
+teleport_spots = [NodePath("TeleportSpots/Node2D"), NodePath("TeleportSpots/Node2D2"), NodePath("TeleportSpots/Node2D3"), NodePath("TeleportSpots/Node2D3")]
 spawnpoints = [NodePath("spawnpoint"), NodePath("spawnpoint2")]
 exitpoint_to_scenepath = {
 NodePath("exitpoint"): SubResource("Resource_0adtb")
@@ -358,7 +364,6 @@ tile_map_data = PackedByteArray("AAACAAAAAwADAAIAAAADAAAAAwAEAAIAAAAEAAAAAwAEAAI
 tile_set = ExtResource("5_uyq1b")
 
 [node name="undefeated_upper" type="TileMapLayer" parent="." groups=["navigation"]]
-visible = false
 tile_map_data = PackedByteArray("AAAUABEAAwAEAAAAAAAVABEAAwAFAAUAAAAVABAAAwADAAEAAAAAAAEAAwAFAAEAAAAAAAAAAwAEAAQAAAAWABAAAwAEAAEAAAAWABEAAwAEAAEAAAAWABIAAwAEAAEAAAAWABMAAwAEAAEAAAAXABAAAwAEAAEAAAAXABEAAwAEAAEAAAAXABIAAwAEAAEAAAAXABMAAwAEAAEAAAD+//7/AwAEAAEAAAD+////AwAEAAEAAAD///7/AwAEAAEAAAD/////AwAEAAEAAAAAAP7/AwAEAAEAAAAAAP//AwAEAAEAAAD+/wAAAwAEAAEAAAD+/wEAAwAEAAEAAAD//wAAAwAEAAEAAAD//wEAAwAEAAEAAAAUABIAAwAEAAEAAAAUABMAAwAEAAEAAAAVABIAAwAEAAEAAAAVABMAAwAEAAEAAAABAAAAAwAEAAIAAAABAP//AwAEAAEAAAABAP7/AwAEAAEAAAAAAAIAAwAFAAEAAAACAAAAAwAEAAIAAAAVAA8AAwADAAEAAAATABEAAwAEAAAAAAAWAA8AAwAEAAEAAAAXAA8AAwAEAAEAAAAYAA8AAwAEAAEAAAAZAA8AAwAEAAEAAAAaAA8AAwAEAAEAAAAbAA8AAwAEAAEAAAAcAA8AAwAEAAEAAAAdAA8AAwAEAAEAAAAeAA8AAwAEAAEAAAATABIAAwAEAAEAAAATABMAAwAEAAEAAAAUABQAAwAEAAEAAAATABQAAwAEAAEAAAAVABQAAwAEAAEAAAAWABQAAwAEAAEAAAAXABQAAwAEAAEAAAAYABQAAwAEAAEAAAAZABQAAwAEAAEAAAAaABQAAwAEAAEAAAAbABQAAwAEAAEAAAAcABQAAwAEAAEAAAAdABQAAwAEAAEAAAAeABQAAwAEAAEAAAAeABMAAwAEAAEAAAAeABIAAwAEAAEAAAAeABEAAwAEAAEAAAAeABAAAwAEAAEAAAAaABAAAwAEAAEAAAAZABAAAwAEAAEAAAAYABAAAwAEAAEAAAAYABEAAwAEAAEAAAAYABIAAwAEAAEAAAAYABMAAwAEAAEAAAAZABMAAwAEAAEAAAAaABMAAwAEAAEAAAAbABMAAwAEAAEAAAAbABIAAwAEAAEAAAAcABIAAwAEAAEAAAAcABEAAwAEAAEAAAAbABEAAwAEAAEAAAAbABAAAwAEAAEAAAAaABEAAwAEAAEAAAAaABIAAwAEAAEAAAAcABMAAwAEAAEAAAAcABAAAwAEAAEAAAAZABEAAwAEAAEAAAAZABIAAwAEAAEAAAAdABEAAwAEAAEAAAAdABIAAwAEAAEAAAAdABMAAwAEAAEAAAAdABAAAwAEAAEAAAD//wIAAwAEAAEAAAD+/wIAAwAEAAEAAAD9/wIAAwAEAAEAAAD8/wIAAwAEAAEAAAD7/wIAAwAEAAEAAAD6/wIAAwAEAAEAAAD5/wIAAwAEAAEAAAD4/wIAAwAEAAEAAAD3/wIAAwAEAAEAAAD2/wIAAwAEAAEAAAACAP//AwAEAAEAAAACAP7/AwAEAAEAAAACAP3/AwAEAAEAAAABAP3/AwAEAAEAAAAAAP3/AwAEAAEAAAD///3/AwAEAAEAAAD+//3/AwAEAAEAAAD9//3/AwAEAAEAAAD8//3/AwAEAAEAAAD7//3/AwAEAAEAAAD6//3/AwAEAAEAAAD5//3/AwAEAAEAAAD4//3/AwAEAAEAAAD3//3/AwAEAAEAAAD2//3/AwAEAAEAAAD1//3/AwAEAAEAAAD1//7/AwAEAAEAAAD1////AwAEAAEAAAD1/wAAAwAEAAEAAAD1/wEAAwAEAAEAAAD1/wIAAwAEAAEAAAD2/wEAAwAEAAEAAAD3/wEAAwAEAAEAAAD4/wEAAwAEAAEAAAD5/wEAAwAEAAEAAAD6/wEAAwAEAAEAAAD7/wEAAwAEAAEAAAD8/wEAAwAEAAEAAAD9/wEAAwAEAAEAAAD9/wAAAwAEAAEAAAD9////AwAEAAEAAAD9//7/AwAEAAEAAAD8//7/AwAEAAEAAAD7//7/AwAEAAEAAAD6//7/AwAEAAEAAAD5////AwAEAAEAAAD4////AwAEAAEAAAD3////AwAEAAEAAAD2////AwAEAAEAAAD2/wAAAwAEAAEAAAD3//7/AwAEAAEAAAD2//7/AwAEAAEAAAD4//7/AwAEAAEAAAD5//7/AwAEAAEAAAD3/wAAAwAEAAEAAAD4/wAAAwAEAAEAAAD5/wAAAwAEAAEAAAD6/wAAAwAEAAEAAAD7/wAAAwAEAAEAAAD8/wAAAwAEAAEAAAD8////AwAEAAEAAAD7////AwAEAAEAAAD6////AwAEAAEAAAA=")
 tile_set = ExtResource("5_uyq1b")
 collision_enabled = false
@@ -395,17 +400,33 @@ shape = SubResource("RectangleShape2D_0adtb")
 
 [node name="TeleportSpots" type="Node2D" parent="."]
 
-[node name="Node2D" type="Node2D" parent="TeleportSpots"]
-position = Vector2(88, 69)
+[node name="Node2D" type="Area2D" parent="TeleportSpots"]
+position = Vector2(86, 69)
+collision_mask = 9
 
-[node name="Node2D2" type="Node2D" parent="TeleportSpots"]
-position = Vector2(273, 69)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportSpots/Node2D"]
+shape = SubResource("RectangleShape2D_hbu7b")
 
-[node name="Node2D3" type="Node2D" parent="TeleportSpots"]
-position = Vector2(273, 221)
+[node name="Node2D2" type="Area2D" parent="TeleportSpots"]
+position = Vector2(267, 69)
+collision_mask = 9
 
-[node name="Node2D4" type="Node2D" parent="TeleportSpots"]
-position = Vector2(89, 221)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportSpots/Node2D2"]
+shape = SubResource("RectangleShape2D_hbu7b")
+
+[node name="Node2D3" type="Area2D" parent="TeleportSpots"]
+position = Vector2(267, 219)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportSpots/Node2D3"]
+shape = SubResource("RectangleShape2D_hbu7b")
+
+[node name="Node2D4" type="Area2D" parent="TeleportSpots"]
+position = Vector2(84, 219)
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportSpots/Node2D4"]
+shape = SubResource("RectangleShape2D_hbu7b")
 
 [node name="arena_box" type="Area2D" parent="." node_paths=PackedStringArray("collision_shape")]
 position = Vector2(179, 144)
@@ -414,7 +435,7 @@ collision_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arena_box"]
 modulate = Color(0.56733334, 0.92, 0, 1)
-position = Vector2(-2, -0.5)
+position = Vector2(-4, -3.5)
 shape = SubResource("RectangleShape2D_mu2qm")
 debug_color = Color(0.56733334, 0.92, 0, 0)
 
@@ -482,6 +503,28 @@ debug_color = Color(0, 0.5950001, 0.7, 0.043137256)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.48398998, 0.46409997, 0.51, 1)
+
+[node name="No Witch Allowed" type="StaticBody2D" parent="."]
+collision_layer = 1024
+collision_mask = 65526
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="No Witch Allowed"]
+position = Vector2(6, 144)
+shape = SubResource("RectangleShape2D_lkjq2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="No Witch Allowed"]
+position = Vector2(346, 144)
+shape = SubResource("RectangleShape2D_lkjq2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="No Witch Allowed"]
+position = Vector2(176, 5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_lkjq2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="No Witch Allowed"]
+position = Vector2(176, 282)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_lkjq2")
 
 [connection signal="body_entered" from="Start Boss 2 Area" to="Start Boss 2 Area" method="_on_body_entered"]
 [connection signal="body_entered" from="Set Camera Position Trigger" to="Set Camera Position Trigger" method="_on_body_entered"]

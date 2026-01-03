@@ -24,7 +24,7 @@ func enter() -> void:
 
 	self.actor.velocity = dirvec * self.actor.speed
 	
-	await get_tree().create_timer(0.2).timeout # 5s delay
+	await get_tree().create_timer(1).timeout # 5s delay
 	anim_finished = true
 	#actor.animation_sprite.animation_finished.connect(_on_animation_finished)
 	
@@ -40,7 +40,7 @@ func process_physics_frame(delta: float) -> WitchBossStateName.Name:
 	
 	if actor.velocity.x != 0:
 		actor.animation_sprite.flip_h = actor.velocity.x > 0
-		
+	
 	if (anim_finished):
 		return WitchBossStateName.Name.IDLE
 	return WitchBossStateName.Name.RUN_AWAY
