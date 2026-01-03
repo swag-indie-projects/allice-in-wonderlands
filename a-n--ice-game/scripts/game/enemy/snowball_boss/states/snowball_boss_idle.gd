@@ -34,7 +34,7 @@ func process_physics_frame(delta: float) -> SnowballBossStateName.Name:
 	if anim_finished:
 		if (self.actor.scale.x <= 1):
 			print("border consol")
-			return SnowballBossStateName.Name.GROW_CENTER
+			return SnowballBossStateName.Name.GROW_BORDER
 		elif (self.actor.scale.x > 1):
 			return SnowballBossStateName.Name.TARGET_ROLL
 	return SnowballBossStateName.Name.IDLE

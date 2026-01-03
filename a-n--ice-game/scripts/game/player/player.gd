@@ -48,7 +48,7 @@ func _on_player_HP_changed(HP: int, max_HP: int):
 
 func _process(delta: float) -> void:
 	facing_component.update_facing()
-
+	
 	dash_progress_bar.value = dash_state.cooldown_timer.wait_time - dash_state.cooldown_timer.time_left
 	if dash_progress_bar.value == dash_progress_bar.max_value:
 		dash_progress_bar.modulate = Color("006af8")
