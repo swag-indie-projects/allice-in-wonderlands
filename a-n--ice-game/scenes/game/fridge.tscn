@@ -58,6 +58,7 @@ shape = SubResource("RectangleShape2D_5uyol")
 shape = SubResource("RectangleShape2D_y8we2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
 sprite_frames = SubResource("SpriteFrames_yjf4x")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite2D"]

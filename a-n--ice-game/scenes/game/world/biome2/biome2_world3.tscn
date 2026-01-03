@@ -10,13 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bgxmi2iptslmc" path="res://assets/markers/entrance_marker1.png" id="6_engmn"]
 [ext_resource type="Texture2D" uid="uid://bl6albrk3qb6u" path="res://assets/markers/exit_marker1.png" id="7_cjysk"]
 [ext_resource type="PackedScene" uid="uid://br5vseyxakyry" path="res://scenes/game/enemy/pissing_goblin.tscn" id="8_fevjm"]
-[ext_resource type="PackedScene" uid="uid://dewba7wawqi7t" path="res://scenes/game/enemy/pew pew ice block.tscn" id="9_2w32q"]
+[ext_resource type="PackedScene" uid="uid://dhynn60ywn3kl" path="res://scenes/game/enemy/pew pew ice block.tscn" id="9_2w32q"]
 [ext_resource type="PackedScene" uid="uid://8kt8v7jl8hex" path="res://scenes/game/coin.tscn" id="10_2arn3"]
 [ext_resource type="Texture2D" uid="uid://dwk6kqb0y58h2" path="res://assets/markers/entrance_marker2.png" id="10_j1goc"]
 [ext_resource type="PackedScene" uid="uid://vw4kqkap01sm" path="res://scenes/game/enemy/ice block.tscn" id="11_2arn3"]
 [ext_resource type="Script" uid="uid://lejpa7jtnty8" path="res://scripts/game/components/enemy_mover_component.gd" id="11_k0x5u"]
 [ext_resource type="Texture2D" uid="uid://b8nfrjoyq81dj" path="res://assets/markers/exit_marker2.png" id="11_lwvoh"]
-[ext_resource type="Script" uid="uid://bsousmcw248gs" path="res://scripts/game/datatype (tuple)/move_action.gd" id="12_b35f0"]
+[ext_resource type="Script" path="res://scripts/game/datatype (tuple)/move_action.gd" id="12_b35f0"]
 [ext_resource type="PackedScene" uid="uid://dx1tak6174afo" path="res://scenes/game/ice_torch.tscn" id="14_b35f0"]
 [ext_resource type="PackedScene" uid="uid://bjvwyaude6u2b" path="res://scenes/game/fridge.tscn" id="19_j1goc"]
 
@@ -479,4 +479,5 @@ bullet_direction = 2.356
 shoot_timer_interval = 0.5
 
 [node name="Fridge" parent="." instance=ExtResource("19_j1goc")]
-position = Vector2(506, 64)
+position = Vector2(491, 29)
+spawnpoint = 23
