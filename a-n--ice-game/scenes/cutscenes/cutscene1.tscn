@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://d30o5i80e7tk6"]
+[gd_scene load_steps=9 format=3 uid="uid://d30o5i80e7tk6"]
 
 [ext_resource type="Script" uid="uid://b1omyqslpbvle" path="res://scripts/game/ui/cutscene.gd" id="1_k4fdg"]
+[ext_resource type="Texture2D" uid="uid://d1uy77rekcg85" path="res://assets/illustrations/1-1.png" id="2_mxgqn"]
+[ext_resource type="Texture2D" uid="uid://dwe3ro1k1epia" path="res://assets/illustrations/1-2.png" id="3_asmnr"]
+[ext_resource type="Texture2D" uid="uid://moyfqabqsc8p" path="res://assets/illustrations/2-1.png" id="4_sbxke"]
+[ext_resource type="Texture2D" uid="uid://c1ilitp3xj5oj" path="res://assets/illustrations/3-1.png" id="5_ct277"]
+[ext_resource type="Texture2D" uid="uid://bdxuacbvywcqc" path="res://assets/illustrations/3-2.png" id="6_nrjiy"]
+[ext_resource type="Texture2D" uid="uid://cfq85rf7ycala" path="res://assets/illustrations/3-3.png" id="7_ry3vn"]
+[ext_resource type="Texture2D" uid="uid://cw00xr36wexvi" path="res://assets/illustrations/credit-background.jpg" id="8_sbxke"]
 
 [node name="Cutscene1" type="Control" node_paths=PackedStringArray("texture_rect")]
 layout_mode = 3
@@ -10,19 +17,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k4fdg")
+illustrations = Array[Texture2D]([ExtResource("2_mxgqn"), ExtResource("3_asmnr"), ExtResource("4_sbxke"), ExtResource("5_ct277"), ExtResource("6_nrjiy"), ExtResource("7_ry3vn")])
 texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -50
+layout_mode = 0
+offset_left = -144.0
+offset_top = -92.0
+offset_right = 1377.0
+offset_bottom = 691.0
+texture = ExtResource("8_sbxke")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 4.0000005
+offset_top = 35.0
+offset_right = 1984.0
+offset_bottom = 1055.0
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("2_mxgqn")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1016.0
-offset_top = 478.0
-offset_right = 1050.0
-offset_bottom = 501.0
+offset_left = 960.0
+offset_top = 431.0
+offset_right = 1113.0
+offset_bottom = 517.0
 theme_override_font_sizes/font_size = 48
 text = "next"
 

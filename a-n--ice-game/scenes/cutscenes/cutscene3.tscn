@@ -1,0 +1,61 @@
+[gd_scene load_steps=20 format=3 uid="uid://4cgiaunsviok"]
+
+[ext_resource type="Script" uid="uid://b1omyqslpbvle" path="res://scripts/game/ui/cutscene.gd" id="1_cjye6"]
+[ext_resource type="Texture2D" uid="uid://b0bo6jepjsdex" path="res://assets/illustrations/9-1.png" id="2_xslmo"]
+[ext_resource type="Texture2D" uid="uid://b64k4y3o6ocpp" path="res://assets/illustrations/9-2.png" id="3_fk2e2"]
+[ext_resource type="Texture2D" uid="uid://b772ph3nxkqvb" path="res://assets/illustrations/10-1.png" id="4_skq52"]
+[ext_resource type="Texture2D" uid="uid://bof1edkurpqua" path="res://assets/illustrations/10-2.png" id="5_k1386"]
+[ext_resource type="Texture2D" uid="uid://bdojtmp1wvrgp" path="res://assets/illustrations/11-1.png" id="6_28u1b"]
+[ext_resource type="Texture2D" uid="uid://bosi2h66x6lbg" path="res://assets/illustrations/11-2.png" id="7_xg57a"]
+[ext_resource type="Texture2D" uid="uid://25jlbgiw3w8u" path="res://assets/illustrations/12-1.png" id="8_gubnb"]
+[ext_resource type="Texture2D" uid="uid://bclwily8wxtb8" path="res://assets/illustrations/12-2.png" id="9_3f8s8"]
+[ext_resource type="Texture2D" uid="uid://61q6c0x8ha84" path="res://assets/illustrations/13-1.png" id="10_kjopj"]
+[ext_resource type="Texture2D" uid="uid://t5f8hottweb7" path="res://assets/illustrations/13-2.png" id="11_hict4"]
+[ext_resource type="Texture2D" uid="uid://cbxgux6lg456s" path="res://assets/illustrations/13-3.png" id="12_rbj4g"]
+[ext_resource type="Texture2D" uid="uid://cw00xr36wexvi" path="res://assets/illustrations/credit-background.jpg" id="12_xg57a"]
+[ext_resource type="Texture2D" uid="uid://d1uy77rekcg85" path="res://assets/illustrations/1-1.png" id="13_gubnb"]
+[ext_resource type="Texture2D" uid="uid://f5vycwfeuwo7" path="res://assets/illustrations/14-1.png" id="13_ys8gs"]
+[ext_resource type="Texture2D" uid="uid://bp8h2y6tqv1n0" path="res://assets/illustrations/14-2.png" id="14_idahj"]
+[ext_resource type="Texture2D" uid="uid://0vw3iyvrl1s3" path="res://assets/illustrations/15-1.png" id="15_4xln5"]
+[ext_resource type="Texture2D" uid="uid://bu5np141u14qn" path="res://assets/illustrations/15-2.png" id="16_mweph"]
+[ext_resource type="Texture2D" uid="uid://4rfi78ekvsjg" path="res://assets/illustrations/15-3.png" id="17_gy0k7"]
+
+[node name="Cutscene1" type="Control" node_paths=PackedStringArray("texture_rect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cjye6")
+illustrations = Array[Texture2D]([ExtResource("2_xslmo"), ExtResource("3_fk2e2"), ExtResource("4_skq52"), ExtResource("5_k1386"), ExtResource("6_28u1b"), ExtResource("7_xg57a"), ExtResource("8_gubnb"), ExtResource("9_3f8s8"), ExtResource("10_kjopj"), ExtResource("11_hict4"), ExtResource("12_rbj4g"), ExtResource("13_ys8gs"), ExtResource("14_idahj"), ExtResource("15_4xln5"), ExtResource("16_mweph"), ExtResource("17_gy0k7")])
+texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -50
+layout_mode = 0
+offset_left = -144.0
+offset_top = -92.0
+offset_right = 1377.0
+offset_bottom = 691.0
+texture = ExtResource("12_xg57a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 4.0000005
+offset_top = 35.0
+offset_right = 1984.0
+offset_bottom = 1055.0
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("13_gubnb")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 431.0
+offset_right = 1113.0
+offset_bottom = 517.0
+theme_override_font_sizes/font_size = 48
+text = "next"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

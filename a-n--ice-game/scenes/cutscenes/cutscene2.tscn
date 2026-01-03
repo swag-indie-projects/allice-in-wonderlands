@@ -1,0 +1,55 @@
+[gd_scene load_steps=14 format=3 uid="uid://docyorxuhx4wi"]
+
+[ext_resource type="Script" uid="uid://b1omyqslpbvle" path="res://scripts/game/ui/cutscene.gd" id="1_d4lc5"]
+[ext_resource type="Texture2D" uid="uid://d1uy77rekcg85" path="res://assets/illustrations/1-1.png" id="2_e16xr"]
+[ext_resource type="Texture2D" uid="uid://qq8o8yskjae7" path="res://assets/illustrations/4-1.png" id="2_m7kix"]
+[ext_resource type="Texture2D" uid="uid://ciu8neftxxx4q" path="res://assets/illustrations/4-2.png" id="3_lyval"]
+[ext_resource type="Texture2D" uid="uid://bu1ysl4pw8dh8" path="res://assets/illustrations/5-1.png" id="4_ohyhi"]
+[ext_resource type="Texture2D" uid="uid://35wujwmainvk" path="res://assets/illustrations/5-2.png" id="5_oubcf"]
+[ext_resource type="Texture2D" uid="uid://bihfbxmp8eyh1" path="res://assets/illustrations/6-1.png" id="6_51qqj"]
+[ext_resource type="Texture2D" uid="uid://byloy2ln84tvc" path="res://assets/illustrations/6-2.png" id="7_ufbew"]
+[ext_resource type="Texture2D" uid="uid://cm5ejk6gmueg" path="res://assets/illustrations/7-1.png" id="8_kdejb"]
+[ext_resource type="Texture2D" uid="uid://cw00xr36wexvi" path="res://assets/illustrations/credit-background.jpg" id="8_ohyhi"]
+[ext_resource type="Texture2D" uid="uid://dtjd2p6rt8xpa" path="res://assets/illustrations/7-2.png" id="9_ybn63"]
+[ext_resource type="Texture2D" uid="uid://digusau3p8qo8" path="res://assets/illustrations/7-3.png" id="10_o03vb"]
+[ext_resource type="Texture2D" uid="uid://dqtydxd1x47ko" path="res://assets/illustrations/8-1.png" id="11_ijxmo"]
+
+[node name="Cutscene1" type="Control" node_paths=PackedStringArray("texture_rect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d4lc5")
+illustrations = Array[Texture2D]([ExtResource("2_m7kix"), ExtResource("3_lyval"), ExtResource("4_ohyhi"), ExtResource("5_oubcf"), ExtResource("6_51qqj"), ExtResource("7_ufbew"), ExtResource("8_kdejb"), ExtResource("9_ybn63"), ExtResource("10_o03vb"), ExtResource("11_ijxmo")])
+texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -50
+layout_mode = 0
+offset_left = -144.0
+offset_top = -92.0
+offset_right = 1377.0
+offset_bottom = 691.0
+texture = ExtResource("8_ohyhi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 4.0000005
+offset_top = 35.0
+offset_right = 1984.0
+offset_bottom = 1055.0
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("2_e16xr")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 431.0
+offset_right = 1113.0
+offset_bottom = 517.0
+theme_override_font_sizes/font_size = 48
+text = "next"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
