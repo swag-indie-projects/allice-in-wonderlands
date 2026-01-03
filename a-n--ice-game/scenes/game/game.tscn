@@ -230,7 +230,6 @@ z_as_relative = false
 z_as_relative = false
 
 [node name="get hit ui" parent="UI" instance=ExtResource("6_4j704")]
-visible = false
 mouse_filter = 2
 
 [node name="death_menu" parent="UI" node_paths=PackedStringArray("on_death_anim_player") instance=ExtResource("3_5jirj")]
