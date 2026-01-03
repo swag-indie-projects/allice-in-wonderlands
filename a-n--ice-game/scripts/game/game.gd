@@ -40,6 +40,7 @@ func reset_game() -> void:
 	player.HP = player.MAX_HP
 	player_ui.update_healthbar.emit(player.MAX_HP, player.MAX_HP)
 	current_world.setup(player, 0)
+	Globals.game.player.HP_changed.emit(Globals.game.player.MAX_HP, Globals.game.player.MAX_HP)
 	add_child.call_deferred(current_world)
 	get_tree().reload_current_scene()
 	play_world(SaveManager.current_save.spawn, 0)
