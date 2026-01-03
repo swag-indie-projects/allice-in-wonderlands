@@ -49,6 +49,7 @@ const left_wand_pos = Vector2(-10, -12)
 const right_wand_pos = Vector2(10, -12)
 
 func _process(delta: float) -> void:
+	print(self.global_position)
 	luck = randf()
 	
 	if velocity.x != 0:

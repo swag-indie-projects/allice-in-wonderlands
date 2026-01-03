@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://vjq8xnf05boi"]
+[gd_scene load_steps=12 format=3 uid="uid://vjq8xnf05boi"]
 
 [ext_resource type="Script" uid="uid://calr2hqjov6d7" path="res://scripts/game/player/sword_swipe.gd" id="1_4yc1g"]
 [ext_resource type="Texture2D" uid="uid://ccoqsgpqmjbpp" path="res://assets/player/player_attack.png" id="1_8g8vd"]
+[ext_resource type="AudioStream" uid="uid://bxidh8johkb11" path="res://sounds/slash.wav" id="3_ajl72"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vu1ho"]
 atlas = ExtResource("1_8g8vd")
@@ -60,10 +61,11 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="sword_swipe" type="Area2D" node_paths=PackedStringArray("animation")]
+[node name="sword_swipe" type="Area2D" node_paths=PackedStringArray("animation", "sword_swipe")]
 script = ExtResource("1_4yc1g")
 animation = NodePath("AnimatedSprite2D")
 attack_distance = 7.0
+sword_swipe = NodePath("AudioStreamPlayer")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -3)
@@ -74,5 +76,10 @@ polygon = PackedVector2Array(-11, 3, -7, 3, 0, 6, 7, 3, 11, 3, 4, 10, -4, 10)
 sprite_frames = SubResource("SpriteFrames_p3sl6")
 frame = 6
 frame_progress = 0.19292492
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ajl72")
+volume_db = -8.211
+pitch_scale = 1.49
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

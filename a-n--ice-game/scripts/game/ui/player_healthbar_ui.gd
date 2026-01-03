@@ -24,6 +24,12 @@ func _ready() -> void:
 		Constant.PLAYER_STARTING_HP, 
 		Constant.PLAYER_STARTING_HP)
 
+func _process(delta: float) -> void:
+	if Globals.get_game().player.global_position.y <= Globals.get_game().camera.limit_top + 50:
+		self.modulate.a = 0.5
+	else:
+		self.modulate.a = 1
+
 func _on_healthbar_update(HP: int, _max_HP: int) -> void:
 	if Globals.get_game():
 		Globals.get_game().player.HP = HP
