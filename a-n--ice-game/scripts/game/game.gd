@@ -31,7 +31,8 @@ func _ready() -> void:
 		#player.get_node("Camera2D").Zoom.x = 0.5
 		#player.get_node("Camera2D").Zoom.y = 0.5
 		current_biome = Constant.path_info[debug_world_scene_path][0]
-		play_world(debug_world_scene_path, debug_spawn_point_index)
+		
+		play_world(debug_world_scene_path, debug_spawn_point_index) # make louder
 	else:
 		play_world(saved_world, 0)
 	play_biome_music()
@@ -50,6 +51,7 @@ func play_world(scene_path: Constant.Paths, spawn_point_index: int) -> void:
 	var scene: PackedScene = load(Constant.path_info[scene_path][1])
 	if (current_biome != Constant.path_info[scene_path][0]):
 		current_biome = Constant.path_info[scene_path][0]
+		await get_tree().create_timer(5.0).timeout # 10s 
 		play_biome_music()
 	else:
 		current_biome = Constant.path_info[scene_path][0]
