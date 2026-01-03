@@ -77,13 +77,19 @@ texture = ExtResource("2_yc0mg")
 3:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ib8d0")
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, -8, -8, -8, -8, 8, 6, 8)
 4:0/0 = 0
+4:0/0/z_index = 20
 4:1/0 = 0
+4:1/0/z_index = 20
 5:1/0 = 0
+5:1/0/z_index = 20
 5:2/0 = 0
+5:2/0/z_index = 5
 5:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ta6g7")
 4:2/0 = 0
+4:2/0/z_index = 5
 4:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_xpq1y")
 5:0/0 = 0
+5:0/0/z_index = 20
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pgig8"]
 polygon = PackedVector2Array(5, 8, 8, 8, 8, -4, 5, -4)
