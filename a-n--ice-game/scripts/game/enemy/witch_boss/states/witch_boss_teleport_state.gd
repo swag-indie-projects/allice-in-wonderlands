@@ -8,10 +8,12 @@ func enter() -> void:
 	anim_finished = false
 	actor.velocity = Vector2.ZERO
 	print("TPTP")
-	actor.animation_sprite.play("teleport")
+	$"../../AnimationPlayer".play("teleport")
+	
 	# actor.animation_sprite.animation_finished.connect(_on_animation_finished)
-	await get_tree().create_timer(0.7).timeout # 5s delay
+	await get_tree().create_timer(1.2).timeout # 5s delay
 	actor.teleport_random()
+	await get_tree().create_timer(1.3).timeout
 	anim_finished = true
 	
 	
