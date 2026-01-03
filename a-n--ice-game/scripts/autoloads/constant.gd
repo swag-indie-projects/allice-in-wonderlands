@@ -14,6 +14,16 @@ enum Abilities {
 	Freeze
 }
 
+const reward_to_icon: Dictionary[Abilities, String] = {
+	Abilities.Dash: "res://assets/misc/dash_icon.png",
+	Abilities.Freeze: "res://assets/misc/spell_icon.png"	
+}
+
+const reward_to_description: Dictionary[Abilities, String] = {
+	Abilities.Dash: "Press SHIFT to dash in the direction you're walking!",
+	Abilities.Freeze: "Press RIGHT CLICK to freeze enemies and water!"
+}
+
 enum Biome {
 	Biome1,
 	Biome2,
