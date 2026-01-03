@@ -1,9 +1,29 @@
-[gd_scene format=3 uid="uid://d30o5i80e7tk6"]
+[gd_scene load_steps=2 format=3 uid="uid://d30o5i80e7tk6"]
 
-[node name="Cutscene1" type="Control"]
+[ext_resource type="Script" uid="uid://b1omyqslpbvle" path="res://scripts/game/ui/cutscene.gd" id="1_k4fdg"]
+
+[node name="Cutscene1" type="Control" node_paths=PackedStringArray("texture_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_k4fdg")
+texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 478.0
+offset_right = 1050.0
+offset_bottom = 501.0
+theme_override_font_sizes/font_size = 48
+text = "next"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
