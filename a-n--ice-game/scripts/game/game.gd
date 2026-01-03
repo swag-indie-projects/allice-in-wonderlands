@@ -24,6 +24,7 @@ var current_world: World = null
 func _ready() -> void:
 	Globals.game = self
 	player.HP = player.MAX_HP
+	player_ui.update_healthbar.emit(player.MAX_HP, player.MAX_HP)
 	save_manager.load_game() # gets data, and sets up UI, stats, etc..
 	var saved_world : Constant.Paths = save_manager.current_save.spawn
 	current_biome = Constant.path_info[saved_world][0]
@@ -38,7 +39,7 @@ func _ready() -> void:
 
 func reset_game() -> void:
 	player.HP = player.MAX_HP
-	player_ui.update_healthbar.emit(player.HP, player.MAX_HP)
+	player_ui.update_healthbar.emit(player.MAX_HP, player.MAX_HP)
 	current_world.setup(player, 0)
 	add_child.call_deferred(current_world)
 	get_tree().reload_current_scene()
