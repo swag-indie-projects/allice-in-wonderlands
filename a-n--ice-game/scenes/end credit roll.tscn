@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://7lr2gd0oowfq"]
+
+[ext_resource type="Texture2D" uid="uid://cw00xr36wexvi" path="res://assets/illustrations/credit-background.jpg" id="1_wm3c3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 55
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 0
+offset_left = 298.0
+offset_top = 2.0
+offset_right = 798.0
+offset_bottom = 678.0
+scale = Vector2(0.95, 0.95)
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[center][b][font_size=48]CREDIT[/font_size][/b]
+
+[font_size=24]\"AllIce in Wonderland\"[/font_size]
+[i](winter game jam project)[/i]
+December 20th, 2025 - January 3rd, 2026[/center]
+
+[indent]
+OVERALL PROJECT LEAD: Lumiere
+
+Game developer:
+- Lumiere
+- Yoshi
+- Kido
+
+pixel art:
+- Lumiere
+- Yoshi
+- Kido
+- Cheesers
+
+Story writer:
+- Fever
+
+Illustions:
+- Ichigo
+
+Composer:
+- Lumiere
+
+sound effect:
+- https://heltonyan.itch.io/pixelcombat
+- https://sfxr.me/
+- https://kronbits.itch.io/freesfx
+
+[center]THANKS FOR PLAYING!!!!- - - [/center]
+[/indent]"
+tab_size = 16
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1241.2759
+offset_bottom = 646.0
+texture = ExtResource("1_wm3c3")
+expand_mode = 3
+stretch_mode = 3
