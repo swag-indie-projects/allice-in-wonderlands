@@ -14,6 +14,7 @@ func _on_area_entered(body) -> void:
 		sprite.play("default")
 		sound.play()
 		var game = Globals.get_game()
+		Globals.get_game().current_world.player.HP = Globals.get_game().current_world.player.MAX_HP
 		print("game")
 		if (game):
 			game.save_manager.update_save_data("spawn", self.spawnpoint)
