@@ -18,7 +18,6 @@
 [ext_resource type="Script" uid="uid://drdbo7le6cwn1" path="res://scripts/game/enemy/witch_boss/states/witch_boss_teleport_state.gd" id="17_odb5q"]
 [ext_resource type="Texture2D" uid="uid://d3hlu38ej1qxp" path="res://assets/misc/snow_flake_1.png" id="18_4kfso"]
 [ext_resource type="Script" uid="uid://dsmjkloogj50" path="res://scripts/game/enemy/witch_boss/states/witch_boss_end_state.gd" id="18_p7rmy"]
-[ext_resource type="Script" path="res://scenes/game/enemy/particle_on_ready.gd" id="19_jy3k8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhjlo"]
 height = 20.0
@@ -501,6 +500,7 @@ shape = SubResource("CapsuleShape2D_vhjlo")
 debug_color = Color(0.9744286, 0, 0.43028787, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
 sprite_frames = SubResource("SpriteFrames_qhcmp")
 animation = &"walk_left"
 
