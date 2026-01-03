@@ -1,9 +1,12 @@
 extends Area2D
 
+class_name Fridge
 @export var spawnpoint : Constant.Paths
 
 @onready var sprite = $AnimatedSprite2D
 @onready var sound = $AudioStreamPlayer
+
+@export var spawn_dir: Vector2 = Vector2.LEFT
 
 static var opened = false;
 
