@@ -4,6 +4,8 @@ class_name SnowballBossGrowBorderState
 var anim_finished = false
 var theta 
 var radius 
+var curr_dir : Vector2
+
 
 func get_velocity() -> Vector2:
 	self.theta += PI/2
@@ -29,11 +31,13 @@ func setup(new_actor: SnowballBoss) -> void:
 	self.state_name = SnowballBossStateName.Name.GROW_BORDER
 
 func process_physics_frame(delta: float) -> SnowballBossStateName.Name:
-	if (self.actor.velocity.length() < self.actor.speed):
-		self.actor.velocity = self.actor.velocity.normalized() * self.actor.speed
+	if (self.actor.velocity.length() < self.actor.speed/2):
+		print("AAAA")
+		self.actor.velocity = self.curr_dir
 	
 	if (self.actor.detection_box.check_outside_boundary(self.actor.global_position + self.actor.velocity * 0.1 * self.actor.scale.x )):
-		self.actor.velocity = get_velocity()
+		self.curr_dir = get_velocity()
+		self.actor.velocity = curr_dir
 		print("outside the boundaries")
 		
 	if (self.theta > 4 * PI):

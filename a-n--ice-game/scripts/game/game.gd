@@ -87,7 +87,7 @@ func apply_camera_border_limit() -> void:
 	camera.limit_top    = int(border_rectangle.position.y)
 	camera.limit_right  = int(border_rectangle.position.x + border_rectangle.size.x)
 	camera.limit_bottom = int(border_rectangle.position.y + border_rectangle.size.y)
-	
+	print("TOP:LIMIT:", camera.limit_top)
 
 func _on_music__await_timeout() -> void:
 	audio_stream_player.volume_db = -20.0
