@@ -8,3 +8,4 @@ extends Resource
 @export var MAX_HP: int
 @export var HP: int
 @export var sword_scale: int
+@export var abilities_collected : Dictionary[Constant.Abilities, bool]
