@@ -198,9 +198,12 @@ script = ExtResource("1_qh8lf")
 player = NodePath("player")
 debug_world_scene_path = 202
 <<<<<<< HEAD
+<<<<<<< HEAD
 debug_spawn_point_index = 1
 =======
 >>>>>>> 521e3e6b2632fa332dedfc899e4f55ff5391aeed
+=======
+>>>>>>> ec51c5e83205fd56f1c820594075f2980c13e0e2
 debug_mod = true
 player_ui = NodePath("UI/player_ui")
 player_save_tooltip_ui = NodePath("UI/SavePopup")
