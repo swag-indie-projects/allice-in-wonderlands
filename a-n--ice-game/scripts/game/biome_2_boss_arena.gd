@@ -3,7 +3,7 @@ class_name Boss2Arena
 
 @export var undefeated_upper : TileMapLayer
 @export var defeated_upper : TileMapLayer
-@export var teleport_spots : Array[Node2D]
+@export var teleport_spots : Array[Area2D]
 
 var boss_not_defeated:= false
 

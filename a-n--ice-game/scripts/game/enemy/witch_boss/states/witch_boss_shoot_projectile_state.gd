@@ -29,11 +29,11 @@ func enter() -> void:
 		spawn_bullet((Globals.get_game().player.global_position - actor.global_position).angle() + i * PI / 6 - PI / 6)
 	await get_tree().create_timer(0.5).timeout
 	anim_finished = true
-	
+
 func exit() -> void:
 	print("Exited state  ", state_name)
 	pass
-	
+
 func setup(new_actor: WitchBoss) -> void:
 	self.actor = new_actor
 	self.state_name = WitchBossStateName.Name.SHOOT_PROJECTILE
@@ -46,4 +46,3 @@ func process_physics_frame(delta: float) -> WitchBossStateName.Name:
 			return WitchBossStateName.Name.RUN_AWAY
 		return WitchBossStateName.Name.IDLE
 	return WitchBossStateName.Name.SHOOT_PROJECTILE
-	

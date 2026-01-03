@@ -1,9 +1,9 @@
-[gd_scene load_steps=69 format=3 uid="uid://d204nsy8svfev"]
+[gd_scene load_steps=72 format=3 uid="uid://d204nsy8svfev"]
 
 [ext_resource type="Script" uid="uid://1igbt58bdgcj" path="res://scripts/game/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://p625padn7ffo" path="res://assets/player/player_backward.png" id="2_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://c8a42qxd1yk8s" path="res://assets/player/player_forward.png" id="2_fjrip"]
-[ext_resource type="Script" path="res://scripts/game/player/state_machine/player_state_machine.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://ca1eg4g6huui3" path="res://scripts/game/player/state_machine/player_state_machine.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://vjq8xnf05boi" path="res://scenes/game/player/sword_swipe.tscn" id="3_smehm"]
 [ext_resource type="Texture2D" uid="uid://b0t7qp2q4sqov" path="res://assets/player/player_left.png" id="4_3v2ag"]
 [ext_resource type="Script" uid="uid://ne0dvviqaf83" path="res://scripts/game/player/state_machine/states/player_idle_state.gd" id="4_dqkch"]
@@ -470,6 +470,24 @@ class_name AttackComponent
 @export var sword_swipe: SwordSwipe
 "
 
+[sub_resource type="Curve" id="Curve_c7er3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9876325, 0.4967469), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kkhfq"]
+curve = SubResource("Curve_c7er3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_deim3"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 99.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_kkhfq")
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "facing_component", "sword_swipe", "animation", "dash_progress_bar", "dash_state")]
 z_index = 10
 y_sort_enabled = true
@@ -607,6 +625,17 @@ stream = ExtResource("13_sxkrj")
 volume_db = -20.0
 autoplay = true
 bus = &"sound effect"
+
+[node name="InvincibleParticle" type="GPUParticles2D" parent="."]
+z_index = 10
+rotation = 0.79220074
+emitting = false
+amount = 10
+texture = ExtResource("15_jvpd5")
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_deim3")
 
 [connection signal="timeout" from="invincibility" to="." method="_on_invincibility_timeout"]
 [connection signal="timeout" from="state machine/do freeze state/pre freeze timer" to="state machine/do freeze state" method="_on_pre_freeze_timer_timeout"]
