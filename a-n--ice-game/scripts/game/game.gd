@@ -51,6 +51,9 @@ func reset_game() -> void:
 
 func play_world(scene_path: Constant.Paths, spawn_point_index: int, spawning_at_fridge:= false) -> void:
 	print("SPAWNING AT FRIDGE", spawning_at_fridge)
+	
+	$UI/ColorRect/AnimationPlayer.play("enter_world")
+	
 	var scene: PackedScene = load(Constant.path_info[scene_path][1])
 	if (current_biome != Constant.path_info[scene_path][0]):
 		current_biome = Constant.path_info[scene_path][0]
@@ -71,13 +74,18 @@ func play_world(scene_path: Constant.Paths, spawn_point_index: int, spawning_at_
 	add_child.call_deferred(current_world)
 	
 	apply_camera_border_limit()
-
+	
+	
 var world_change_debounce = true
 
 func _on_world_exited(result: SpawnResult) -> void:
+	$UI/ColorRect/AnimationPlayer.play_backwards("enter_world")
+	await get_tree().create_timer(0.5).timeout
+
 	if (world_change_debounce):
 		world_change_debounce = false
 		play_world(result.scene_path, result.spawnpoint_index)
+		
 		await get_tree().create_timer(0.5).timeout
 		world_change_debounce = true
 

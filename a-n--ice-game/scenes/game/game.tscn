@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cyi7otpakwjkg"]
+[gd_scene load_steps=37 format=3 uid="uid://cyi7otpakwjkg"]
 
 [ext_resource type="PackedScene" uid="uid://d204nsy8svfev" path="res://scenes/game/player/player.tscn" id="1_nl0sk"]
 [ext_resource type="Script" uid="uid://clhsdbanamdpr" path="res://scripts/game/game.gd" id="1_qh8lf"]
@@ -18,6 +18,67 @@
 [ext_resource type="PackedScene" uid="uid://docyorxuhx4wi" path="res://scenes/cutscenes/cutscene2.tscn" id="16_3xj4h"]
 [ext_resource type="PackedScene" uid="uid://4cgiaunsviok" path="res://scenes/cutscenes/cutscene3.tscn" id="17_5v6r0"]
 [ext_resource type="PackedScene" uid="uid://7lr2gd0oowfq" path="res://scenes/cutscenes/end credit roll.tscn" id="18_uyinl"]
+
+[sub_resource type="Animation" id="Animation_ftsea"]
+resource_name = "enter_world"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uyinl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_10c2w"]
+_data = {
+&"RESET": SubResource("Animation_uyinl"),
+&"enter_world": SubResource("Animation_ftsea")
+}
 
 [sub_resource type="Curve" id="Curve_apjul"]
 _data = [Vector2(0.022727266, 0.9662922), 0.0, 0.0, 0, 0, Vector2(1, 0.79775286), 0.0, 0.0, 0, 0]
@@ -247,6 +308,19 @@ offset_left = 168.0
 offset_top = 127.0
 offset_right = 168.0
 offset_bottom = 127.0
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_10c2w")
+}
 
 [node name="player" parent="." node_paths=PackedStringArray("get_hit_ui", "death_menu", "reward_screen", "camera") instance=ExtResource("1_nl0sk")]
 position = Vector2(93, 67)

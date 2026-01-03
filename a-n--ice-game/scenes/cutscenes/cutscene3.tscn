@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://4cgiaunsviok"]
+[gd_scene load_steps=23 format=3 uid="uid://4cgiaunsviok"]
 
 [ext_resource type="Script" uid="uid://b1omyqslpbvle" path="res://scripts/game/ui/cutscene.gd" id="1_cjye6"]
 [ext_resource type="Texture2D" uid="uid://b0bo6jepjsdex" path="res://assets/illustrations/9-1.png" id="2_xslmo"]
@@ -19,6 +19,67 @@
 [ext_resource type="Texture2D" uid="uid://0vw3iyvrl1s3" path="res://assets/illustrations/15-1.png" id="15_4xln5"]
 [ext_resource type="Texture2D" uid="uid://bu5np141u14qn" path="res://assets/illustrations/15-2.png" id="16_mweph"]
 [ext_resource type="Texture2D" uid="uid://4rfi78ekvsjg" path="res://assets/illustrations/15-3.png" id="17_gy0k7"]
+
+[sub_resource type="Animation" id="Animation_nrjiy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blackout:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blackout:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ct277"]
+resource_name = "finished"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blackout:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blackout:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ry3vn"]
+_data = {
+&"RESET": SubResource("Animation_nrjiy"),
+&"finished": SubResource("Animation_ct277")
+}
 
 [node name="Cutscene1" type="Control" node_paths=PackedStringArray("texture_rect")]
 layout_mode = 3
@@ -57,5 +118,19 @@ offset_right = 1113.0
 offset_bottom = 517.0
 theme_override_font_sizes/font_size = 48
 text = "next"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ry3vn")
+}
+
+[node name="Blackout" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
