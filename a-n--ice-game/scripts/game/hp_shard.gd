@@ -12,7 +12,7 @@ func _on_body_entered(body: Node2D) -> void:
 		audio_player.play()
 		await audio_player.finished
 		if (Globals.game):
-			Globals.game.player.HP_changed.emit(Globals.game.player.HP+1, Globals.game.player.MAX_HP)
+			Globals.game.player.HP_changed.emit(Globals.game.player.HP + 3, Globals.game.player.MAX_HP)
 			
 			
 
