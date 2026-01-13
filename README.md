@@ -1,4 +1,4 @@
-# a-n-ice-game
+# AllIce in Wonderlands!
 
 winter game jam game
 
