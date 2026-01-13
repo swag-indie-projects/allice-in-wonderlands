@@ -8,8 +8,8 @@ winter game jam game
 - <a href="yoshixi.net">Yoshixi</a>
 - <a href="https://github.com/the-kido">Kido</a>
 - <a href="https://github.com/heptagonal7">Cheeser</a>
-
-
+- Ichigo
+- Fever
 
 # credits
 - sound effect: https://heltonyan.itch.io/pixelcombat
